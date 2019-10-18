@@ -3,11 +3,12 @@ project(OLIVERA)
 
 add_library(olivera src/olivera/dummy.cpp)
 
+
+
 target_link_libraries(olivera SDL2 opengl32 glew32)
 
-add_executable(pizzatime
-  src/pizzatime/main.cpp
-
+add_executable(core
+  src/core/Core.cpp
 )
 
-target_link_libraries(pizzatime olivera)
+target_link_libraries(core olivera)
