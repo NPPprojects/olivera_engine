@@ -2,21 +2,18 @@
 
 #include <memory>
 
-namespace myengine
+namespace olivera
 {
-
-class VertexArray;
 class ShaderProgram;
 
 class MeshRenderer : public Component
 {
 public:
-  void onInit();
+  void onInitialise();
 
 private:
   void onDisplay();
 
-  std::shared_ptr<VertexArray> shape;
   std::shared_ptr<ShaderProgram> shader;
 
 };

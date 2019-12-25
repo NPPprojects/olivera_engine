@@ -5,7 +5,6 @@
 
 namespace olivera
 {
-
   class  Entity;
   class  Core;
 
@@ -23,10 +22,10 @@ namespace olivera
     std::weak_ptr<Entity> entity;
     bool began;
 
-    void onInitialise();
-    void onStart();
-    void onTick();
-    void onDisplay();
+   virtual void onInitialise();
+   virtual void onStart();
+   virtual void onTick();
+   virtual void onDisplay();
 
   };
 }

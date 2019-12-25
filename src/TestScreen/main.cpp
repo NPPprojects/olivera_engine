@@ -21,7 +21,11 @@ public:
   {
     std::cout << "onTick" << std::endl;
 
-    getCore()->stop();
+ //   getCore()->stop();
+  }
+  void onDisplay()
+  {
+    //std::cout << "onTick" << std::endl;
   }
 
 };
@@ -29,7 +33,9 @@ public:
   {
     std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
     std::shared_ptr<olivera::Entity> entity = engine->addEntity();
+
     std::shared_ptr<TestScreen> componentColor = entity->addComponent<TestScreen>("Green");
+    std::shared_ptr<olivera::MeshRenderer> mr = entity->addComponent<olivera::MeshRenderer>();
 
     engine->start();
 

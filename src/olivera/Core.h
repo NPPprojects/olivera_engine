@@ -1,3 +1,5 @@
+#include <SDL2/SDL.h>
+
 #include <memory>
 #include <vector>
 
@@ -20,5 +22,8 @@ namespace olivera
     std::vector<std::shared_ptr<Entity>> entities;      //Vector of all entities
     std::weak_ptr<Core> self;                   //Weak pointer to self refrence 
     bool running;
+
+    SDL_Window *window;
+    
   };
 }
