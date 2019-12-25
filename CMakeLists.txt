@@ -11,11 +11,9 @@ src/olivera/Core.h
 src/olivera/Entity.cpp
 src/olivera/Entity.h
 src/olivera/Component.cpp
-src/olivera/Component.h)
+src/olivera/Component.h
+src/olivera/olivera.h)
 
-
-
-target_link_libraries(olivera SDL2 opengl32 glew32)
 
 add_executable(TestScreen
   src/TestScreen/main.cpp

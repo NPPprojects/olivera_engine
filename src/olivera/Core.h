@@ -1,25 +1,24 @@
-//#ifndef _CORE_H_
-//#define _CORE_H_
-
-
 #include <memory>
-#include <list>
+#include <vector>
 
-class Entity;
-
-
-class Core 
+namespace olivera
 {
-private:
+  class Entity;
 
-	std::list<std::shared_ptr<Entity>> entity;
+  class Core
+  {
 
-	bool running;
-public:
-	static std::shared_ptr<Core> initialise();
-	void start();
-	void stop();
+  public:
+    static std::shared_ptr<Core> initialise();    //Initialisation function that will add all entities to the tick rate and display them
+    std::shared_ptr<Entity> addEntity();      //Adds an entity to the entity vector
 
-	std::shared_ptr<Entity> addEntity();
-};
+    void start();             
+    void stop();
 
+  private:
+
+    std::vector<std::shared_ptr<Entity>> entities;      //Vector of all entities
+    std::weak_ptr<Core> self;                   //Weak pointer to self refrence 
+    bool running;
+  };
+}

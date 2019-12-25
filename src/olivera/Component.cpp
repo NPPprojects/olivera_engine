@@ -1,27 +1,32 @@
 #include "Component.h"
 #include "Entity.h"
-std::shared_ptr<Entity> Component::getEntity() 
+namespace olivera
 {
-	return entity.lock();
-}
-std::shared_ptr<Core> Component::getCore() 
-{
-	return getEntity()->getCore();
-}
+  Component::~Component() { }
 
-void Component::onInitialise()
-{
+  std::shared_ptr<Entity> Component::getEntity()
+  {
+    return entity.lock();
+  }
+  std::shared_ptr<Core> Component::getCore()
+  {
+    return getEntity()->getCore();
+  }
 
-}
-void Component::onStart()
-{
+  void Component::onInitialise()
+  {
 
-}
-void Component::onTick()
-{
+  }
+  void Component::onStart()
+  {
 
-}
-void Component::onDisplay()
-{
+  }
+  void Component::onTick()
+  {
 
+  }
+  void Component::onDisplay()
+  {
+
+  }
 }
