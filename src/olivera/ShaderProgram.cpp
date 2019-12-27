@@ -2,6 +2,9 @@
 
 namespace olivera
 {
+
+
+
   ShaderProgram::ShaderProgram(const char* vertexPath, const char* fragmentPath, const char* geometryPath)
   {
     // 1. retrieve the vertex/fragment source code from filePath
@@ -135,8 +138,8 @@ namespace olivera
 
       for (int i = 0; i < attributeTypeCount; i++)
       {
-        vertexPrValue.push_back(i);
-        vertexPrValue[i] = atoi(Splitline.at(3 + i).c_str());
+        attributeLength.push_back(i);
+        attributeLength[i] = atoi(Splitline.at(3 + i).c_str());
 
       }
       vertexData >> totalVertexFloatCount;            //Total Vertex Float Count
@@ -169,8 +172,8 @@ namespace olivera
     for (int i = 0; i < attributeTypeCount; i++)
     {
 
-      glVertexAttribPointer(i, vertexPrValue[i], GL_FLOAT, GL_FALSE, stride * sizeof(float), (void*)((SkipCounter) * sizeof(float)));
-      SkipCounter = SkipCounter + vertexPrValue[i];
+      glVertexAttribPointer(i, attributeLength[i], GL_FLOAT, GL_FALSE, stride * sizeof(float), (void*)((SkipCounter) * sizeof(float)));
+      SkipCounter = SkipCounter + attributeLength[i];
       glEnableVertexAttribArray(i);
     }
   }

@@ -1,6 +1,6 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
-
+#include <glm/ext.hpp>
 
 #include <fstream>
 #include <sstream>
@@ -11,17 +11,21 @@
 namespace olivera
 {
 
+
+
   class ShaderProgram
   {
   public:
-
+    ShaderProgram(const char* VertexPath, const char* fragmentPath, const char* = nullptr);
     void initialiseVertexData(const char* _ObjectFile);
     int verteciesCount; //Amount of vertecies in an object
     void setVertexData();         //set up vertex data (and buffer(s)) and configure vertex attributes
     void draw();
     GLuint getID();
     void useShader();
-    ShaderProgram(const char* VertexPath, const char* fragmentPath, const char* = nullptr);
+   
+  
+
   protected:
 
 
@@ -35,11 +39,13 @@ namespace olivera
     std::ifstream vertexData; //VertexDataFile
     int totalVertexFloatCount;       //Total Vertex Amount
     std::vector<float> vertexInduvidualData; //All vertex data
-    std::vector<int> vertexPrValue; //Layout number
+    std::vector<int> attributeLength; //Layout number
 
     void splitStringWhitespace(std::string&, std::vector<std::string>&);
     void readVertexData(const char*);
     void checkCompileErrors(GLuint, std::string);
+
+
 
   public:
     // utility uniform functions

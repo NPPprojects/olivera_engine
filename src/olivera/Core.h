@@ -1,11 +1,16 @@
 #include <SDL2/SDL.h>
 
+
+#include <AL/al.h>
+#include <AL/alc.h>
+
 #include <memory>
 #include <vector>
 
 namespace olivera
 {
   class Entity;
+
 
   class Core
   {
@@ -23,7 +28,10 @@ namespace olivera
     std::weak_ptr<Core> self;                   //Weak pointer to self refrence 
     bool running;
 
-    SDL_Window *window;
+    SDL_Window *window;        //SDL window Context
+   //Audio
+    ALCdevice* device;
+    ALCcontext* context;
     
   };
 }

@@ -2,9 +2,11 @@ cmake_minimum_required(VERSION 2.6)
 project(OLIVERA)
 
 include_directories(
-src
+${PROJECT_SOURCE_DIR}/src
 contrib
 )
+add_definitions(-DSTD_SR1_DEBUG)
+
 FILE(COPY resources DESTINATION "${CMAKE_BINARY_DIR}")
 if(MSVC)
   include_directories(
@@ -38,17 +40,36 @@ if(MSVC)
   add_definitions(-DSDL_MAIN_HANDLED)
 endif()
 add_library(olivera 
-src/olivera/Core.cpp
-src/olivera/Core.h
-src/olivera/Entity.cpp
-src/olivera/Entity.h
-src/olivera/Component.cpp
-src/olivera/Component.h
-src/olivera/olivera.h
-src/olivera/ShaderProgram.cpp
-src/olivera/ShaderProgram.h
-src/olivera/MeshRenderer.cpp
-src/olivera/MeshRenderer.h
+	src/olivera/Core.cpp
+	src/olivera/Core.h
+	src/olivera/Entity.cpp
+	src/olivera/Entity.h
+	src/olivera/Component.cpp
+	src/olivera/Component.h
+	src/olivera/olivera.h
+	src/olivera/ShaderProgram.cpp
+	src/olivera/ShaderProgram.h
+	src/olivera/Meshrenderer.cpp
+	src/olivera/Meshrenderer.h
+	src/olivera/Mesh.cpp
+	src/olivera/Mesh.h
+	src/olivera/Sound.cpp
+	src/olivera/Sound.h
+	src/olivera/TextureAdapter.h
+	src/olivera/mathutil.h
+	src/olivera/Context.h
+	src/olivera/Context.cpp
+	src/olivera/Texture.cpp
+	src/olivera/Texture.h
+	src/olivera/Exception.h
+	src/olivera/Exception.cpp
+	src/olivera/olivera.h
+	src/olivera/RenderTexture.h
+	src/olivera/RenderTexture.cpp
+	src/olivera/Shader.cpp
+	src/olivera/Shader.h
+	src/olivera/Buffer.h
+	src/olivera/Buffer.cpp
 )
 
 if(MSVC)

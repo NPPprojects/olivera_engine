@@ -34,6 +34,10 @@ public:
     std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
     std::shared_ptr<olivera::Entity> entity = engine->addEntity();
 
+    std::shared_ptr<olivera::Sound> sound = std::make_shared<olivera::Sound>();
+    sound->load("resources/sound/dixie_horn.ogg");
+    sound->play();
+
     std::shared_ptr<TestScreen> componentColor = entity->addComponent<TestScreen>("Green");
     std::shared_ptr<olivera::MeshRenderer> mr = entity->addComponent<olivera::MeshRenderer>();
 

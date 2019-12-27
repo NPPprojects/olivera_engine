@@ -1,6 +1,7 @@
 #include "Core.h"
 #include "Entity.h"
 
+
 #include <GL/glew.h>
 
 #define WINDOW_WIDTH 800
@@ -34,27 +35,27 @@ namespace olivera
       throw std::exception();
     }
 
-    //core->device = alcOpenDevice(NULL);
+    core->device = alcOpenDevice(NULL);
 
-    //if (!rtn->device)
-    //{
-    //  throw std::exception();
-    //}
+    if (!core->device)
+    {
+      throw std::exception();
+    }
 
-    //core->context = alcCreateContext(rtn->device, NULL);
+    core->context = alcCreateContext(core->device, NULL);
 
-    //if (!rtn->context)
-    //{
-    //  alcCloseDevice(rtn->device);
-    //  throw std::exception();
-    //}
+    if (!core->context)
+    {
+      alcCloseDevice(core->device);
+      throw std::exception();
+    }
 
-    //if (!alcMakeContextCurrent(rtn->context))
-    //{
-    //  alcDestroyContext(rtn->context);
-    //  alcCloseDevice(rtn->device);
-    //  throw std::exception();
-    //}
+    if (!alcMakeContextCurrent(core->context))
+    {
+      alcDestroyContext(core->context);
+      alcCloseDevice(core->device);
+      throw std::exception();
+    }
 
     return core;
   }
