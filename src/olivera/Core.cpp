@@ -33,7 +33,7 @@ namespace olivera
     {
       throw std::exception();
     }
-
+    
     core->device = alcOpenDevice(NULL);
 
     if (!core->device)
@@ -55,48 +55,47 @@ namespace olivera
       alcCloseDevice(core->device);
       throw std::exception();
     }
+    
+    
 
     return core;
   }
-  int test;
-  void Core::start()
+  
+  void Core::start(SDL_Event &event)
   {
     running = true;
     
     while (running)
     {
-      SDL_Event event = { 0 };
+     
+    
      
       while (SDL_PollEvent(&event))
       {
-        int test=0;
-        switch (event.type)
-        {
-        case SDL_KEYDOWN:
-         
-          
-         
-         test = (event.key.keysym.scancode);
-         keyboard->isKeyPressed(test);
-          break;
-        case SDL_KEYUP:
-        //  keyboard->isKeyReleased(event.key.keysym.scancode);
-          
-          break;
-        }
+       
+        keyboard->inputHandler(event);
+
         if (event.type == SDL_QUIT)
+        {
+            running = false;
+        }
+
+      if (keyboard->getKeyPressed().size() > 0)
+      {
+        if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_ESCAPE)
         {
           running = false;
         }
       }
-
+      }
+    
       for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
         it != entities.end(); it++)
       {
         (*it)->tick();
       }
       //Clear keys after each frame
-     
+      keyboard->clearKey();
       glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
       glClear(GL_COLOR_BUFFER_BIT);
 

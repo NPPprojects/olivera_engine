@@ -59,6 +59,9 @@ src/olivera/Sound.cpp
 src/olivera/Sound.h
 src/olivera/Keyboard.cpp
 src/olivera/Keyboard.h
+src/olivera/Texture.h
+src/olivera/Texture.cpp
+src/olivera/stb_image.cpp
 )
 
 if(MSVC)

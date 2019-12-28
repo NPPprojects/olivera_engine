@@ -7,4 +7,5 @@
 #include "ShaderProgram.h"
 #include "MeshRenderer.h"
 #include "Keyboard.h"
+#include "Texture.h"
 #endif

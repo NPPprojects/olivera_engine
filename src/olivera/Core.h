@@ -19,7 +19,7 @@ namespace olivera
     static std::shared_ptr<Core> initialise();    //Initialisation function that will add all entities to the tick rate and display them
     std::shared_ptr<Entity> addEntity();      //Adds an entity to the entity vector
 
-    void start();             
+    void start(SDL_Event &event);
     void stop();
 
   private:
@@ -31,7 +31,7 @@ namespace olivera
     //Window SDL_Context
     SDL_Window *window;
     //Keyboard Inputs
-    std::shared_ptr<Keyboard> keyboard;
+    std::shared_ptr<Keyboard> keyboard = std::make_shared<Keyboard>();
     //Audio
     ALCdevice* device;
     ALCcontext* context;

@@ -21,7 +21,7 @@ public:
   {
  //   std::cout << "onTick" << std::endl;
 
- //   getCore()->stop();
+ // getCore()->stop();
   }
   void onDisplay()
   {
@@ -29,16 +29,21 @@ public:
   }
 
 };
+
   int main()
   {
+    SDL_Event event = { 0 };
     std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
     std::shared_ptr<olivera::Entity> entity = engine->addEntity();
 
     std::shared_ptr<TestScreen> componentColor = entity->addComponent<TestScreen>("Green");
+    std::shared_ptr<olivera::Texture> smiley = entity->addComponent<olivera::Texture>("resources/textures/awesomeface.png");
     std::shared_ptr<olivera::MeshRenderer> mr = entity->addComponent<olivera::MeshRenderer>();
-   // std::shared_ptr<olivera::Keyboard> keys = entity->addComponent<olivera::Keyboard>();
-    
-    engine->start();
+    std::shared_ptr<olivera::Keyboard> keyboard = entity->addComponent<olivera::Keyboard>(event);
+
+
+
+    engine->start(event);
 
     return 0;
   }

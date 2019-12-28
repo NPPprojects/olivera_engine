@@ -1,26 +1,15 @@
 #include "Keyboard.h"
 #include <iostream>
+
 namespace olivera
 {
-  void Keyboard::inputDetection(SDL_KeyboardEvent event)
-  {
-    const Uint8 *state = SDL_GetKeyboardState(NULL);
-    if (state[SDL_SCANCODE_RETURN]) {
-      printf("<RETURN> is pressed.\n");
-    }
-    //if (state[SDL_SCANCODE_RIGHT] && state[SDL_SCANCODE_UP]) {
-    //  printf("Right and Up Keys Pressed.\n");
-    //}
-    if (state[SDL_SCANCODE_ESCAPE]) {
-      printf("<RETURN> is pressed.\n");
-    }
-  }
+
   bool Keyboard::isKey(int key)
   {
     keys.push_back(key);
     return false;
   }
-  void Keyboard::isKeyPressed(int &key)
+  void Keyboard::isKeyPressed(int key)
   {
     pressedKeys.push_back(key);
     std::cout << key << std::endl;
@@ -28,21 +17,51 @@ namespace olivera
   }
   void Keyboard::isKeyReleased(int key)
   {
-   // pressedKeys.pop_back();
-    releasedKeys.emplace_back(key);
-    
+    releasedKeys.push_back(key); 
   }
   void Keyboard::clearKey()
   {
-    pressedKeys.clear();
-    releasedKeys.clear();
+    if (!pressedKeys.empty())
+    {
+      pressedKeys.clear();
+    }
+    if (!releasedKeys.empty())
+    {
+      releasedKeys.clear();
+    }
   }
 
-  void Keyboard::OnTick()
+  
+  void Keyboard::onTick()
   {
 
+    
   }
 
+ 
+ 
+  void Keyboard::onInitialise(SDL_Event & _event)
+  {
+    event = _event;
+  }
+
+  void Keyboard::inputHandler(SDL_Event &event)
+  {
+    switch (event.type)
+    {
+    case SDL_KEYDOWN:
+      isKeyPressed(event.key.keysym.scancode);
+      break;
+    case SDL_KEYUP:
+      isKeyReleased(event.key.keysym.scancode);
+      break;
+    }
+  }
+
+  std::vector<int> Keyboard::getKeyPressed()
+  {
+    return pressedKeys;
+  }
  
 
   
