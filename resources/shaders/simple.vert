@@ -1,14 +1,12 @@
-uniform mat4 in_Projection;
-uniform mat4 in_Model;
+#version 330 core
+layout(location = 0) in vec3 in_Position;
+layout(location = 1) in vec4 in_Color;
 
-attribute vec3 in_Position;
-attribute vec4 in_Color;
-
-varying vec4 ex_Color;
+out vec4 ex_Color;
 
 void main()
 {
-  gl_Position = in_Projection * in_Model * vec4(in_Position, 1.0);
+  gl_Position = vec4(in_Position, 1.0);
   ex_Color = in_Color;
 }
 

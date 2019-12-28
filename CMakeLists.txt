@@ -13,6 +13,7 @@ if(MSVC)
     contrib/msvc-2017-windows-x86/openal-soft/include
     contrib/msvc-2017-windows-x86/ogg/include
     contrib/msvc-2017-windows-x86/vorbis/include
+	contrib/msvc-2017-windows-x86/assimp/include
   )
 
   link_directories(
@@ -21,6 +22,7 @@ if(MSVC)
     ${CMAKE_SOURCE_DIR}/contrib/msvc-2017-windows-x86/openal-soft/lib
     ${CMAKE_SOURCE_DIR}/contrib/msvc-2017-windows-x86/ogg/lib
     ${CMAKE_SOURCE_DIR}/contrib/msvc-2017-windows-x86/vorbis/lib
+	${CMAKE_SOURCE_DIR}/contrib/msvc-2017-windows-x86/assimp/lib
   )
 else()
   include_directories(
@@ -49,15 +51,21 @@ src/olivera/ShaderProgram.cpp
 src/olivera/ShaderProgram.h
 src/olivera/MeshRenderer.cpp
 src/olivera/MeshRenderer.h
+src/olivera/Mesh.cpp
+src/olivera/Mesh.h
+src/olivera/Model.cpp
+src/olivera/Model.h
+src/olivera/Sound.cpp
+src/olivera/Sound.h
 )
 
 if(MSVC)
-  target_link_libraries(olivera
-    SDL2 glew32 opengl32 OpenAL32 ogg vorbis vorbisfile
+  target_link_libraries(olivera 
+    SDL2 glew32 opengl32 OpenAL32 ogg vorbis vorbisfile assimp-vc140-mt
   )
 else()
   target_link_libraries(olivera
-    SDL2 GLU GLEW GL openal ogg vorbis vorbisfile
+    SDL2 GLU GLEW GL openal ogg vorbis vorbisfile assimp-vc140-mt
   )
 endif()
 
@@ -71,6 +79,11 @@ if(MSVC)
   add_custom_command(TARGET TestScreen POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
       "${CMAKE_SOURCE_DIR}/contrib/msvc-2017-windows-x86/SDL2/bin/SDL2.dll"
+      "$<TARGET_FILE_DIR:TestScreen>"
+  )
+  add_custom_command(TARGET TestScreen POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+      "${CMAKE_SOURCE_DIR}/contrib/msvc-2017-windows-x86/assimp/bin/assimp-vc140-mt.dll"
       "$<TARGET_FILE_DIR:TestScreen>"
   )
 
