@@ -57,6 +57,8 @@ src/olivera/Model.cpp
 src/olivera/Model.h
 src/olivera/Sound.cpp
 src/olivera/Sound.h
+src/olivera/Keyboard.cpp
+src/olivera/Keyboard.h
 )
 
 if(MSVC)

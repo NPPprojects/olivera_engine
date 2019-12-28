@@ -20,6 +20,7 @@ namespace olivera
 
       (*it)->onTick();
     }
+
   }
 
   void Entity::display()

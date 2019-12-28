@@ -17,6 +17,7 @@ public:
   void play(float vol, float varMin, float varMax);
   void play();
 
+
 };
 
 }

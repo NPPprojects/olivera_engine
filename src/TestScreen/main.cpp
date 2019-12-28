@@ -19,7 +19,7 @@ public:
 
   void onTick()
   {
-    std::cout << "onTick" << std::endl;
+ //   std::cout << "onTick" << std::endl;
 
  //   getCore()->stop();
   }
@@ -36,7 +36,8 @@ public:
 
     std::shared_ptr<TestScreen> componentColor = entity->addComponent<TestScreen>("Green");
     std::shared_ptr<olivera::MeshRenderer> mr = entity->addComponent<olivera::MeshRenderer>();
-
+   // std::shared_ptr<olivera::Keyboard> keys = entity->addComponent<olivera::Keyboard>();
+    
     engine->start();
 
     return 0;

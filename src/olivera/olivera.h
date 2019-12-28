@@ -6,4 +6,5 @@
 #include "Component.h"
 #include "ShaderProgram.h"
 #include "MeshRenderer.h"
+#include "Keyboard.h"
 #endif
