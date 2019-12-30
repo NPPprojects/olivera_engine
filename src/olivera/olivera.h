@@ -8,4 +8,6 @@
 #include "MeshRenderer.h"
 #include "Keyboard.h"
 #include "Texture.h"
+#include "VertexBuffer.h"
+#include "Camera.h"
 #endif

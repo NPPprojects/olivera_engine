@@ -35,6 +35,8 @@ namespace olivera
     //Audio
     ALCdevice* device;
     ALCcontext* context;
- 
+    //Matricies for screen coordinates
+    
+    
   };
 }

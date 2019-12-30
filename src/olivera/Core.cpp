@@ -68,34 +68,33 @@ namespace olivera
     while (running)
     {
      
-    
-     
       while (SDL_PollEvent(&event))
       {
-       
+
         keyboard->inputHandler(event);
 
         if (event.type == SDL_QUIT)
         {
-            running = false;
-        }
-
-      if (keyboard->getKeyPressed().size() > 0)
-      {
-        if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_ESCAPE)
-        {
           running = false;
         }
-      }
-      }
-    
-      for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
-        it != entities.end(); it++)
-      {
-        (*it)->tick();
+
+        if (keyboard->getKeyPressed().size() > 0)
+        {
+          if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_ESCAPE)
+          {
+            running = false;
+          }
+        }
+
+
+        for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
+          it != entities.end(); it++)
+        {
+          (*it)->tick();
+        }
       }
       //Clear keys after each frame
-      keyboard->clearKey();
+  
       glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
       glClear(GL_COLOR_BUFFER_BIT);
 

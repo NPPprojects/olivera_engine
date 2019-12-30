@@ -10,7 +10,7 @@ namespace olivera
   {
   public:
 
-    int LoadTexture();
+    int LoadTexture(const char* _path);
     glm::vec2 getSize();
     GLuint getId();
     void onDisplay();
@@ -19,7 +19,7 @@ namespace olivera
   private:
     GLuint id;
     glm::vec2 size;
-    const char* path;
+
 
   };
 

@@ -2,7 +2,7 @@
 
 namespace olivera
 {
-  ShaderProgram::ShaderProgram(const char* vertexPath, const char* fragmentPath, const char* geometryPath)
+  void ShaderProgram::loadShaderProgram(const char* vertexPath, const char* fragmentPath, const char* geometryPath)
   {
     // 1. retrieve the vertex/fragment source code from filePath
     std::string vertexCode;
@@ -86,111 +86,12 @@ namespace olivera
     glUseProgram(0);
   }
 
-  void ShaderProgram::splitStringWhitespace(std::string& input, std::vector<std::string>& output)
+  void ShaderProgram::onInitialise(const char* vertexPath, const char* fragmentPath, const char* geometryPath)
   {
-    std::string curr;
-    output.clear();
-    for (size_t i = 0; i < input.length(); i++)
-    {
-      if (input.at(i) == ' ' ||
-        input.at(i) == 'f' ||
-        input.at(i) == ',' ||
-        input.at(i) == '\r' ||
-        input.at(i) == '\n' ||
-        input.at(i) == '\t')
-      {
-        if (curr.length() > 0)
-        {
-          output.push_back(curr);
-          curr = "";
-        }
-      }
-      else
-      {
-        curr += input.at(i);
-      }
-    }
-    if (curr.length() > 0)
-    {
-      output.push_back(curr);
-    }
+    loadShaderProgram(vertexPath, fragmentPath, geometryPath);
   }
 
-  void ShaderProgram::readVertexData(const char* _ObjectFile)
-  {
-    std::string line;
-    std::vector <std::string> Splitline;
-   
-      vertexData.open(_ObjectFile);                    //  read-Stream
-
-      getline(vertexData, line);
-
-
-      splitStringWhitespace(line, Splitline);
-
-      attributeTypeCount = atoi(Splitline.at(0).c_str()); //Assign count of attributes
-
-      verteciesCount = atoi(Splitline.at(1).c_str());
-      stride = atoi(Splitline.at(2).c_str());
-
-      for (int i = 0; i < attributeTypeCount; i++)
-      {
-        vertexPrValue.push_back(i);
-        vertexPrValue[i] = atoi(Splitline.at(3 + i).c_str());
-
-      }
-      vertexData >> totalVertexFloatCount;            //Total Vertex Float Count
-
-
-      for (int i = 0; i < totalVertexFloatCount; i++)
-      {
-        vertexInduvidualData.push_back(i);
-        vertexData >> vertexInduvidualData[i];
-        //	std::cout << vertexInduvidualData[i] << std::endl;
-      }
-    
  
-    vertexData.close();
-  }
-
-  void ShaderProgram::setVertexData()
-  {
-    unsigned int SkipCounter = 0;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-
-    glBindVertexArray(VAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, vertexInduvidualData.size() * sizeof(vertexInduvidualData.at(0)), &vertexInduvidualData.at(0), GL_STATIC_DRAW);
-
-
-    // Set the vertex attributes pointers
-    for (int i = 0; i < attributeTypeCount; i++)
-    {
-
-      glVertexAttribPointer(i, vertexPrValue[i], GL_FLOAT, GL_FALSE, stride * sizeof(float), (void*)((SkipCounter) * sizeof(float)));
-      SkipCounter = SkipCounter + vertexPrValue[i];
-      glEnableVertexAttribArray(i);
-    }
-  }
-
-  void ShaderProgram::initialiseVertexData(const char* _ObjectFile)
-  {
-    readVertexData(_ObjectFile);
-    setVertexData();
-  }
-
-  void ShaderProgram::draw()
-  {
-    glUseProgram(ID);
-    glBindVertexArray(VAO);
-
-    glDrawArrays(GL_TRIANGLES, 0, verteciesCount);
-
-    glBindVertexArray(0);
-    glUseProgram(0);
-  }
 
   void ShaderProgram::useShader()
   {

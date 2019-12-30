@@ -8,7 +8,8 @@ namespace olivera
 
   class Keyboard :public Component 
   {
-  
+    class Camera;
+
   public:
 
     //void inputDetection(SDL_KeyboardEvent event);
@@ -26,11 +27,12 @@ namespace olivera
     std::vector<int> releasedKeys;
     std::vector<int> pressedKeys;
 
-    std::weak_ptr<Keyboard> self;                   //Weak pointer to self refrence 
+
+    std::shared_ptr<Camera> camera;
 
     SDL_Event event;
   
   };
-
+  
 
 }

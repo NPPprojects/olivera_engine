@@ -49,6 +49,8 @@ src/olivera/Component.h
 src/olivera/olivera.h
 src/olivera/ShaderProgram.cpp
 src/olivera/ShaderProgram.h
+src/olivera/Camera.h
+src/olivera/Camera.cpp
 src/olivera/MeshRenderer.cpp
 src/olivera/MeshRenderer.h
 src/olivera/Mesh.cpp
@@ -61,6 +63,8 @@ src/olivera/Keyboard.cpp
 src/olivera/Keyboard.h
 src/olivera/Texture.h
 src/olivera/Texture.cpp
+src/olivera/VertexBuffer.h
+src/olivera/VertexBuffer.cpp
 src/olivera/stb_image.cpp
 )
 

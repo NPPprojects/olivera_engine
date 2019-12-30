@@ -1,3 +1,4 @@
+
 #include <olivera/olivera.h>
 
 #include <iostream>
@@ -19,9 +20,9 @@ public:
 
   void onTick()
   {
- //   std::cout << "onTick" << std::endl;
+    //   std::cout << "onTick" << std::endl;
 
- // getCore()->stop();
+    // getCore()->stop();
   }
   void onDisplay()
   {
@@ -30,20 +31,34 @@ public:
 
 };
 
-  int main()
-  {
-    SDL_Event event = { 0 };
-    std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
-    std::shared_ptr<olivera::Entity> entity = engine->addEntity();
+int main()
+{
+  SDL_Event event = { 0 };
+  std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
+  std::shared_ptr<olivera::Entity> square = engine->addEntity();
+  std::shared_ptr<olivera::Entity> cube = engine->addEntity();
+ 
+  //std::shared_ptr<olivera::Entity> camera = engine->addEntity();
 
-    std::shared_ptr<TestScreen> componentColor = entity->addComponent<TestScreen>("Green");
-    std::shared_ptr<olivera::Texture> smiley = entity->addComponent<olivera::Texture>("resources/textures/awesomeface.png");
-    std::shared_ptr<olivera::MeshRenderer> mr = entity->addComponent<olivera::MeshRenderer>();
-    std::shared_ptr<olivera::Keyboard> keyboard = entity->addComponent<olivera::Keyboard>(event);
+  // std::shared_ptr<olivera::Camera> cameraComponent = camera->addComponent<olivera::Camera>();
+  // std::shared_ptr<olivera::Keyboard> cameraKeyboard = camera->addComponent<olivera::Keyboard>();
 
 
 
-    engine->start(event);
+  std::shared_ptr<olivera::ShaderProgram> cubeShader = cube->addComponent<olivera::ShaderProgram>("resources/shaders/cube.vert", "resources/shaders/cube.frag");
+  std::shared_ptr<olivera::VertexBuffer> shape = cube->addComponent<olivera::VertexBuffer>("resources/objects/cube.data");
+  std::shared_ptr<olivera::MeshRenderer> mr = cube->addComponent<olivera::MeshRenderer>(cubeShader, shape);
 
-    return 0;
-  }
+
+  std::shared_ptr<olivera::Texture> smiley = cube->addComponent<olivera::Texture>("resources/textures/awesomeface.png");
+  std::shared_ptr<olivera::ShaderProgram> triangleShader = square->addComponent<olivera::ShaderProgram>("resources/shaders/simple.vert", "resources/shaders/simple.frag");
+  std::shared_ptr<olivera::VertexBuffer> shape1 = square->addComponent<olivera::VertexBuffer>("resources/objects/triangle.data");
+  std::shared_ptr<olivera::MeshRenderer> mr1 = square->addComponent<olivera::MeshRenderer>(triangleShader, shape1);
+  std::shared_ptr<olivera::Keyboard> keyboard = square->addComponent<olivera::Keyboard>(event);
+
+
+
+  engine->start(event);
+
+  return 0;
+}
