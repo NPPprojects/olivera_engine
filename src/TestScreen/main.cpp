@@ -33,16 +33,17 @@ public:
 
 int main()
 {
-  SDL_Event event = { 0 };
+ 
   std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
   std::shared_ptr<olivera::Entity> square = engine->addEntity();
   std::shared_ptr<olivera::Entity> cube = engine->addEntity();
 
-  std::shared_ptr<olivera::Entity> camera = engine->addEntity();
+  std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
+  
+  std::shared_ptr<olivera::Camera> cameraComponent = cameraEntity->addComponent<olivera::Camera>();
 
-  std::shared_ptr<olivera::InputManager> inputs = camera->addComponent<olivera::InputManager>(engine);
-  // std::shared_ptr<olivera::Camera> cameraComponent = camera->addComponent<olivera::Camera>();
-  // std::shared_ptr<olivera::Keyboard> cameraKeyboard = camera->addComponent<olivera::Keyboard>();
+  std::shared_ptr<olivera::InputManager> cameraInput = cameraEntity->addComponent<olivera::InputManager>();
+
 
 
 
@@ -58,7 +59,7 @@ int main()
 
   
 
-  engine->start(event);
+  engine->start();
 
   return 0;
 }

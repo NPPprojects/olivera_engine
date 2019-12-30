@@ -66,13 +66,13 @@ namespace olivera
     return keyboard;
   }
 
-  void Core::start(SDL_Event &event)
+  void Core::start()
   {
     running = true;
     
     while (running)
     {
-     
+      SDL_Event event;
       while (SDL_PollEvent(&event))
       {
 

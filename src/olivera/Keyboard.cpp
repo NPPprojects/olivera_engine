@@ -31,12 +31,6 @@ namespace olivera
     }
   }
 
-  
-  void Keyboard::onTick()
-  {
-    
-  }
-
 
 
  

@@ -19,7 +19,7 @@ namespace olivera
 
 
   private:
-    std::weak_ptr<Entity> entity;
+    std::weak_ptr<Entity> entity; 
     bool began;
 
    virtual void onInitialise();

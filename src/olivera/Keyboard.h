@@ -1,12 +1,11 @@
 #include <SDL2/SDL.h>
-#include "Component.h"
 
 #include <vector>
 #include <memory>
 namespace olivera 
 {
 
-  class Keyboard :public Component 
+  class Keyboard 
   {
     class Camera;
 
@@ -17,8 +16,7 @@ namespace olivera
     void isKeyPressed(int key);
     void isKeyReleased(int key);
     void clearKey();
-    void onTick();
-    
+
   
     std::vector<int> getKeyPressed();
   private:

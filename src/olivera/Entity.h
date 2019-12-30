@@ -1,7 +1,7 @@
 #include "Component.h"
 
 #include <memory>
-#include<list>
+#include<vector>
 
 
 #define ADDCOMPONENT \
@@ -67,7 +67,7 @@ namespace olivera
   private:
     std::weak_ptr<Entity> self;
     std::weak_ptr<Core> core;
-    std::list<std::shared_ptr<Component> > components;
+    std::vector<std::shared_ptr<Component> > components;
 
     void tick();
     void display();

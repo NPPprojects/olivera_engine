@@ -20,7 +20,7 @@ namespace olivera
     std::shared_ptr<Entity> addEntity();      //Adds an entity to the entity vector
 
     std::shared_ptr<Keyboard> getKeyboard();
-    void start(SDL_Event &event);
+    void start();
     void stop();
 
 
