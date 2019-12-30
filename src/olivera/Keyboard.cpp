@@ -34,36 +34,14 @@ namespace olivera
   
   void Keyboard::onTick()
   {
-    inputHandler(event);
-
-    if(pressedKeys.size()>0)
-    {
-      if (getKeyPressed().at(0) == SDL_SCANCODE_W)
-      {
-        std::cout << "Yas";
-      }
-    }
+    
   }
+
+
 
  
  
-  void Keyboard::onInitialise(SDL_Event &_event)
-  {
-    event = _event;
-  }
 
-  void Keyboard::inputHandler(SDL_Event &event)
-  {
-    switch (event.type)
-    {
-    case SDL_KEYDOWN:
-      isKeyPressed(event.key.keysym.scancode);
-      break;
-    case SDL_KEYUP:
-      isKeyReleased(event.key.keysym.scancode);
-      break;
-    }
-  }
 
   std::vector<int> Keyboard::getKeyPressed()
   {
@@ -72,5 +50,4 @@ namespace olivera
  
 
   
- 
 }

@@ -42,7 +42,7 @@ namespace olivera
     {
       ADDCOMPONENT
         component->onInitialise();
-
+  
       return component;
     }
 
@@ -51,7 +51,7 @@ namespace olivera
     {
       ADDCOMPONENT
         component->onInitialise(a);
-
+ 
       return component;
     }
 

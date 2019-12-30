@@ -61,6 +61,11 @@ namespace olivera
     return core;
   }
   
+  std::shared_ptr<Keyboard> Core::getKeyboard()
+  {
+    return keyboard;
+  }
+
   void Core::start(SDL_Event &event)
   {
     running = true;
@@ -71,7 +76,15 @@ namespace olivera
       while (SDL_PollEvent(&event))
       {
 
-        keyboard->inputHandler(event);
+        switch (event.type)
+        {
+        case SDL_KEYDOWN:
+          keyboard->isKeyPressed(event.key.keysym.scancode);
+          break;
+        case SDL_KEYUP:
+          keyboard->isKeyReleased(event.key.keysym.scancode);
+          break;
+        }
 
         if (event.type == SDL_QUIT)
         {
@@ -86,15 +99,15 @@ namespace olivera
           }
         }
 
-
+      }
         for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
           it != entities.end(); it++)
         {
           (*it)->tick();
         }
-      }
+      
       //Clear keys after each frame
-  
+        keyboard->clearKey();
       glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
       glClear(GL_COLOR_BUFFER_BIT);
 

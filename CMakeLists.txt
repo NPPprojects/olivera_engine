@@ -66,6 +66,8 @@ src/olivera/Texture.cpp
 src/olivera/VertexBuffer.h
 src/olivera/VertexBuffer.cpp
 src/olivera/stb_image.cpp
+src/olivera/InputManager.cpp
+src/olivera/InputManager.h
 )
 
 if(MSVC)

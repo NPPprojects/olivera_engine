@@ -18,8 +18,8 @@ namespace olivera
     void isKeyReleased(int key);
     void clearKey();
     void onTick();
-    void onInitialise(SDL_Event &event);
-    void inputHandler(SDL_Event &event);
+    
+  
     std::vector<int> getKeyPressed();
   private:
   
@@ -28,9 +28,6 @@ namespace olivera
     std::vector<int> pressedKeys;
 
 
-    std::shared_ptr<Camera> camera;
-
-    SDL_Event event;
   
   };
   
