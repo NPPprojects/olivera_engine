@@ -5,13 +5,11 @@ namespace olivera
 
   class Keyboard;
   class Core;
-  class Entity;
   class Camera;
 
   class  InputManager : public Component
   {
 
-    friend class Entity;
   public:
     void CameraMovement();
 

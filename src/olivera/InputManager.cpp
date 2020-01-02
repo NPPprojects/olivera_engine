@@ -7,20 +7,32 @@
 #include <iostream>
 namespace olivera
 {
-
+  
 
   void InputManager::CameraMovement()
   {
     if (keyboard->getKeyPressed().size() > 0)
     {
+
       if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_W)
       {
-        std::cout << "Sick";
+        camera->ProcessKeyboard(camera->FORWARD, 1);
+        std::cout << "Moved: Forward"<<std::endl;
       }
- 
-      if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_W)
+      if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_S)
       {
-        camera->ProcessKeyboard(camera->FORWARD, 2.5);
+        camera->ProcessKeyboard(camera->BACKWARD, 1);
+        std::cout << "Moved: Backward" << std::endl;
+      }
+      if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_A)
+      {
+        camera->ProcessKeyboard(camera->LEFT, 1);
+        std::cout << "Moved: Left" << std::endl;
+      }
+      if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_D)
+      {
+        camera->ProcessKeyboard(camera->RIGHT, 1);
+        std::cout << "Moved: Right" << std::endl;
       }
       
     }
@@ -30,7 +42,7 @@ namespace olivera
   {
     core = getCore();
     
-    std::cout << "Sup";
+    std::cout << "Initialise Input Manager" << std::endl;
     
     entitySelf = getEntity();
   }

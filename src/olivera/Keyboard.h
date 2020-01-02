@@ -7,8 +7,7 @@ namespace olivera
 
   class Keyboard 
   {
-    class Camera;
-
+   
   public:
 
     //void inputDetection(SDL_KeyboardEvent event);

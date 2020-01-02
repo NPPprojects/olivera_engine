@@ -1,6 +1,7 @@
 #include "Core.h"
 #include "Entity.h"
 #include "Keyboard.h"
+#include "CurrentCamera.h"
 #include <GL/glew.h>
 #include <iostream>
 #define WINDOW_WIDTH 800
@@ -66,6 +67,11 @@ namespace olivera
     return keyboard;
   }
 
+  std::shared_ptr<CurrentCamera> Core::getCurrentCamera()
+  {
+    return cameraContext;
+  }
+
   void Core::start()
   {
     running = true;
@@ -98,7 +104,7 @@ namespace olivera
             running = false;
           }
         }
-
+        
       }
         for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
           it != entities.end(); it++)
@@ -118,6 +124,7 @@ namespace olivera
       }
 
       SDL_GL_SwapWindow(window);
+      glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     }
   }
   void Core::stop()

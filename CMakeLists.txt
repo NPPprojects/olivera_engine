@@ -68,6 +68,10 @@ src/olivera/VertexBuffer.cpp
 src/olivera/stb_image.cpp
 src/olivera/InputManager.cpp
 src/olivera/InputManager.h
+src/olivera/CurrentCamera.h
+src/olivera/CurrentCamera.cpp
+src/olivera/Transform.h
+src/olivera/Transform.cpp
 )
 
 if(MSVC)

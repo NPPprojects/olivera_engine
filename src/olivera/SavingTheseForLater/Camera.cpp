@@ -109,7 +109,7 @@ namespace olivera
 
   void Camera::OnTick()
   {
-  
+    cameraContext = core->getCurrentCamera();
   }
 
 
