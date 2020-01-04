@@ -13,7 +13,7 @@ namespace olivera
   {
     pressedKeys.push_back(key);
     std::cout << key << std::endl;
-   
+  
   }
   void Keyboard::isKeyReleased(int key)
   {
@@ -29,6 +29,11 @@ namespace olivera
     {
       releasedKeys.clear();
     }
+  }
+
+  void Keyboard::SetKeyboardState()
+  {
+    keyboard_state_array = SDL_GetKeyboardState(NULL);
   }
 
 

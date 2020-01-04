@@ -49,8 +49,6 @@ src/olivera/Component.h
 src/olivera/olivera.h
 src/olivera/ShaderProgram.cpp
 src/olivera/ShaderProgram.h
-src/olivera/Camera.h
-src/olivera/Camera.cpp
 src/olivera/MeshRenderer.cpp
 src/olivera/MeshRenderer.h
 src/olivera/Mesh.cpp
@@ -66,13 +64,17 @@ src/olivera/Texture.cpp
 src/olivera/VertexBuffer.h
 src/olivera/VertexBuffer.cpp
 src/olivera/stb_image.cpp
-src/olivera/InputManager.cpp
-src/olivera/InputManager.h
+
 src/olivera/CurrentCamera.h
 src/olivera/CurrentCamera.cpp
+src/olivera/Mouse.h
+src/olivera/Mouse.cpp
 src/olivera/Transform.h
 src/olivera/Transform.cpp
+src/olivera/Environment.h
+src/olivera/Environment.cpp
 )
+
 
 if(MSVC)
   target_link_libraries(olivera 
@@ -85,7 +87,12 @@ else()
 endif()
 
 add_executable(TestScreen
-  src/TestScreen/main.cpp  
+    src/TestScreen/FPSCamera.cpp
+src/TestScreen/FPSCamera.h
+src/TestScreen/InputManager.cpp
+src/TestScreen/InputManager.h
+  src/TestScreen/main.cpp
+
 )
 
 target_link_libraries(TestScreen olivera)

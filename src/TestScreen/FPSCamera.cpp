@@ -1,24 +1,21 @@
-#include "Camera.h"
-#include "Core.h"
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "FPSCamera.h"
 
-namespace olivera
-{
-  Camera::Camera()
+FPSCamera::FPSCamera()
   {
   }
 
 
-  Camera::~Camera()
+FPSCamera::~FPSCamera()
   {
   }
 
-  glm::mat4 Camera::GetViewMatrix()
+  glm::mat4 FPSCamera::GetViewMatrix()
   {
     return glm::lookAt(Position, Position + Front, Up);
   }
-  void Camera::ProcessKeyboard(CameraMovement _direction, float _deltaTime)
+  void FPSCamera::ProcessKeyboard(CameraMovement _direction, float _deltaTime)
   {
     float velocity = MovementSpeed * _deltaTime;
     if (_direction == FORWARD)
@@ -30,7 +27,7 @@ namespace olivera
     if (_direction == RIGHT)
       Position += Right * velocity;
   }
-  void Camera::ProcessMouseMovement(float _xoffset, float _yoffset, GLboolean _constrainPitch)
+  void FPSCamera::ProcessMouseMovement(float _xoffset, float _yoffset, GLboolean _constrainPitch)
   {
     _xoffset *= MouseSensitivity;
     _yoffset *= MouseSensitivity;
@@ -52,7 +49,7 @@ namespace olivera
   }
 
 
-  void Camera::ProcessMouseScroll(float _yoffset)
+  void FPSCamera::ProcessMouseScroll(float _yoffset)
   {
     if (Zoom >= 1.0f && Zoom <= 45.0f)
       Zoom -= _yoffset;
@@ -61,7 +58,7 @@ namespace olivera
     if (Zoom >= 45.0f)
       Zoom = 45.0f;
   }
-  void Camera::updateCameraVectors()
+  void FPSCamera::updateCameraVectors()
   {
     // Calculate the new Front vector
     glm::vec3 front;
@@ -74,26 +71,26 @@ namespace olivera
     Up = glm::normalize(glm::cross(Right, Front));
   }
 
-  float Camera::getZoom() const
+  float FPSCamera::getZoom() const
   {
     return Zoom;
   }
 
-  glm::vec3 Camera::GetPosition()
+  glm::vec3 FPSCamera::GetPosition()
   {
     return Position;
   }
 
-  int Camera::getYaw()
+  int FPSCamera::getYaw()
   {
     return Yaw;
   }
-  int Camera::getPitch()
+  int FPSCamera::getPitch()
   {
     return Pitch;
   }
 
-  void Camera::onInitialise()
+  void FPSCamera::onInitialise()
   {
     Position = glm::vec3(0.0f, 0.0f, 3.0f);
     WorldUp = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -105,12 +102,14 @@ namespace olivera
     Zoom = ZOOM;
     updateCameraVectors();
     core = getCore();
+    cameraContext= core->getCurrentCamera();
   }
 
-  void Camera::OnTick()
+  void FPSCamera::onTick()
   {
-  
+    cameraContext->setProjection(glm::perspective(glm::radians(getZoom()), (float)800 / (float)600, 0.1f, 100.0f));
+    cameraContext->setView(GetViewMatrix());
+    
   }
 
 
-}

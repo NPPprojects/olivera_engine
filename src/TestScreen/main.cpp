@@ -1,6 +1,8 @@
 
 #include <olivera/olivera.h>
 
+#include "FPSCamera.h"
+#include "InputManager.h"
 #include <iostream>
 #include <string>
 
@@ -36,15 +38,15 @@ int main()
   //Engine
   std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
   std::shared_ptr<olivera::Entity> square = engine->addEntity();
-
+  
   
   
 
   //Camera
   
   std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
-  std::shared_ptr<olivera::Camera> cameraComponent = cameraEntity->addComponent<olivera::Camera>();
-  std::shared_ptr<olivera::InputManager> cameraInput = cameraEntity->addComponent<olivera::InputManager>();
+  std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();
+  std::shared_ptr<InputManager> cameraInput = cameraEntity->addComponent<InputManager>();
 
   
 
@@ -53,7 +55,7 @@ int main()
   std::shared_ptr<olivera::Entity> cube = engine->addEntity();
   std::shared_ptr<olivera::ShaderProgram> cubeShader = cube->addComponent<olivera::ShaderProgram>("resources/shaders/cube.vert", "resources/shaders/cube.frag");
   std::shared_ptr<olivera::VertexBuffer> shape = cube->addComponent<olivera::VertexBuffer>("resources/objects/cube.data");
-  std::shared_ptr<olivera::MeshRenderer> mr = cube->addComponent<olivera::MeshRenderer>(cameraEntity);
+  std::shared_ptr<olivera::MeshRenderer> mr = cube->addComponent<olivera::MeshRenderer>();
   
   //Square
  /*std::shared_ptr<olivera::Entity> square = engine->addEntity();

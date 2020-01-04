@@ -1,12 +1,10 @@
 #include "glm/glm.hpp"
 #include <GL/glew.h>
-#include "Component.h"
+#include <olivera/olivera.h>
 
-namespace olivera
-{
-  class Core;
-  class CurrentCamera;
-  class Camera : public Component
+//First Person Camera that will be used to test the engine 
+
+  class FPSCamera : public olivera::Component
   {
   public:
     enum CameraMovement {
@@ -17,8 +15,8 @@ namespace olivera
     };
     void updateCameraVectors();
 
-    Camera();
-    ~Camera();
+    FPSCamera();
+    ~FPSCamera();
 
     void ProcessMouseScroll(float _yoffset);
     void ProcessMouseMovement(float _xoffset, float _yoffset, GLboolean _constrainPitch = true);
@@ -30,7 +28,7 @@ namespace olivera
     int getPitch();
     void onInitialise();
 
-    void OnTick();
+    void onTick();
   private:
     // Camera Attributes
     glm::vec3 Position;
@@ -52,9 +50,9 @@ namespace olivera
     float SENSITIVITY = 0.1f;
     float ZOOM = 45.0f;
 
+    glm::mat4 projection;
     //
-    std::shared_ptr<Core> core;
-    std::shared_ptr<CurrentCamera> cameraContext;
+    std::shared_ptr<olivera::Core> core;
+    std::shared_ptr<olivera::CurrentCamera> cameraContext;
   };
 
-}

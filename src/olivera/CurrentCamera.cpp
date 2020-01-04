@@ -1,6 +1,6 @@
 #include "CurrentCamera.h"
 #include "Core.h"
-#include "Camera.h"
+
 namespace olivera
 {
 
@@ -9,16 +9,19 @@ namespace olivera
     return projection;
   }
 
-  void CurrentCamera::setProjection()
-  {
-    projection = glm::perspective(glm::radians(camera->getZoom()), (float)800 / (float)600, 0.1f, 100.f);
-  }
   glm::mat4 CurrentCamera::getView()
   {
     return view;
   }
-  void CurrentCamera::setView()
+
+  void CurrentCamera::setView(glm::mat4 _view)
   {
-    view = camera->GetViewMatrix();
+    view = _view;
   }
+
+  void CurrentCamera::setProjection(glm::mat4 _projection)
+  {
+    projection = _projection;
+  }
+
 }

@@ -1,6 +1,8 @@
 #include "Core.h"
 #include "Entity.h"
 #include "Keyboard.h"
+#include "Mouse.h"
+#include "Environment.h"
 #include "CurrentCamera.h"
 #include <GL/glew.h>
 #include <iostream>
@@ -25,6 +27,7 @@ namespace olivera
       WINDOW_WIDTH, WINDOW_HEIGHT,
       SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
 
+    core->environment->initialise();
     if (!SDL_GL_CreateContext(core->window))
     {
       throw std::exception();
@@ -71,7 +74,14 @@ namespace olivera
   {
     return cameraContext;
   }
-
+  std::shared_ptr<Mouse> Core::getMouse()
+  {
+    return mouse;
+  }
+  std::shared_ptr<Environment> Core::getEnvironment()
+  {
+    return environment;
+  }
   void Core::start()
   {
     running = true;
@@ -81,7 +91,7 @@ namespace olivera
       SDL_Event event;
       while (SDL_PollEvent(&event))
       {
-
+        keyboard->SetKeyboardState();
         switch (event.type)
         {
         case SDL_KEYDOWN:
@@ -113,7 +123,11 @@ namespace olivera
         }
       
       //Clear keys after each frame
+     //Set delta Time and set frame rate to 60fps
+        mouse->tick();
+        environment->tick();
         keyboard->clearKey();
+     
       glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
       glClear(GL_COLOR_BUFFER_BIT);
 
