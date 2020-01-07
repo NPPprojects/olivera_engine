@@ -17,7 +17,7 @@ namespace olivera
   {
     float time = SDL_GetTicks();
     float diff = time - lastTime;
-    deltaTime = diff / 100; //convert Delta Time to seconds;
+    deltaTime = diff / 1000; //convert Delta Time to seconds;
     lastTime = time;
     if (idealTime > deltaTime)
     {

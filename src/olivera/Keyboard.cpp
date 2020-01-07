@@ -9,15 +9,16 @@ namespace olivera
     keys.push_back(key);
     return false;
   }
-  void Keyboard::isKeyPressed(int key)
+  bool Keyboard::isKeyPressed(int key)
   {
     pressedKeys.push_back(key);
-    std::cout << key << std::endl;
+	return released= false;
   
   }
-  void Keyboard::isKeyReleased(int key)
+  bool Keyboard::isKeyReleased(int key)
   {
     releasedKeys.push_back(key); 
+	return released=true;
   }
   void Keyboard::clearKey()
   {
@@ -46,7 +47,12 @@ namespace olivera
   {
     return pressedKeys;
   }
- 
+
+  std::vector<int> Keyboard::getKeyReleased()
+  {
+	  return releasedKeys;
+  }
+
 
   
 }

@@ -25,9 +25,13 @@ namespace olivera
     core->window = SDL_CreateWindow("Olivera Engine",
       SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
       WINDOW_WIDTH, WINDOW_HEIGHT,
-      SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
-
-    core->environment->initialise();
+      SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_GRABBED);
+	
+	//Lock Mouse
+	
+	
+    
+	core->environment->initialise();
     if (!SDL_GL_CreateContext(core->window))
     {
       throw std::exception();

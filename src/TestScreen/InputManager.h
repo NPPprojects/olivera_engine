@@ -1,6 +1,6 @@
 #include <olivera/olivera.h>
 #include <memory>
-
+#include <vector>
   class FPSCamera;
 
 
@@ -15,6 +15,8 @@
     void onTick();
 
     void mouse_callback(double xpos, double ypos);
+
+	void KeysHeld();
  
 
   private:
@@ -25,10 +27,22 @@
     std::shared_ptr<olivera::Entity> entitySelf;
     std::shared_ptr<FPSCamera> camera;
 
+	std::vector <bool> Keys;
+	struct KeyHeld 
+	{
+		bool w;
+		bool a;
+		bool s;
+		bool d;
+
+	};
+
     bool firstMouse;
     //Last Mouse location
     double lastX;
     double lastY;
+	KeyHeld WASDPressed;
+	KeyHeld WASDReleased;
   };
 
 
