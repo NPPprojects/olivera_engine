@@ -16,6 +16,8 @@ class CurrentCamera;
 
 class Core;
 
+class Transform;
+
 class MeshRenderer : public Component
 {
 public:
@@ -31,12 +33,12 @@ private:
   glm::mat4 projection;
   glm::mat4 model;
 
-  std::shared_ptr<ShaderProgram> shader;
-  std::shared_ptr<VertexBuffer> object;
+  std::weak_ptr<ShaderProgram> shader;
+  std::weak_ptr<VertexBuffer> object;
   std::shared_ptr<Entity> entitySelf;
   std::shared_ptr<CurrentCamera> cameraContext;
   std::shared_ptr<Core> core;
-  
+  std::weak_ptr<Transform> transform;
 };
 
 }

@@ -1,3 +1,5 @@
+/// TO DO LIST ADD FUCKI Slayin UML Diagram fool
+
 
 #include <olivera/olivera.h>
 
@@ -55,6 +57,7 @@ int main()
   std::shared_ptr<olivera::Entity> cube = engine->addEntity();
   std::shared_ptr<olivera::ShaderProgram> cubeShader = cube->addComponent<olivera::ShaderProgram>("resources/shaders/cube.vert", "resources/shaders/cube.frag");
   std::shared_ptr<olivera::VertexBuffer> shape = cube->addComponent<olivera::VertexBuffer>("resources/objects/cube.data");
+  std::shared_ptr<olivera::Transform> shapeTransform = cube->addComponent<olivera::Transform>();
   std::shared_ptr<olivera::MeshRenderer> mr = cube->addComponent<olivera::MeshRenderer>();
   
   //Square

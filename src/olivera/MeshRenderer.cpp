@@ -10,6 +10,8 @@
 #include"Core.h"
 #include "Entity.h"
 #include "CurrentCamera.h"
+
+#include "Transform.h"
 namespace olivera
 {
 
@@ -20,6 +22,7 @@ void MeshRenderer::onInitialise()
 
   shader = entitySelf->getComponent<ShaderProgram>();
   object = entitySelf->getComponent<VertexBuffer>();
+  transform = entitySelf->getComponent<Transform>();
   core = getCore();
   cameraContext = core->getCurrentCamera();
   
@@ -37,10 +40,8 @@ void MeshRenderer::onTick()
   shader->setMat4("projection", projection); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
   view = cameraContext->getView();
   shader->setMat4("view", view);
-  model = glm::mat4(1.0f);
-  model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
-  model = glm::rotate(model, 30.0f, glm::vec3(1.0f, 0.0f, 0.5f));
-  shader->setMat4("model", model);
+
+  shader->setMat4("model", transform->getModel());
   glUseProgram(0);
 }
 void MeshRenderer::Draw()
