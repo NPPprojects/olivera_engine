@@ -6,8 +6,7 @@
 
 namespace olivera
 {
-  class Core;
-  class Camera;
+ 
 
   class CurrentCamera 
   {

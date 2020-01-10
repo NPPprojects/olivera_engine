@@ -18,14 +18,15 @@ namespace olivera
 
 void MeshRenderer::onInitialise()
 {
+ 
   entitySelf= getEntity();
-
-  shader = entitySelf->getComponent<ShaderProgram>();
-  object = entitySelf->getComponent<VertexBuffer>();
-  transform = entitySelf->getComponent<Transform>();
-  core = getCore();
-  cameraContext = core->getCurrentCamera();
   
+  shader = entitySelf.lock()->getComponent<ShaderProgram>();
+  object = entitySelf.lock()->getComponent<VertexBuffer>();
+  transform = entitySelf.lock()->getComponent<Transform>();
+  core = getCore();
+  cameraContext = core.lock()->getCurrentCamera();
+   
 }
 
 void MeshRenderer::onDisplay()
@@ -34,21 +35,22 @@ void MeshRenderer::onDisplay()
 }
 void MeshRenderer::onTick()
 {
-  glUseProgram(shader->getID());
-  projection = glm::mat4(1.0f);
-  projection = cameraContext->getProjection();
-  shader->setMat4("projection", projection); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
-  view = cameraContext->getView();
-  shader->setMat4("view", view);
 
-  shader->setMat4("model", transform->getModel());
+  glUseProgram(shader.lock()->getID());
+  projection = glm::mat4(1.0f);
+  projection = cameraContext.lock()->getProjection();
+  shader.lock()->setMat4("projection", projection); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
+  view = cameraContext.lock()->getView();
+  shader.lock()->setMat4("view", view);
+
+  shader.lock()->setMat4("model", transform.lock()->getModel());
   glUseProgram(0);
 }
 void MeshRenderer::Draw()
 {
-  glUseProgram(shader->getID()); 
-  glBindVertexArray(object->getVAO());
-  glDrawArrays(GL_TRIANGLES, 0, object->getVerticiesCount());
+  glUseProgram(shader.lock()->getID());
+  glBindVertexArray(object.lock()->getVAO());
+  glDrawArrays(GL_TRIANGLES, 0, object.lock()->getVerticiesCount());
 
   glBindVertexArray(0);
   glUseProgram(0);

@@ -47,6 +47,7 @@ int main()
   //Camera
   
   std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
+  std::shared_ptr<olivera::Transform> cameraTransform = cameraEntity->addComponent<olivera::Transform>();
   std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();
   std::shared_ptr<InputManager> cameraInput = cameraEntity->addComponent<InputManager>();
 

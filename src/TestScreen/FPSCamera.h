@@ -6,6 +6,8 @@
 
   class FPSCamera : public olivera::Component
   {
+	  class transform;
+
   public:
     enum CameraMovement {
       FORWARD,
@@ -31,7 +33,6 @@
     void onTick();
   private:
     // Camera Attributes
-    glm::vec3 Position;
     glm::vec3 Front;
     glm::vec3 Up;
     glm::vec3 Right;
@@ -52,7 +53,11 @@
 
     glm::mat4 projection;
     //
-    std::shared_ptr<olivera::Core> core;
-    std::shared_ptr<olivera::CurrentCamera> cameraContext;
+   
+    std::weak_ptr<olivera::CurrentCamera> cameraContext;
+	
+	std::weak_ptr<olivera::Core> core;
+	std::weak_ptr<olivera::Transform> transform;
+	std::weak_ptr<olivera::Entity> entitySelf;
   };
 

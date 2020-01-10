@@ -13,19 +13,20 @@ FPSCamera::~FPSCamera()
 
   glm::mat4 FPSCamera::GetViewMatrix()
   {
-    return glm::lookAt(Position, Position + Front, Up);
+    return glm::lookAt(transform.lock()->getPosition(), transform.lock()->getPosition() + Front, Up);
   }
   void FPSCamera::ProcessKeyboard(CameraMovement _direction, float _deltaTime)
   {
     float velocity = MovementSpeed * _deltaTime;
     if (_direction == FORWARD)
-      Position += Front * velocity;
+	//Position += Front * velocity;
+	transform.lock()->setPosition(Front * velocity);
     if (_direction == BACKWARD)
-      Position -= Front * velocity;
+	transform.lock()->setPosition(-(Front * velocity));
     if (_direction == LEFT)
-      Position -= Right * velocity;
+	transform.lock()->setPosition(-(Right * velocity));
     if (_direction == RIGHT)
-      Position += Right * velocity;
+	transform.lock()->setPosition(+(Right * velocity));
   }
   void FPSCamera::ProcessMouseMovement(float _xoffset, float _yoffset, GLboolean _constrainPitch)
   {
@@ -78,7 +79,7 @@ FPSCamera::~FPSCamera()
 
   glm::vec3 FPSCamera::GetPosition()
   {
-    return Position;
+	return  transform.lock()->getPosition();
   }
 
   int FPSCamera::getYaw()
@@ -92,7 +93,11 @@ FPSCamera::~FPSCamera()
 
   void FPSCamera::onInitialise()
   {
-    Position = glm::vec3(0.0f, 0.0f, 3.0f);
+	core = getCore();
+	cameraContext = core.lock()->getCurrentCamera();
+	entitySelf = getEntity();
+	transform = entitySelf.lock()->getComponent<olivera::Transform>();
+	transform.lock()->setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
     WorldUp = glm::vec3(0.0f, 1.0f, 0.0f);
     Yaw = YAW;
     Pitch = PITCH;
@@ -101,14 +106,16 @@ FPSCamera::~FPSCamera()
     MouseSensitivity = SENSITIVITY;
     Zoom = ZOOM;
     updateCameraVectors();
-    core = getCore();
-    cameraContext= core->getCurrentCamera();
+
+   
+	
+
   }
 
   void FPSCamera::onTick()
   {
-    cameraContext->setProjection(glm::perspective(glm::radians(getZoom()), (float)800 / (float)600, 0.1f, 100.0f));
-    cameraContext->setView(GetViewMatrix());
+    cameraContext.lock()->setProjection(glm::perspective(glm::radians(getZoom()), (float)800 / (float)600, 0.1f, 100.0f));
+    cameraContext.lock()->setView(GetViewMatrix());
     
   }
 

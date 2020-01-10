@@ -11,13 +11,14 @@ namespace olivera
 	void updateModel();
 
 	void setPosition(glm::vec3 _position);
-
 	void setRotation(glm::vec3 _rotation);
-
 	void setScale(glm::vec3 _scale);
 
-	void onTick();
+	glm::vec3 getPosition();
+	glm::vec3 getRotation();
+	glm::vec3 setScale();
 
+	void onTick();
 	void onInitialise();
   private:
     

@@ -73,6 +73,12 @@ src/olivera/Transform.h
 src/olivera/Transform.cpp
 src/olivera/Environment.h
 src/olivera/Environment.cpp
+
+src/olivera/Resource.h
+src/olivera/Resource.cpp
+
+src/olivera/Resources.h
+src/olivera/Resources.cpp
 )
 
 

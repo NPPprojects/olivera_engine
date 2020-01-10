@@ -15,17 +15,32 @@ void olivera::Transform::updateModel()
 
 void olivera::Transform::setPosition(glm::vec3 _position)
 {
-	position = _position;
+	position += _position;
 }
 
 void olivera::Transform::setRotation(glm::vec3 _rotation)
 {
-	rotation = _rotation;
+	rotation += _rotation;
 }
 
 void olivera::Transform::setScale(glm::vec3 _scale)
 {
-	scale = _scale;
+	scale += _scale;
+}
+
+glm::vec3 olivera::Transform::getPosition()
+{
+	return position;
+}
+
+glm::vec3 olivera::Transform::getRotation()
+{
+	return rotation;
+}
+
+glm::vec3 olivera::Transform::setScale()
+{
+	return scale;
 }
 
 void olivera::Transform::onTick()
