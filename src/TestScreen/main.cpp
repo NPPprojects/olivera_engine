@@ -41,6 +41,10 @@ int main()
   std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
 
 
+
+  olivera::ResourceManager Resources;
+
+  //Resources.addResource(std::shared_ptr<olivera::VertexBuffer>, "test", "resources/objects/cube.data");
   //Camera
   std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
   std::shared_ptr<olivera::Transform> cameraTransform = cameraEntity->addComponent<olivera::Transform>();
@@ -61,8 +65,8 @@ int main()
   std::shared_ptr<olivera::ShaderProgram> cubeShader2 = cube2->addComponent<olivera::ShaderProgram>("resources/shaders/cube.vert", "resources/shaders/cube.frag");
   std::shared_ptr<olivera::VertexBuffer> shape2 = cube2->addComponent<olivera::VertexBuffer>("resources/objects/cube.data");
   std::shared_ptr<olivera::MeshRenderer> mr2 = cube2->addComponent<olivera::MeshRenderer>();
-  
-  shapeTransform2->setPosition(glm::vec3(0.0f, 1.1f, 0.0f));
+
+
 
 
   //Square

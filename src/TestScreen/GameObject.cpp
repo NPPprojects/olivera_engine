@@ -1,14 +1,5 @@
 #include "GameObject.h"
 
-class GameObject 
-{
-	public:
-	
-
-	private:
-
-};
-
 void GameObject::addShader()
 {
 }
