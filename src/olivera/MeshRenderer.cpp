@@ -10,8 +10,10 @@
 #include"Core.h"
 #include "Entity.h"
 #include "CurrentCamera.h"
-
 #include "Transform.h"
+
+#define GLM_ENABLE_EXPERIMENTAL
+#include "glm/ext.hpp"
 namespace olivera
 {
 
@@ -42,8 +44,7 @@ void MeshRenderer::onTick()
   shader.lock()->setMat4("projection", projection); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
   view = cameraContext.lock()->getView();
   shader.lock()->setMat4("view", view);
-
-  shader.lock()->setMat4("model", transform.lock()->getModel());
+  shader.lock()->setMat4("model", transform->getModel());
   glUseProgram(0);
 }
 void MeshRenderer::Draw()

@@ -10,16 +10,18 @@
 #include <fstream>
 #include <sstream>
 
+#include "ResourceAllocator.h"
+
 namespace olivera
 {
   class VertexBuffer : public Component
   {
   public:
-    void readVertexData(const char* _ObjectFile);
+    void readVertexData(std::string _ObjectFile);
     void setVertexData();
     GLuint getVAO();
     int getVerticiesCount();
-    void onInitialise(const char* _ObjectFile);
+    void onInitialise(std::string _ObjectFile);
   private:
 
     int vertexCount; //Amount of vertecies in an object

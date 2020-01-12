@@ -74,11 +74,13 @@ src/olivera/Transform.cpp
 src/olivera/Environment.h
 src/olivera/Environment.cpp
 
-src/olivera/Resource.h
-src/olivera/Resource.cpp
+src/olivera/ResourceAllocator.h
+src/olivera/ResourceAllocator.cpp
 
-src/olivera/Resources.h
-src/olivera/Resources.cpp
+src/olivera/ResourceManager.h
+src/olivera/ResourceManager.cpp
+
+
 )
 
 
@@ -93,11 +95,14 @@ else()
 endif()
 
 add_executable(TestScreen
-    src/TestScreen/FPSCamera.cpp
+src/TestScreen/FPSCamera.cpp
 src/TestScreen/FPSCamera.h
 src/TestScreen/InputManager.cpp
 src/TestScreen/InputManager.h
-  src/TestScreen/main.cpp
+src/TestScreen/GameObject.cpp
+src/TestScreen/GameObject.h
+  
+src/TestScreen/main.cpp
 
 )
 

@@ -20,13 +20,13 @@ FPSCamera::~FPSCamera()
     float velocity = MovementSpeed * _deltaTime;
     if (_direction == FORWARD)
 	//Position += Front * velocity;
-	transform.lock()->setPosition(Front * velocity);
+	transform.lock()->setPosition(transform.lock()->getPosition() +(Front * velocity));
     if (_direction == BACKWARD)
-	transform.lock()->setPosition(-(Front * velocity));
+	transform.lock()->setPosition(transform.lock()->getPosition() -(Front * velocity));
     if (_direction == LEFT)
-	transform.lock()->setPosition(-(Right * velocity));
+	transform.lock()->setPosition(transform.lock()->getPosition() -(Right * velocity));
     if (_direction == RIGHT)
-	transform.lock()->setPosition(+(Right * velocity));
+	transform.lock()->setPosition(transform.lock()->getPosition() +(Right * velocity));
   }
   void FPSCamera::ProcessMouseMovement(float _xoffset, float _yoffset, GLboolean _constrainPitch)
   {

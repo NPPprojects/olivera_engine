@@ -32,7 +32,7 @@ namespace olivera {
     }
   }
 
-  void VertexBuffer::readVertexData(const char* _ObjectFile)
+  void VertexBuffer::readVertexData(std::string _ObjectFile)
   {
     std::string line;
     std::vector <std::string> Splitline;
@@ -101,7 +101,7 @@ namespace olivera {
     return vertexCount;
   }
 
-  void VertexBuffer::onInitialise(const char* _ObjectFile)
+  void VertexBuffer::onInitialise(std::string _ObjectFile)
   {
     readVertexData(_ObjectFile);
     setVertexData();

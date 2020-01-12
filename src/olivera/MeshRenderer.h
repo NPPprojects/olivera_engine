@@ -38,7 +38,7 @@ private:
   std::weak_ptr<Entity> entitySelf;
   std::weak_ptr<CurrentCamera> cameraContext;
   std::weak_ptr<Core> core;
-  std::weak_ptr<Transform> transform;
+  std::shared_ptr<Transform> transform;
 };
 
 }
