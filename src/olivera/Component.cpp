@@ -13,6 +13,8 @@ namespace olivera
     return getEntity()->getCore();
   }
 
+
+
   void Component::onInitialise()
   {
 

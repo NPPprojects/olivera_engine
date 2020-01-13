@@ -13,6 +13,6 @@
 #include "Environment.h"
 #include "Mouse.h"
 #include "Transform.h"
-#include "ResourceAllocator.h"
-#include "ResourceManager.h"
+#include "ResourceManager.h" 
+#include "Resource.h"
 #endif

@@ -8,6 +8,7 @@ namespace olivera
   class  Entity;
   class  Core;
 
+
   class Component
   {
     friend class Entity;
@@ -19,6 +20,7 @@ namespace olivera
 
 
   private:
+	
     std::weak_ptr<Entity> entity; 
     bool began;
 

@@ -1,25 +1,30 @@
 
-#include "Component.h"
+#include "Resource.h"
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
 namespace olivera
 {
 
-  class Texture : public Component
+  class Texture : public Resource
   {
+	  friend class Resource;
   public:
 
-    int LoadTexture(const char* _path);
+	  int LoadTexture();
     glm::vec2 getSize();
     GLuint getId();
-    void onDisplay();
-    void onInitialise(const char* path);
+
+
+	
+	//Resource
+	std::shared_ptr<Texture> load(std::string _path);
+
 
   private:
     GLuint id;
     glm::vec2 size;
-
+	
 
   };
 

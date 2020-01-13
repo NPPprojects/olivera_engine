@@ -6,6 +6,7 @@
 #include "CurrentCamera.h"
 #include <GL/glew.h>
 #include <iostream>
+#include "ResourceManager.h"
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
@@ -77,6 +78,10 @@ namespace olivera
   std::shared_ptr<CurrentCamera> Core::getCurrentCamera()
   {
     return cameraContext;
+  }
+  std::shared_ptr<ResourceManager> Core::getResources()
+  {
+	  return resources;
   }
   std::shared_ptr<Mouse> Core::getMouse()
   {

@@ -74,8 +74,8 @@ src/olivera/Transform.cpp
 src/olivera/Environment.h
 src/olivera/Environment.cpp
 
-src/olivera/ResourceAllocator.h
-src/olivera/ResourceAllocator.cpp
+src/olivera/Resource.h
+src/olivera/Resource.cpp
 
 src/olivera/ResourceManager.h
 src/olivera/ResourceManager.cpp

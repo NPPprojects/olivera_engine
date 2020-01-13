@@ -37,12 +37,17 @@ public:
 
 int main()
 {
+
+
+
+
   //Engine
   std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
 
+  auto texture = engine->getResources()->create<olivera::Texture>();
 
-
-  olivera::ResourceManager Resources;
+  texture->load("resources/textures/awesomeface.png");
+  texture->LoadTexture(); 
 
   //Resources.addResource(std::shared_ptr<olivera::VertexBuffer>, "test", "resources/objects/cube.data");
   //Camera

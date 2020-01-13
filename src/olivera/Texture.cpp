@@ -4,12 +4,13 @@
 
 namespace olivera
 {
-  int Texture::LoadTexture(const char* _path)
+  int Texture::LoadTexture()
   {
+	 
     glGenTextures(1, &id);
     int width, height, channels;
     stbi_set_flip_vertically_on_load(true);
-    unsigned char *data = stbi_load(_path, &width, &height, &channels, 0);
+    unsigned char *data = stbi_load(getPath().c_str(), &width, &height, &channels, 0);
     if (data)
     {
       GLenum format;
@@ -33,7 +34,7 @@ namespace olivera
     }
     else
     {
-      std::cout << "Texture failed to load at path: " << _path << std::endl;
+      std::cout << "Texture failed to load at path: " << getPath() << std::endl;
       stbi_image_free(data);
     }
     return id;
@@ -48,13 +49,13 @@ namespace olivera
   {
     return id;
   }
-  void Texture::onDisplay()
+
+  std::shared_ptr<Texture> Texture::load(std::string _path)
   {
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, id);
+	  std::cout << _path << std::endl;
+	  setPath(_path);
+	  return std::shared_ptr<Texture>();
   }
-  void Texture::onInitialise(const char* _path)
-  {
-    LoadTexture(_path);
-  }
+
+
 }
