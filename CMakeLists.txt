@@ -80,6 +80,9 @@ src/olivera/Resource.cpp
 src/olivera/ResourceManager.h
 src/olivera/ResourceManager.cpp
 
+src/olivera/Collision.h
+src/olivera/Collision.cpp
+
 
 )
 

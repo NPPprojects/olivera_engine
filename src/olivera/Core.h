@@ -22,6 +22,22 @@ namespace olivera
     static std::shared_ptr<Core> initialise();    //Initialisation function that will add all entities to the tick rate and display them
     std::shared_ptr<Entity> addEntity();      //Adds an entity to the entity vector
 
+	///Super Lost
+	template <typename T>
+	std::vector<std::shared_ptr<T>> getEntities(std::vector<std::shared_ptr<Entity>> _entity)
+	{
+		for (size_t i = 0; i < _entity.size(); i++)
+		{
+			std::shared_ptr<T> tst = std::dynamic_pointer_cast<T>(_entity.at(i));
+
+			if (tst)
+			{
+				return tst;
+			}
+		}
+
+		throw std::exception();
+	}
 
     std::shared_ptr<Keyboard> getKeyboard();  //Get the Keyboard so input class has access to keys that have been pressed;
     std::shared_ptr<Environment> getEnvironment();  //get envioronment time

@@ -16,6 +16,7 @@ namespace olivera
 
 		template <typename T>
 		std::shared_ptr<T> create();
+		std::vector<std::shared_ptr<Resource>> getResources();
 
 	private:
 		std::vector<std::shared_ptr<Resource>> resources;
@@ -24,11 +25,11 @@ namespace olivera
 	template<typename T>
 	std::shared_ptr<T> ResourceManager::load(std::string _path)
 	{
-		return T;
+		std::shared_ptr<T> resource = std::make_shared<T>();
 	}
 
 	template<typename T>
-	std::shared_ptr<T> ResourceManager::create()
+	inline std::shared_ptr<T> ResourceManager::create()
 	{
 		std::shared_ptr<T> resource = std::make_shared<T>();
 		resources.push_back(resource);
