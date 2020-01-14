@@ -44,8 +44,8 @@ int main()
 
 	olivera::ResourceManager Resources;
 
-	//Resources.addResource(std::shared_ptr<olivera::VertexBuffer>, "test", "resources/objects/cube.data");
-	//Camera
+
+
 	std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
 	std::shared_ptr<olivera::Transform> cameraTransform = cameraEntity->addComponent<olivera::Transform>();
 	std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();

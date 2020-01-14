@@ -8,32 +8,27 @@
 
 namespace olivera
 {
-	class ResourceManager
-	{
-	public:
-		template <typename T>
-		std::shared_ptr<T> load(std::string _path);
+  class ResourceManager
+  {
+  public:
+    template <typename T>
+    void load(std::string _path)
+    {
+       resources.emplace_back(std::make_shared<T>(_path));
+    }
 
-		template <typename T>
-		std::shared_ptr<T> create();
-		std::vector<std::shared_ptr<Resource>> getResources();
+    template <typename T>
+    std::shared_ptr<T> create()
+    {
+      std::shared_ptr<T> resource = std::make_shared<T>();
+      resources.push_back(resource);
+      return resource;
+    }
 
-	private:
-		std::vector<std::shared_ptr<Resource>> resources;
+    std::vector<std::shared_ptr<Resource>> getResources();
 
-	};
-	template<typename T>
-	std::shared_ptr<T> ResourceManager::load(std::string _path)
-	{
-		std::shared_ptr<T> resource = std::make_shared<T>();
-	}
+  private:
+    std::vector<std::shared_ptr<Resource>> resources;
 
-	template<typename T>
-	inline std::shared_ptr<T> ResourceManager::create()
-	{
-		std::shared_ptr<T> resource = std::make_shared<T>();
-		resources.push_back(resource);
-		return resource;
-		
-	}
+  };
 }

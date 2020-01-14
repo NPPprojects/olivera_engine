@@ -35,7 +35,7 @@ namespace olivera
 		std::vector<std::shared_ptr<Entity> > bces;
 
 		///Here is where i get lost
-		getCore()->getEntities<Collision>(bces);
+		//getCore()->getEntities<Collision>(bces);
 		//getWorld()->getEntities<Collision>(bces);
 		glm::vec3 np = transform.lock()->getPosition() + offset;
 

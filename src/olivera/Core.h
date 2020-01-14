@@ -24,19 +24,20 @@ namespace olivera
 
 	///Super Lost
 	template <typename T>
-	std::vector<std::shared_ptr<T>> getEntities(std::vector<std::shared_ptr<Entity>> _entity)
+	std::vector<std::shared_ptr<T>> getEntities(std::vector<std::shared_ptr<Entity>> &_entity)
 	{
-		for (size_t i = 0; i < _entity.size(); i++)
+    //Go throught each entity and add those with a specified component to _entity
+    //find all components
+		for (size_t i = 0; i < entities.size(); i++)
 		{
-			std::shared_ptr<T> tst = std::dynamic_pointer_cast<T>(_entity.at(i));
-
+			std::shared_ptr<T> tst = std::dynamic_pointer_cast<T>(entities.at(i));
 			if (tst)
 			{
-				return tst;
+         _entity.emplace_back(tst);
 			}
 		}
+    return _entity;
 
-		throw std::exception();
 	}
 
     std::shared_ptr<Keyboard> getKeyboard();  //Get the Keyboard so input class has access to keys that have been pressed;
