@@ -83,7 +83,8 @@ src/olivera/ResourceManager.cpp
 src/olivera/Collision.h
 src/olivera/Collision.cpp
 
-
+src/olivera/PostProcessing.h
+src/olivera/PostProcessing.cpp
 )
 
 
