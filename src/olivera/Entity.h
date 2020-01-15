@@ -63,6 +63,15 @@ namespace olivera
 
       return component;
     }
+  
+    template <typename T, typename A, typename B, typename C>
+    std::shared_ptr<T> addComponent(A a, B b, C c)
+    {
+      ADDCOMPONENT
+        component->onInitialise(a, b, c);
+
+      return component;
+    }
 
     template<typename T>
     bool checkForComponent()

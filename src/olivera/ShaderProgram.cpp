@@ -2,24 +2,76 @@
 
 namespace olivera
 {
-  void ShaderProgram::loadShaderProgram(const char* vertexPath, const char* fragmentPath, const char* geometryPath)
+  void ShaderProgram::loadShaderProgram(std::string _path)
   {
-    // 1. retrieve the vertex/fragment source code from filePath
+    std::string vertPath;
+    std::string fragPath;
+
+
+    
+    std::ifstream file(_path);
+    if (!file.is_open())
+    {
+      throw std::exception();
+    }
+    else
+    {
+      std::string line;
+      std::getline(file, line);
+      vertPath += line;
+      std::getline(file, line);
+      fragPath += line;
+    }
+    file.close();
+
     std::string vertexCode;
     std::string fragmentCode;
-    std::string geometryCode;
+    
+    file.open(vertPath);
+    if (!file.is_open())
+    {
+      throw std::exception();
+    }
+    else
+    {
+      while (!file.eof())
+      {
+        std::string line;
+        std::getline(file, line);
+        vertexCode += line + "\n";
+      }
+    }
+    file.close();
+
+    file.open(fragPath);
+
+    if (!file.is_open())
+    {
+      throw std::exception();
+    }
+    else
+    {
+      while (!file.eof())
+      {
+        std::string line;
+        std::getline(file, line);
+        fragmentCode += line + "\n";
+      }
+    }
+    file.close();
+
+    // 1. retrieve the vertex/fragment source code from filePath
     std::ifstream vShaderFile;
     std::ifstream fShaderFile;
-    std::ifstream gShaderFile;
     // ensure ifstream objects can throw exceptions:
     vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
     fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-    gShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+  
     try
     {
       // open files
-      vShaderFile.open(vertexPath);
-      fShaderFile.open(fragmentPath);
+      vShaderFile.open(vertexCode);
+      fShaderFile.open(fragmentCode);
       std::stringstream vShaderStream, fShaderStream;
       // read file's buffer contents into streams
       vShaderStream << vShaderFile.rdbuf();
@@ -31,15 +83,7 @@ namespace olivera
       vertexCode = vShaderStream.str();
       fragmentCode = fShaderStream.str();
       // if geometry shader path is present, also load a geometry shader
-      if (geometryPath != nullptr)
-      {
-        gShaderFile.open(geometryPath);
-        std::stringstream gShaderStream;
-        gShaderStream << gShaderFile.rdbuf();
-        gShaderFile.close();
-        geometryCode = gShaderStream.str();
-      }
-
+      
     }
     catch (std::ifstream::failure e)
     {
@@ -60,35 +104,25 @@ namespace olivera
     glCompileShader(fragment);
     checkCompileErrors(fragment, "FRAGMENT");
     // if geometry shader is given, compile geometry shader
-    unsigned int geometry;
-    if (geometryPath != nullptr)
-    {
-      const char * gShaderCode = geometryCode.c_str();
-      geometry = glCreateShader(GL_GEOMETRY_SHADER);
-      glShaderSource(geometry, 1, &gShaderCode, NULL);
-      glCompileShader(geometry);
-      checkCompileErrors(geometry, "GEOMETRY");
-    }
+   
     // shader Program
     ID = glCreateProgram();
     glAttachShader(ID, vertex);
     glAttachShader(ID, fragment);
-    if (geometryPath != nullptr)
-      glAttachShader(ID, geometry);
+   
     glLinkProgram(ID);
     checkCompileErrors(ID, "PROGRAM");
     // delete the shaders as they're linked into our program now and no longer necessery
     glDeleteShader(vertex);
     glDeleteShader(fragment);
-    if (geometryPath != nullptr)
-      glDeleteShader(geometry);
+    
     //Reset shader state
     glUseProgram(0);
   }
 
-  void ShaderProgram::onInitialise(const char* vertexPath, const char* fragmentPath, const char* geometryPath)
+   ShaderProgram::ShaderProgram(std::string _path)
   {
-    loadShaderProgram(vertexPath, fragmentPath, geometryPath);
+    loadShaderProgram(_path);
   }
 
  

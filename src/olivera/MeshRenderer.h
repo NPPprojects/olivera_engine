@@ -21,8 +21,8 @@ class Model;
 class MeshRenderer : public Component
 {
 public:
-  void onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath);
-  void onInitialise(std::string _modelPath);
+  void onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath, std::string _shaderPath);
+  void onInitialise(std::string _modelPath, std::string _shaderPath);
   void onDisplay();
   void onTick();
   void Draw();

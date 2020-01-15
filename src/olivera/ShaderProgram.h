@@ -1,7 +1,7 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
-#include "Component.h"
+#include "Resource.h"
 
 #include <fstream>
 #include <sstream>
@@ -12,7 +12,7 @@
 namespace olivera
 {
 
-  class ShaderProgram : public Component
+  class ShaderProgram : public Resource
   {
   public:
 
@@ -22,11 +22,9 @@ namespace olivera
 
     GLuint getID();
     void useShader();
-    void loadShaderProgram(const char* VertexPath, const char* fragmentPath, const char* geometryPath = nullptr);
-    void onInitialise(const char* vertexPath, const char* fragmentPath, const char* geometryPath = nullptr);
-  protected:
-
-
+    void loadShaderProgram(std::string _path);
+    ShaderProgram(std::string _path);
+ 
   private:
     GLuint ID;
     //Vertex Data Initialisation

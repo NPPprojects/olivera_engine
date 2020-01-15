@@ -22,11 +22,11 @@ namespace olivera
 {
 
 
-void MeshRenderer::onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath)
+void MeshRenderer::onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath, std::string _shaderPath)
 {
   entitySelf= getEntity();
   core = getCore();
-  shader = entitySelf.lock()->getComponent<ShaderProgram>();
+  shader = core.lock()->getResources()->load<ShaderProgram>(_shaderPath);
   object = core.lock()->getResources()->load<VertexBuffer>(_meshPath);
   transform = entitySelf.lock()->getComponent<Transform>();
   cameraContext = core.lock()->getCurrentCamera();
@@ -37,11 +37,11 @@ void MeshRenderer::onInitialise(std::vector<std::string> _texturePaths, std::str
     shader.lock()->setInt("texture" + std::to_string(i) + "", i);
   }
 }
-void MeshRenderer::onInitialise(std::string _modelPath)
+void MeshRenderer::onInitialise(std::string _modelPath, std::string _shaderPath)
 {
   entitySelf = getEntity();
   core = getCore();
-  shader = entitySelf.lock()->getComponent<ShaderProgram>();
+  shader = core.lock()->getResources()->load<ShaderProgram>(_shaderPath);
   transform = entitySelf.lock()->getComponent<Transform>();
   cameraContext = core.lock()->getCurrentCamera();
   model = core.lock()->getResources()->load<Model>(_modelPath);
