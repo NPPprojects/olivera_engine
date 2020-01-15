@@ -1,12 +1,7 @@
-#pragma once
-
-
-
 #include <GL/glew.h> // holds all OpenGL type declarations
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-
 
 
 #include <string>
@@ -15,8 +10,11 @@
 #include <iostream>
 #include <vector>
 
-namespace olivera
+namespace olivera 
 {
+  class ShaderProgram;
+
+
   struct Vertex {
     // position
     glm::vec3 Position;
@@ -40,8 +38,6 @@ namespace olivera
     unsigned int GetId() { return id; };
 
   };
-
-  class ShaderProgram;
 
   class Mesh {
   public:

@@ -46,8 +46,13 @@ int main()
   engine->getResources()->create<olivera::VertexBuffer>("resources/objects/TexturedCube.data");
   engine->getResources()->create<olivera::VertexBuffer>("resources/objects/cube.data");
 
+ // engine->getResources()->create<olivera::Model>("resources/objects/nanosuit/nanosuit.obj");
+  std::shared_ptr<olivera::Model> model = std::make_shared<olivera::Model>("resources/objects/nanosuit/nanosuit.obj");
+
 	std::vector<std::string> TextureContainer = {"resources/textures/BetterBox.png","resources/textures/awesomeface.png"};
 
+  
+  // "resources/objects/nanosuit/nanosuit.obj"
 
 	std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
 	std::shared_ptr<olivera::Transform> cameraTransform = cameraEntity->addComponent<olivera::Transform>();
@@ -74,7 +79,13 @@ int main()
 
 	shapeTransform2->setPosition(glm::vec3(0.0f, 1.1f, 0.0f));
 
-
+  //Nanosuit
+  std::shared_ptr<olivera::Entity> nanosuit = engine->addEntity();
+  std::shared_ptr<olivera::Transform> nanosuitTransform = nanosuit->addComponent<olivera::Transform>();
+  std::shared_ptr<olivera::ShaderProgram> nanosuitShader = nanosuit->addComponent<olivera::ShaderProgram>("resources/shaders/nanosuit.vert", "resources/shaders/nanosuit.frag");
+ // std::shared_ptr<olivera::MeshRenderer> nanosuitMesh = nanosuit->addComponent<olivera::MeshRenderer>("resources/objects/nanosuit/nanosuit.obj");
+  nanosuitTransform->setPosition(glm::vec3(1.0f, 0.0f, 1.0f));
+  
 	//Square
    /*std::shared_ptr<olivera::Entity> square = engine->addEntity();
    std::shared_ptr<olivera::Texture> smiley = cube->addComponent<olivera::Texture>("resources/textures/awesomeface.png");

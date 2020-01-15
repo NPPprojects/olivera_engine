@@ -1,9 +1,10 @@
 #include "Model.h"
 #include "Mesh.h"
-
-
+#include "Model.h"
 namespace olivera
 {
+
+
   // constructor, expects a filepath to a 3D model.
   Model::Model(std::string const &path, bool gamma) : gammaCorrection(gamma)
   {

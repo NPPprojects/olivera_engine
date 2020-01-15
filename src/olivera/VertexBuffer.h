@@ -15,7 +15,7 @@ namespace olivera
 {
 	class VertexBuffer : public Resource
 	{
-    friend class Resource;
+    
 	public:
     VertexBuffer() {}
     VertexBuffer(std::string _path);

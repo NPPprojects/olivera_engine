@@ -1,12 +1,8 @@
-#pragma once
-
-
-
 #include "Mesh.h"
 #include "ShaderProgram.h"
+
 namespace olivera
 {
-
   Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures)
   {
     this->vertices = vertices;

@@ -3,7 +3,6 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-
 #include "stb_image.h"
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
@@ -16,14 +15,14 @@
 #include <map>
 #include <vector>
 
-namespace olivera
-{
-  unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma = false);
+namespace olivera {
 
-  class ShaderProgram;
   class Texture;
+  class ShaderProgram;
+  class Vertex;
   class Mesh;
 
+  unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma = false);
   class Model
   {
   public:
