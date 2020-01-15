@@ -2,7 +2,7 @@
 #include <glm/glm.hpp>
 
 
-#include "Component.h"
+#include "Resource.h"
 
 #include <iostream>
 #include <vector>
@@ -13,16 +13,20 @@
 
 namespace olivera
 {
-	class VertexBuffer : public Component
+	class VertexBuffer : public Resource
 	{
+    friend class Resource;
 	public:
+    VertexBuffer() {}
+    VertexBuffer(std::string _path);
+
 		void readVertexData(std::string _ObjectFile);
 		void setVertexData();
 		GLuint getVAO();
 		int getVerticiesCount();
 		void onInitialise(std::string _ObjectFile);
-	private:
 
+	private:
 		int vertexCount; //Amount of vertecies in an object
 		int attributeTypeCount; //Counter for amount of Attributes
 		int stride;     //The stride

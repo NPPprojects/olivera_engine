@@ -31,7 +31,13 @@ namespace olivera {
 		}
 	}
 
-	void VertexBuffer::readVertexData(std::string _ObjectFile)
+  VertexBuffer::VertexBuffer(std::string _path)
+  {
+    readVertexData(_path);
+    setVertexData();
+  }
+
+  void VertexBuffer::readVertexData(std::string _ObjectFile)
 	{
 		std::string line;
 		std::vector <std::string> Splitline;

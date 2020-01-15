@@ -8,9 +8,7 @@ namespace olivera
 
   class Texture : public Resource
   {
-	  friend class Resource;
   public:
-
 	Texture() {}
 	Texture(std::string path);
     glm::vec2 getSize();

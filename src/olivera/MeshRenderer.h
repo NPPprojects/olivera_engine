@@ -24,7 +24,7 @@ class Texture;
 class MeshRenderer : public Component
 {
 public:
-  void onInitialise(std::vector<std::string> _TexturePaths);
+  void onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath);
   void onDisplay();
   void onTick();
   void Draw();

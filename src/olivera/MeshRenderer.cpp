@@ -18,24 +18,22 @@ namespace olivera
 {
 
 
-void MeshRenderer::onInitialise(std::vector<std::string> _TexturePaths)
+void MeshRenderer::onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath)
 {
  
   entitySelf= getEntity();
   core = getCore();
   shader = entitySelf.lock()->getComponent<ShaderProgram>();
-  object = entitySelf.lock()->getComponent<VertexBuffer>();
+  object = core.lock()->getResources()->load<VertexBuffer>(_meshPath);
   transform = entitySelf.lock()->getComponent<Transform>();
   cameraContext = core.lock()->getCurrentCamera();
   shader.lock()->useShader();
-  for (int i = 0; i < _TexturePaths.size(); i++)
+  for (int i = 0; i < _texturePaths.size(); i++)
   {
-	  texture.push_back(core.lock()->getResources()->load<Texture>(_TexturePaths.at(i)));	 
-	 // shader.lock()->setInt("texture"+std::to_string(i)+"", texture.at(i).lock()->getId());
-
+	  texture.push_back(core.lock()->getResources()->load<Texture>(_texturePaths.at(i)));	 
+    shader.lock()->setInt("texture" + std::to_string(i) + "", i);
   }
-  shader.lock()->setInt("texture0", 0);
-  shader.lock()->setInt("texture1", 1);
+
 }
 void MeshRenderer::onDisplay()
 { 
@@ -58,10 +56,11 @@ void MeshRenderer::Draw()
   shader.lock()->useShader();
   glBindVertexArray(object.lock()->getVAO());
 
-  glActiveTexture(GL_TEXTURE0);
-  glBindTexture(GL_TEXTURE_2D, texture.at(0).lock()->getId());
-  glActiveTexture(GL_TEXTURE1);
-  glBindTexture(GL_TEXTURE_2D, texture.at(1).lock()->getId());
+  for (int i = 0; i < texture.size(); i++)
+  {
+    glActiveTexture(GL_TEXTURE0+i);
+    glBindTexture(GL_TEXTURE_2D, texture.at(i).lock()->getId());
+  }
   	
   glDrawArrays(GL_TRIANGLES, 0, object.lock()->getVerticiesCount());
 
