@@ -1,3 +1,9 @@
+#ifndef OLIVERA_MESH_H
+#define OLIVERA_MESH_H 
+
+
+
+
 #include <GL/glew.h> // holds all OpenGL type declarations
 
 #include <glm/glm.hpp>
@@ -28,7 +34,7 @@ namespace olivera
     glm::vec3 Bitangent;
   };
 
-  struct Texture {
+  struct Textures {
     unsigned int id;
     std::string type;
     std::string path;
@@ -45,7 +51,7 @@ namespace olivera
 
 
     // constructor
-    Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures);
+    Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Textures> textures);
 
 
     // render the mesh
@@ -57,7 +63,7 @@ namespace olivera
 
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
-    std::vector<Texture> textures;
+    std::vector<Textures> textures;
     unsigned int VAO;
     unsigned int VBO, EBO;
 
@@ -66,3 +72,6 @@ namespace olivera
     void setupMesh();
   };
 }
+
+
+#endif // !

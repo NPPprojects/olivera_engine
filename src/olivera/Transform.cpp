@@ -14,6 +14,7 @@ namespace olivera
 	{
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, position);	
+    model = glm::scale(model, scale);
 	}
 
 	void Transform::setPosition(glm::vec3 _position)

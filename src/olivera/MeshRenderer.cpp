@@ -13,6 +13,7 @@
 #include "VertexBuffer.h"
 #include "Texture.h"
 #include "Transform.h"
+
 #include "Model.h"
 
 #define GLM_ENABLE_EXPERIMENTAL
@@ -43,7 +44,7 @@ void MeshRenderer::onInitialise(std::string _modelPath)
   shader = entitySelf.lock()->getComponent<ShaderProgram>();
   transform = entitySelf.lock()->getComponent<Transform>();
   cameraContext = core.lock()->getCurrentCamera();
-  //model = core.lock()->getResources()->load<Model>(_modelPath);
+  model = core.lock()->getResources()->load<Model>(_modelPath);
   
 }
 void MeshRenderer::onDisplay()
@@ -54,11 +55,9 @@ void MeshRenderer::onTick()
 {
 
   shader.lock()->useShader();
-  projection = glm::mat4(1.0f);
-  projection = cameraContext.lock()->getProjection();
-  shader.lock()->setMat4("projection", projection); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
-  view = cameraContext.lock()->getView();
-  shader.lock()->setMat4("view", view);
+
+  shader.lock()->setMat4("projection", cameraContext.lock()->getProjection()); 
+  shader.lock()->setMat4("view", cameraContext.lock()->getView());
   shader.lock()->setMat4("model", transform.lock()->getModel());
   glUseProgram(0);
 }
@@ -82,7 +81,7 @@ void MeshRenderer::Draw()
   }
   else
   {
-   // model.lock()->Draw(shader.lock());
+    model.lock()->Draw(shader.lock());
   }
 }
 

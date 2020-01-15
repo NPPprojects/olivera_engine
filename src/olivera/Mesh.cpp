@@ -3,7 +3,7 @@
 
 namespace olivera
 {
-  Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures)
+  Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Textures> textures)
   {
     this->vertices = vertices;
     this->indices = indices;

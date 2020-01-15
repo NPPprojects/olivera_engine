@@ -1,4 +1,4 @@
-#pragma once
+
 #include <GL/glew.h> 
 
 #include <glm/glm.hpp>
@@ -15,15 +15,17 @@
 #include <map>
 #include <vector>
 
+#include "Mesh.h";
+#include "Resource.h"
 namespace olivera {
 
-  class Texture;
+
   class ShaderProgram;
-  class Vertex;
-  class Mesh;
+  
+  
 
   unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma = false);
-  class Model
+  class Model : public Resource
   {
   public:
     /*  Model Data */
@@ -50,9 +52,9 @@ namespace olivera {
 
     // checks all material textures of a given type and loads the textures if they're not loaded yet.
     // the required info is returned as a Texture struct.
-    std::vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, std::string typeName);
+    std::vector<Textures> loadMaterialTextures(aiMaterial *mat, aiTextureType type, std::string typeName);
     /*  Model Data */
-    std::vector<Texture> textures_loaded;	// stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once.
+    std::vector<Textures> textures_loaded;	// stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once.
     std::vector<Mesh> meshes;
     std::string directory;
     bool gammaCorrection;
@@ -60,3 +62,4 @@ namespace olivera {
 
   };
 }
+

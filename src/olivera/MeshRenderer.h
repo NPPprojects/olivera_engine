@@ -1,6 +1,7 @@
 
 #include "Component.h"
 
+
 #include <memory>
 #include <vector>
 
@@ -15,8 +16,8 @@ class CurrentCamera;
 class Core;
 class Transform;
 class Texture;
-class Model;
 
+class Model;
 class MeshRenderer : public Component
 {
 public:
@@ -29,11 +30,6 @@ public:
 private:
 
 
-  glm::mat4 view;
-  glm::mat4 projection;
-  glm::mat4 model;
-
-
   std::vector<std::weak_ptr<Texture>> texture;
   std::weak_ptr<ShaderProgram> shader;
   std::weak_ptr<VertexBuffer> object;
@@ -42,7 +38,7 @@ private:
   std::weak_ptr<Core> core;
   std::weak_ptr<Transform> transform;
 
- // std::weak_ptr<Model> model;
+  std::weak_ptr<Model> model;
 };
 
 }
