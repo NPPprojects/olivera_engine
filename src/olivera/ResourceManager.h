@@ -13,13 +13,13 @@ namespace olivera
   {
   public:
     template <typename T>
-	std::shared_ptr<T> load(std::string _path)
+	std::shared_ptr<T> load(std::string _name)
     {
 		std::shared_ptr<T> rtn;
 		for (std::vector<std::shared_ptr<Resource>>::iterator i = resources.begin(); i != resources.end(); ++i)
 		{
 		
-			if ((*i)->getPath() == _path)
+			if ((*i)->getName() == _name)
 			{
 				rtn = std::dynamic_pointer_cast<T>(*i);
 				if (rtn)
@@ -36,7 +36,7 @@ namespace olivera
     std::shared_ptr<T> create(const std::string& _name, std::string &_path)
     {
 		std::shared_ptr<T> resource = std::make_shared<T>(_path);
-		resource->setPath(_name);
+		resource->setName(_name);
 		resources.push_back(resource);
 		return resource;
     }

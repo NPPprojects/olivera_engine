@@ -3,14 +3,14 @@
 
 	namespace olivera
 	{
-		std::string Resource::getPath()
+		std::string Resource::getName()
 		{
-			return path;
+			return name;
 		}
 		
-		void Resource::setPath(std::string _path)
+		void Resource::setName(std::string _name)
 		{
-			path = _path;
+      name = _name;
 		}
 
     Resource::Resource()

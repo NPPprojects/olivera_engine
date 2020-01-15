@@ -9,13 +9,13 @@ namespace olivera
 	class Resource
 	{
 	public:
-		std::string getPath();
-		void setPath(std::string _path);
+		std::string getName();
+		void setName(std::string _name);
 		virtual ~Resource() {}
     Resource();
 
 	private:
-		std::string path;
+		std::string name;
 	};
 }
 
