@@ -88,6 +88,8 @@ src/olivera/PostProcessing.cpp
 
 src/olivera/SoundSource.cpp
 src/olivera/SoundSource.h
+
+
 )
 
 
@@ -114,6 +116,9 @@ src/TestScreen/SoundInputManager.h
 
 src/TestScreen/GameObject.cpp
 src/TestScreen/GameObject.h
+
+src/TestScreen/BoxInputManager.cpp
+src/TestScreen/BoxInputManager.h
   
 src/TestScreen/main.cpp
 

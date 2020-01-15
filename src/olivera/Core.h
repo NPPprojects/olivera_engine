@@ -23,25 +23,19 @@ namespace olivera
     std::shared_ptr<Entity> addEntity();      //Adds an entity to the entity vector
 
 	///Super Lost
-	template <typename T>
-	std::vector<std::shared_ptr<T>> getEntities(std::vector<std::shared_ptr<Entity>> &_entity)
-	{
-    //Go throught each entity and add those with a specified component to _entity
-    //find all components
-		for (size_t i = 0; i < entities.size(); i++)
-		{
-			std::shared_ptr<T> tst = std::dynamic_pointer_cast<T>(entities.at(i));
-      entities.at(i)->getComponent<tst>();
-      if (tst)
+    template<typename T>
+    void GetEntities(std::vector<std::shared_ptr<Entity>>& _list)
+    {
+      for (std::vector<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
       {
-        return    _entity.emplace_back(entities.at(i));
+        bool found = (*it)->checkForComponent<T>();
+
+        if (found)
+        {
+          _list.push_back((*it));
+        }
       }
-
-      else  nullptr;
-		}
- 
-
-	}
+    }
 
     std::shared_ptr<Keyboard> getKeyboard();  //Get the Keyboard so input class has access to keys that have been pressed;
     std::shared_ptr<Environment> getEnvironment();  //get envioronment time

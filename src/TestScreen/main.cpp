@@ -6,6 +6,7 @@
 #include "FPSCamera.h"
 #include "CameraInputManager.h"
 #include "SoundInputManager.h"
+#include "BoxInputManager.h"
 #include <iostream>
 #include <string>
 
@@ -65,6 +66,7 @@ int main()
 	std::shared_ptr<olivera::ShaderProgram> cubeShader = cube->addComponent<olivera::ShaderProgram>("resources/shaders/TextureShader.vert", "resources/shaders/TextureShader.frag");
 	std::shared_ptr<olivera::MeshRenderer> mr = cube->addComponent<olivera::MeshRenderer>(TextureContainer, "TextureCubeMesh");
 	std::shared_ptr<olivera::Collision> collider = cube->addComponent<olivera::Collision>();
+  std::shared_ptr<BoxInputManager> controller = cube->addComponent<BoxInputManager>();
 	collider->setSize(glm::vec3(1.0f, 1.0f, 1.0f));
 
 
