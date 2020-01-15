@@ -17,5 +17,4 @@
 #include "Resource.h"
 #include "Collision.h"
 #include "Model.h"
-#include "Mesh.h"
 #endif
