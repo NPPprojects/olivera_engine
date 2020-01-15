@@ -6,6 +6,13 @@ namespace olivera
   {
   public:
 
+    PostProcessing();
+
+    ~PostProcessing();
+
+    void FrameBufferConfiguration();
+
+
   private:
   };
 
