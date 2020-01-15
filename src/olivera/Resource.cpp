@@ -12,5 +12,10 @@
 		{
 			path = _path;
 		}
+
+    Resource::Resource()
+    {
+      
+    }
 		
 	}

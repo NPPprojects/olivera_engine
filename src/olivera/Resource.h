@@ -12,7 +12,7 @@ namespace olivera
 		std::string getPath();
 		void setPath(std::string _path);
 		virtual ~Resource() {}
-
+    Resource();
 
 	private:
 		std::string path;
