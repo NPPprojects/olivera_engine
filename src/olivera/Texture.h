@@ -11,14 +11,15 @@ namespace olivera
 	  friend class Resource;
   public:
 
-	  int LoadTexture();
+	Texture() {}
+	Texture(std::string path);
     glm::vec2 getSize();
     GLuint getId();
 
 
 	
 	//Resource
-	std::shared_ptr<Texture> load(std::string _path);
+
 
 
   private:
@@ -30,5 +31,3 @@ namespace olivera
 
 
 }
-
-

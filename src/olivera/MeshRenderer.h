@@ -2,6 +2,7 @@
 #include "Component.h"
 
 #include <memory>
+#include <vector>
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -18,10 +19,12 @@ class Core;
 
 class Transform;
 
+class Texture;
+
 class MeshRenderer : public Component
 {
 public:
-  void onInitialise();
+  void onInitialise(std::vector<std::string> _TexturePaths);
   void onDisplay();
   void onTick();
   void Draw();
@@ -33,6 +36,7 @@ private:
   glm::mat4 projection;
   glm::mat4 model;
 
+  std::vector<std::weak_ptr<Texture>> texture;
   std::weak_ptr<ShaderProgram> shader;
   std::weak_ptr<VertexBuffer> object;
   std::weak_ptr<Entity> entitySelf;

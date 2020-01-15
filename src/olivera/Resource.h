@@ -11,12 +11,8 @@ namespace olivera
 	public:
 		std::string getPath();
 		void setPath(std::string _path);
-		
-		int n=10;
-		int getInt()
-		{
-			return n;
-		}
+		virtual ~Resource() {}
+
 
 	private:
 		std::string path;

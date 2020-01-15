@@ -79,18 +79,22 @@ namespace olivera
   {
     return cameraContext;
   }
+
   std::shared_ptr<ResourceManager> Core::getResources()
   {
 	  return resources;
   }
+
   std::shared_ptr<Mouse> Core::getMouse()
   {
     return mouse;
   }
+
   std::shared_ptr<Environment> Core::getEnvironment()
   {
     return environment;
   }
+
   void Core::start()
   {
     running = true;
@@ -100,6 +104,9 @@ namespace olivera
       SDL_Event event;
       while (SDL_PollEvent(&event))
       {
+	//	  glEnable(GL_CULL_FACE);
+		  glEnable(GL_DEPTH_TEST);
+
         keyboard->SetKeyboardState();
         switch (event.type)
         {
@@ -138,7 +145,7 @@ namespace olivera
         keyboard->clearKey();
      
       glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
-      glClear(GL_COLOR_BUFFER_BIT);
+	  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
       for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
         it != entities.end(); it++)
@@ -150,6 +157,7 @@ namespace olivera
       glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     }
   }
+
   void Core::stop()
   {
     running = false;

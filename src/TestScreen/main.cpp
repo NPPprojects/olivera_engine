@@ -40,10 +40,12 @@ int main()
 	//Engine
 	std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
 
+	engine->getResources()->create<olivera::Texture>("resources/textures/BetterBox.png");
+	engine->getResources()->create<olivera::Texture>("resources/textures/awesomeface.png");
+	
 
 
-	olivera::ResourceManager Resources;
-
+	std::vector<std::string> TextureContainer = {"resources/textures/BetterBox.png","resources/textures/awesomeface.png"};
 
 
 	std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
@@ -55,9 +57,9 @@ int main()
 	//Cube
 	std::shared_ptr<olivera::Entity> cube = engine->addEntity();
 	std::shared_ptr<olivera::Transform> shapeTransform = cube->addComponent<olivera::Transform>();
-	std::shared_ptr<olivera::ShaderProgram> cubeShader = cube->addComponent<olivera::ShaderProgram>("resources/shaders/cube.vert", "resources/shaders/cube.frag");
-	std::shared_ptr<olivera::VertexBuffer> shape = cube->addComponent<olivera::VertexBuffer>("resources/objects/cube.data");
-	std::shared_ptr<olivera::MeshRenderer> mr = cube->addComponent<olivera::MeshRenderer>();
+	std::shared_ptr<olivera::ShaderProgram> cubeShader = cube->addComponent<olivera::ShaderProgram>("resources/shaders/TextureShader.vert", "resources/shaders/TextureShader.frag");
+	std::shared_ptr<olivera::VertexBuffer> shape = cube->addComponent<olivera::VertexBuffer>("resources/objects/TexturedCube.data");
+	std::shared_ptr<olivera::MeshRenderer> mr = cube->addComponent<olivera::MeshRenderer>(TextureContainer);
 	std::shared_ptr<olivera::Collision> collider = cube->addComponent<olivera::Collision>();
 	collider->setSize(glm::vec3(1.0f, 1.0f, 1.0f));
 
@@ -67,7 +69,7 @@ int main()
 	std::shared_ptr<olivera::Transform> shapeTransform2 = cube2->addComponent<olivera::Transform>();
 	std::shared_ptr<olivera::ShaderProgram> cubeShader2 = cube2->addComponent<olivera::ShaderProgram>("resources/shaders/cube.vert", "resources/shaders/cube.frag");
 	std::shared_ptr<olivera::VertexBuffer> shape2 = cube2->addComponent<olivera::VertexBuffer>("resources/objects/cube.data");
-	std::shared_ptr<olivera::MeshRenderer> mr2 = cube2->addComponent<olivera::MeshRenderer>();
+	std::shared_ptr<olivera::MeshRenderer> mr2 = cube2->addComponent<olivera::MeshRenderer>(TextureContainer);
 	std::shared_ptr<olivera::Collision> collider2 = cube2->addComponent<olivera::Collision>();
 	collider2->setSize(glm::vec3(1.0f, 1.0f, 1.0f));
 
