@@ -4,7 +4,7 @@
   class FPSCamera;
 
 
-  class  InputManager : public olivera::Component
+  class  CameraInputManager : public olivera::Component
   {
 
   public:
@@ -16,16 +16,19 @@
 
     void mouse_callback(double xpos, double ypos);
 
-	void KeysHeld();
+	void keysHeld();
+
+
  
 
   private:
 
-    std::shared_ptr<olivera::Keyboard> keyboard;
-    std::shared_ptr<olivera::Mouse> mouse;
-    std::shared_ptr <olivera::Core> core;
-    std::shared_ptr<olivera::Entity> entitySelf;
-    std::shared_ptr<FPSCamera> camera;
+    std::weak_ptr<olivera::Keyboard> keyboard;
+    std::weak_ptr<olivera::Mouse> mouse;
+    std::weak_ptr <olivera::Core> core;
+    std::weak_ptr<olivera::Entity> entitySelf;
+    std::weak_ptr<FPSCamera> camera;
+
 
 	std::vector <bool> Keys;
 	struct KeyHeld 

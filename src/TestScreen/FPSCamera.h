@@ -6,8 +6,7 @@
 
   class FPSCamera : public olivera::Component
   {
-	  class transform;
-
+	
   public:
     enum CameraMovement {
       FORWARD,

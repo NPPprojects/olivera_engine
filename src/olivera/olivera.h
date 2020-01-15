@@ -17,4 +17,6 @@
 #include "Resource.h"
 #include "Collision.h"
 #include "Model.h"
+#include "SoundSource.h"
+#include "Sound.h"
 #endif

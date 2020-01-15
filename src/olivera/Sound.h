@@ -1,23 +1,25 @@
-#include <memory>
-#include <string>
 
-namespace myengine
+#include "Resource.h"
+#include <AL/al.h>
+#include <vector>
+namespace olivera
 {
 
-struct SoundImpl;
+  class Sound : public Resource
+  {
+  private:
+    ALuint id;
 
-class Sound
-{
-  std::shared_ptr<SoundImpl> impl;
+  public:
+    Sound() {};
+    Sound(std::string _path);
+    ~Sound() { alDeleteBuffers(1, &id); }
 
-public:
-  Sound();
-  Sound(std::string path);
-  void load(std::string path);
-  void play(float vol, float varMin, float varMax);
-  void play();
+    void load(std::string _path);
 
+    void loadOggFile(const std::string& fileName, std::vector<char>& buffer,
+      ALenum &format, ALsizei &freq);
 
-};
-
+    ALuint getId() { return id; }
+  };
 }

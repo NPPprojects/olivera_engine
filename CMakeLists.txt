@@ -85,6 +85,9 @@ src/olivera/Collision.cpp
 
 src/olivera/PostProcessing.h
 src/olivera/PostProcessing.cpp
+
+src/olivera/SoundSource.cpp
+src/olivera/SoundSource.h
 )
 
 
@@ -99,10 +102,16 @@ else()
 endif()
 
 add_executable(TestScreen
+
 src/TestScreen/FPSCamera.cpp
 src/TestScreen/FPSCamera.h
-src/TestScreen/InputManager.cpp
-src/TestScreen/InputManager.h
+
+src/TestScreen/CameraInputManager.cpp
+src/TestScreen/CameraInputManager.h
+
+src/TestScreen/SoundInputManager.cpp
+src/TestScreen/SoundInputManager.h
+
 src/TestScreen/GameObject.cpp
 src/TestScreen/GameObject.h
   

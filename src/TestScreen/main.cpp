@@ -4,7 +4,8 @@
 #include <olivera/olivera.h>
 
 #include "FPSCamera.h"
-#include "InputManager.h"
+#include "CameraInputManager.h"
+#include "SoundInputManager.h"
 #include <iostream>
 #include <string>
 
@@ -46,17 +47,16 @@ int main()
   engine->getResources()->create<olivera::VertexBuffer>(std::string("TextureCubeMesh"), std::string("resources/objects/TexturedCube.data"));
   engine->getResources()->create<olivera::VertexBuffer>(std::string("ColoredCubeMesh"), std::string("resources/objects/cube.data"));
   engine->getResources()->create<olivera::Model>(std::string("nanosuit"), std::string("resources/objects/nanosuit/nanosuit.obj"));
- 
+  engine->getResources()->create<olivera::Sound>(std::string("Horn"), std::string("resources/sound/dixie_horn.ogg"));
 
-	std::vector<std::string> TextureContainer = {"BetterBox","AwesomeFace"};
+	std::vector<std::string> TextureContainer = {"BetterBox", "AwesomeFace"};
 
 
-  // "resources/objects/nanosuit/nanosuit.obj"
-
+  
 	std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
 	std::shared_ptr<olivera::Transform> cameraTransform = cameraEntity->addComponent<olivera::Transform>();
 	std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();
-	std::shared_ptr<InputManager> cameraInput = cameraEntity->addComponent<InputManager>();
+	std::shared_ptr<CameraInputManager> cameraInput = cameraEntity->addComponent<CameraInputManager>();
 
 
 	//Cube
@@ -74,8 +74,9 @@ int main()
 	std::shared_ptr<olivera::ShaderProgram> cubeShader2 = cube2->addComponent<olivera::ShaderProgram>("resources/shaders/cube.vert", "resources/shaders/cube.frag");
   std::shared_ptr<olivera::MeshRenderer> mr1 = cube2->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh");
 	std::shared_ptr<olivera::Collision> collider2 = cube2->addComponent<olivera::Collision>();
+  std::shared_ptr<olivera::SoundSource> soundy = cube2->addComponent<olivera::SoundSource>("Horn", cameraEntity);
+  std::shared_ptr<SoundInputManager> soundyControl = cube2->addComponent<SoundInputManager>();
 	collider2->setSize(glm::vec3(1.0f, 1.0f, 1.0f));
-
 	shapeTransform2->setPosition(glm::vec3(0.0f, 1.1f, 0.0f));
 
   //Nanosuit

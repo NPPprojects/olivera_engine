@@ -33,7 +33,7 @@ namespace olivera
 	void Collision::collideBox()
 	{
 		std::vector<std::shared_ptr<Entity> > bces;
-
+ //   getCore()->getEntities<Collision>(bces);
 		///Here is where i get lost
 		//getCore()->getEntities<Collision>(bces);
 		//getWorld()->getEntities<Collision>(bces);

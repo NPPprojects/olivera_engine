@@ -31,12 +31,15 @@ namespace olivera
 		for (size_t i = 0; i < entities.size(); i++)
 		{
 			std::shared_ptr<T> tst = std::dynamic_pointer_cast<T>(entities.at(i));
-			if (tst)
-			{
-         _entity.emplace_back(tst);
-			}
+      entities.at(i)->getComponent<tst>();
+      if (tst)
+      {
+        return    _entity.emplace_back(entities.at(i));
+      }
+
+      else  nullptr;
 		}
-    return _entity;
+ 
 
 	}
 
