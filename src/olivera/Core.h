@@ -18,7 +18,7 @@ namespace olivera
   class CurrentCamera;
   
   class PostProcessing;
-  class VertexBuffer;
+
 
   class ShaderProgram;
   class ResourceManager;
@@ -29,7 +29,7 @@ namespace olivera
     static std::shared_ptr<Core> initialise();    //Initialisation function that will add all entities to the tick rate and display them
     std::shared_ptr<Entity> addEntity();      //Adds an entity to the entity vector
 
-	///Super Lost
+
     template<typename T>
     void GetEntities(std::vector<std::shared_ptr<Entity>>& _list)
     {

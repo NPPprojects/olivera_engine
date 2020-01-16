@@ -6,29 +6,65 @@ namespace olivera
   class Transform : public Component
   {
   public:
-    glm::mat4 getModel();
-
+  
+  /**
+  *\ Getter for XCoordinate on window
+  */
+  glm::mat4 getModel();
+  
+  /**
+  *\ Getter for XCoordinate on window
+  */
 	void updateModel();
-
+  
+  /**
+  *\ Getter for XCoordinate on window
+  */
 	void setPosition(glm::vec3 _position);
-	void setRotation(glm::vec3 _rotation);
-	void setScale(glm::vec3 _scale);
+	
+  /**
+  *\ Getter for XCoordinate on window
+  */
+  void setRotation(glm::vec3 _rotation);
+  
+  /**
+  *\ Getter for XCoordinate on window
+  */
+  void setScale(glm::vec3 _scale);
 
-	glm::vec3 getPosition();
-	glm::vec3 getRotation();
-	glm::vec3 setScale();
+  /**
+  *\ Getter for XCoordinate on window
+  */
+  glm::vec3 getPosition();
 
-	void onTick();
-	void onInitialise();
-  private:
+  /**
+  *\ Getter for XCoordinate on window
+  */
+  glm::vec3 getRotation();
+	
+  /**
+  *\ Getter for XCoordinate on window
+  */
+  glm::vec3 setScale();
+
+  /**
+  *\ Getter for XCoordinate on window
+  */
+  void onTick();
+	
+  /**
+  *\ Getter for XCoordinate on window
+  */
+  void onInitialise();
+  
+  private:  
+	glm::vec3 position;///<position for Entity
+  glm::vec3 rotation;///<rotation for Entity
+  glm::vec3 scale;///<scale for Entity
     
-	glm::vec3 position;
-    glm::vec3 rotation;
-    glm::vec3 scale;
-    
 
 
-	glm::mat4 model;
+  glm::mat4 model;///<Model Matrix for Entity
     
 
   };
