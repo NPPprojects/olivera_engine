@@ -64,8 +64,8 @@ int main()
 
  
   
-  //Mandatory to set 
-  engine->setPostProcessing(engine, "postProcessingShader", "PostProcessingSquare");
+  //Set PostProcessing
+  //engine->setPostProcessing(engine, "postProcessingShader", "PostProcessingSquare");
 
 
 	std::vector<std::string> TextureContainer = {"BetterBox", "AwesomeFace"};

@@ -114,8 +114,7 @@ namespace olivera
       SDL_Event event;
       while (SDL_PollEvent(&event))
       {
-	//	  glEnable(GL_CULL_FACE);
-	
+
         keyboard->SetKeyboardState();
         switch (event.type)
         {
@@ -154,7 +153,10 @@ namespace olivera
         keyboard->clearKey();
      
         ///PostProcessing
-       glBindFramebuffer(GL_FRAMEBUFFER, postProcessing->getFBO());
+        if (postProcessing != nullptr) 
+        {
+          glBindFramebuffer(GL_FRAMEBUFFER, postProcessing->getFBO());
+        }
 
       glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
 	  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -169,18 +171,19 @@ namespace olivera
 
       //Where Code for Post Processing Would go
 
+      if (postProcessing != nullptr)
+      {
+        //now bind back to default framebuffer and draw a quad plane with the attached framebuffer color texture
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
+        //clear all relevant buffers
+        glClearColor(0.184f, 0.196f, 0.235f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        //use the color attachment texture as the texture of the quad plane
 
-      //now bind back to default framebuffer and draw a quad plane with the attached framebuffer color texture
-      glBindFramebuffer(GL_FRAMEBUFFER, 0);
-      glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
-      //clear all relevant buffers
-      glClearColor(0.184f, 0.196f, 0.235f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-      //use the color attachment texture as the texture of the quad plane
+        postProcessing->use();
 
-      postProcessing->use();
-
-
+      }
 
       SDL_GL_SwapWindow(window);
       glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
