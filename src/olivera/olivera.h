@@ -19,4 +19,6 @@
 #include "Model.h"
 #include "SoundSource.h"
 #include "Sound.h"
+#include "Materials.h"
+#include "Light.h"
 #endif

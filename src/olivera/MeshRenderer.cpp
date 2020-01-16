@@ -16,6 +16,8 @@
 
 #include "Model.h"
 
+#include "Materials.h"
+
 #define GLM_ENABLE_EXPERIMENTAL
 #include "glm/ext.hpp"
 namespace olivera
@@ -30,11 +32,11 @@ void MeshRenderer::onInitialise(std::vector<std::string> _texturePaths, std::str
   object = core.lock()->getResources()->load<VertexBuffer>(_meshPath);
   transform = entitySelf.lock()->getComponent<Transform>();
   cameraContext = core.lock()->getCurrentCamera();
-  shader.lock()->useShader();
+  shader->useShader();
   for (int i = 0; i < _texturePaths.size(); i++)
   {
 	  texture.push_back(core.lock()->getResources()->load<Texture>(_texturePaths.at(i)));	 
-    shader.lock()->setInt("texture" + std::to_string(i) + "", i);
+    shader->setInt("texture" + std::to_string(i) + "", i);
   }
 }
 void MeshRenderer::onInitialise(std::string _modelPath, std::string _shaderPath)
@@ -45,11 +47,9 @@ void MeshRenderer::onInitialise(std::string _modelPath, std::string _shaderPath)
   transform = entitySelf.lock()->getComponent<Transform>();
   cameraContext = core.lock()->getCurrentCamera();
   model = core.lock()->getResources()->load<Model>(_modelPath);
+  
+   shader->useShader();
 
-   shader.lock()->useShader();
-   shader.lock()->setFloat("material.shininess", 32.0f);
-   shader.lock()->setInt("material.diffuse", 0);
-   shader.lock()->setInt("material.specular", 1);
 
 
    glm::vec3 lightColor = glm::vec3(10.0f, 10.0f, 10.0f);
@@ -60,15 +60,15 @@ void MeshRenderer::onInitialise(std::string _modelPath, std::string _shaderPath)
    {
 
 
-     shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].position", glm::vec3(0.0f,0.0f,0.0f));
-     shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].ambient", ambientColor);
-     shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].diffuse", diffuseColor);
-     shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].specular", 10.0f, 10.0f, 10.0f);
+     shader->setVec3("pointLights[" + std::to_string(i) + "].position", glm::vec3(0.0f,0.0f,0.0f));
+     shader->setVec3("pointLights[" + std::to_string(i) + "].ambient", ambientColor);
+     shader->setVec3("pointLights[" + std::to_string(i) + "].diffuse", diffuseColor);
+     shader->setVec3("pointLights[" + std::to_string(i) + "].specular", 10.0f, 10.0f, 10.0f);
 
      //Point light attenuation
-     shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].constant", 1.0f);
-     shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].linear", 0.045f);
-     shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].quadratic", 0.075f);
+     shader->setFloat("pointLights[" + std::to_string(i) + "].constant", 1.0f);
+     shader->setFloat("pointLights[" + std::to_string(i) + "].linear", 0.045f);
+     shader->setFloat("pointLights[" + std::to_string(i) + "].quadratic", 0.075f);
    };
   
 }
@@ -79,16 +79,16 @@ void MeshRenderer::onDisplay()
 void MeshRenderer::onTick()
 {
 
-  shader.lock()->useShader();
+  shader->useShader();
 
-  shader.lock()->setMat4("projection", cameraContext.lock()->getProjection()); 
-  shader.lock()->setMat4("view", cameraContext.lock()->getView());
-  shader.lock()->setMat4("model", transform.lock()->getModel());
+  shader->setMat4("projection", cameraContext.lock()->getProjection()); 
+  shader->setMat4("view", cameraContext.lock()->getView());
+  shader->setMat4("model", transform.lock()->getModel());
   glUseProgram(0);
 }
 void MeshRenderer::Draw()
 {
-  shader.lock()->useShader();
+  shader->useShader();
   if (object.lock() != nullptr)
   {
     glBindVertexArray(object.lock()->getVAO());
@@ -106,7 +106,7 @@ void MeshRenderer::Draw()
   }
   else
   {
-    model.lock()->Draw(shader.lock());
+    model.lock()->Draw(shader);
   }
 }
 

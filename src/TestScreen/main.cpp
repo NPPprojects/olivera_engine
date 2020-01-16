@@ -104,7 +104,11 @@ int main()
   //Nanosuit
   std::shared_ptr<olivera::Entity> nanosuit = engine->addEntity();
   std::shared_ptr<olivera::Transform> nanosuitTransform = nanosuit->addComponent<olivera::Transform>();
+  std::shared_ptr<olivera::Materials> nanosuitMaterials = nanosuit->addComponent<olivera::Materials>("blinnPhongShader");
+  std::shared_ptr<olivera::Light> nanosuitLights = nanosuit->addComponent<olivera::Light>("blinnPhongShader");
   std::shared_ptr<olivera::MeshRenderer> nanosuitMesh = nanosuit->addComponent<olivera::MeshRenderer>("nanosuit","blinnPhongShader");
+
+
   nanosuitTransform->setPosition(glm::vec3(1.0f, 0.0f, 1.0f));
   nanosuitTransform->setScale(glm::vec3(0.2f, 0.2f, 0.2f));
   
