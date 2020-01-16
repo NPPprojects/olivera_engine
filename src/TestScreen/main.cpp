@@ -48,13 +48,16 @@ int main()
   engine->getResources()->create<olivera::ShaderProgram>(std::string("cubeShader"), std::string("resources/shaders/cubeShader.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("texturedCubeShader"), std::string("resources/shaders/textureCubeShader.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("nanosuitShader"), std::string("resources/shaders/nanosuitShader.txt"));
+  engine->getResources()->create<olivera::ShaderProgram>(std::string("postProcessingShader"), std::string("resources/shaders/postProcessingShader"));
+  
 
 	engine->getResources()->create<olivera::Texture>(std::string("BetterBox"), std::string("resources/textures/BetterBox.png"));
 	engine->getResources()->create<olivera::Texture>(std::string("AwesomeFace"), std::string("resources/textures/awesomeface.png"));
   
   engine->getResources()->create<olivera::VertexBuffer>(std::string("TextureCubeMesh"), std::string("resources/objects/TexturedCube.data"));
   engine->getResources()->create<olivera::VertexBuffer>(std::string("ColoredCubeMesh"), std::string("resources/objects/cube.data"));
-  
+  engine->getResources()->create<olivera::VertexBuffer>(std::string("PostProcessingSquare"), std::string("resources/objects/postProcessingSquare.data"));
+
   engine->getResources()->create<olivera::Model>(std::string("nanosuit"), std::string("resources/objects/nanosuit/nanosuit.obj"));
   
   engine->getResources()->create<olivera::Sound>(std::string("Horn"), std::string("resources/sound/dixie_horn.ogg"));
