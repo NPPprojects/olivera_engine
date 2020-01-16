@@ -11,9 +11,16 @@ namespace olivera
 {
   class Entity;
   class Keyboard;
+
   class Mouse;
   class Environment;
+
   class CurrentCamera;
+  
+  class PostProcessing;
+  class VertexBuffer;
+
+  class ShaderProgram;
   class ResourceManager;
   class Core
   {
@@ -40,7 +47,8 @@ namespace olivera
     std::shared_ptr<Keyboard> getKeyboard();  //Get the Keyboard so input class has access to keys that have been pressed;
     std::shared_ptr<Environment> getEnvironment();  //get envioronment time
     std::shared_ptr<CurrentCamera> getCurrentCamera();  //get current camera context to pass view and projection matrix values
-	std::shared_ptr<ResourceManager> getResources(); //Get Resources list
+	  std::shared_ptr<ResourceManager> getResources(); //Get Resources list
+    void setPostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh);
     std::shared_ptr<Mouse> getMouse();           //Get Mouse user inputs
     void start();
     void stop();
@@ -66,8 +74,11 @@ namespace olivera
     std::shared_ptr<Environment> environment = std::make_shared<Environment>();
     //Mouse coordinate and inputs
     std::shared_ptr<Mouse> mouse = std::make_shared <Mouse>();
+    //Post Processing
+    std::shared_ptr<PostProcessing> postProcessing;
     //Resources
 	std::shared_ptr<ResourceManager> resources = std::make_shared<ResourceManager>();
-    
+   
+  
   };
 }

@@ -7,6 +7,10 @@
 #include <GL/glew.h>
 #include <iostream>
 #include "ResourceManager.h"
+
+#include "PostProcessing.h"
+#include "ShaderProgram.h"
+#include "VertexBuffer.h"
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
@@ -85,6 +89,12 @@ namespace olivera
 	  return resources;
   }
 
+  void Core::setPostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh)
+  {
+    postProcessing = std::make_shared<PostProcessing>(_core,_shader,_mesh);
+  }
+
+
   std::shared_ptr<Mouse> Core::getMouse()
   {
     return mouse;
@@ -144,7 +154,7 @@ namespace olivera
         keyboard->clearKey();
      
         ///PostProcessing
-       //glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer->getFBO());
+       glBindFramebuffer(GL_FRAMEBUFFER, postProcessing->getFBO());
 
       glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
 	  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -160,15 +170,15 @@ namespace olivera
       //Where Code for Post Processing Would go
 
 
-  //    //now bind back to default framebuffer and draw a quad plane with the attached framebuffer color texture
-   //   glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    //  glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
+      //now bind back to default framebuffer and draw a quad plane with the attached framebuffer color texture
+      glBindFramebuffer(GL_FRAMEBUFFER, 0);
+      glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
       //clear all relevant buffers
-   //   glClearColor(0.184f, 0.196f, 0.235f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
-   //   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   //   //use the color attachment texture as the texture of the quad plane
+      glClearColor(0.184f, 0.196f, 0.235f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+      //use the color attachment texture as the texture of the quad plane
 
-     // frameBuffer->use();
+      postProcessing->use();
 
 
 
