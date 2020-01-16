@@ -4,11 +4,7 @@
 namespace olivera
 {
 
-  bool Keyboard::isKey(int key)
-  {
-    keys.push_back(key);
-    return false;
-  }
+
   bool Keyboard::isKeyPressed(int key)
   {
     pressedKeys.push_back(key);
