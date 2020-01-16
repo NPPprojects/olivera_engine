@@ -89,6 +89,9 @@ src/olivera/PostProcessing.cpp
 src/olivera/SoundSource.cpp
 src/olivera/SoundSource.h
 
+stc/olivera/Material.h
+src/olivera/Material.cpp
+
 src/olivera/Light.h
 src/olivera/Light.cpp
 )

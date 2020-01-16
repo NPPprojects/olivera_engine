@@ -23,8 +23,6 @@ struct Light
 	float constant;
     float linear;
     float quadratic;
-
-	bool blinn;
 };
 
 
@@ -43,7 +41,7 @@ void main()
 	// properties
     vec3 norm = normalize(Normal);
     vec3 viewDir = normalize(camPos - FragPos);
-	vec3 result = glm::vec3(0.0,0.0,0.0); 
+	vec3 result = vec3(0.0,0.0,0.0); 
 	 for(int i = 0; i < NR_POINT_LIGHTS; i++)
 	 {
        result += pointLightCalc(pointLights[i], norm, FragPos, viewDir);    
@@ -67,19 +65,10 @@ vec3 pointLightCalc(Light light, vec3 normal, vec3 fragPos, vec3 viewDir)
     vec3 diffuse = light.diffuse * diff * vec3(texture(material.diffuse, TexCoords).rgb);
 
     // specular
-	
 	float spec = 0.0;
-	if(light.blinn==true)   //blinn-phong
-	{
-		vec3 halfwayDir = normalize(lightDir+viewDir);  
-		spec = pow(max(dot(normal, halfwayDir), 0.0), material.shininess);
-	}
-	else              //phong
-	{
-		vec3 reflectDir = reflect(-lightDir, normal);  
-		spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess/2);       //To get similar results between phong and blinn phong the materiral shinniness has to be multiplied by divided between 2 or 4
-	}
-        vec3 specular = light.specular * spec * vec3(texture(material.specular, TexCoords).rgb);
+	vec3 halfwayDir = normalize(lightDir+viewDir);  
+	spec = pow(max(dot(normal, halfwayDir), 0.0), material.shininess);
+    vec3 specular = light.specular * spec * vec3(texture(material.specular, TexCoords).rgb);
 
     //Point Light Attenuation
 

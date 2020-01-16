@@ -12,7 +12,7 @@ namespace olivera
     std::ifstream file(_path);
     if (!file.is_open())
     {
-      throw std::exception();
+      std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
     }
     else
     {
@@ -30,7 +30,7 @@ namespace olivera
     file.open(vertPath);
     if (!file.is_open())
     {
-      throw std::exception();
+      std::cout << "ERROR::SHADER.VERT::FILE_NOT_SUCCESFULLY_READ" << std::endl;
     }
     else
     {
@@ -47,7 +47,7 @@ namespace olivera
 
     if (!file.is_open())
     {
-      throw std::exception();
+      std::cout << "ERROR::SHADER.FRAG::FILE_NOT_SUCCESFULLY_READ" << std::endl;
     }
     else
     {
@@ -87,7 +87,7 @@ namespace olivera
     }
     catch (std::ifstream::failure e)
     {
-      std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+    //  std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
     }
     const char* vShaderCode = vertexCode.c_str();
     const char * fShaderCode = fragmentCode.c_str();
