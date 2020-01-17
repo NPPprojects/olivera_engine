@@ -15,7 +15,7 @@ namespace olivera
   /**
   *\brief Constructor to generate Texture when a texture gets initalised
   */
-	Texture(std::string path);
+	Texture(std::string _path);
 
   /**
   *\ Getter Texture ID

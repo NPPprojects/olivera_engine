@@ -14,46 +14,39 @@
 namespace olivera
 {
 /**
-* Class to generate Vertex Array by passing user defined objects from a text file
+* class to generate a vertex array by passing in a .data file(simple shapes)
 */
 	class VertexBuffer : public Resource
 	{
     
 	public:
+ 
+  
     /**
-    *\ Getter for XCoordinate on window
-    */
-    VertexBuffer() {}
-
-    /**
-    *\ Getter for XCoordinate on window
+    *\ constuctor calls set vertexData function
     */
     VertexBuffer(std::string _path);
 
     /**
-    *\ Getter for XCoordinate on window
+    *\ reads a a .data file
     */
 		void readVertexData(std::string _ObjectFile);
     
     /**
-    *\ Getter for XCoordinate on window
+    *\ sets Vertex Data setting up the VAO
     */
 		void setVertexData();
     
     /**
-    *\ Getter for XCoordinate on window
+    *\ Getter for Vao
     */
 		GLuint getVAO();
     
     /**
-    *\ Getter for XCoordinate on window
+    *\ Getter verticiesCount
     */
 		int getVerticiesCount();
 
-    /**
-    *\ Getter for XCoordinate on window
-    */
-		void onInitialise(std::string _ObjectFile);
 
 	private:
 		int vertexCount;///<Amount of vertecies in an object
@@ -75,7 +68,7 @@ namespace olivera
     /**
     *\ Getter for XCoordinate on window
     */
-		void splitStringWhitespace(std::string&, std::vector<std::string>&);
+		void splitStringWhitespace(std::string& _input, std::vector<std::string>& _output);
 	};
 
 }

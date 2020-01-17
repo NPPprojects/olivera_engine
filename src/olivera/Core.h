@@ -84,8 +84,16 @@ namespace olivera
     /**
     *\Get Mouse user inputs;
     */
-    std::shared_ptr<Mouse> getMouse();           
+    std::shared_ptr<Mouse> getMouse();     
+    
+    /**
+    *\Core while loop;
+    */
     void start();
+    
+    /**
+    *\Shut down engine
+    */
     void stop();
 
     
@@ -113,7 +121,7 @@ namespace olivera
     //Post Processing
     std::shared_ptr<PostProcessing> postProcessing;///<Pointer to postProcessing 
     //Resources
-	std::shared_ptr<ResourceManager> resources = std::make_shared<ResourceManager>();///<pointer to Resources
+	  std::shared_ptr<ResourceManager> resources = std::make_shared<ResourceManager>();///<pointer to Resources
    
   
   };

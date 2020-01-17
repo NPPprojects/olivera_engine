@@ -48,7 +48,7 @@ namespace olivera
     alSourcePlay(sid);
 
   }
-  void SoundSource::SetIsPlaying(bool _val)
+  void SoundSource::setIsPlaying(bool _val)
   {
      isPlaying = _val;
   }

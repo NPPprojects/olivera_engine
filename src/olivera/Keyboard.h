@@ -16,12 +16,12 @@ namespace olivera
     /**
      * \Brief whenever a key gets pressed it gets added to the pressed keys vector
      */
-    bool isKeyPressed(int key);
+    bool isKeyPressed(int _key);
 
     /**
     * \Brief whenever a key gets released it gets added to the released keys vector
     */
-    bool isKeyReleased(int key);
+    bool isKeyReleased(int _key);
 
     /**
     * \Brief clears the keyPressed and KeyReleased vectors

@@ -5,15 +5,15 @@ namespace olivera
 {
 
 
-  bool Keyboard::isKeyPressed(int key)
+  bool Keyboard::isKeyPressed(int _key)
   {
-    pressedKeys.push_back(key);
+    pressedKeys.push_back(_key);
 	return released= false;
   
   }
-  bool Keyboard::isKeyReleased(int key)
+  bool Keyboard::isKeyReleased(int _key)
   {
-    releasedKeys.push_back(key); 
+    releasedKeys.push_back(_key); 
 	return released=true;
   }
   void Keyboard::clearKey()

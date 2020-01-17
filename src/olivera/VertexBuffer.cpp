@@ -106,10 +106,6 @@ namespace olivera {
 		return vertexCount;
 	}
 
-	void VertexBuffer::onInitialise(std::string _ObjectFile)
-	{
-		readVertexData(_ObjectFile);
-		setVertexData();
-	}
+
 
 }

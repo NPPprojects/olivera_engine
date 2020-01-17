@@ -24,7 +24,7 @@ void SoundInputManager::playSound()
   {
     if (keyboard.lock()->getKeyPressed().at(0) == SDL_SCANCODE_T)
     {
-      soundSource->SetIsPlaying(true);
+      soundSource->setIsPlaying(true);
       std::cout << "Sound Plays Yay" << std::endl;
     }
   }

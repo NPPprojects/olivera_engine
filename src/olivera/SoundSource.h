@@ -33,7 +33,7 @@ namespace olivera
     /**
     *\ Setter for IsPlaying
     */
-    void SetIsPlaying(bool _val);
+    void setIsPlaying(bool _val);
 
   private:
     std::weak_ptr<Sound> sound;///< Weak pointer to the sound file
