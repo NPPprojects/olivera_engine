@@ -14,36 +14,64 @@ namespace olivera
       entitiesOther.push_back(_entitiesOther.at(i));
     }
 
-    glm::vec3 lightColor = glm::vec3(10.0f, 10.0f, 10.0f);
-    glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f); // decrease the influence
-    glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f); // low influence
+    lightColor = glm::vec3(10.0f, 10.0f, 10.0f);
+    diffuseColor = lightColor * glm::vec3(0.5f); // decrease the influence
+    ambientColor = diffuseColor * glm::vec3(0.2f); // low influence
+    specularColor = glm::vec3(10.f, 10.f, 10.f);
+
+    attenuationValues.constant = 1.0f;
+    attenuationValues.linear = 0.045f;
+    attenuationValues.quadratic = 0.0075f;
+
 
     shader = getCore()->getResources()->load<ShaderProgram>(_shader);
     shader.lock()->useShader();
 
-    for (unsigned int i = 0; i <= entitiesOther.size(); ++i)
-    {
-
-
-     // shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].position", glm::vec3(0.0f, 0.0f, 0.0f));
-      shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].ambient", ambientColor);
-      shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].diffuse", diffuseColor);
-      shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].specular", 10.0f, 10.0f, 10.0f);
-
-      //Point light attenuation
-      shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].constant", 1.0f);
-      shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].linear", 0.045f);
-      shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].quadratic", 0.075f);
-    };
-
   }
+ 
   void Light::onTick()
   {
     shader.lock()->useShader();
     for (unsigned int i = 0; i < entitiesOther.size(); ++i)
     {
+      shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].ambient", ambientColor);
+      shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].diffuse", diffuseColor);
+      shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].specular", specularColor);
+
+      //Point light attenuation
+      shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].constant", attenuationValues.constant);
+      shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].linear", attenuationValues.linear);
+      shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].quadratic", attenuationValues.quadratic);
     shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].position", entitiesOther.at(i).lock()->getComponent<Transform>()->getPosition());
     };
   }
+
+  void Light::setLightColor(glm::vec3 _lightColor)
+  {
+    lightColor = _lightColor;
+  }
+
+  void Light::setDiffuseColor(glm::vec3 _diffuseColor)
+  {
+    diffuseColor = _diffuseColor;
+  }
+
+  void Light::setAmbientColor(glm::vec3 _ambientColor)
+  {
+    ambientColor = _ambientColor;
+  }
+
+  void Light::setSpecularColor(glm::vec3 _specularColor)
+  {
+    specularColor = _specularColor;
+  }
+
+  void Light::setAttenuation(float _constant, float _linear, float _quadratic)
+  {
+    attenuationValues.constant = _constant;
+    attenuationValues.linear = _linear;
+    attenuationValues.quadratic = _quadratic;
+  }
+
 
 }

@@ -4,7 +4,7 @@ void SoundInputManager::onInitialise()
 {
   core = getCore();
 
-  std::cout << "Initialise Sound Input Manager Manager" << std::endl;
+  std::cout << "Initialise Sound Input Manager" << std::endl;
 
   entitySelf = getEntity();
 
@@ -25,7 +25,7 @@ void SoundInputManager::playSound()
     if (keyboard.lock()->getKeyPressed().at(0) == SDL_SCANCODE_T)
     {
       soundSource->setIsPlaying(true);
-      std::cout << "Sound Plays Yay" << std::endl;
+      std::cout << "Sound Plays" << std::endl;
     }
   }
 }

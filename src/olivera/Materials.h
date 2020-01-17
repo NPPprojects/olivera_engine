@@ -11,12 +11,14 @@ namespace olivera
   class Materials :public Component
   {
   public:
-
+    /**
+    *\Initialise  materials
+    */
     void onInitialise(std::string _shader);
 
   private:
 
-    std::weak_ptr<ShaderProgram> shader;
+    std::weak_ptr<ShaderProgram> shader;///<weakPointer to lights
   };
 
 
