@@ -14,7 +14,7 @@
 namespace olivera
 {
 /**
-* Class to generate Vertex Array Mehs by passing user defined objects from a text file
+* Class to generate Vertex Array by passing user defined objects from a text file
 */
 	class VertexBuffer : public Resource
 	{

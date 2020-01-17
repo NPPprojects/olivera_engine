@@ -40,11 +40,6 @@ namespace olivera
     
   }
 
-  glm::vec2 Texture::getSize()
-  {
-    return size;
-  }
-
   GLuint Texture::getId()
   {
     return id;

@@ -11,23 +11,37 @@
 
 namespace olivera
 {
-
+  /**
+  * Resource derived generates a Shader from a .frag and .vert
+  */
   class ShaderProgram : public Resource
   {
   public:
-
-
-    int verteciesCount; //Amount of vertecies in an object
-
-
+    /**
+    *\ get Shader ID
+    */
     GLuint getID();
+    
+    /**
+    *\ set the current Shader context
+    */
     void useShader();
+    
+    /**
+    *\ create a ShaderProgram by loading in the .vert and .frag files
+    */
     void loadShaderProgram(std::string _path);
+    /**
+    *\ call loadShaderProgram when constructing
+    */
     ShaderProgram(std::string _path);
  
   private:
-    GLuint ID;
-    //Vertex Data Initialisation
+
+    GLuint ID;///< Id for the ShaderProgram
+    /**
+    *\ private function that checks for compile errors in the .vert and .frag files
+    */
     void checkCompileErrors(GLuint, std::string);
 
   public:
@@ -52,6 +66,7 @@ namespace olivera
     {
       glUniform2fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
     }
+    // ------------------------------------------------------------------------
     void setVec2(const std::string &name, float x, float y) const
     {
       glUniform2f(glGetUniformLocation(ID, name.c_str()), x, y);
@@ -61,6 +76,7 @@ namespace olivera
     {
       glUniform3fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
     }
+    // ------------------------------------------------------------------------
     void setVec3(const std::string &name, float x, float y, float z) const
     {
       glUniform3f(glGetUniformLocation(ID, name.c_str()), x, y, z);
@@ -70,6 +86,7 @@ namespace olivera
     {
       glUniform4fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
     }
+    // ------------------------------------------------------------------------
     void setVec4(const std::string &name, float x, float y, float z, float w)
     {
       glUniform4f(glGetUniformLocation(ID, name.c_str()), x, y, z, w);

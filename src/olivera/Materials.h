@@ -5,7 +5,9 @@
 namespace olivera
 {
   class ShaderProgram;
-
+  /**
+  *Component derived class to set up material values for object
+  */
   class Materials :public Component
   {
   public:
@@ -14,7 +16,7 @@ namespace olivera
 
   private:
 
-    std::shared_ptr<ShaderProgram> shader;
+    std::weak_ptr<ShaderProgram> shader;
   };
 
 

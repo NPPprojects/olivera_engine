@@ -10,6 +10,7 @@ namespace olivera
 {
   void SoundSource::onInitialise(std::string _name, std::shared_ptr<Entity> _cameraEntity)
   {
+    isPlaying = false;
     entitySelf = getEntity();
     core = getCore();
    // object = core.lock()->getResources()->load<VertexBuffer>(_meshPath);
@@ -46,5 +47,9 @@ namespace olivera
     alSourcei(sid, AL_BUFFER, sound.lock()->getId());
     alSourcePlay(sid);
 
+  }
+  void SoundSource::SetIsPlaying(bool _val)
+  {
+     isPlaying = _val;
   }
 }

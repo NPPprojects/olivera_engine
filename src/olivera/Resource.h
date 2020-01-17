@@ -6,16 +6,29 @@
 
 namespace olivera
 {
+  /**
+ *\ Base class for all Resources
+ */
 	class Resource
 	{
 	public:
-		std::string getName();
-		void setName(std::string _name);
-		virtual ~Resource() {}
-    Resource();
+  /**
+  *\ Getter for a Resource's name
+  */
+	std::string getName();
+
+  /**
+  *\ Setter for a Resource's name
+  */
+	void setName(std::string _name);
+  /**
+  *\ virtual destructor
+  */
+	virtual ~Resource() {}
+
 
 	private:
-		std::string name;
+		std::string name;///<Resource's name tag
 	};
 }
 

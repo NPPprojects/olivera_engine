@@ -12,10 +12,5 @@
 		{
       name = _name;
 		}
-
-    Resource::Resource()
-    {
-      
-    }
 		
 	}

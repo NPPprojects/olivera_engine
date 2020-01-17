@@ -14,7 +14,7 @@ namespace olivera
   }
 
   // render the mesh
-  void Mesh::Draw(std::shared_ptr<ShaderProgram> shader)
+  void Mesh::draw(std::shared_ptr<ShaderProgram> shader)
   {
     // bind appropriate textures
     unsigned int diffuseNr = 1;

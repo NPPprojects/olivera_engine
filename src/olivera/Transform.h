@@ -3,57 +3,60 @@
 #include <glm/glm.hpp>
 namespace olivera 
 {
+  /**
+* Component class to hold transformation logic for entities 
+*/
   class Transform : public Component
   {
   public:
   
   /**
-  *\ Getter for XCoordinate on window
+  *\ Getter for the model matrix of an entity
   */
   glm::mat4 getModel();
   
   /**
-  *\ Getter for XCoordinate on window
+  *\ Brief update model is ran every tick to update the model matrix with newest position/rotation/scale
   */
 	void updateModel();
   
   /**
-  *\ Getter for XCoordinate on window
+  *\ Setter for Position vector
   */
 	void setPosition(glm::vec3 _position);
 	
   /**
-  *\ Getter for XCoordinate on window
+  *\ Setter for Rotation vector
   */
   void setRotation(glm::vec3 _rotation);
   
   /**
-  *\ Getter for XCoordinate on window
+  *\ Setter for Scale Vector
   */
   void setScale(glm::vec3 _scale);
 
   /**
-  *\ Getter for XCoordinate on window
+  *\ Getter for Position vector
   */
   glm::vec3 getPosition();
 
   /**
-  *\ Getter for XCoordinate on window
+  *\ Getter for Rotation vector
   */
   glm::vec3 getRotation();
 	
   /**
-  *\ Getter for XCoordinate on window
+  *\ Getter for Scale Vector
   */
   glm::vec3 setScale();
 
   /**
-  *\ Getter for XCoordinate on window
+  *\ onTick function for this component in which updateModel is called
   */
   void onTick();
 	
   /**
-  *\ Getter for XCoordinate on window
+  *\ initial initalisation for transform component
   */
   void onInitialise();
   

@@ -106,7 +106,7 @@ void MeshRenderer::Draw()
   }
   else
   {
-    model.lock()->Draw(shader);
+    model.lock()->draw(shader);
   }
 }
 

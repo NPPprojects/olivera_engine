@@ -24,10 +24,6 @@ namespace olivera
     FrameBufferConfiguration();
   }
 
-  PostProcessing::~PostProcessing()
-  {
-  }
-
   void PostProcessing::FrameBufferConfiguration()
   {
     glGenFramebuffers(1, &FBO);
@@ -59,15 +55,15 @@ namespace olivera
 
   void PostProcessing::use()
   {
-    shader->useShader();
-    glBindVertexArray(squareMesh->getVAO());
+    shader.lock()->useShader();
+    glBindVertexArray(squareMesh.lock()->getVAO());
     glBindTexture(GL_TEXTURE_2D, textureColorBuffer);
-    glDrawArrays(GL_TRIANGLES, 0, squareMesh->getVerticiesCount());
+    glDrawArrays(GL_TRIANGLES, 0, squareMesh.lock()->getVerticiesCount());
 
-    shader->setFloat("gamma", gamma);
-    shader->setFloat("exposure", exposure);
-    shader->setInt("blurIntesity", blurIntesity);
-    shader->setBool("filter", filter);
+    shader.lock()->setFloat("gamma", gamma);
+    shader.lock()->setFloat("exposure", exposure);
+    shader.lock()->setInt("blurIntesity", blurIntesity);
+    shader.lock()->setBool("filter", filter);
   }
 
 }

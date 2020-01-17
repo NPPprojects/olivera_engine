@@ -13,14 +13,23 @@
 namespace olivera
 {
   class  Core;
-
+  
+  /**
+  *Entity class that handles the creation of objects(entities) to which components are added
+  */
   class Entity
   {
     friend class Core;
 
   public:
+    /**
+    *\ Getter function for core
+    */
     std::shared_ptr<Core> getCore();
 
+    /**
+    *\ Getter function for component within entity
+    */
     template <typename T>
     std::shared_ptr<T> getComponent()
     {
@@ -37,6 +46,9 @@ namespace olivera
       throw std::exception();
     }
 
+    /**
+    *\ function to add a component to entity without passing parameters 
+    */
     template <typename T>
     std::shared_ptr<T> addComponent()
     {
@@ -45,7 +57,9 @@ namespace olivera
   
       return component;
     }
-
+    /**
+    *\ function to add a component to entity and passing 1 parameter
+    */
     template <typename T, typename A>
     std::shared_ptr<T> addComponent(A a)
     {
@@ -55,6 +69,9 @@ namespace olivera
       return component;
     }
 
+    /**
+    *\ function to add a component to entity and passing 2 parameters
+    */
     template <typename T, typename A, typename B>
     std::shared_ptr<T> addComponent(A a, B b)
     {
@@ -63,7 +80,9 @@ namespace olivera
 
       return component;
     }
-  
+    /**
+    *\ function to add a component to entity and passing 3 parameters
+    */
     template <typename T, typename A, typename B, typename C>
     std::shared_ptr<T> addComponent(A a, B b, C c)
     {
@@ -73,6 +92,9 @@ namespace olivera
       return component;
     }
 
+    /**
+    *\ function to search for a specific component within entities and return true if found or false if not
+    */
     template<typename T>
     bool checkForComponent()
     {
@@ -89,11 +111,18 @@ namespace olivera
       return false;
     }
   private:
-    std::weak_ptr<Entity> self;
-    std::weak_ptr<Core> core;
-    std::vector<std::shared_ptr<Component> > components;
+    std::weak_ptr<Entity> self;///< weak pointer to self
+    std::weak_ptr<Core> core;///< weak pointer to core
+    std::vector<std::shared_ptr<Component> > components; ///<vector to store components
 
+    /**
+    *\ function to go thorugh each component and then call their onTick function
+    */
     void tick();
+
+    /**
+  *\ function to go thorugh each component and then call their onDisplay function
+  */
     void display();
 
 

@@ -1,9 +1,3 @@
-#ifndef OLIVERA_MESH_H
-#define OLIVERA_MESH_H 
-
-
-
-
 #include <GL/glew.h> // holds all OpenGL type declarations
 
 #include <glm/glm.hpp>
@@ -20,7 +14,9 @@ namespace olivera
 {
   class ShaderProgram;
 
-
+  /**
+  *Struct to hold vertex data from the 3d model
+  */
   struct Vertex {
     // position
     glm::vec3 Position;
@@ -34,6 +30,9 @@ namespace olivera
     glm::vec3 Bitangent;
   };
 
+  /**
+  *Struct to hold texture data from the 3d model
+  */
   struct Textures {
     unsigned int id;
     std::string type;
@@ -44,34 +43,39 @@ namespace olivera
     unsigned int GetId() { return id; };
 
   };
-
+  /**
+  *Mesh class used by the model class to generate the mesh for the 3D object
+  */
   class Mesh {
   public:
 
 
 
-    // constructor
+    /**
+    *\ Constructor
+    */
     Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Textures> textures);
 
 
-    // render the mesh
-    void Draw(std::shared_ptr<ShaderProgram> shader);
+    /**
+    *\ Render the mesh
+    */
+    void draw(std::shared_ptr<ShaderProgram> shader);
 
 
   private:
-    /*  Render data  */
 
-    std::vector<Vertex> vertices;
-    std::vector<unsigned int> indices;
-    std::vector<Textures> textures;
-    unsigned int VAO;
-    unsigned int VBO, EBO;
+    std::vector<Vertex> vertices;///< Store verticies information
+    std::vector<unsigned int> indices; ///<store indicies incase of EBO
+    std::vector<Textures> textures;///store textures of object
+    unsigned int VAO;///< Vertex Array Object
+    unsigned int VBO, EBO;///Vertex Buffer Object and Element Buffer Object
 
-    /*  Functions    */
-    // initializes all the buffer objects/arrays
+  /**
+  *\ initalise all the buffer objects/arrays
+  */
     void setupMesh();
   };
 }
 
 
-#endif // !

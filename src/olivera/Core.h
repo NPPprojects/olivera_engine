@@ -22,16 +22,29 @@ namespace olivera
 
   class ShaderProgram;
   class ResourceManager;
+
+  /**
+  *Camera context held within the engine, users have to write the camera functionality themselves and use this class to set the projection and view
+  */
   class Core
   {
 
   public:
-    static std::shared_ptr<Core> initialise();    //Initialisation function that will add all entities to the tick rate and display them
-    std::shared_ptr<Entity> addEntity();      //Adds an entity to the entity vector
+    /**
+    *\Initialisation function that will add all entities to the tick rate and display them
+    */
+    static std::shared_ptr<Core> initialise(); 
+    
+    /**
+    *\Adds an entity to the entity vector
+    */
+    std::shared_ptr<Entity> addEntity();    
 
-
+  /**
+  *\Get Entities with a specific component attached
+  */
     template<typename T>
-    void GetEntities(std::vector<std::shared_ptr<Entity>>& _list)
+    void GetEntities(std::vector<std::shared_ptr<Entity>>& _entities)
     {
       for (std::vector<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
       {
@@ -39,17 +52,39 @@ namespace olivera
 
         if (found)
         {
-          _list.push_back((*it));
+          _entities.push_back((*it));
         }
       }
     }
+    /**
+    *\Get the Keyboard so input class has access to keys that have been pressed;
+    */
+    std::shared_ptr<Keyboard> getKeyboard(); 
 
-    std::shared_ptr<Keyboard> getKeyboard();  //Get the Keyboard so input class has access to keys that have been pressed;
-    std::shared_ptr<Environment> getEnvironment();  //get envioronment time
-    std::shared_ptr<CurrentCamera> getCurrentCamera();  //get current camera context to pass view and projection matrix values
-	  std::shared_ptr<ResourceManager> getResources(); //Get Resources list
+    /**
+    *\get envioronment time
+    */
+    std::shared_ptr<Environment> getEnvironment();  
+
+    /**
+    *\get current camera context to pass view and projection matrix values
+    */
+    std::shared_ptr<CurrentCamera> getCurrentCamera();  
+
+    /**
+    *\Get Resources list
+    */
+	  std::shared_ptr<ResourceManager> getResources(); 
+    
+    /**
+    *\set PostProcessing shader
+    */
     void setPostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh);
-    std::shared_ptr<Mouse> getMouse();           //Get Mouse user inputs
+
+    /**
+    *\Get Mouse user inputs;
+    */
+    std::shared_ptr<Mouse> getMouse();           
     void start();
     void stop();
 
@@ -57,27 +92,28 @@ namespace olivera
 
   private:
 
-    std::vector<std::shared_ptr<Entity>> entities;      //Vector of all entities
-    std::weak_ptr<Core> self;                   //Weak pointer to self refrence 
+    std::vector<std::shared_ptr<Entity>> entities;///<Vector of all entities
+    std::weak_ptr<Core> self;///<Weak pointer to self refrence 
     bool running;
 
-    //Window SDL_Context
-    SDL_Window *window;
-    //Keyboard Inputs
-    std::shared_ptr<Keyboard> keyboard = std::make_shared<Keyboard>();
-    //Audio
-    ALCdevice* device;
-    ALCcontext* context;
-    //Current Camera context
-    std::shared_ptr<CurrentCamera> cameraContext = std::make_shared<CurrentCamera>();
-    //Environment
-    std::shared_ptr<Environment> environment = std::make_shared<Environment>();
+    
+    SDL_Window *window; ///<Window SDL_Context
+
+    std::shared_ptr<Keyboard> keyboard = std::make_shared<Keyboard>();///<Keyboard Inputs
+    
+    ALCdevice* device;///<Audio
+ 
+    ALCcontext* context;///<Audio
+ 
+    std::shared_ptr<CurrentCamera> cameraContext = std::make_shared<CurrentCamera>(); ///<Current Camera context pointer
+   
+    std::shared_ptr<Environment> environment = std::make_shared<Environment>();///<Pointer to environment
     //Mouse coordinate and inputs
-    std::shared_ptr<Mouse> mouse = std::make_shared <Mouse>();
+    std::shared_ptr<Mouse> mouse = std::make_shared <Mouse>();///< Pointer to mouse
     //Post Processing
-    std::shared_ptr<PostProcessing> postProcessing;
+    std::shared_ptr<PostProcessing> postProcessing;///<Pointer to postProcessing 
     //Resources
-	std::shared_ptr<ResourceManager> resources = std::make_shared<ResourceManager>();
+	std::shared_ptr<ResourceManager> resources = std::make_shared<ResourceManager>();///<pointer to Resources
    
   
   };

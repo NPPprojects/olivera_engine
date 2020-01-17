@@ -5,24 +5,26 @@
 
 namespace olivera
 {
-
+  /**
+  *Resource derived class to generate a texture
+  */
   class Texture : public Resource
   {
   public:
-	Texture() {}
+
+  /**
+  *\brief Constructor to generate Texture when a texture gets initalised
+  */
 	Texture(std::string path);
-    glm::vec2 getSize();
-    GLuint getId();
 
-
-	
-	//Resource
-
-
+  /**
+  *\ Getter Texture ID
+  */
+  GLuint getId();
 
   private:
-    GLuint id;
-    glm::vec2 size;
+    GLuint id;///<ID to acecess generated Texture
+
 	
 
   };
