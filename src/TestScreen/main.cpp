@@ -40,7 +40,9 @@ public:
 int main()
 {
 	//Engine
-	std::shared_ptr<olivera::Core> engine = olivera::Core::initialise();
+  int windowWidth = 1200;
+  int windowHeight = 800;
+	std::shared_ptr<olivera::Core> engine = olivera::Core::initialise(windowWidth, windowHeight);
 
 
   std::shared_ptr<olivera::ShaderProgram> test = std::make_shared<olivera::ShaderProgram>("resources/shaders/cubeShader.txt");
@@ -70,7 +72,7 @@ int main()
  
   
   //Set PostProcessing
-  engine->setPostProcessing(engine, "postProcessingShader", "PostProcessingSquare");
+  engine->setPostProcessing(engine, "postProcessingShader", "PostProcessingSquare", windowWidth, windowHeight);
 
 
 	std::vector<std::string> TextureContainer = {"BetterBox", "AwesomeFace"};
@@ -127,7 +129,7 @@ int main()
   
 
 
-	engine->start();
+	engine->start(windowWidth, windowHeight);
 
 	return 0;
 }

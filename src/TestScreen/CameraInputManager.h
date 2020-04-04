@@ -46,6 +46,10 @@
     double lastY;
 	KeyHeld WASDPressed;
 	KeyHeld WASDReleased;
+
+
+  float xoffset;
+  float yoffset;
   };
 
 

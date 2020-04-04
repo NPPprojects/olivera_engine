@@ -20,14 +20,14 @@ namespace olivera
   /**
   *\ Constructor for post processing taking in the core in which it's contained, a Shader Program, and the mesh for it
  */
-  PostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh);
+  PostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh, int _width, int _height);
 
  
 
   /**
   *\ Configure frameBuffer
   */
-    void FrameBufferConfiguration();
+    void FrameBufferConfiguration(int _width, int _height);
 
     /**
    *\ getter For FBO

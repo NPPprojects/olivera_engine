@@ -11,12 +11,10 @@
 #include "PostProcessing.h"
 #include "ShaderProgram.h"
 #include "VertexBuffer.h"
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
 
 namespace olivera
 {
-  std::shared_ptr<Core> Core::initialise()
+  std::shared_ptr<Core> Core::initialise(int _windowWidth, int _windowHeight)
   {
     std::shared_ptr<Core> core = std::make_shared<Core>();
     core->running = false;
@@ -29,12 +27,11 @@ namespace olivera
 
     core->window = SDL_CreateWindow("Olivera Engine",
       SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-      WINDOW_WIDTH, WINDOW_HEIGHT,
+      _windowWidth, _windowHeight,
       SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_GRABBED);
 	
 	//Lock Mouse
-	
-	
+ //   SDL_ShowCursor(SDL_DISABLE);
     
 	core->environment->initialise();
     if (!SDL_GL_CreateContext(core->window))
@@ -69,7 +66,7 @@ namespace olivera
       throw std::exception();
     }
     
-    
+
 
     return core;
   }
@@ -89,11 +86,10 @@ namespace olivera
 	  return resources;
   }
 
-  void Core::setPostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh)
+  void Core::setPostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh, int _windowWidth, int _windowHeight)
   {
-    postProcessing = std::make_shared<PostProcessing>(_core,_shader,_mesh);
+    postProcessing = std::make_shared<PostProcessing>(_core,_shader,_mesh,_windowWidth,_windowHeight);
   }
-
 
   std::shared_ptr<Mouse> Core::getMouse()
   {
@@ -105,13 +101,14 @@ namespace olivera
     return environment;
   }
 
-  void Core::start()
+  void Core::start(int _viewportWidth, int _viewportHeight)
   {
     running = true;
-    
+    SDL_SetRelativeMouseMode(SDL_TRUE);
     while (running)
     {
       SDL_Event event;
+    
       while (SDL_PollEvent(&event))
       {
 
@@ -124,11 +121,9 @@ namespace olivera
         case SDL_KEYUP:
           keyboard->isKeyReleased(event.key.keysym.scancode);
           break;
-        }
-
-        if (event.type == SDL_QUIT)
-        {
-          running = false;
+        case SDL_MOUSEMOTION:
+          mouse->tick(event.motion.xrel, event.motion.yrel);
+          mouse->setMouseState(true);
         }
 
         if (keyboard->getKeyPressed().size() > 0)
@@ -137,22 +132,31 @@ namespace olivera
           {
             running = false;
           }
-        }
-        
+        } 
       }
+      //Removes Cursor mouse position will be at the center of the window, use relative motion
+      
+      //Set relativeMotion
+
+      
         for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
           it != entities.end(); it++)
         {
           (*it)->tick();
         }
-      
+        
       //Clear keys after each frame
      //Set delta Time and set frame rate to 60fps
-        mouse->tick();
+        
+   
+       
+        
+    
         environment->tick();
         keyboard->clearKey();
      
         ///PostProcessing
+
         if (postProcessing != nullptr) 
         {
           glBindFramebuffer(GL_FRAMEBUFFER, postProcessing->getFBO());
@@ -186,7 +190,7 @@ namespace olivera
       }
 
       SDL_GL_SwapWindow(window);
-      glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+      glViewport(0, 0, _viewportWidth, _viewportHeight);
     }
   }
 

@@ -46,8 +46,14 @@
 			  WASDPressed.s = false;
 		  }
 	  }
-	 
-    mouse_callback(core.lock()->getMouse()->getXCoordinate(), core.lock()->getMouse()->getYCoordinate());
+    //Won't stop moving after mouse has been moved until the event is changed
+    if (core.lock()->getMouse()->getMouseState()==true)
+    {
+      mouse_callback(core.lock()->getMouse()->getXMotion(), core.lock()->getMouse()->getYMotion());
+      core.lock()->getMouse()->setMouseState(false);
+      
+    }
+    
   }
 
   void CameraInputManager::onInitialise()
@@ -59,9 +65,7 @@
     entitySelf = getEntity();
 
     //Initial Camera XY coordinates
-     lastX = 800 / 2.0f;
-     lastY = 600 / 2.0f;
-
+ 
 	
   }
 
@@ -74,20 +78,16 @@
 
   void CameraInputManager::mouse_callback(double xpos, double ypos)
   {
-    if (firstMouse)
-    {
-      lastX = xpos;
-      lastY = ypos;
-      firstMouse = false;
-    }
 
-    float xoffset = xpos - lastX;
-    float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
-
+    xoffset = xpos - lastX;
+    yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
+    
+    //std::cout << xoffset<<": X offset" << std::endl;
+   // std::cout << yoffset<< ": Y offset"<< std::endl;
     lastX = xpos;
-    lastY = ypos;
-
-    camera.lock()->ProcessMouseMovement(xoffset, yoffset, true);
+    lastY = -ypos;
+     
+    camera.lock()->ProcessMouseMovement(lastX, lastY, true);
   }
 
   void CameraInputManager::keysHeld()

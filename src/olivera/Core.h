@@ -7,6 +7,7 @@
 #include <vector>
 
 
+
 namespace olivera
 {
   class Entity;
@@ -33,7 +34,7 @@ namespace olivera
     /**
     *\Initialisation function that will add all entities to the tick rate and display them
     */
-    static std::shared_ptr<Core> initialise(); 
+    static std::shared_ptr<Core> initialise(int _windowWidth, int _windowHeight);
     
     /**
     *\Adds an entity to the entity vector
@@ -79,7 +80,7 @@ namespace olivera
     /**
     *\set PostProcessing shader
     */
-    void setPostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh);
+    void setPostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh, int _width, int _height);
 
     /**
     *\Get Mouse user inputs;
@@ -89,14 +90,16 @@ namespace olivera
     /**
     *\Core while loop;
     */
-    void start();
+    void start(int _viewportWidth, int _viewportHeight);
     
     /**
     *\Shut down engine
     */
     void stop();
-
     
+    /**
+    *\Set window parameters
+    */
 
   private:
 
@@ -123,6 +126,6 @@ namespace olivera
     //Resources
 	  std::shared_ptr<ResourceManager> resources = std::make_shared<ResourceManager>();///<pointer to Resources
    
-  
+
   };
 }

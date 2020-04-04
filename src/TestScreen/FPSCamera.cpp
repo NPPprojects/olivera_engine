@@ -36,6 +36,7 @@ FPSCamera::~FPSCamera()
     Yaw += _xoffset;
     Pitch += _yoffset;
 
+
     // when pitch is out of bounds, screen doesn't get flipped
     if (_constrainPitch)
     {
@@ -98,23 +99,19 @@ FPSCamera::~FPSCamera()
 	entitySelf = getEntity();
 	transform = entitySelf.lock()->getComponent<olivera::Transform>();
 	transform.lock()->setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
-    WorldUp = glm::vec3(0.0f, 1.0f, 0.0f);
-    Yaw = YAW;
-    Pitch = PITCH;
-    Front = (glm::vec3(1.0f, 0.0f, -1.0f));
-    MovementSpeed = SPEED;
-    MouseSensitivity = SENSITIVITY;
-    Zoom = ZOOM;
-    updateCameraVectors();
-
-   
-	
+  WorldUp = glm::vec3(0.0f, 1.0f, 0.0f);
+  Yaw = YAW;
+  Pitch = PITCH;
+  Front = (glm::vec3(1.0f, 0.0f, -1.0f));
+  MovementSpeed = SPEED;
+  MouseSensitivity = SENSITIVITY;
+  Zoom = ZOOM;
 
   }
 
   void FPSCamera::onTick()
   {
-    cameraContext.lock()->setProjection(glm::perspective(glm::radians(getZoom()), (float)800 / (float)600, 0.1f, 100.0f));
+    cameraContext.lock()->setProjection(glm::perspective(glm::radians(getZoom()), (float)1200 / (float)800, 0.1f, 100.0f));
     cameraContext.lock()->setView(GetViewMatrix());
     
   }
