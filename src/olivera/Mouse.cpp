@@ -42,7 +42,7 @@ namespace olivera
     SDL_GetMouseState(&xCoord, &yCoord);
     setXMotion(_xRelMotion);
     setYMotion(_yRelMotion);
-   
+    setMouseState(true);
     
   }
 

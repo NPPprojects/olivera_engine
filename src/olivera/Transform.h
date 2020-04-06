@@ -48,7 +48,7 @@ namespace olivera
   /**
   *\ Getter for Scale Vector
   */
-  glm::vec3 setScale();
+  glm::vec3 getScale();
 
   /**
   *\ onTick function for this component in which updateModel is called

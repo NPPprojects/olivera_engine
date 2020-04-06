@@ -92,6 +92,7 @@ namespace olivera {
 			glVertexAttribPointer(i, vertexAttribute[i], GL_FLOAT, GL_FALSE, stride * sizeof(float), (void*)((SkipCounter) * sizeof(float)));
 			SkipCounter = SkipCounter + vertexAttribute[i];
 			glEnableVertexAttribArray(i);
+      glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		}
 
 	}

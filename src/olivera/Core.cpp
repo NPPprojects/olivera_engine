@@ -123,7 +123,7 @@ namespace olivera
           break;
         case SDL_MOUSEMOTION:
           mouse->tick(event.motion.xrel, event.motion.yrel);
-          mouse->setMouseState(true);
+          break;
         }
 
         if (keyboard->getKeyPressed().size() > 0)

@@ -51,8 +51,6 @@ void MeshRenderer::onInitialise(std::string _modelPath, std::string _shaderPath)
    shader->useShader();
 
 
-
-  
 }
 void MeshRenderer::onDisplay()
 { 
@@ -82,7 +80,6 @@ void MeshRenderer::Draw()
     }
 
     glDrawArrays(GL_TRIANGLES, 0, object.lock()->getVerticiesCount());
-
     glBindVertexArray(0);
     glUseProgram(0);
   }
@@ -94,3 +91,4 @@ void MeshRenderer::Draw()
 
 //Set Uniform Function
 }
+ 

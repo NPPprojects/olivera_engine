@@ -72,7 +72,7 @@ int main()
  
   
   //Set PostProcessing
-  engine->setPostProcessing(engine, "postProcessingShader", "PostProcessingSquare", windowWidth, windowHeight);
+ // engine->setPostProcessing(engine, "postProcessingShader", "PostProcessingSquare", windowWidth, windowHeight);
 
 
 	std::vector<std::string> TextureContainer = {"BetterBox", "AwesomeFace"};
@@ -89,31 +89,32 @@ int main()
 	std::shared_ptr<olivera::Entity> cube = engine->addEntity();
 	std::shared_ptr<olivera::Transform> shapeTransform = cube->addComponent<olivera::Transform>();
 	std::shared_ptr<olivera::MeshRenderer> mr = cube->addComponent<olivera::MeshRenderer>(TextureContainer, "TextureCubeMesh","texturedCubeShader");
-	std::shared_ptr<olivera::Collision> collider = cube->addComponent<olivera::Collision>();
+	std::shared_ptr<olivera::Collision> collider = cube->addComponent<olivera::Collision>(false);
   std::shared_ptr<BoxInputManager> controller = cube->addComponent<BoxInputManager>();
-	collider->setSize(glm::vec3(0.5f, 0.5f, 0.5f));
+  collider->setSize(glm::vec3(0.5f, 0.5f, 0.5f));
 
 
 	//LightCube2
 	std::shared_ptr<olivera::Entity> cube2 = engine->addEntity();
 	std::shared_ptr<olivera::Transform> shapeTransform2 = cube2->addComponent<olivera::Transform>();
   std::shared_ptr<olivera::MeshRenderer> mr1 = cube2->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh","cubeShader");
-	std::shared_ptr<olivera::Collision> collider2 = cube2->addComponent<olivera::Collision>();
+	std::shared_ptr<olivera::Collision> collider2 = cube2->addComponent<olivera::Collision>(true);
   std::shared_ptr<olivera::SoundSource> soundy = cube2->addComponent<olivera::SoundSource>("Horn", cameraEntity);
   std::shared_ptr<SoundInputManager> soundyControl = cube2->addComponent<SoundInputManager>();
   shapeTransform2->setPosition(glm::vec3(0.0f, 1.1f, 0.0f));
   collider2->setSize(glm::vec3(0.5f, 0.5f, 0.5f));
-	
+  std::cout<<shapeTransform2->getScale().x;
 
   //LightCube3
   std::shared_ptr<olivera::Entity> cube3 = engine->addEntity();
   std::shared_ptr<olivera::Transform> shapeTransform3 = cube3->addComponent<olivera::Transform>();
   std::shared_ptr<olivera::MeshRenderer> mr2 = cube3->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh", "cubeShader1");
-  std::shared_ptr<olivera::Collision> collider3 = cube3->addComponent<olivera::Collision>();
+  std::shared_ptr<olivera::Collision> collider3 = cube3->addComponent<olivera::Collision>(true);
   shapeTransform3->setPosition(glm::vec3(1.0f, 1.1f, 0.0f));
-  collider3->setSize(glm::vec3(0.5f, 0.5f, 0.5f));
-
+  collider3->setSize(glm::vec3(1.0f,1.0f,1.0f));
   std::vector<std::shared_ptr<olivera::Entity>> lightSources;
+
+
   lightSources.push_back(cube2);
   lightSources.push_back(cube3);
   //Nanosuit

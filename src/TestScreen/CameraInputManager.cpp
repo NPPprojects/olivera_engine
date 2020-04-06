@@ -46,7 +46,7 @@
 			  WASDPressed.s = false;
 		  }
 	  }
-    //Won't stop moving after mouse has been moved until the event is changed
+    
     if (core.lock()->getMouse()->getMouseState()==true)
     {
       mouse_callback(core.lock()->getMouse()->getXMotion(), core.lock()->getMouse()->getYMotion());

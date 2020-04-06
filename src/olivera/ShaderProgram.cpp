@@ -1,13 +1,16 @@
 #include "ShaderProgram.h"
 
 namespace olivera
+
 {
+
+
   void ShaderProgram::loadShaderProgram(std::string _path)
   {
     std::string vertPath;
     std::string fragPath;
 
-
+    
     
     std::ifstream file(_path);
     if (!file.is_open())

@@ -42,7 +42,7 @@ namespace olivera
 		return rotation;
 	}
 
-	glm::vec3 Transform::setScale()
+	glm::vec3 Transform::getScale()
 	{
 		return scale;
 	}

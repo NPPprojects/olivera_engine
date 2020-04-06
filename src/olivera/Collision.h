@@ -1,12 +1,15 @@
 #include "Component.h"
 
 #include <glm/glm.hpp>
-
+#include <string>
 
 namespace olivera
 {
 	class Transform;
-	
+
+  class CurrentCamera;
+
+
   /**
   *Component derived class to handle collision between entities
   */
@@ -27,11 +30,15 @@ namespace olivera
   *\ Check if entities with collision objects are colliding every tick by calling collideBox 
   */
 		void onTick();
+/**
+*\ Display Collision Box
+*/
+    void onDisplay();
 	
   /**
   *\ setup when initalising
   */
-    void onInitialise();
+    void onInitialise(bool _isVisable);
    
   /**
   *\ check if colliding
@@ -48,6 +55,8 @@ namespace olivera
   */
     glm::vec3 getCollisionResponse(glm::vec3 _position, glm::vec3 _size);
 
+    void DrawBox();
+
 	private:
 		glm::vec3 size;///<size of collision box
 		glm::vec3 offset;///< offset of collsiion box
@@ -55,8 +64,64 @@ namespace olivera
 	
 		std::weak_ptr<Core> core; ///< weak pointer to core
 		std::weak_ptr<Transform> transform; ///< weak pointer to store entitie's transform
+    std::weak_ptr<CurrentCamera> cameraContext; ///< weak pointer to store the current Camera
 		std::weak_ptr<Entity> entitySelf; ///<weak pointer to point to the entity this component belongs to 
-	};
 
+    //Draw Collision Box
+    const char *vertexShaderSource;
+    const char *fragmentShaderSource;
+    unsigned int VBO, VAO;
+    int vertexShader, fragmentShader, shaderProgram;
+    bool isVisable;
+    static constexpr float vertices[] = {
+           -1.0f, -1.0f, -1.0f,
+            1.0f, -1.0f, -1.0f,
+            1.0f,  1.0f, -1.0f,
+            1.0f,  1.0f, -1.0f,
+           -1.0f,  1.0f, -1.0f,
+           -1.0f, -1.0f, -1.0f,
+
+           -1.0f, -1.0f,  1.0f,
+            1.0f, -1.0f,  1.0f,
+            1.0f,  1.0f,  1.0f,
+            1.0f,  1.0f,  1.0f,
+           -1.0f,  1.0f,  1.0f,
+           -1.0f, -1.0f,  1.0f,
+
+           -1.0f,  1.0f,  1.0f,
+           -1.0f,  1.0f, -1.0f,
+           -1.0f, -1.0f, -1.0f,
+           -1.0f, -1.0f, -1.0f,
+           -1.0f, -1.0f,  1.0f,
+           -1.0f,  1.0f,  1.0f,
+
+            1.0f,  1.0f,  1.0f,
+            1.0f,  1.0f, -1.0f,
+            1.0f, -1.0f, -1.0f,
+            1.0f, -1.0f, -1.0f,
+            1.0f, -1.0f,  1.0f,
+            1.0f,  1.0f,  1.0f,
+
+           -1.0f, -1.0f, -1.0f,
+            1.0f, -1.0f, -1.0f,
+            1.0f, -1.0f,  1.0f,
+            1.0f, -1.0f,  1.0f,
+           -1.0f, -1.0f,  1.0f,
+           -1.0f, -1.0f, -1.0f,
+
+           -1.0f,  1.0f, -1.0f,
+            1.0f,  1.0f, -1.0f,
+            1.0f,  1.0f,  1.0f,
+            1.0f,  1.0f,  1.0f,
+           -1.0f,  1.0f,  1.0f,
+           -1.0f,  1.0f, -1.0f,
+    };
+
+
+    void setMat4(const std::string &name, const glm::mat4 &mat) const;
+
+
+    glm::mat4 model;
+	};
 
 }
