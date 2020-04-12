@@ -1,5 +1,6 @@
 #include "Collision.h"
 #include "CurrentCamera.h"
+#include "CameraContext.h"
 #include "Core.h"
 #include "Transform.h"
 #include "Entity.h"
@@ -44,7 +45,7 @@ namespace olivera
     core = getCore();
     transform = entitySelf.lock()->getComponent<Transform>();
     lastPosition = transform.lock()->getPosition();
-    cameraContext = core.lock()->getCurrentCamera();
+    cameraContext = core.lock()->getCameraList()->getCurrentCamera();
     isVisable = _isVisable;
 
     if (isVisable == true)
@@ -228,7 +229,7 @@ namespace olivera
       glDrawArrays(GL_LINES, 0, 36);
       glBindVertexArray(0);
       glUseProgram(0);
-    }
+    } 
   }
 
   void Collision::setMat4(const std::string & name, const glm::mat4 & mat) const

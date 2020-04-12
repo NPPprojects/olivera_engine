@@ -1,3 +1,7 @@
+#ifndef OLIVERA_CURRENTCAMERA_H
+#define OLIVERA_CURRENTCAMERA_H
+
+
 #include <memory>
 #include <vector>
 #include "Component.h"
@@ -32,12 +36,21 @@ namespace olivera
   *\ Setter for Projection matrix
   */
   void setProjection(glm::mat4 _projection);
+  
+  void setViewport(glm::vec4 _viewport);
+
+
+
+  glm::vec4 getViewport();
 
   private:
     glm::mat4 view;///<view matrix
     glm::mat4 projection;///<projection matrix
-  
+    glm::vec4 viewport;///< store viewport coordinates
     
+
 
   };
 }
+
+#endif

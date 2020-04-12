@@ -1,4 +1,5 @@
 #version 330 core
+#extension GL_ARB_shader_viewport_layer_array : enable
 out vec4 FragColor;
 
 

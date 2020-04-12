@@ -4,6 +4,7 @@
 
 FPSCamera::FPSCamera()
   {
+ 
   }
 
 
@@ -28,6 +29,12 @@ FPSCamera::~FPSCamera()
     if (_direction == RIGHT)
 	transform.lock()->setPosition(transform.lock()->getPosition() +(Right * velocity));
   }
+
+  std::shared_ptr<olivera::CurrentCamera> FPSCamera::getCurrentContext()
+  {
+    return cameraContext;
+  }
+
   void FPSCamera::ProcessMouseMovement(float _xoffset, float _yoffset, GLboolean _constrainPitch)
   {
     _xoffset *= MouseSensitivity;
@@ -94,9 +101,10 @@ FPSCamera::~FPSCamera()
 
   void FPSCamera::onInitialise()
   {
-	core = getCore();
-	cameraContext = core.lock()->getCurrentCamera();
-	entitySelf = getEntity();
+  
+  entitySelf = getEntity();
+  cameraContext = std::make_shared<olivera::CurrentCamera>();
+  entitySelf.lock()->getCore()->getCameraList()->addCamera(cameraContext);
 	transform = entitySelf.lock()->getComponent<olivera::Transform>();
 	transform.lock()->setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
   WorldUp = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -111,8 +119,8 @@ FPSCamera::~FPSCamera()
 
   void FPSCamera::onTick()
   {
-    cameraContext.lock()->setProjection(glm::perspective(glm::radians(getZoom()), (float)1200 / (float)800, 0.1f, 100.0f));
-    cameraContext.lock()->setView(GetViewMatrix());
+    cameraContext->setProjection(glm::perspective(glm::radians(getZoom()), (float)1200 / (float)800, 0.1f, 100.0f));
+    cameraContext->setView(GetViewMatrix());
     
   }
 

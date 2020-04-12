@@ -16,7 +16,7 @@ namespace olivera
   class Mouse;
   class Environment;
 
-  class CurrentCamera;
+  class CameraContext;
   
   class PostProcessing;
 
@@ -68,9 +68,9 @@ namespace olivera
     std::shared_ptr<Environment> getEnvironment();  
 
     /**
-    *\get current camera context to pass view and projection matrix values
+    *\get list of cameras
     */
-    std::shared_ptr<CurrentCamera> getCurrentCamera();  
+    std::shared_ptr<CameraContext> getCameraList();  
 
     /**
     *\Get Resources list
@@ -115,8 +115,9 @@ namespace olivera
     ALCdevice* device;///<Audio
  
     ALCcontext* context;///<Audio
- 
-    std::shared_ptr<CurrentCamera> cameraContext = std::make_shared<CurrentCamera>(); ///<Current Camera context pointer
+  
+    
+    std::shared_ptr<CameraContext> cameraContext = std::make_shared<CameraContext>(); ///<Store Cameras
    
     std::shared_ptr<Environment> environment = std::make_shared<Environment>();///<Pointer to environment
     //Mouse coordinate and inputs
@@ -126,6 +127,7 @@ namespace olivera
     //Resources
 	  std::shared_ptr<ResourceManager> resources = std::make_shared<ResourceManager>();///<pointer to Resources
    
+  
 
   };
 }

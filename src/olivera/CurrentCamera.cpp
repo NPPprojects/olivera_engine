@@ -14,6 +14,13 @@ namespace olivera
     return view;
   }
 
+
+
+  glm::vec4 CurrentCamera::getViewport()
+  {
+    return viewport;
+  }
+
   void CurrentCamera::setView(glm::mat4 _view)
   {
     view = _view;
@@ -23,5 +30,12 @@ namespace olivera
   {
     projection = _projection;
   }
+
+  void CurrentCamera::setViewport(glm::vec4 _viewport)
+  {
+    viewport = _viewport;
+  }
+
+
 
 }

@@ -72,17 +72,28 @@ int main()
  
   
   //Set PostProcessing
- // engine->setPostProcessing(engine, "postProcessingShader", "PostProcessingSquare", windowWidth, windowHeight);
+  engine->setPostProcessing(engine, "postProcessingShader", "PostProcessingSquare", windowWidth, windowHeight);
 
 
 	std::vector<std::string> TextureContainer = {"BetterBox", "AwesomeFace"};
 
 
-  
+  //Camera 1 
 	std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
 	std::shared_ptr<olivera::Transform> cameraTransform = cameraEntity->addComponent<olivera::Transform>();
 	std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();
 	std::shared_ptr<CameraInputManager> cameraInput = cameraEntity->addComponent<CameraInputManager>();
+  cameraTransform->setPosition(glm::vec3(0, 0, 0));
+  cameraComponent->getCurrentContext()->setViewport(glm::vec4(400, 400, 400, 400));
+
+  //Camera 2 
+  //std::shared_ptr<olivera::Entity> cameraEntity1 = engine->addEntity();
+  //std::shared_ptr<olivera::Transform> cameraTransform1 = cameraEntity1->addComponent<olivera::Transform>();
+  //std::shared_ptr<FPSCamera> cameraComponent1 = cameraEntity1->addComponent<FPSCamera>();
+  //std::shared_ptr<CameraInputManager> cameraInput1 = cameraEntity1->addComponent<CameraInputManager>();
+  //cameraTransform1->setPosition(glm::vec3(0, 0, 0));
+  //cameraComponent1->getCurrentContext()->setViewport(glm::vec4(000, 000, 400, 400));
+
 
 
 	//Moving cube
@@ -111,7 +122,7 @@ int main()
   std::shared_ptr<olivera::MeshRenderer> mr2 = cube3->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh", "cubeShader1");
   std::shared_ptr<olivera::Collision> collider3 = cube3->addComponent<olivera::Collision>(true);
   shapeTransform3->setPosition(glm::vec3(1.0f, 1.1f, 0.0f));
-  collider3->setSize(glm::vec3(1.0f,1.0f,1.0f));
+  collider3->setSize(glm::vec3(0.5f, 0.5f, 0.5f));
   std::vector<std::shared_ptr<olivera::Entity>> lightSources;
 
 

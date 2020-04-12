@@ -8,6 +8,7 @@
 
 #include "ResourceManager.h"
 #include "CurrentCamera.h"
+#include "CameraContext.h"
 
 #include "ShaderProgram.h"
 #include "VertexBuffer.h"
@@ -31,7 +32,7 @@ void MeshRenderer::onInitialise(std::vector<std::string> _texturePaths, std::str
   shader = core.lock()->getResources()->load<ShaderProgram>(_shaderPath);
   object = core.lock()->getResources()->load<VertexBuffer>(_meshPath);
   transform = entitySelf.lock()->getComponent<Transform>();
-  cameraContext = core.lock()->getCurrentCamera();
+  cameraContext = core.lock()->getCameraList()->getCurrentCamera();
   shader->useShader();
   for (int i = 0; i < _texturePaths.size(); i++)
   {
@@ -45,7 +46,7 @@ void MeshRenderer::onInitialise(std::string _modelPath, std::string _shaderPath)
   core = getCore();
   shader = core.lock()->getResources()->load<ShaderProgram>(_shaderPath);
   transform = entitySelf.lock()->getComponent<Transform>();
-  cameraContext = core.lock()->getCurrentCamera();
+  cameraContext = core.lock()->getCameraList()->getCurrentCamera();
   model = core.lock()->getResources()->load<Model>(_modelPath);
   
    shader->useShader();

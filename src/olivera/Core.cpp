@@ -3,7 +3,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Environment.h"
-#include "CurrentCamera.h"
+#include "CameraContext.h"
 #include <GL/glew.h>
 #include <iostream>
 #include "ResourceManager.h"
@@ -76,7 +76,7 @@ namespace olivera
     return keyboard;
   }
 
-  std::shared_ptr<CurrentCamera> Core::getCurrentCamera()
+  std::shared_ptr<CameraContext> Core::getCameraList()
   {
     return cameraContext;
   }
@@ -105,93 +105,102 @@ namespace olivera
   {
     running = true;
     SDL_SetRelativeMouseMode(SDL_TRUE);
-    while (running)
-    {
-      SDL_Event event;
-    
-      while (SDL_PollEvent(&event))
+      while (running)
       {
+        SDL_Event event;
 
-        keyboard->SetKeyboardState();
-        switch (event.type)
+        while (SDL_PollEvent(&event))
         {
-        case SDL_KEYDOWN:
-          keyboard->isKeyPressed(event.key.keysym.scancode);
-          break;
-        case SDL_KEYUP:
-          keyboard->isKeyReleased(event.key.keysym.scancode);
-          break;
-        case SDL_MOUSEMOTION:
-          mouse->tick(event.motion.xrel, event.motion.yrel);
-          break;
-        }
 
-        if (keyboard->getKeyPressed().size() > 0)
-        {
-          if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_ESCAPE)
+          keyboard->SetKeyboardState();
+          switch (event.type)
           {
-            running = false;
+          case SDL_KEYDOWN:
+            keyboard->isKeyPressed(event.key.keysym.scancode);
+            break;
+          case SDL_KEYUP:
+            keyboard->isKeyReleased(event.key.keysym.scancode);
+            break;
+          case SDL_MOUSEMOTION:
+            mouse->tick(event.motion.xrel, event.motion.yrel);
+            break;
           }
-        } 
-      }
-      //Removes Cursor mouse position will be at the center of the window, use relative motion
-      
-      //Set relativeMotion
 
-      
+          if (keyboard->getKeyPressed().size() > 0)
+          {
+            if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_ESCAPE)
+            {
+              running = false;
+            }
+          }
+        }
+        //Removes Cursor mouse position will be at the center of the window, use relative motion
+
+        //Set relativeMotion
+
+
         for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
           it != entities.end(); it++)
         {
           (*it)->tick();
         }
-        
-      //Clear keys after each frame
-     //Set delta Time and set frame rate to 60fps
-        
-   
-       
-        
-    
+
+        //Clear keys after each frame
+       //Set delta Time and set frame rate to 60fps
+
+
+
+
+
         environment->tick();
         keyboard->clearKey();
-     
+
         ///PostProcessing
 
-        if (postProcessing != nullptr) 
+        if (postProcessing != nullptr)
         {
           glBindFramebuffer(GL_FRAMEBUFFER, postProcessing->getFBO());
         }
 
-      glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
-	  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glEnable(GL_DEPTH_TEST); // enable depth testing (is di sabled for rendering screen-space quad)
-
-
-      for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
-        it != entities.end(); it++)
-      {
-        (*it)->display();
-      }
-
-      //Where Code for Post Processing Would go
-
-      if (postProcessing != nullptr)
-      {
-        //now bind back to default framebuffer and draw a quad plane with the attached framebuffer color texture
-        glBindFramebuffer(GL_FRAMEBUFFER, 0);
-        glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
-        //clear all relevant buffers
-        glClearColor(0.184f, 0.196f, 0.235f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
+        glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        //use the color attachment texture as the texture of the quad plane
+        glEnable(GL_DEPTH_TEST); // enable depth testing (is di sabled for rendering screen-space quad)
 
-        postProcessing->use();
+        
+        for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
+          it != entities.end(); it++)
+          for (int i = 0; i <cameraContext->getCameraList().size(); i++)
+        {
+          
+          glViewport(cameraContext->getCameraList().at(i)->getViewport().x, 
+                     cameraContext->getCameraList().at(i)->getViewport().y, 
+                     cameraContext->getCameraList().at(i)->getViewport().z, 
+                     cameraContext->getCameraList().at(i)->getViewport().w);
+          (*it)->display();
+          
+        }
+
+        //Where Code for Post Processing Would go
+
+        if (postProcessing != nullptr)
+        {
+          //now bind back to default framebuffer and draw a quad plane with the attached framebuffer color texture
+          glBindFramebuffer(GL_FRAMEBUFFER, 0);
+          glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
+          //clear all relevant buffers
+          glClearColor(0.184f, 0.196f, 0.235f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
+          glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+          //use the color attachment texture as the texture of the quad plane
+
+          postProcessing->use();
+
+        }
+
+
+        SDL_GL_SwapWindow(window);
 
       }
-
-      SDL_GL_SwapWindow(window);
-      glViewport(0, 0, _viewportWidth, _viewportHeight);
-    }
+    
   }
 
   void Core::stop()

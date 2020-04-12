@@ -22,6 +22,7 @@
     void ProcessMouseScroll(float _yoffset);
     void ProcessMouseMovement(float _xoffset, float _yoffset, GLboolean _constrainPitch = true);
     void ProcessKeyboard(CameraMovement _direction, float _deltaTim);
+    std::shared_ptr<olivera::CurrentCamera> getCurrentContext();
     glm::mat4 GetViewMatrix();
     float getZoom() const;
     glm::vec3 GetPosition();
@@ -53,7 +54,7 @@
     glm::mat4 projection;
     //
    
-    std::weak_ptr<olivera::CurrentCamera> cameraContext;
+    std::shared_ptr<olivera::CurrentCamera> cameraContext;
 	
 	std::weak_ptr<olivera::Core> core;
 	std::weak_ptr<olivera::Transform> transform;

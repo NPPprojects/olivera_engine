@@ -94,6 +94,9 @@ src/olivera/Materials.cpp
 
 src/olivera/Light.h
 src/olivera/Light.cpp
+
+src/olivera/CameraContext.h
+src/olivera/CameraContext.cpp
 )
 
 
