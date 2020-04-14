@@ -11,6 +11,8 @@
 namespace olivera
 {
  
+  class PostProcessing;
+
   /**
   *Camera context held within the engine, users have to write the camera functionality themselves and use this class to set the projection and view 
   */
@@ -39,16 +41,26 @@ namespace olivera
   
   void setViewport(glm::vec4 _viewport);
 
+  void activeFrameBuffer();
 
+  void useFrameBuffer();
+
+  void clear();
+
+  void setFrameBuffer(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh
+  );
 
   glm::vec4 getViewport();
+
+  std::shared_ptr<PostProcessing> getFrameBuffer();
+
 
   private:
     glm::mat4 view;///<view matrix
     glm::mat4 projection;///<projection matrix
     glm::vec4 viewport;///< store viewport coordinates
     
-
+    std::shared_ptr<PostProcessing> framebuffer;
 
   };
 }

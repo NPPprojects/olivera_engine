@@ -6,13 +6,9 @@ namespace olivera
   {
     return cameraList;
   }
-  void CameraContext::setCamera(std::shared_ptr<CurrentCamera> _currentCamera)
-  {
-    cameraList.push_back(_currentCamera);
-  }
   void CameraContext::setCurrentCamera(int _currentCamera)
   {
-    currentCamera = currentCamera;
+    currentCamera = _currentCamera;
   }
 
   std::shared_ptr<CurrentCamera> CameraContext::getCurrentCamera()

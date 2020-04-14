@@ -77,10 +77,6 @@ namespace olivera
     */
 	  std::shared_ptr<ResourceManager> getResources(); 
     
-    /**
-    *\set PostProcessing shader
-    */
-    void setPostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh, int _width, int _height);
 
     /**
     *\Get Mouse user inputs;
@@ -90,7 +86,7 @@ namespace olivera
     /**
     *\Core while loop;
     */
-    void start(int _viewportWidth, int _viewportHeight);
+    void start();
     
     /**
     *\Shut down engine
@@ -100,6 +96,10 @@ namespace olivera
     /**
     *\Set window parameters
     */
+
+
+    int getScreenWidth();
+    int getScreenHeight();
 
   private:
 
@@ -123,11 +123,11 @@ namespace olivera
     //Mouse coordinate and inputs
     std::shared_ptr<Mouse> mouse = std::make_shared <Mouse>();///< Pointer to mouse
     //Post Processing
-    std::shared_ptr<PostProcessing> postProcessing;///<Pointer to postProcessing 
+   
     //Resources
 	  std::shared_ptr<ResourceManager> resources = std::make_shared<ResourceManager>();///<pointer to Resources
    
-  
+    int windowWidth, windowHeight;
 
   };
 }

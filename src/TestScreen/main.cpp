@@ -40,7 +40,7 @@ public:
 int main()
 {
 	//Engine
-  int windowWidth = 1200;
+  int windowWidth = 1800;
   int windowHeight = 800;
 	std::shared_ptr<olivera::Core> engine = olivera::Core::initialise(windowWidth, windowHeight);
 
@@ -51,7 +51,9 @@ int main()
   engine->getResources()->create<olivera::ShaderProgram>(std::string("cubeShader1"), std::string("resources/shaders/cubeShader.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("texturedCubeShader"), std::string("resources/shaders/textureCubeShader.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("nanosuitShader"), std::string("resources/shaders/nanosuitShader.txt"));
-  engine->getResources()->create<olivera::ShaderProgram>(std::string("postProcessingShader"), std::string("resources/shaders/postProcessingShader.txt"));
+  engine->getResources()->create<olivera::ShaderProgram>(std::string("postProcessingAcidicShader"), std::string("resources/shaders/postProcessingShader.txt"));
+  engine->getResources()->create<olivera::ShaderProgram>(std::string("postProcessingBlurShader"), std::string("resources/shaders/framebufferBlurScreen.txt"));
+  engine->getResources()->create<olivera::ShaderProgram>(std::string("postProcessingBlur2Shader"), std::string("resources/shaders/framebufferBlurScreen.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("blinnPhongShader"), std::string("resources/shaders/Blinn-PhongShader.txt"));
 
 
@@ -62,6 +64,7 @@ int main()
   engine->getResources()->create<olivera::VertexBuffer>(std::string("TextureCubeMesh"), std::string("resources/objects/TexturedCube.data"));
   engine->getResources()->create<olivera::VertexBuffer>(std::string("ColoredCubeMesh"), std::string("resources/objects/cube.data"));
   engine->getResources()->create<olivera::VertexBuffer>(std::string("PostProcessingSquare"), std::string("resources/objects/postProcessingSquare.data"));
+  engine->getResources()->create<olivera::VertexBuffer>(std::string("PostProcessingSquare1"), std::string("resources/objects/postProcessingSquare.data"));
 
 
 
@@ -72,7 +75,7 @@ int main()
  
   
   //Set PostProcessing
-  engine->setPostProcessing(engine, "postProcessingShader", "PostProcessingSquare", windowWidth, windowHeight);
+
 
 
 	std::vector<std::string> TextureContainer = {"BetterBox", "AwesomeFace"};
@@ -84,15 +87,19 @@ int main()
 	std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();
 	std::shared_ptr<CameraInputManager> cameraInput = cameraEntity->addComponent<CameraInputManager>();
   cameraTransform->setPosition(glm::vec3(0, 0, 0));
-  cameraComponent->getCurrentContext()->setViewport(glm::vec4(400, 400, 400, 400));
+  cameraComponent->getCurrentContext()->setViewport(glm::vec4(0, 0, 900, 800));
+  cameraComponent->getCurrentContext()->setFrameBuffer(engine, "postProcessingBlurShader", "PostProcessingSquare");
 
-  //Camera 2 
-  //std::shared_ptr<olivera::Entity> cameraEntity1 = engine->addEntity();
-  //std::shared_ptr<olivera::Transform> cameraTransform1 = cameraEntity1->addComponent<olivera::Transform>();
-  //std::shared_ptr<FPSCamera> cameraComponent1 = cameraEntity1->addComponent<FPSCamera>();
-  //std::shared_ptr<CameraInputManager> cameraInput1 = cameraEntity1->addComponent<CameraInputManager>();
-  //cameraTransform1->setPosition(glm::vec3(0, 0, 0));
-  //cameraComponent1->getCurrentContext()->setViewport(glm::vec4(000, 000, 400, 400));
+ // Camera 2 
+  std::shared_ptr<olivera::Entity> cameraEntity1 = engine->addEntity();
+  std::shared_ptr<olivera::Transform> cameraTransform1 = cameraEntity1->addComponent<olivera::Transform>();
+  std::shared_ptr<FPSCamera> cameraComponent1 = cameraEntity1->addComponent<FPSCamera>();
+  std::shared_ptr<CameraInputManager> cameraInput1 = cameraEntity1->addComponent<CameraInputManager>();
+  cameraTransform1->setPosition(glm::vec3(0, 0, 0));
+  cameraComponent1->getCurrentContext()->setViewport(glm::vec4(900, 0, 900, 800));
+  cameraComponent1->getCurrentContext()->setFrameBuffer(engine, "postProcessingAcidicShader", "PostProcessingSquare");
+
+
 
 
 
@@ -141,7 +148,7 @@ int main()
   
 
 
-	engine->start(windowWidth, windowHeight);
+	engine->start();
 
 	return 0;
 }

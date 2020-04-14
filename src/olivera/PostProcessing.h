@@ -1,5 +1,5 @@
 #include <memory>
-
+#include "Component.h"
 
 namespace olivera
 {
@@ -9,6 +9,8 @@ namespace olivera
   class ShaderProgram;
  
   class VertexBuffer;
+
+  class CurrentCamera;
   
   /**
   * Post-Processing enabled by creating a 2D texture and outpitting everything in the scene to it enabling the user to add custom Shader Programs for different post Processing effects
@@ -27,7 +29,7 @@ namespace olivera
   /**
   *\ Configure frameBuffer
   */
-    void FrameBufferConfiguration(int _width, int _height);
+    void FrameBufferConfiguration();
 
     /**
    *\ getter For FBO
@@ -50,6 +52,8 @@ namespace olivera
     float exposure;
     float gamma;
     bool filter;
+
+    int width, height;
 
 
     std::weak_ptr<VertexBuffer> squareMesh;///<Weak pointer to square mesh 

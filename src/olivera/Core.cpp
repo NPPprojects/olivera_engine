@@ -17,6 +17,7 @@ namespace olivera
   std::shared_ptr<Core> Core::initialise(int _windowWidth, int _windowHeight)
   {
     std::shared_ptr<Core> core = std::make_shared<Core>();
+
     core->running = false;
     core->self = core;
 
@@ -86,10 +87,7 @@ namespace olivera
 	  return resources;
   }
 
-  void Core::setPostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh, int _windowWidth, int _windowHeight)
-  {
-    postProcessing = std::make_shared<PostProcessing>(_core,_shader,_mesh,_windowWidth,_windowHeight);
-  }
+
 
   std::shared_ptr<Mouse> Core::getMouse()
   {
@@ -101,111 +99,113 @@ namespace olivera
     return environment;
   }
 
-  void Core::start(int _viewportWidth, int _viewportHeight)
+  void Core::start()
   {
     running = true;
     SDL_SetRelativeMouseMode(SDL_TRUE);
-      while (running)
+
+    SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+
+    while (running)
+    {
+      SDL_Event event;
+
+      while (SDL_PollEvent(&event))
       {
-        SDL_Event event;
 
-        while (SDL_PollEvent(&event))
+        keyboard->SetKeyboardState();
+        switch (event.type)
         {
+        case SDL_KEYDOWN:
+          keyboard->isKeyPressed(event.key.keysym.scancode);
+          break;
+        case SDL_KEYUP:
+          keyboard->isKeyReleased(event.key.keysym.scancode);
+          break;
+        case SDL_MOUSEMOTION:
+          mouse->tick(event.motion.xrel, event.motion.yrel);
+          break;
+        }
 
-          keyboard->SetKeyboardState();
-          switch (event.type)
+        if (keyboard->getKeyPressed().size() > 0)
+        {
+          if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_ESCAPE)
           {
-          case SDL_KEYDOWN:
-            keyboard->isKeyPressed(event.key.keysym.scancode);
-            break;
-          case SDL_KEYUP:
-            keyboard->isKeyReleased(event.key.keysym.scancode);
-            break;
-          case SDL_MOUSEMOTION:
-            mouse->tick(event.motion.xrel, event.motion.yrel);
-            break;
-          }
-
-          if (keyboard->getKeyPressed().size() > 0)
-          {
-            if (keyboard->getKeyPressed().at(0) == SDL_SCANCODE_ESCAPE)
-            {
-              running = false;
-            }
+            running = false;
           }
         }
-        //Removes Cursor mouse position will be at the center of the window, use relative motion
-
-        //Set relativeMotion
-
-
-        for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
-          it != entities.end(); it++)
-        {
-          (*it)->tick();
-        }
-
-        //Clear keys after each frame
-       //Set delta Time and set frame rate to 60fps
-
-
-
-
-
-        environment->tick();
-        keyboard->clearKey();
-
-        ///PostProcessing
-
-        if (postProcessing != nullptr)
-        {
-          glBindFramebuffer(GL_FRAMEBUFFER, postProcessing->getFBO());
-        }
-
-        glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glEnable(GL_DEPTH_TEST); // enable depth testing (is di sabled for rendering screen-space quad)
-
-        
-        for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
-          it != entities.end(); it++)
-          for (int i = 0; i <cameraContext->getCameraList().size(); i++)
-        {
-          
-          glViewport(cameraContext->getCameraList().at(i)->getViewport().x, 
-                     cameraContext->getCameraList().at(i)->getViewport().y, 
-                     cameraContext->getCameraList().at(i)->getViewport().z, 
-                     cameraContext->getCameraList().at(i)->getViewport().w);
-          (*it)->display();
-          
-        }
-
-        //Where Code for Post Processing Would go
-
-        if (postProcessing != nullptr)
-        {
-          //now bind back to default framebuffer and draw a quad plane with the attached framebuffer color texture
-          glBindFramebuffer(GL_FRAMEBUFFER, 0);
-          glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.
-          //clear all relevant buffers
-          glClearColor(0.184f, 0.196f, 0.235f, 1.0f); // set clear color to white (not really necessery actually, since we won't be able to see behind the quad anyways)
-          glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-          //use the color attachment texture as the texture of the quad plane
-
-          postProcessing->use();
-
-        }
-
-
-        SDL_GL_SwapWindow(window);
-
       }
-    
+      //Removes Cursor mouse position will be at the center of the window, use relative motion
+
+      //Set relativeMotion
+
+
+      for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
+        it != entities.end(); it++)
+      {
+        (*it)->tick();
+      }
+
+      //Clear keys after each frame
+     //Set delta Time and set frame rate to 60fps
+
+
+
+
+
+      environment->tick();
+      keyboard->clearKey();
+
+
+      //Set the main Viewport
+      glViewport(0, 0, windowWidth, windowHeight);
+
+      //Set smaller viewports to which to draw each camera's output
+      for (int i = 0; i < cameraContext->getCameraList().size(); i++)
+      {
+
+        cameraContext->getCameraList().at(i)->activeFrameBuffer();
+
+          for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
+            it != entities.end(); it++)
+          {
+            (*it)->display();
+          }
+
+        cameraContext->getCameraList().at(i)->clear();
+       
+      }
+
+     
+      for (int i = 0; i < cameraContext->getCameraList().size(); i++)
+      {
+
+          glViewport(cameraContext->getCameraList().at(i)->getViewport().x,
+            cameraContext->getCameraList().at(i)->getViewport().y,
+            cameraContext->getCameraList().at(i)->getViewport().z,
+            cameraContext->getCameraList().at(i)->getViewport().w);
+      
+        cameraContext->getCameraList().at(i)->useFrameBuffer();
+        
+      }
+      SDL_GL_SwapWindow(window);
+
+    }
   }
 
   void Core::stop()
   {
     running = false;
+  }
+
+  int Core::getScreenWidth()
+  {
+    return windowWidth;
+  }
+
+  int Core::getScreenHeight()
+  {
+    return windowHeight;
   }
 
   std::shared_ptr<Entity> Core::addEntity()

@@ -58,14 +58,14 @@ namespace olivera
     void DrawBox();
 
 	private:
-		glm::vec3 size;///<size of collision box
-		glm::vec3 offset;///< offset of collsiion box
-		glm::vec3 lastPosition;///< stores last position
+		glm::vec3 size;//!<size of collision box
+		glm::vec3 offset;//!< offset of collsiion box
+		glm::vec3 lastPosition;//!< stores last position
 	
-		std::weak_ptr<Core> core; ///< weak pointer to core
-		std::weak_ptr<Transform> transform; ///< weak pointer to store entitie's transform
-    std::weak_ptr<CurrentCamera> cameraContext; ///< weak pointer to store the current Camera
-		std::weak_ptr<Entity> entitySelf; ///<weak pointer to point to the entity this component belongs to 
+		std::weak_ptr<Core> core; //!< weak pointer to core
+		std::weak_ptr<Transform> transform; //!< weak pointer to store entitie's transform
+    std::weak_ptr<CurrentCamera> cameraContext; //!< weak pointer to store the current Camera
+		std::weak_ptr<Entity> entitySelf; //!<weak pointer to point to the entity this component belongs to 
 
     //Draw Collision Box
     const char *vertexShaderSource;

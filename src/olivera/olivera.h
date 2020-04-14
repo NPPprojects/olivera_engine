@@ -4,6 +4,7 @@
 #include "Core.h"
 #include "Entity.h"
 #include "Component.h"
+#include "PostProcessing.h"
 #include "ShaderProgram.h"
 #include "MeshRenderer.h"
 #include "Texture.h"
