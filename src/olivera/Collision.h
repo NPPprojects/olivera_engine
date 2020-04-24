@@ -3,125 +3,187 @@
 #include <glm/glm.hpp>
 #include <string>
 
-namespace olivera
+/********************************************************************
+VARIABLE AND FUNCTION THAT NEED RENAMING 
+SetSize()
+MAY WANT TO ATTACH A VERTEX BUFFER + SHADER INSTEAD OF REPEATING CODE
+*********************************************************************/
+
+namespace olivera            
 {
 	class Transform;
 
   class CurrentCamera;
 
+  
+  /**********************************************************************
+  @brief Handle collision between objects with this components attached.
 
-  /**
-  *Component derived class to handle collision between entities
-  */
+  *Limited to AABB, collision box is outlined using a shader.
+
+  ***********************************************************************/
 	class Collision : public Component
 	{
 	public:
 
-   /**
-  *\ setter for offset
-  */
-		void setOffset(const glm::vec3& _offset);
-  /**
-  *\ setter for size
-  */
-		void setSize(const glm::vec3& _size);
+   /*****************************************************
+   @brief Setter for the offset when colliding.
+   
+   @param glm::vec3 offset for calculating new position.
+ 
+   *****************************************************/
+    void setOffset(const glm::vec3& _offset);
+
+
+  /************************************************
+  @brief Setter for the scale of the collision box.
+
+  @param glm::vec3 size
+
+  *************************************************/
+	  void setSize(const glm::vec3& _size);
     
-  /**
-  *\ Check if entities with collision objects are colliding every tick by calling collideBox 
-  */
+  /**************************************************
+  @brief Check if entities are colliding every tick.
+
+  *If isVisable is set to true, a hard coded green 
+  bounding box will appear.
+
+  ***************************************************/
 		void onTick();
-/**
-*\ Display Collision Box
-*/
+
+  /***************************************
+   @brief Display collision boulding box.
+
+  ****************************************/
     void onDisplay();
 	
-  /**
-  *\ setup when initalising
-  */
+  /**********************************************************************
+   @brief set up for the collision box.
+   
+   *Attached a collision box to the entity and if visablity is enabled 
+   prepares the VBO VAO and sets ups the hardcoded shaders for use.
+
+  ***********************************************************************/    
     void onInitialise(bool _isVisable);
    
-  /**
-  *\ check if colliding
-  */
+  /**************************************************************************
+  @brief check if colliding.
+  *Checks for all entites with a collision component and adds it to a list 
+   whenever any of the AABBs cross each other enable isColliding.
+
+  @param bool isVisable 
+
+
+  ***************************************************************************/
     void collideBox();
 
-  /**
-  *\ AABB collision check
-  */
+  /********************************************
+   @brief AABB collision check
+
+   @param glm::vec3 position of colliding box
+   @param glm::vec3 size of colliding box
+
+   @return true if colliding
+  *********************************************/
 		bool isColliding(glm::vec3 _position, glm::vec3 _size);
-	
-  /**
-  *\ response whenever collision occurs which is moving the object
-  */
+
+  /***********************************************
+  @brief Response whenever collision occurs.
+
+  @param glm::vec3 position of the colliding box.
+  @param glm::Vec3 size of the colliding box.
+
+  @return The new position after colliding.
+
+  ************************************************/
     glm::vec3 getCollisionResponse(glm::vec3 _position, glm::vec3 _size);
 
+  /********************************************
+  @brief Draws the box if isVissable is true.
+  
+  *********************************************/
     void DrawBox();
 
 	private:
-		glm::vec3 size;//!<size of collision box
-		glm::vec3 offset;//!< offset of collsiion box
-		glm::vec3 lastPosition;//!< stores last position
-	
-		std::weak_ptr<Core> core; //!< weak pointer to core
-		std::weak_ptr<Transform> transform; //!< weak pointer to store entitie's transform
-    std::weak_ptr<CurrentCamera> cameraContext; //!< weak pointer to store the current Camera
-		std::weak_ptr<Entity> entitySelf; //!<weak pointer to point to the entity this component belongs to 
+  /************************************************************************************************************/
+		
+    /*******************************************
+    @brief uniform setter for the model matrix.
 
-    //Draw Collision Box
-    const char *vertexShaderSource;
-    const char *fragmentShaderSource;
-    unsigned int VBO, VAO;
-    int vertexShader, fragmentShader, shaderProgram;
-    bool isVisable;
-    static constexpr float vertices[] = {
-           -1.0f, -1.0f, -1.0f,
-            1.0f, -1.0f, -1.0f,
-            1.0f,  1.0f, -1.0f,
-            1.0f,  1.0f, -1.0f,
-           -1.0f,  1.0f, -1.0f,
-           -1.0f, -1.0f, -1.0f,
+    ********************************************/
+      void setMat4(const std::string &name, const glm::mat4 &mat) const;
+    
+    
+      glm::vec3 size;                                                                //!< Size of collision box
+		  glm::vec3 offset;                                                            //!< Offset of collsiion box
+		  glm::vec3 lastPosition;                                      //!< Last position of the box when colliding
 
-           -1.0f, -1.0f,  1.0f,
-            1.0f, -1.0f,  1.0f,
-            1.0f,  1.0f,  1.0f,
-            1.0f,  1.0f,  1.0f,
-           -1.0f,  1.0f,  1.0f,
-           -1.0f, -1.0f,  1.0f,
-
-           -1.0f,  1.0f,  1.0f,
-           -1.0f,  1.0f, -1.0f,
-           -1.0f, -1.0f, -1.0f,
-           -1.0f, -1.0f, -1.0f,
-           -1.0f, -1.0f,  1.0f,
-           -1.0f,  1.0f,  1.0f,
-
-            1.0f,  1.0f,  1.0f,
-            1.0f,  1.0f, -1.0f,
-            1.0f, -1.0f, -1.0f,
-            1.0f, -1.0f, -1.0f,
-            1.0f, -1.0f,  1.0f,
-            1.0f,  1.0f,  1.0f,
-
-           -1.0f, -1.0f, -1.0f,
-            1.0f, -1.0f, -1.0f,
-            1.0f, -1.0f,  1.0f,
-            1.0f, -1.0f,  1.0f,
-           -1.0f, -1.0f,  1.0f,
-           -1.0f, -1.0f, -1.0f,
-
-           -1.0f,  1.0f, -1.0f,
-            1.0f,  1.0f, -1.0f,
-            1.0f,  1.0f,  1.0f,
-            1.0f,  1.0f,  1.0f,
-           -1.0f,  1.0f,  1.0f,
-           -1.0f,  1.0f, -1.0f,
-    };
+      glm::mat4 model;                                                  //!< mModel matrix of the collision box
 
 
-    void setMat4(const std::string &name, const glm::mat4 &mat) const;
+		  std::weak_ptr<Core> core;                                                       //!< Weak pointer to core
+		  std::weak_ptr<Entity> entitySelf;                     //!< Weak pointer to entity this is a component off
+      std::weak_ptr<Transform> transform;                        //!< Weak pointer to store entitie's transform
+      std::weak_ptr<CurrentCamera> cameraContext;                 //!< Weak pointer to store the current Camera
 
+      const char *vertexShaderSource;                                        //!< Storage for the vertex shader                                              
+      const char *fragmentShaderSource;                                    //!< Storage for the fragment shader                                              
 
-    glm::mat4 model;
+      unsigned int VBO, VAO;                                  //!< Vertex Buffer Object and Vertex Array Object                                              
+
+      int vertexShader, fragmentShader, shaderProgram;         //!< Vertex and fragment programs and the shader                                              
+                                                                         //!< pProgram they will be attached to                                               
+
+      bool isVisable;                                //!<Boolean to check if the bounding box should be visable                                              
+                                                                                                    
+      static constexpr float vertices[] = {
+             -1.0f, -1.0f, -1.0f,
+              1.0f, -1.0f, -1.0f,
+              1.0f,  1.0f, -1.0f,
+              1.0f,  1.0f, -1.0f,
+             -1.0f,  1.0f, -1.0f,
+             -1.0f, -1.0f, -1.0f,
+
+             -1.0f, -1.0f,  1.0f,
+              1.0f, -1.0f,  1.0f,
+              1.0f,  1.0f,  1.0f,
+              1.0f,  1.0f,  1.0f,
+             -1.0f,  1.0f,  1.0f,
+             -1.0f, -1.0f,  1.0f,
+
+             -1.0f,  1.0f,  1.0f,
+             -1.0f,  1.0f, -1.0f,
+             -1.0f, -1.0f, -1.0f,
+             -1.0f, -1.0f, -1.0f,
+             -1.0f, -1.0f,  1.0f,
+             -1.0f,  1.0f,  1.0f,
+
+              1.0f,  1.0f,  1.0f,
+              1.0f,  1.0f, -1.0f,
+              1.0f, -1.0f, -1.0f,
+              1.0f, -1.0f, -1.0f,
+              1.0f, -1.0f,  1.0f,
+              1.0f,  1.0f,  1.0f,
+
+             -1.0f, -1.0f, -1.0f,
+              1.0f, -1.0f, -1.0f,
+              1.0f, -1.0f,  1.0f,
+              1.0f, -1.0f,  1.0f,
+             -1.0f, -1.0f,  1.0f,
+             -1.0f, -1.0f, -1.0f,
+
+             -1.0f,  1.0f, -1.0f,
+              1.0f,  1.0f, -1.0f,
+              1.0f,  1.0f,  1.0f,
+              1.0f,  1.0f,  1.0f,
+             -1.0f,  1.0f,  1.0f,
+             -1.0f,  1.0f, -1.0f,
+      };                                                   
+                                                               //!< Vertices of the bounding box in local space     
+                                                                                                    
+                                                                                                   
+  /************************************************************************************************************/
 	};
 
 }

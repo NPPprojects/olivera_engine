@@ -2,60 +2,89 @@
 #define OLIVERA_COMPONENT_H
 
 #include <memory>
+/********************************************************************
+ALL MEMBER VARIABLES SHOULD BE PRIVATE
+*********************************************************************/
+
 
 namespace olivera
 {
   class  Entity;
+
   class  Core;
 
-  /**
-  *Base class to add components to entities
-  */
+  /***********************************************************************
+  @brief Base class to add components to entities.
+
+  *Every class inheriting from component will have access to 4 virtual 
+  functions, as well as methods for getting access to the engine 
+  core and the entity the component belongs to
+
+  ***********************************************************************/
   class Component
   {
     friend class Entity;
 
   public:
-    /**
-    *\virtual deconstructor for derived classes
-    */
+    /*************************************************
+    @brief Virtual deconstructor for derived classes.
+
+    **************************************************/
     virtual ~Component();
 
-    /**
-    *\Getter for entity
-    */
+    /**************************************************
+    @brief Getter for entity.
+
+    @return the entity this component is attached to.
+    
+    ***************************************************/
     std::shared_ptr<Entity> getEntity();
-    /**
-    *\Getter for core
-    */
+    
+    /************************************
+    @brief Getter for the engine.
+
+    @return the engine as a weak pointer.
+    *************************************/
     std::shared_ptr<Core> getCore();
 
 
-  private:
-	
-    std::weak_ptr<Entity> entity; ///refrence to entity component belongs to
-    bool began;///< boolean to begin
+    std::weak_ptr<Entity> entity;          //!< Weak pointer to the entity the component belongs to
 
-    /**
-    *\Virtual function for components initilastion(constructor for components)
-    */
+    bool began;                               //</ Enables/disables the component within the entity
+
+  private:
+	/************************************************************************************************/
+
+    /*******************************************************
+    @brief Virtual function for a component's initilastion.
+    
+    *Constructor for the component
+
+    ********************************************************/
    virtual void onInitialise();
-   /**
-   *\Virtual function for on Start Function
-   */
+
+   /*************************************************
+   @brief Virtual function for on Start Function
+
+   **************************************************/
    virtual void onStart();
 
-   /**
-  *\Virtual function that gets called every tick call
-  */
+   /****************************************************
+   @param Virtual function that gets called every tick 
+   after the core's start function gets called.
+
+   *****************************************************/
    virtual void onTick();
 
-   /**
-  *\Virtual function that gets called every display call
-  */
+   /*******************************************************
+  *\Virtual function that gets called every display call.
+
+  *********************************************************/
    virtual void onDisplay();
 
   };
+
+  /************************************************************************************************/
 }
 
 #endif

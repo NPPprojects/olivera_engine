@@ -2,59 +2,82 @@
 
 #include <vector>
 #include <memory>
+
+/********************************************************************
+SetKeyboardState might be useless
+*********************************************************************/
+
 namespace olivera 
 {
-  /**
-* Class to process Keyboard inputs
-*/
+  /*******************************
+  @brief Process keyboard inputs.
+
+  *Provides methods to access 
+  released and pressed key.
+
+  ********************************/
   class Keyboard 
   {
    
   public:
 
+    /************************************************************************
+    @brief When a key gets pressed it gets added to the pressed keys list.
     
-    /**
-     * \Brief whenever a key gets pressed it gets added to the pressed keys vector
-     */
-    bool isKeyPressed(int _key);
+    @param int key code of the currently pressed key
 
-    /**
-    * \Brief whenever a key gets released it gets added to the released keys vector
-    */
-    bool isKeyReleased(int _key);
+    @return released bollean set to false
 
-    /**
-    * \Brief clears the keyPressed and KeyReleased vectors
-    */
-    void clearKey();
+    ************************************************************************/
+      bool isKeyPressed(int _key);
 
-    /**
-    * \Brief sets the keyboard state so that key presses can be tracked from inside core
-    */
-    void SetKeyboardState();
+    /************************************************************************
+    @brief When a key gets released it gets added to the released keys list.
 
-    /**
-    * \Getter function for pressedKeys
-    */
-   std::vector<int> getKeyPressed();
+    @param int key code of the currently released key
 
-   /**
-    * \Getter function for releasedKeys
-    */
-	 std::vector<int> getKeyReleased();
+    @return released bollean set to true
+
+    ************************************************************************/
+      bool isKeyReleased(int _key);
+
+    /*****************************************************
+    @brief Clears the keyPressed and KeyReleased vectors.
+
+    ******************************************************/
+      void clearKey();
+
+    /******************************************
+    @brief Sets the keyboard state so that key 
+    presses can be tracked from inside core.
+    *******************************************/
+      void SetKeyboardState();
+
+    /**************************************
+    @brief Getter function for pressedKeys.
+    
+    @return vector of pressed keys.
+    ***************************************/
+      std::vector<int> getKeyPressed();
+
+   /***************************************
+   @brief Getter function for releasedKeys.
+
+   @return vector of released keys.
+   ****************************************/
+	    std::vector<int> getKeyReleased();
 
   private:
-    
-    const Uint8 *keyboard_state_array;///<Set KeyboardState to track keyboard events.
+  /***************************************************************************************************************/
 
-	  bool released;///<Boolean to keep track of whenever keys get released
+    const Uint8 *keyboard_state_array;                             //!< Set KeyboardState to track keyboard events
 
-    std::vector<int> releasedKeys;///< Vector to store released keys
-    
-    std::vector<int> pressedKeys;///<Vector to store pressed keys
+	  bool released;                                        //!< Boolean to keep track of whenever keys get released
 
+    std::vector<int> releasedKeys;                                              //!< Vector to store released keys  
+    std::vector<int> pressedKeys;                                                //!< Vector to store pressed keys
 
-  
+  /***************************************************************************************************************/
   };
   
 

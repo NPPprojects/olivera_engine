@@ -4,6 +4,11 @@
 #include "Component.h"
 #include <glm/glm.hpp>
 namespace olivera
+  /********************************************************************
+NEED TO REWORK CLASS
+*********************************************************************/
+
+
 {
   class Entity;
   class ShaderProgram;

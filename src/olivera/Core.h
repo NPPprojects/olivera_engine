@@ -6,44 +6,59 @@
 #include <memory>
 #include <vector>
 
-
+/********************************************************************
+CHANGE FOR LOOPS
+*********************************************************************/
 
 namespace olivera
 {
+  class Mouse;
+
   class Entity;
+
   class Keyboard;
 
-  class Mouse;
   class Environment;
 
+  class ShaderProgram;
+
   class CameraContext;
-  
+
   class PostProcessing;
 
-
-  class ShaderProgram;
   class ResourceManager;
 
-  /**
-  *Camera context held within the engine, users have to write the camera functionality themselves and use this class to set the projection and view
-  */
+  /**********************************************
+  @brief Engine is contained within this class
+  
+  ***********************************************/
   class Core
   {
 
   public:
-    /**
-    *\Initialisation function that will add all entities to the tick rate and display them
-    */
+    /**********************************************************
+    @brief Initialisation function that will add all entities
+    to the tick rate and display them.                       
+                                                             
+    @param int WindowWidth                                   
+    @param int WindowHeight                                  
+                                                             
+    @return the core set up                                  
+    ***********************************************************/
     static std::shared_ptr<Core> initialise(int _windowWidth, int _windowHeight);
     
-    /**
-    *\Adds an entity to the entity vector
-    */
-    std::shared_ptr<Entity> addEntity();    
+    /*******************************************
+    @brief Adds an entity to the entity vector.
 
-  /**
-  *\Get Entities with a specific component attached
-  */
+    @return pointer to the entity.
+
+    ********************************************/
+    std::shared_ptr<Entity> addEntity();    
+    
+    /******************************************************
+    @brief Get Entities with a specific component attached.
+                                                           
+    *******************************************************/
     template<typename T>
     void GetEntities(std::vector<std::shared_ptr<Entity>>& _entities)
     {
@@ -57,77 +72,111 @@ namespace olivera
         }
       }
     }
-    /**
-    *\Get the Keyboard so input class has access to keys that have been pressed;
-    */
+
+    /******************************************************
+     @brief Get the Keyboard object in core.
+     
+     *Contains methods for accessing the current keys that
+     are pressed or held.
+
+     @return weak pointer to the keyboard object in core.
+
+    *******************************************************/
     std::shared_ptr<Keyboard> getKeyboard(); 
 
-    /**
-    *\get envioronment time
-    */
+    /*******************************************************
+    @brief Get the Environment object in core.
+
+    *Contains methods for accessing and modifying deltaTime
+
+    @return weak pointer to the environment object in core.
+    ********************************************************/
     std::shared_ptr<Environment> getEnvironment();  
 
-    /**
-    *\get list of cameras
-    */
+    /**************************************************
+    @brief Get access to the camera list in core.
+
+    @return weak pointer to the cameraList in core.
+    ***************************************************/
     std::shared_ptr<CameraContext> getCameraList();  
 
-    /**
-    *\Get Resources list
-    */
+    /******************************************
+    @brief Get the list of current resources.
+    
+    @return a weak pointer to a resource list 
+    in core.
+
+    *******************************************/
 	  std::shared_ptr<ResourceManager> getResources(); 
     
 
-    /**
-    *\Get Mouse user inputs;
-    */
+    /***********************************
+    @brief Get access to mouse object.
+
+    @return mouse object inside core.
+
+    ************************************/
     std::shared_ptr<Mouse> getMouse();     
     
-    /**
-    *\Core while loop;
-    */
+    /*****************************************************************************************
+    @brief Core while loop.
+
+    *Record mouse and keyboard inputs and sends them to their respective objects.
+    All entites go through their tick functions, and then through their dispay functions. 
+    A viewport is set up using the user inputed window width and height. 
+    Further viewports are created for user defined cameras.
+
+    ******************************************************************************************/
     void start();
     
-    /**
-    *\Shut down engine
-    */
+    /****************************
+    @brief Stops the main loop.
+    
+    *****************************/
     void stop();
     
-    /**
-    *\Set window parameters
-    */
+    /*****************************
+    @brief Get the screen width.
 
+    @return screenWidth
 
+    ******************************/
     int getScreenWidth();
+
+    /******************************
+    @brief get the screen height.
+
+    @return screenHeight
+
+    *******************************/
     int getScreenHeight();
 
   private:
+    /************************************************************************************************************************/
 
-    std::vector<std::shared_ptr<Entity>> entities;///<Vector of all entities
-    std::weak_ptr<Core> self;///<Weak pointer to self refrence 
-    bool running;
+      SDL_Window *window;                                                                                  //!<Window context
 
+
+      ALCdevice* device;                                                                                            //!<Audio
+      ALCcontext* context;                                                                                          //!<Audio
     
-    SDL_Window *window; ///<Window SDL_Context
 
-    std::shared_ptr<Keyboard> keyboard = std::make_shared<Keyboard>();///<Keyboard Inputs
+      std::vector<std::shared_ptr<Entity>> entities;                                               //!<Vector of all entities
     
-    ALCdevice* device;///<Audio
- 
-    ALCcontext* context;///<Audio
-  
+      
+      std::weak_ptr<Core> self;                                                             //!<Weak pointer to self refrence 
     
-    std::shared_ptr<CameraContext> cameraContext = std::make_shared<CameraContext>(); ///<Store Cameras
+      std::shared_ptr<CameraContext> cameraContext = std::make_shared<CameraContext>();                     //!<Store Cameras
+	    std::shared_ptr<ResourceManager> resources = std::make_shared<ResourceManager>();               //!<Store all Resources 
+      std::shared_ptr<Environment> environment = std::make_shared<Environment>();                //!<Store environment object 
+      std::shared_ptr<Keyboard> keyboard = std::make_shared<Keyboard>();                           //!<Stores keyboard inputs
+      std::shared_ptr<Mouse> mouse = std::make_shared <Mouse>();                                     //!< Stores Mouse Inputs
    
-    std::shared_ptr<Environment> environment = std::make_shared<Environment>();///<Pointer to environment
-    //Mouse coordinate and inputs
-    std::shared_ptr<Mouse> mouse = std::make_shared <Mouse>();///< Pointer to mouse
-    //Post Processing
-   
-    //Resources
-	  std::shared_ptr<ResourceManager> resources = std::make_shared<ResourceManager>();///<pointer to Resources
-   
-    int windowWidth, windowHeight;
+      int windowWidth;                                                                               //</ Stores window width
+      int windowHeight;                                                                              //</Stores window height
 
+      bool running;                                                                              //</If true main loop starts
+
+    /************************************************************************************************************************/
   };
 }

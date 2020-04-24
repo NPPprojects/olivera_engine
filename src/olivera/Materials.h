@@ -3,17 +3,25 @@
 #include <string>
 #include "Component.h"
 namespace olivera
+  /********************************************************************
+      Need to rework entire class
+  *********************************************************************/
+
 {
   class ShaderProgram;
-  /**
-  *Component derived class to set up material values for object
-  */
+  /*****************************************
+  @brief Set up material values for object
+
+  ******************************************/
   class Materials :public Component
   {
   public:
-    /**
-    *\Initialise  materials
-    */
+    /***********************
+    @brief 
+
+    *
+    @param
+    ************************/
     void onInitialise(std::string _shader);
 
   private:

@@ -109,9 +109,6 @@ namespace olivera
   {
     std::vector<std::shared_ptr<Entity> > bces;
     getCore()->GetEntities<Collision>(bces);
-    ///Here is where i get lost
-    //getCore()->getEntities<Collision>(bces);
-    //getWorld()->getEntities<Collision>(bces);
     glm::vec3 np = transform.lock()->getPosition() + offset;
 
     for (std::vector<std::shared_ptr<Entity> >::iterator it = bces.begin();

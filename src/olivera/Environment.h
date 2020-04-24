@@ -2,32 +2,42 @@
 
 namespace olivera
 {
-/**
-* Class to calculate delta Time and set the framerate of the engine
-*/
+/*************************************
+ @brief Calcuate and store delta time.
+
+**************************************/
   class Environment 
   {
   public:
-    /**
-    * \ Getter for DeltaTime
-    */
+    
+    /****************************
+    @brief Getter for DeltaTime
+
+    @return DeltaTime as a float
+    *****************************/
     float getDeltaTime();
 
-    /**
-    * \Brief inialise lastTime to SDL's tick rate and sets the ideal framerate
-    */
-    void initialise();
+    /**********************************************
+    @brief Initialise lastTime to SDL's tick rate 
+    and sets the ideal framerate.
 
-    /**
-    * /Brief sets deltaTime every tick 
-    */
-    void tick();
+    ***********************************************/
+      void initialise();
+
+    /***********************************
+    @brief sets deltaTime every tick 
+    
+    ************************************/
+      void tick();
 
   private:
-    float deltaTime;///<Time value that would be equal to make movement the same on any system
-    float lastTime;///<Last frame
-    float idealTime;///<Ideal frame rate set on initilisation
+    /************************************************************************************************************/
 
+    float deltaTime;                   //!<Time value that would be equal to make movement the same on any system
+    float lastTime;                    //!<Initially set to the amount of milisecond's since SDL's initialisation
+    float idealTime;                                                    //!<Ideal frame rate set on initilisation
+
+    /************************************************************************************************************/
   };
 
 }

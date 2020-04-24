@@ -14,24 +14,28 @@ namespace olivera
 {
   class  Core;
   
-  /**
-  *Entity class that handles the creation of objects(entities) to which components are added
-  */
+  /******************************************************************
+  @brief Entity class that handles the creation of objects(entities) 
+         to which components are added
+  
+  *******************************************************************/
   class Entity
   {
     friend class Core;
 
   public:
-    /**
-    *\ Getter function for core
-    */
-    std::shared_ptr<Core> getCore();
+    /*******************************
+    @brief Getter function for core
 
-    /**
-    *\ Getter function for component within entity
-    */
-    template <typename T>
-    std::shared_ptr<T> getComponent()
+    ********************************/
+      std::shared_ptr<Core> getCore();
+
+    /**************************************************
+    @brief Getter function for component within entity
+
+    ***************************************************/
+     template <typename T>
+      std::shared_ptr<T> getComponent()
     {
       for (size_t i = 0; i < components.size(); i++)
       {
@@ -46,22 +50,27 @@ namespace olivera
       throw std::exception();
     }
 
-    /**
-    *\ function to add a component to entity without passing parameters 
-    */
-    template <typename T>
-    std::shared_ptr<T> addComponent()
+    /********************************************
+    @brief function to add a component to entity 
+    without passing parameters 
+    
+    *********************************************/
+     template <typename T>
+      std::shared_ptr<T> addComponent()
     {
       ADDCOMPONENT
         component->onInitialise();
   
       return component;
     }
-    /**
-    *\ function to add a component to entity and passing 1 parameter
-    */
+
+    /********************************
+    @brief Add a component to entity
+    and pass 1 parameter
+
+    *********************************/
     template <typename T, typename A>
-    std::shared_ptr<T> addComponent(A a)
+      std::shared_ptr<T> addComponent(A a)
     {
       ADDCOMPONENT
         component->onInitialise(a);
@@ -69,22 +78,27 @@ namespace olivera
       return component;
     }
 
-    /**
-    *\ function to add a component to entity and passing 2 parameters
-    */
+    /********************************
+    @brief Add a component to entity
+    and pass 2 parameter
+
+    *********************************/
     template <typename T, typename A, typename B>
-    std::shared_ptr<T> addComponent(A a, B b)
+      std::shared_ptr<T> addComponent(A a, B b)
     {
       ADDCOMPONENT
         component->onInitialise(a, b);
 
       return component;
     }
-    /**
-    *\ function to add a component to entity and passing 3 parameters
-    */
+
+    /********************************
+    @brief Add a component to entity
+    and pass 3 parameter
+
+    *********************************/
     template <typename T, typename A, typename B, typename C>
-    std::shared_ptr<T> addComponent(A a, B b, C c)
+      std::shared_ptr<T> addComponent(A a, B b, C c)
     {
       ADDCOMPONENT
         component->onInitialise(a, b, c);
@@ -92,11 +106,15 @@ namespace olivera
       return component;
     }
 
-    /**
-    *\ function to search for a specific component within entities and return true if found or false if not
-    */
+    /*******************************************************
+    @brief Search for a specific component within entities 
+    
+    @return True if found specified component within entity
+    or false if not
+
+    ********************************************************/
     template<typename T>
-    bool checkForComponent()
+      bool checkForComponent()
     {
       for (std::vector<std::shared_ptr<Component>>::iterator it = components.begin(); it != components.end(); it++)
       {
@@ -110,24 +128,30 @@ namespace olivera
 
       return false;
     }
+
   private:
-    std::weak_ptr<Entity> self;///< weak pointer to self
-    std::weak_ptr<Core> core;///< weak pointer to core
-    std::vector<std::shared_ptr<Component> > components; ///<vector to store components
+  /********************************************************************************************************/
+    
+    /*****************************************
+    @brief Go thorugh each component and call
+    their onTick function
 
-    /**
-    *\ function to go thorugh each component and then call their onTick function
-    */
-    void tick();
+    ******************************************/
+      void tick();
 
-    /**
-  *\ function to go thorugh each component and then call their onDisplay function
-  */
-    void display();
+    /*****************************************
+    @brief Go thorugh each component and call
+    their onDisplay function
 
-
+    ******************************************/
+     void display();
 
 
+    std::weak_ptr<Entity> self;                                                   //!< Weak pointer to self
+    std::weak_ptr<Core> core;                                                     //!< Weak pointer to core
+    std::vector<std::shared_ptr<Component> > components;                     //!<Vector to store components
+
+  /********************************************************************************************************/
   };
 
 }
