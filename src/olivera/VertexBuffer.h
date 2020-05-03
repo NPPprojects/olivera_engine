@@ -10,65 +10,86 @@
 #include <fstream>
 #include <sstream>
 
+/****************************************************************************
+RENAME TO VERTEX ARRAY 
+*****************************************************************************/
+
 
 namespace olivera
 {
-/**
-* class to generate a vertex array by passing in a .data file(simple shapes)
-*/
+/**********************************************************************************
+@brief class to generate a vertex array by passing in a .data file(simple shapes)
+
+***********************************************************************************/
 	class VertexBuffer : public Resource
 	{
     
 	public:
  
   
-    /**
-    *\ constuctor calls set vertexData function
-    */
-    VertexBuffer(std::string _path);
+    /***********************************************
+    @brief Constuctor calls set vertexData function
 
-    /**
-    *\ reads a a .data file
-    */
-		void readVertexData(std::string _ObjectFile);
+    @param string filePath
+
+    ************************************************/
+      VertexBuffer(std::string _path);
+
+    /**********************************
+    @brief reads a .data file
+
+    @param string filePath
+
+    **********************************/
+		  void readVertexData(std::string _ObjectFile);
     
-    /**
-    *\ sets Vertex Data setting up the VAO
-    */
-		void setVertexData();
+    /******************************************
+    @brief sets Vertex Data setting up the VAO
     
-    /**
-    *\ Getter for Vao
-    */
-		GLuint getVAO();
+    *******************************************/
+		  void setVertexData();
     
-    /**
-    *\ Getter verticiesCount
-    */
-		int getVerticiesCount();
+    /**********************
+    @brief Getter for VAO
+
+    return GLuint VAO
+
+    ***********************/
+		  GLuint getVAO();
+    
+    /*************************************
+    @brief getter for the verticies count 
+    in a .data file 
+
+    **************************************/
+		  int getVerticiesCount();
 
 
 	private:
-		int vertexCount;///<Amount of vertecies in an object
+    /*********************************************************************************************************************************/
+		int vertexCount;                                                                              //!<Amount of vertecies in an object
+		int attributeTypeCount;                                                                //!<Counter for amount of vertex attributes
+		int stride;                                                                                                  //!<The vertex stride
 
-		int attributeTypeCount;///<Counter for amount of Attributes
+    GLuint VBO;                                                                                              //!< Vertex Buffer Object
+    GLuint VAO;                                                                                               //!< Vertex Array Object
+    GLuint EBO;                                                                                             //!< Element Buffer Object
 
-		int stride;///<The vertex stride
+		std::ifstream vertexData;                                                                                    //!<vertex .data file
 
-		GLuint VBO, VAO, EBO;///<Vertex Buffer Object, Vertex Array Object, Element Buffer Object
+		std::vector<float> vertexInduvidualData;                                                                       //!<All vertex data
 
-		std::ifstream vertexData;///<VertexDataFile
+		std::vector<int> vertexAttribute;                                                               //!< vertex Attibute layout number
 
-		std::vector<float> vertexInduvidualData;///<All vertex data
+		int totalVertexFloatCount;                                                                              //!<Total Vertecies Amount
 
-		std::vector<int> vertexAttribute;///< vertex Attibute layout number
-
-		int totalVertexFloatCount;///<Total Vertecies Amount
-
-    /**
-    *\ Getter for XCoordinate on window
-    */
+    /******************************************
+    @brief Removes white spaces in text file
+     
+    *******************************************/
 		void splitStringWhitespace(std::string& _input, std::vector<std::string>& _output);
+
+    /*********************************************************************************************************************************/
 	};
 
 }

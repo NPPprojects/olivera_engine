@@ -46,44 +46,49 @@ public:
   
 
   **************************************************************************/
-  void onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath, std::string _shaderPath);
+    void onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath, std::string _shaderPath);
   
   /*************************************************************
-  @brief initalisation for 3D models of .obj loaded with assmp
+  @brief Initalisation for 3D models of .obj loaded with assimp
+
   *************************************************************/
-  void onInitialise(std::string _modelPath, std::string _shaderPath);
+    void onInitialise(std::string _modelPath, std::string _shaderPath);
 
 
-  /**
-  *\ Draw function gets called
-  */
-  void onDisplay();
+  /************************************************
+  @brief Draw function gets called every draw call
+
+  *************************************************/
+    void onDisplay();
   
-  /**
-  *\ setters for projection view and model matrix uniforms every tick
-  */
-  void onTick();
+  /****************************************************
+  @brief Set projection,view and model matrix uniforms 
+  every tick
+
+  *****************************************************/
+    void onTick();
   
-  /**
-  *\ Draw function for drawing either .objs or .data objects
-  */
+  /**************************************************************
+  @brief Draw function for drawing either .objs or .data objects
+  
+  ***************************************************************/
   void Draw();
 
 private:
 
-
-  std::vector<std::weak_ptr<Texture>> texture;///< vecor for textures used by object defined by user(not .obj files,  but .data files)
+  /********************************************************************************************************************************************************************/
+  std::vector<std::weak_ptr<Texture>> texture;                                //!< Vector for textures used by object defined by user(not .obj files,  but .data files)
  
-  std::shared_ptr<ShaderProgram> shader;///<weak pointer to shader
  
-  std::weak_ptr<CurrentCamera> cameraContext;///<weak pointer to the camera context so that it can display on screen
-  std::weak_ptr<VertexBuffer> object;///< weak pointer to mesh for .data objects
-  std::weak_ptr<Transform> transform;///< weak pointer to entities transfor,
-  std::weak_ptr<Entity> entitySelf;///<weak pointer to entity this component belongs to
-  std::weak_ptr<Model> model;///< weak pointer pointing to .obj 3D model loaded with assimp
-  std::weak_ptr<Core> core;///<weak pointer to core
+  std::weak_ptr<CurrentCamera> cameraContext;                                                  //!< Weak pointer to the camera context so that it can display on screen
+  std::weak_ptr<ShaderProgram> shader;                                                                                                      //!< Weak pointer to shader
+  std::weak_ptr<VertexBuffer> object;                                                                                       //!< Weak pointer to mesh for .data objects
+  std::weak_ptr<Transform> transform;                                                                                 //!< Weak pointer to entity's transform component
+  std::weak_ptr<Entity> entitySelf;                                                                               //!< Weak pointer to entity this component belongs to
+  std::weak_ptr<Model> model;                                                                            //!< Weak pointer pointing to .obj 3D model loaded with assimp
+  std::weak_ptr<Core> core;                                                                                                                   //!< Weak pointer to core
 
-
+  /********************************************************************************************************************************************************************/
 };
 
 }

@@ -12,9 +12,12 @@ namespace olivera
 
   class CurrentCamera;
   
-  /**
-  * Post-Processing enabled by creating a 2D texture and outpitting everything in the scene to it enabling the user to add custom Shader Programs for different post Processing effects
-  */
+  /***********************************************************************
+  @brief Post-Processing enabled by creating a 2D texture and outpitting 
+  everything in the scene to it. enabling the user to add custom 
+  Shader Programs for different post Processing effects.
+
+  ************************************************************************/
   class PostProcessing
   {
   public:

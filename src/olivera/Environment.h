@@ -32,7 +32,6 @@ namespace olivera
 
   private:
     /************************************************************************************************************/
-
     float deltaTime;                   //!<Time value that would be equal to make movement the same on any system
     float lastTime;                    //!<Initially set to the amount of milisecond's since SDL's initialisation
     float idealTime;                                                    //!<Ideal frame rate set on initilisation

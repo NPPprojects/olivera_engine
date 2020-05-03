@@ -33,11 +33,11 @@ void MeshRenderer::onInitialise(std::vector<std::string> _texturePaths, std::str
   object = core.lock()->getResources()->load<VertexBuffer>(_meshPath);
   transform = entitySelf.lock()->getComponent<Transform>();
   cameraContext = core.lock()->getCameraList()->getCurrentCamera();
-  shader->useShader();
+  shader.lock()->useShader();
   for (int i = 0; i < _texturePaths.size(); i++)
   {
 	  texture.push_back(core.lock()->getResources()->load<Texture>(_texturePaths.at(i)));	 
-    shader->setInt("texture" + std::to_string(i) + "", i);
+    shader.lock()->setInt("texture" + std::to_string(i) + "", i);
   }
 }
 void MeshRenderer::onInitialise(std::string _modelPath, std::string _shaderPath)
@@ -49,7 +49,7 @@ void MeshRenderer::onInitialise(std::string _modelPath, std::string _shaderPath)
   cameraContext = core.lock()->getCameraList()->getCurrentCamera();
   model = core.lock()->getResources()->load<Model>(_modelPath);
   
-   shader->useShader();
+  shader.lock()->useShader();
 
 
 }
@@ -60,16 +60,16 @@ void MeshRenderer::onDisplay()
 void MeshRenderer::onTick()
 {
 
-  shader->useShader();
+  shader.lock()->useShader();
 
-  shader->setMat4("projection", cameraContext.lock()->getProjection()); 
-  shader->setMat4("view", cameraContext.lock()->getView());
-  shader->setMat4("model", transform.lock()->getModel());
+  shader.lock()->setMat4("projection", cameraContext.lock()->getProjection());
+  shader.lock()->setMat4("view", cameraContext.lock()->getView());
+  shader.lock()->setMat4("model", transform.lock()->getModel());
   glUseProgram(0);
 }
 void MeshRenderer::Draw()
 {
-  shader->useShader();
+  shader.lock()->useShader();
   if (object.lock() != nullptr)
   {
     glBindVertexArray(object.lock()->getVAO());
@@ -86,7 +86,7 @@ void MeshRenderer::Draw()
   }
   else
   {
-    model.lock()->draw(shader);
+    model.lock()->draw(shader.lock());
   }
 }
 
