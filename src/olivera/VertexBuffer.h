@@ -22,11 +22,9 @@ namespace olivera
 
 ***********************************************************************************/
 	class VertexBuffer : public Resource
-	{
-    
-	public:
+	{   
+	  public:
  
-  
     /***********************************************
     @brief Constuctor calls set vertexData function
 
@@ -65,31 +63,32 @@ namespace olivera
 		  int getVerticiesCount();
 
 
-	private:
-    /*********************************************************************************************************************************/
-		int vertexCount;                                                                              //!<Amount of vertecies in an object
-		int attributeTypeCount;                                                                //!<Counter for amount of vertex attributes
-		int stride;                                                                                                  //!<The vertex stride
+	  private:
+    /************************************************************************************************************************************/
 
-    GLuint VBO;                                                                                              //!< Vertex Buffer Object
-    GLuint VAO;                                                                                               //!< Vertex Array Object
-    GLuint EBO;                                                                                             //!< Element Buffer Object
+      /******************************************
+      @brief Removes white spaces in text files
 
-		std::ifstream vertexData;                                                                                    //!<vertex .data file
+      *******************************************/
+        void splitStringWhitespace(std::string& _input, std::vector<std::string>& _output);
 
-		std::vector<float> vertexInduvidualData;                                                                       //!<All vertex data
+	    int vertexCount;                                                                              //!<Amount of vertecies in an object
+	    int attributeTypeCount;                                                                //!<Counter for amount of vertex attributes
+	    int stride;                                                                                                  //!<The vertex stride
 
-		std::vector<int> vertexAttribute;                                                               //!< vertex Attibute layout number
+      GLuint VBO;                                                                                              //!< Vertex Buffer Object
+      GLuint VAO;                                                                                               //!< Vertex Array Object
+      GLuint EBO;                                                                                             //!< Element Buffer Object
 
-		int totalVertexFloatCount;                                                                              //!<Total Vertecies Amount
+	    std::ifstream vertexData;                                                                                    //!<vertex .data file
 
-    /******************************************
-    @brief Removes white spaces in text file
-     
-    *******************************************/
-		void splitStringWhitespace(std::string& _input, std::vector<std::string>& _output);
+	    std::vector<float> vertexInduvidualData;                                                                       //!<All vertex data
 
-    /*********************************************************************************************************************************/
+	    std::vector<int> vertexAttribute;                                                               //!< vertex Attibute layout number
+
+	    int totalVertexFloatCount;                                                                              //!<Total Vertecies Amount
+
+  /**************************************************************************************************************************************/
 	};
 
 }

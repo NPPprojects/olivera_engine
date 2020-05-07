@@ -4,40 +4,53 @@
 #include <vector>
 namespace olivera
 {
-  /**
-  * Resource derived Class that holds a sound file
-  */
+  /******************************************************
+  @brief Resource derived class for playing audio files
+
+  *******************************************************/
   class Sound : public Resource
   {
-  public:
-   
-    /**
-    *\ Constructor that calls load function upon creation
-    */
-    Sound(std::string _path);
+    public:
+     
+      /*******************************************
+      @brief Constructor that calls load function.
 
-    /**
-    *\ Destructor for the sound Resource
-    */
-    ~Sound() { alDeleteBuffers(1, &id); }
+      @param std::string path to file
 
-    /**
-    *\ Generate sound from sound file location
-    */
-    void load(std::string _path);
+      ********************************************/
+        Sound(std::string _path);
 
-    /**
-    *\ Load .ogg file
-    */
-    void loadOggFile(const std::string& fileName, std::vector<char>& buffer,
-      ALenum &format, ALsizei &freq);
-    
-    /**
-    *\ Getter for ID 
-    */
-    ALuint getId() { return id; }
+      /*******&&*******************************
+      @brief Destructor for the sound resource
 
-  private:
-    ALuint id;///< ID to access sound after its created
+      *****************************************/
+        ~Sound() { alDeleteBuffers(1, &id); }
+
+      /*******************************************************
+      @brief Load an audio file from the specified file path.
+
+      @param std::string _path 
+
+      ********************************************************/
+        void load(std::string _path);
+
+      /*********************
+      @brief Load .ogg file
+     
+      **********************/
+        void loadOggFile(const std::string& fileName, std::vector<char>& buffer,
+                         ALenum &format, ALsizei &freq);
+      
+      /********************
+      @brief Getter for ID 
+      *********************/
+        ALuint getId();
+
+    private:
+    /*************************************************************************************************/
+      
+      ALuint id;                                                             //!< ID to refrence sound
+
+    /*************************************************************************************************/
   };
 }

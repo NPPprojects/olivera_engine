@@ -4,7 +4,7 @@
 #include "Component.h"
 namespace olivera
   /********************************************************************
-      Need to rework entire class
+      NEED TO REWORK ENTIRE CLASS
   *********************************************************************/
 
 {
@@ -19,14 +19,17 @@ namespace olivera
     /***********************
     @brief 
 
-    *
     @param
+
     ************************/
     void onInitialise(std::string _shader);
 
   private:
+  /********************************************************************************************************/
 
-    std::weak_ptr<ShaderProgram> shader;///<weakPointer to lights
+    std::weak_ptr<ShaderProgram> shader;                                        //!<Weak pointer to shader
+
+  /********************************************************************************************************/
   };
 
 

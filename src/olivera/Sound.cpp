@@ -82,4 +82,8 @@ namespace olivera
     // Clean up and close the file
     ov_clear(&oggFile);
   }
+  ALuint Sound::getId()
+  {
+     return id; 
+  }
 }

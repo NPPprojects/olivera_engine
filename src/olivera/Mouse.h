@@ -2,62 +2,91 @@
 
 namespace olivera
 {
-/**
-* Class to keep track of Mouse state
-*/
+/****************************************************
+ @brief Class to keep track and record mouse events
+
+*****************************************************/
   class Mouse 
   {
   public:
-    /**
-* \ Setter for Mouse motion state
-*/
+
+    /*******************************
+    @brief Setter for isMouseMoving.
+
+    ********************************/
       void setMouseState(bool _mouseMotion);
-    /**
-* \ Getter for XCoordinate on window
-*/
-    int getXCoordinate();
+    /**************************************
+    @brief Getter for X coordinate of the 
+    mouse on the window.
 
-/**
-* \ Getter to check if mouse is moving
-*/
-    bool getMouseState();
+    ***************************************/
+      int getXCoordinate();
 
-/**
-* \ Getter for YCoodinate on window
-*/
-   int getYCoordinate();
+    /*******************************
+    @brief Getter for isMouseMoving
 
-   /**
-* \ Getter for X relative motion
-*/
-   float getXMotion();
+    ********************************/
+      bool getMouseState();
 
-   /**
-   * \ Getter for Y relative motion 
-   */
-   float getYMotion();
+    /**************************************
+    @brief Getter for Y coordinate of the
+    mouse on the window.
 
-/**
-* \ Getter for YCoodinate on window
-*/
-   void setXMotion(int _xRelMotion);
-/**
-* \ Getter for YCoodinate on window
-*/
-   void setYMotion(int _yRelMotion);
+    ***************************************/
+      int getYCoordinate();
 
-  /**
-  * \ Update x and Y mouse Coordinate every tick
-  */
-   void tick(int _xRelMotion, int _yRelMotion);
+    /**************************************
+    @brief Getter for mouses x coordinate
+    relative motion
+
+    @return X relative motion
+    ***************************************/
+      float getXMotion();
+
+    /**************************************
+    @brief Getter for mouses x coordinate
+    relative motion
+
+    @return Y relative motion
+    ***************************************/
+      float getYMotion();
+
+    /**************************************
+    @brief Setter for mouses x coordinate
+    relative motion
+
+    ***************************************/
+      void setXMotion(int _xRelMotion);
+
+    /**************************************
+    @brief Setter for mouses x coordinate
+    relative motion
+
+    ***************************************/
+      void setYMotion(int _yRelMotion);
+                                                                  
+    /**************************************************************
+    @brief Set up mouse tracking every tick                       
+                                                                  
+    *Every tick, set the current mouse X and Y coordinates        
+    based on where the mouse is on the window and set any relative
+    X or Y motion event, when it's occuring.                      
+                                                                  
+    ***************************************************************/
+      void tick(int _xRelMotion, int _yRelMotion);
+
   private:
-    int xCoord;///<Mouse X Coordinates on window
-    int yCoord;///<Mouse Y Coordinates on window
+  /*************************************************************************************************/
+   
+    int xCoord;                                                     //!<Mouse X Coordinates on window
+    int yCoord;                                                     //!<Mouse Y Coordinates on window
+                                                             
+    float xMotion;                                                        //!<Mouse x relative motion
+    float yMotion;                                                        //!<Mouse x relative motion
 
-    float xMotion;///<Mouse x relative motion
-    float yMotion;///<Mouse x relative motion
+    bool isMouseMoving;               //Mouse boolean, event
 
-    bool isMouseMoving;
+  /*************************************************************************************************/
   };
 
 }

@@ -1,9 +1,13 @@
 #include <memory>
 #include "Component.h"
 
+/********************************************************************
+REMOVE HARDCODED SHADER UNIFORMS
+Rename SquareMesh to RectangleMesh
+*********************************************************************/
+
 namespace olivera
 {
-  
   class Core;
 
   class ShaderProgram;
@@ -20,48 +24,61 @@ namespace olivera
   ************************************************************************/
   class PostProcessing
   {
-  public:
+    public:
 
-  /**
-  *\ Constructor for post processing taking in the core in which it's contained, a Shader Program, and the mesh for it
- */
-  PostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh, int _width, int _height);
+    /*************************************************************************
+    @brief Constructor for framebuffer that will be used for post-processing.
+
+    @param std::shared_ptr<Core> core 
+    @param std::string shader resource
+    @param std::string mesh resource
+    @param int width of window
+    @param int height of window
+
+    **************************************************************************/
+      PostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh, int _width, int _height);
 
  
 
-  /**
-  *\ Configure frameBuffer
-  */
-    void FrameBufferConfiguration();
+    /**********************************************************
+    @brief Assigns FBO, and all other needed configurations
 
-    /**
-   *\ getter For FBO
-   */
-  int getFBO();
+    ***********************************************************/
+      void FrameBufferConfiguration();
+
+    /*********************
+    @brief Getter for FBO
+    **********************/
+      int getFBO();
   
-  /**
-  *\ use framebuffer
-  */
-  void use();
+    /***********************************
+    @brief bind framebuffer and draw it
 
-  private:
+    ************************************/
+      void use();
 
-    unsigned int FBO;///<FBO for framebuffer
-    unsigned int textureColorBuffer;///<texture color buffer for framebuffer
-    unsigned int renderBuffer;///<render buffer object
+    private:
+    /**********************************************************************************************************************************/
 
-
-    int blurIntesity;///<uniform values that i need to delete
-    float exposure;
-    float gamma;
-    bool filter;
-
-    int width, height;
+      unsigned int FBO;                                                                                         //!<Frame Buffer Object
+      unsigned int textureColorBuffer;                                                         //!<Texture color buffer for framebuffer
+      unsigned int renderBuffer;                                                                               //!<Render buffer object
 
 
-    std::weak_ptr<VertexBuffer> squareMesh;///<Weak pointer to square mesh 
-    std::weak_ptr<ShaderProgram> shader;///<Weak pointer to shader program
-    std::weak_ptr<Core> core;///<Weak pointer to the core in which the post processing framebuffer shader and square Mesh will be passed to
+      int blurIntesity;                                                                        //!<Uniform values that i need to delete
+      float exposure;
+      float gamma;
+      bool filter;
+
+      int width;                                                                                                //!<Width of Framebuffer
+      int height;                                                                                              //!<Height of Framebuffer
+
+
+      std::weak_ptr<VertexBuffer> squareMesh;                                                       //!<Weak pointer to framebuffer mesh
+      std::weak_ptr<ShaderProgram> shader;                                                            //!<Weak pointer to shader program
+      std::weak_ptr<Core> core;                                                                                 //!<Weak pointer to core
+
+    /**********************************************************************************************************************************/
   };
 
 

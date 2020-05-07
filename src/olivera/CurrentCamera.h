@@ -23,108 +23,109 @@ namespace olivera
   ************************************************************/
   class CurrentCamera 
   {
-  public:
-  /***********************************
-  @brief Getter for projection matrix.
+    public:
+
+    /***********************************
+    @brief Getter for projection matrix.
   
-  @return Camera's projection matrix.
+    @return Camera's projection matrix.
   
-  ************************************/
-    glm::mat4 getProjection();
+    ************************************/
+      glm::mat4 getProjection();
 
-  /***********************************
-  @brief Getter for view matrix.
+    /***********************************
+    @brief Getter for view matrix.
 
-  @return Camera's view matrix.
+    @return Camera's view matrix.
 
-  ************************************/
-    glm::mat4 getView();
+    ************************************/
+      glm::mat4 getView();
   
-  /***********************************
-  @brief getter for camera's viewport.
+    /***********************************
+    @brief getter for camera's viewport.
 
-  @return camera's viewport.
+    @return camera's viewport.
 
-  ************************************/ 
-    glm::vec4 getViewport();
+    ************************************/ 
+      glm::vec4 getViewport();
 
-  /***************************************
-  @brief getter for camera's framebuffer.
+    /***************************************
+    @brief getter for camera's framebuffer.
 
-  @return camera's framebuffer.
+    @return camera's framebuffer.
 
-  ****************************************/
-    std::shared_ptr<PostProcessing> getFrameBuffer();
+    ****************************************/
+      std::shared_ptr<PostProcessing> getFrameBuffer();
 
-  /***********************************
-  @brief Setter for view matrix.
+    /***********************************
+    @brief Setter for view matrix.
 
-  @param glm::mat4 viewMatrix.
+    @param glm::mat4 viewMatrix.
 
-  ************************************/
-	  void setView(glm::mat4 _view);
+    ************************************/
+	    void setView(glm::mat4 _view);
 
-  /***********************************
-  @brief Setter for projection matrix.
+    /***********************************
+    @brief Setter for projection matrix.
 
-  @param glm::mat4 projectionMatrix.
+    @param glm::mat4 projectionMatrix.
 
-  ************************************/
-    void setProjection(glm::mat4 _projection);
+    ************************************/
+      void setProjection(glm::mat4 _projection);
   
-  /***********************************
-  @brief Setter for camera's viewport.
+    /***********************************
+    @brief Setter for camera's viewport.
 
-  @param glm::vec4 cameraViewport.
+    @param glm::vec4 cameraViewport.
 
-  ************************************/
-    void setViewport(glm::vec4 _viewport);
-
-
-  /*********************************************
-  @brief Setter for camera's framebuffer.
-
-  @param std::shared_ptr<Core> active core
-  @param std::string _shader of the framebuffer
-  @param std::string _mesh of the framebuffer
-
-  **********************************************/
-    void setFrameBuffer(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh);
+    ************************************/
+      void setViewport(glm::vec4 _viewport);
 
 
-  /***********************************
-  @brief Prepares the openGl for the
-  current camera's framebuffer.
+    /*********************************************
+    @brief Setter for camera's framebuffer.
 
-  ************************************/
-  void activeFrameBuffer();
+    @param std::shared_ptr<Core> active core
+    @param std::string _shader of the framebuffer
+    @param std::string _mesh of the framebuffer
 
-  /***********************************
-  @brief Render's the framebuffer
-  after loading it with the scene's 
-  render texture.
+    **********************************************/
+      void setFrameBuffer(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh);
 
-  ************************************/
-  void useFrameBuffer();
 
-/**************************************
-@brief Reset's the framebuffer to zero
-after creating the rendertexture 
+    /***********************************
+    @brief Prepares the openGl for the
+    current camera's framebuffer.
 
-***************************************/
-    void clear();
+    ************************************/
+      void activeFrameBuffer();
 
-  private:
-  /**************************************************************************/
+    /***********************************
+    @brief Render's the framebuffer
+    after loading it with the scene's 
+    render texture.
 
-    glm::mat4 view;   //!<Camera's view matrix
-    glm::mat4 projection;//!<Camera's projection matrix
-    glm::vec4 viewport;//!< Camera's viewport coordinates
+    ************************************/
+      void useFrameBuffer();
+
+  /**************************************
+  @brief Reset's the framebuffer to zero
+  after creating the rendertexture 
+
+  ***************************************/
+      void clear();
+
+    private:
+    /********************************************************************************************/
+
+      glm::mat4 view;                                                    //!<Camera's view matrix
+      glm::mat4 projection;                                        //!<Camera's projection matrix
+      glm::vec4 viewport;                                      //!< Camera's viewport coordinates
     
-    std::shared_ptr<PostProcessing> framebuffer;//!< Camera's framebuffer
+      std::shared_ptr<PostProcessing> framebuffer;                      //!< Camera's framebuffer
 
-  /**************************************************************************/
-  };
+    /********************************************************************************************/
+    };
 }
 
 #endif

@@ -24,95 +24,95 @@ namespace olivera
   ***********************************************************************/
 	class Collision : public Component
 	{
-	public:
+	  public:
 
-   /*****************************************************
-   @brief Setter for the offset when colliding.
+     /*****************************************************
+     @brief Setter for the offset when colliding.
    
-   @param glm::vec3 offset for calculating new position.
+     @param glm::vec3 offset for calculating new position.
  
-   *****************************************************/
-    void setOffset(const glm::vec3& _offset);
+     *****************************************************/
+      void setOffset(const glm::vec3& _offset);
 
 
-  /************************************************
-  @brief Setter for the scale of the collision box.
+    /************************************************
+    @brief Setter for the scale of the collision box.
 
-  @param glm::vec3 size
+    @param glm::vec3 size
 
-  *************************************************/
-	  void setSize(const glm::vec3& _size);
+    *************************************************/
+	    void setSize(const glm::vec3& _size);
     
-  /**************************************************
-  @brief Check if entities are colliding every tick.
+    /**************************************************
+    @brief Check if entities are colliding every tick.
 
-  *If isVisable is set to true, a hard coded green 
-  bounding box will appear.
+    *If isVisable is set to true, a hard coded green 
+    bounding box will appear.
 
-  ***************************************************/
-		void onTick();
+    ***************************************************/
+		  void onTick();
 
-  /***************************************
-   @brief Display collision boulding box.
+    /***************************************
+     @brief Display collision boulding box.
 
-  ****************************************/
-    void onDisplay();
+    ****************************************/
+      void onDisplay();
 	
-  /**********************************************************************
-   @brief set up for the collision box.
+    /**********************************************************************
+     @brief set up for the collision box.
    
-   *Attached a collision box to the entity and if visablity is enabled 
-   prepares the VBO VAO and sets ups the hardcoded shaders for use.
+     *Attached a collision box to the entity and if visablity is enabled 
+     prepares the VBO VAO and sets ups the hardcoded shaders for use.
 
-  ***********************************************************************/    
-    void onInitialise(bool _isVisable);
+    ***********************************************************************/    
+      void onInitialise(bool _isVisable);
    
-  /**************************************************************************
-  @brief check if colliding.
-  *Checks for all entites with a collision component and adds it to a list 
-   whenever any of the AABBs cross each other enable isColliding.
+    /**************************************************************************
+    @brief check if colliding.
+    *Checks for all entites with a collision component and adds it to a list 
+     whenever any of the AABBs cross each other enable isColliding.
 
-  @param bool isVisable 
+    @param bool isVisable 
 
 
-  ***************************************************************************/
-    void collideBox();
+    ***************************************************************************/
+      void collideBox();
 
-  /********************************************
-   @brief AABB collision check
+    /********************************************
+     @brief AABB collision check
 
-   @param glm::vec3 position of colliding box
-   @param glm::vec3 size of colliding box
+     @param glm::vec3 position of colliding box
+     @param glm::vec3 size of colliding box
 
-   @return true if colliding
-  *********************************************/
-		bool isColliding(glm::vec3 _position, glm::vec3 _size);
+     @return true if colliding
+    *********************************************/
+		  bool isColliding(glm::vec3 _position, glm::vec3 _size);
 
-  /***********************************************
-  @brief Response whenever collision occurs.
+    /***********************************************
+    @brief Response whenever collision occurs.
 
-  @param glm::vec3 position of the colliding box.
-  @param glm::Vec3 size of the colliding box.
+    @param glm::vec3 position of the colliding box.
+    @param glm::Vec3 size of the colliding box.
 
-  @return The new position after colliding.
+    @return The new position after colliding.
 
-  ************************************************/
-    glm::vec3 getCollisionResponse(glm::vec3 _position, glm::vec3 _size);
+    ************************************************/
+      glm::vec3 getCollisionResponse(glm::vec3 _position, glm::vec3 _size);
 
-  /********************************************
-  @brief Draws the box if isVissable is true.
+    /********************************************
+    @brief Draws the box if isVissable is true.
   
-  *********************************************/
-    void DrawBox();
+    *********************************************/
+      void DrawBox();
 
-	private:
-  /************************************************************************************************************/
+	  private:
+    /************************************************************************************************************/
 		
-    /*******************************************
-    @brief uniform setter for the model matrix.
+      /*******************************************
+      @brief uniform setter for the model matrix.
 
-    ********************************************/
-      void setMat4(const std::string &name, const glm::mat4 &mat) const;
+      ********************************************/
+        void setMat4(const std::string &name, const glm::mat4 &mat) const;
     
     
       glm::vec3 size;                                                                //!< Size of collision box
@@ -133,31 +133,31 @@ namespace olivera
       unsigned int VBO, VAO;                                  //!< Vertex Buffer Object and Vertex Array Object                                              
 
       int vertexShader, fragmentShader, shaderProgram;         //!< Vertex and fragment programs and the shader                                              
-                                                                         //!< pProgram they will be attached to                                               
+                                                                          //!< pProgram they will be attached to                                               
 
       bool isVisable;                                //!<Boolean to check if the bounding box should be visable                                              
                                                                                                     
       static constexpr float vertices[] = {
-             -1.0f, -1.0f, -1.0f,
+              -1.0f, -1.0f, -1.0f,
               1.0f, -1.0f, -1.0f,
               1.0f,  1.0f, -1.0f,
               1.0f,  1.0f, -1.0f,
-             -1.0f,  1.0f, -1.0f,
-             -1.0f, -1.0f, -1.0f,
+              -1.0f,  1.0f, -1.0f,
+              -1.0f, -1.0f, -1.0f,
 
-             -1.0f, -1.0f,  1.0f,
+              -1.0f, -1.0f,  1.0f,
               1.0f, -1.0f,  1.0f,
               1.0f,  1.0f,  1.0f,
               1.0f,  1.0f,  1.0f,
-             -1.0f,  1.0f,  1.0f,
-             -1.0f, -1.0f,  1.0f,
+              -1.0f,  1.0f,  1.0f,
+              -1.0f, -1.0f,  1.0f,
 
-             -1.0f,  1.0f,  1.0f,
-             -1.0f,  1.0f, -1.0f,
-             -1.0f, -1.0f, -1.0f,
-             -1.0f, -1.0f, -1.0f,
-             -1.0f, -1.0f,  1.0f,
-             -1.0f,  1.0f,  1.0f,
+              -1.0f,  1.0f,  1.0f,
+              -1.0f,  1.0f, -1.0f,
+              -1.0f, -1.0f, -1.0f,
+              -1.0f, -1.0f, -1.0f,
+              -1.0f, -1.0f,  1.0f,
+              -1.0f,  1.0f,  1.0f,
 
               1.0f,  1.0f,  1.0f,
               1.0f,  1.0f, -1.0f,
@@ -166,24 +166,24 @@ namespace olivera
               1.0f, -1.0f,  1.0f,
               1.0f,  1.0f,  1.0f,
 
-             -1.0f, -1.0f, -1.0f,
+              -1.0f, -1.0f, -1.0f,
               1.0f, -1.0f, -1.0f,
               1.0f, -1.0f,  1.0f,
               1.0f, -1.0f,  1.0f,
-             -1.0f, -1.0f,  1.0f,
-             -1.0f, -1.0f, -1.0f,
+              -1.0f, -1.0f,  1.0f,
+              -1.0f, -1.0f, -1.0f,
 
-             -1.0f,  1.0f, -1.0f,
+              -1.0f,  1.0f, -1.0f,
               1.0f,  1.0f, -1.0f,
               1.0f,  1.0f,  1.0f,
               1.0f,  1.0f,  1.0f,
-             -1.0f,  1.0f,  1.0f,
-             -1.0f,  1.0f, -1.0f,
+              -1.0f,  1.0f,  1.0f,
+              -1.0f,  1.0f, -1.0f,
       };                                                   
-                                                               //!< Vertices of the bounding box in local space     
+                                                                //!< Vertices of the bounding box in local space     
                                                                                                     
                                                                                                    
-  /************************************************************************************************************/
+    /************************************************************************************************************/
 	};
 
 }

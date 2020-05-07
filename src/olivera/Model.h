@@ -23,60 +23,89 @@ namespace olivera {
   class ShaderProgram;
   
   
-  /**
-  * Loads textures from files
-  */
+  /***********************************************
+  @brief Load texture from file path
+
+  @param const char *path to file
+  @param cosnt std::string& directory
+  @param bool gamma false by default
+  
+  @return textureID
+  ************************************************/
   unsigned int textureFromFile(const char *path, const std::string &directory, bool gamma = false);
 
 
+  /****************************************************
+  @brief Resource derived class for loading 3D models
+  
+  *****************************************************/
   class Model : public Resource
   {
-  public:
+    public:
 
-    /**
-    *\ constructor, expects a filepath to a 3D model.
-    */
-    Model(std::string const &path, bool gamma = false);
+      /****************************************************
+      @brief Constructor, expects a filepath to a 3D model.
+    
+      @param std::string const @path to file
+      @param bool gamma false by default
 
-    /**
-    *\ draws the model and all its meshes
-    */
-    void draw(std::shared_ptr<ShaderProgram> shader);
+      *****************************************************/
+        Model(std::string const &path, bool gamma = false);
 
+      /*****************************************************************************
+      @brief Draws the model and all its meshes using the specified shader program
 
-
-  private:
-  /**
-  *\ loads the model and expects path to an .obj file
-  */
-    void loadModel(std::string const &_path);
-
-
-    /**
-    *\ processes a node in a recursive fashion. Processes each individual mesh located at the node and repeats this process on its children nodes (if any).
-    */
-    void processNode(aiNode *_node, const aiScene *_scene);
-
-    /**
-    *\ processes a node in a recursive fashion. Processes each individual mesh located at the node and repeats this process on its children nodes (if any).
-    */
-    Mesh processMesh(aiMesh *_mesh, const aiScene *_scene);
+      @param std::shared_ptr<ShaderProgram> shader file used by the model
+      ******************************************************************************/
+        void draw(std::shared_ptr<ShaderProgram> shader);
 
 
 
-    /**
-    \ checks all material textures of a given type and loads the textures if they're not loaded yet.
-    \ the required info is returned as a Texture struct.
-    */
-    std::vector<Textures> loadMaterialTextures(aiMaterial *_mat, aiTextureType _type, std::string _typeName);
-    /*  Model Data */
-
-    std::vector<Textures> textures_loaded;///<stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once.
-    std::vector<Mesh> meshes;///<stores all the meshes of the object that are loaded
-    std::string directory;///< holds neccessary directories
-    bool gammaCorrection;///<gamma correct objects if specified in the object
+    private:
+    /****************************************************************************************************************************************************************************/
 
 
+
+      /*******************************************************************************
+      @brief processes a node in a recursive fashion. Processes each individual mesh 
+      located at the node and repeats this process on its children nodes (if any).
+    
+      ********************************************************************************/
+        void processNode(aiNode *_node, const aiScene *_scene);
+
+      /*******************************************************************************
+      @brief processes a node in a recursive fashion. Processes each individual mesh
+      located at the node and repeats this process on its children nodes (if any).
+
+      ********************************************************************************/
+        Mesh processMesh(aiMesh *_mesh, const aiScene *_scene);
+
+
+      /*************************************************************
+      @brief Checks all material textures of a given type and loads
+      the textures if they're not loaded yet.
+    
+      @return Texture struct.
+
+      **************************************************************/
+       std::vector<Textures> loadMaterialTextures(aiMaterial *_mat, aiTextureType _type, std::string _typeName);
+
+      /***************************************
+      @brief Loads the model
+
+      @param std::string const *Path to model
+      ****************************************/
+        void loadModel(std::string const &_path);
+
+
+      /*  Model Data */
+
+      std::vector<Textures> textures_loaded;                            //!<Stores all the textures loaded so far, optimization to make sure textures aren't loaded more than once
+      std::vector<Mesh> meshes;                                                                                            //!<Stores all the meshes of the object that are loaded
+      std::string directory;                                                                                                                     //!< Holds neccessary directories
+      bool gammaCorrection;                                                                                                   //!<Gamma correct objects if specified in the object
+
+      /****************************************************************************************************************************************************************************/
   };
 }
 

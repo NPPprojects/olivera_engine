@@ -13,7 +13,6 @@ namespace olivera
     isPlaying = false;
     entitySelf = getEntity();
     core = getCore();
-   // object = core.lock()->getResources()->load<VertexBuffer>(_meshPath);
     sound = core.lock()->getResources()->load<Sound>(_name);
 
     cameraEntity = _cameraEntity;

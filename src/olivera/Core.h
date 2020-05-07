@@ -34,136 +34,136 @@ namespace olivera
   ***********************************************/
   class Core
   {
+    public:
 
-  public:
-    /**********************************************************
-    @brief Initialisation function that will add all entities
-    to the tick rate and display them.                       
+      /**********************************************************
+      @brief Initialisation function that will add all entities
+      to the tick rate and display them.                       
                                                              
-    @param int WindowWidth                                   
-    @param int WindowHeight                                  
+      @param int WindowWidth                                   
+      @param int WindowHeight                                  
                                                              
-    @return the core set up                                  
-    ***********************************************************/
-    static std::shared_ptr<Core> initialise(int _windowWidth, int _windowHeight);
+      @return the core set up                                  
+      ***********************************************************/
+        static std::shared_ptr<Core> initialise(int _windowWidth, int _windowHeight);
     
-    /*******************************************
-    @brief Adds an entity to the entity vector.
+      /*******************************************
+      @brief Adds an entity to the entity vector.
 
-    @return pointer to the entity.
+      @return pointer to the entity.
 
-    ********************************************/
-    std::shared_ptr<Entity> addEntity();    
+      ********************************************/
+        std::shared_ptr<Entity> addEntity();    
     
-    /******************************************************
-    @brief Get Entities with a specific component attached.
+      /******************************************************
+      @brief Get Entities with a specific component attached.
                                                            
-    *******************************************************/
-    template<typename T>
-    void GetEntities(std::vector<std::shared_ptr<Entity>>& _entities)
-    {
-      for (std::vector<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
-      {
-        bool found = (*it)->checkForComponent<T>();
-
-        if (found)
+      *******************************************************/
+        template<typename T>
+        void GetEntities(std::vector<std::shared_ptr<Entity>>& _entities)
         {
-          _entities.push_back((*it));
+          for (std::vector<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
+          {
+            bool found = (*it)->checkForComponent<T>();
+
+            if (found)
+            {
+              _entities.push_back((*it));
+            }
+          }
         }
-      }
-    }
 
-    /******************************************************
-     @brief Get the Keyboard object in core.
+      /******************************************************
+        @brief Get the Keyboard object in core.
      
-     *Contains methods for accessing the current keys that
-     are pressed or held.
+        *Contains methods for accessing the current keys that
+        are pressed or held.
 
-     @return weak pointer to the keyboard object in core.
+        @return weak pointer to the keyboard object in core.
 
-    *******************************************************/
-    std::shared_ptr<Keyboard> getKeyboard(); 
+      *******************************************************/
+        std::shared_ptr<Keyboard> getKeyboard(); 
 
-    /*******************************************************
-    @brief Get the Environment object in core.
+      /*******************************************************
+      @brief Get the Environment object in core.
 
-    *Contains methods for accessing and modifying deltaTime
+      *Contains methods for accessing and modifying deltaTime
 
-    @return weak pointer to the environment object in core.
-    ********************************************************/
-    std::shared_ptr<Environment> getEnvironment();  
+      @return weak pointer to the environment object in core.
+      ********************************************************/
+        std::shared_ptr<Environment> getEnvironment();  
 
-    /**************************************************
-    @brief Get access to the camera list in core.
+      /**************************************************
+      @brief Get access to the camera list in core.
 
-    @return weak pointer to the cameraList in core.
-    ***************************************************/
-    std::shared_ptr<CameraContext> getCameraList();  
+      @return weak pointer to the cameraList in core.
+      ***************************************************/
+        std::shared_ptr<CameraContext> getCameraList();  
 
-    /******************************************
-    @brief Get the list of current resources.
+      /******************************************
+      @brief Get the list of current resources.
     
-    @return a weak pointer to a resource list 
-    in core.
+      @return a weak pointer to a resource list 
+      in core.
 
-    *******************************************/
-	  std::shared_ptr<ResourceManager> getResources(); 
+      *******************************************/
+	      std::shared_ptr<ResourceManager> getResources(); 
     
 
-    /***********************************
-    @brief Get access to mouse object.
+      /***********************************
+      @brief Get access to mouse object.
 
-    @return mouse object inside core.
+      @return mouse object inside core.
 
-    ************************************/
-    std::shared_ptr<Mouse> getMouse();     
+      ************************************/
+        std::shared_ptr<Mouse> getMouse();     
     
-    /*****************************************************************************************
-    @brief Core while loop.
+      /*****************************************************************************************
+      @brief Core while loop.
 
-    *Record mouse and keyboard inputs and sends them to their respective objects.
-    All entites go through their tick functions, and then through their dispay functions. 
-    A viewport is set up using the user inputed window width and height. 
-    Further viewports are created for user defined cameras.
+      *Record mouse and keyboard inputs and sends them to their respective objects.
+      All entites go through their tick functions, and then through their dispay functions. 
+      A viewport is set up using the user inputed window width and height. 
+      Further viewports are created for user defined cameras.
 
-    ******************************************************************************************/
-    void start();
+      ******************************************************************************************/
+        void start();
     
-    /****************************
-    @brief Stops the main loop.
+      /****************************
+      @brief Stops the main loop.
     
-    *****************************/
-    void stop();
+      *****************************/
+       void stop();
     
-    /*****************************
-    @brief Get the screen width.
+      /*****************************
+      @brief Get the screen width.
 
-    @return screenWidth
+      @return screenWidth
 
-    ******************************/
-    int getScreenWidth();
+      ******************************/
+        int getScreenWidth();
 
-    /******************************
-    @brief get the screen height.
+      /******************************
+      @brief get the screen height.
 
-    @return screenHeight
+      @return screenHeight
 
-    *******************************/
-    int getScreenHeight();
+      *******************************/
+        int getScreenHeight();
 
-  private:
+    private:
     /************************************************************************************************************************/
-
+    
       SDL_Window *window;                                                                                  //!<Window context
-
-
+    
+    
       ALCdevice* device;                                                                                            //!<Audio
       ALCcontext* context;                                                                                          //!<Audio
     
-
+    
       std::vector<std::shared_ptr<Entity>> entities;                                               //!<Vector of all entities
     
-      
+    
       std::weak_ptr<Core> self;                                                             //!<Weak pointer to self refrence 
     
       std::shared_ptr<CameraContext> cameraContext = std::make_shared<CameraContext>();                     //!<Store Cameras
@@ -171,12 +171,12 @@ namespace olivera
       std::shared_ptr<Environment> environment = std::make_shared<Environment>();                //!<Store environment object 
       std::shared_ptr<Keyboard> keyboard = std::make_shared<Keyboard>();                           //!<Stores keyboard inputs
       std::shared_ptr<Mouse> mouse = std::make_shared <Mouse>();                                     //!< Stores Mouse Inputs
-   
+    
       int windowWidth;                                                                               //</ Stores window width
       int windowHeight;                                                                              //</Stores window height
-
+    
       bool running;                                                                              //</If true main loop starts
-
+    
     /************************************************************************************************************************/
   };
 }

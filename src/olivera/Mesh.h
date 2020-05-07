@@ -14,25 +14,27 @@ namespace olivera
 {
   class ShaderProgram;
 
-  /**
-  *Struct to hold vertex data from the 3d model
-  */
+  /***************************************************
+  @briefStruct to hold vertex data from the 3d model
+
+  ****************************************************/
   struct Vertex {
     // position
     glm::vec3 Position;
-    // normal
+    // normals
     glm::vec3 Normal;
     // texCoords
     glm::vec2 TexCoords;
-    // tangent
+    // s
     glm::vec3 Tangent;
-    // bitangent
+    // bitangents
     glm::vec3 Bitangent;
   };
 
-  /**
-  *Struct to hold texture data from the 3d model
-  */
+  /****************************************************
+  @brief Struct to hold texture data from the 3d model
+
+  *****************************************************/
   struct Textures {
     unsigned int id;
     std::string type;
@@ -43,38 +45,54 @@ namespace olivera
     unsigned int GetId() { return id; };
 
   };
-  /**
-  *Mesh class used by the model class to generate the mesh for the 3D object
-  */
+  /********************************************
+  @brief Mesh class used by the model class to 
+  generate the mesh for the 3D object.
+
+  *********************************************/
   class Mesh {
-  public:
+    public:
+
+      /***********************************************************
+      @brief  When its constructed, pass the object's verticies, 
+      indicies and textures to then call setupMesh() to
+      initialise all VAO/VBO/EBOs the mesh contains.
+
+      @param std::vector<Vetex> vertices
+      @param std::vector<unsigned int> indices
+      @param std::vector<Textures> textures
+
+      ************************************************************/
+        Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Textures> textures);
 
 
+      /********************************************************
+      @brief Render the mesh using the attached shader program
 
-    /**
-    *\ Constructor
-    */
-    Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Textures> textures);
-
-
-    /**
-    *\ Render the mesh
-    */
-    void draw(std::shared_ptr<ShaderProgram> shader);
+      @param std::shared_ptr<ShaderProgram>  shader 
+    
+      *********************************************************/
+       void draw(std::shared_ptr<ShaderProgram> shader);
 
 
-  private:
+    private:
+    /************************************************************************************************************/
 
-    std::vector<Vertex> vertices;///< Store verticies information
-    std::vector<unsigned int> indices; ///<store indicies incase of EBO
-    std::vector<Textures> textures;///store textures of object
-    unsigned int VAO;///< Vertex Array Object
-    unsigned int VBO, EBO;///Vertex Buffer Object and Element Buffer Object
+      /**************************************************
+      @brief Initalise all VAO/VBO/EBO the mesh contains
 
-  /**
-  *\ initalise all the buffer objects/arrays
-  */
-    void setupMesh();
+      ***************************************************/
+        void setupMesh();
+                                                                       
+      std::vector<Vertex> vertices;                                          //!< Store verticies relevent data                                                                    
+      std::vector<Textures> textures;                                             //!< Store textures of object
+                                                                       
+      unsigned int VAO;                                                                //!< Vertex Array Object
+      unsigned int VBO;                                                               //!<Element Buffer Object 
+      unsigned int EBO;                                                                //!<Vertex Buffer Object  
+
+      std::vector<unsigned int> indices;                  //!<Store vertex indicies in models where EBO is used
+    /************************************************************************************************************/
   };
 }
 

@@ -6,29 +6,41 @@
 
 namespace olivera
 {
-  /**
- *\ Base class for all Resources
- */
+  /********************************************************
+  @brief Base class for all resources.
+
+  *when a resource is loaded a string is attached to it
+  so that the resource can be refrenced using it.
+
+  *********************************************************/
 	class Resource
 	{
-	public:
-  /**
-  *\ Getter for a Resource's name
-  */
-	std::string getName();
+	  public:
+    /**********************
+    @brief Getter for name
 
-  /**
-  *\ Setter for a Resource's name
-  */
-	void setName(std::string _name);
-  /**
-  *\ virtual destructor
-  */
-	virtual ~Resource() {}
+    ***********************/
+	    std::string getName();
+
+    /**********************
+    @brief Setter for name
+
+    ***********************/
+	    void setName(std::string _name);
+
+    /*******************************************************
+    @brief virtual destructor to be used by derived classes
+
+    ********************************************************/
+	  virtual ~Resource() {}
 
 
-	private:
-		std::string name;///<Resource's name tag
+	  private:
+    /**************************************************************/
+
+		  std::string name;                     //!<Resource's name tag
+
+    /**************************************************************/
 	};
 }
 

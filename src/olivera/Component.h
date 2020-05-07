@@ -25,66 +25,67 @@ namespace olivera
   {
     friend class Entity;
 
-  public:
-    /*************************************************
-    @brief Virtual deconstructor for derived classes.
+    public:
 
-    **************************************************/
-    virtual ~Component();
+      /*************************************************
+      @brief Virtual deconstructor for derived classes.
 
-    /**************************************************
-    @brief Getter for entity.
+      **************************************************/
+        virtual ~Component();
 
-    @return the entity this component is attached to.
+      /**************************************************
+      @brief Getter for entity.
+
+      @return the entity this component is attached to.
     
-    ***************************************************/
-    std::shared_ptr<Entity> getEntity();
+      ***************************************************/
+        std::shared_ptr<Entity> getEntity();
     
-    /************************************
-    @brief Getter for the engine.
+      /************************************
+      @brief Getter for the engine.
 
-    @return the engine as a weak pointer.
-    *************************************/
-    std::shared_ptr<Core> getCore();
+      @return the engine as a weak pointer.
+      *************************************/
+        std::shared_ptr<Core> getCore();
 
 
-    std::weak_ptr<Entity> entity;          //!< Weak pointer to the entity the component belongs to
+      std::weak_ptr<Entity> entity;          //!< Weak pointer to the entity the component belongs to
 
-    bool began;                               //</ Enables/disables the component within the entity
+      bool began;                               //</ Enables/disables the component within the entity
 
-  private:
-	/************************************************************************************************/
+    private:
+	  /************************************************************************************************/
 
-    /*******************************************************
-    @brief Virtual function for a component's initilastion.
+      /*******************************************************
+      @brief Virtual function for a component's initilastion.
     
-    *Constructor for the component
+      *Constructor for the component
 
-    ********************************************************/
-   virtual void onInitialise();
+      ********************************************************/
+     virtual void onInitialise();
 
-   /*************************************************
-   @brief Virtual function for on Start Function
+     /*************************************************
+     @brief Virtual function for on Start Function
 
-   **************************************************/
-   virtual void onStart();
+     **************************************************/
+     virtual void onStart();
 
-   /****************************************************
-   @param Virtual function that gets called every tick 
-   after the core's start function gets called.
+     /****************************************************
+     @param Virtual function that gets called every tick 
+     after the core's start function gets called.
 
-   *****************************************************/
-   virtual void onTick();
+     *****************************************************/
+     virtual void onTick();
 
-   /*******************************************************
-  *\Virtual function that gets called every display call.
+     /*******************************************************
+    *\Virtual function that gets called every display call.
 
-  *********************************************************/
-   virtual void onDisplay();
+    *********************************************************/
+     virtual void onDisplay();
 
-  };
+    };
 
-  /************************************************************************************************/
-}
+    /************************************************************************************************/
+  }
 
 #endif

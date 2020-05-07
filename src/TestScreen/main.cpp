@@ -120,7 +120,7 @@ int main()
   std::shared_ptr<olivera::SoundSource> soundy = cube2->addComponent<olivera::SoundSource>("Horn", cameraEntity);
   std::shared_ptr<SoundInputManager> soundyControl = cube2->addComponent<SoundInputManager>();
   shapeTransform2->setPosition(glm::vec3(0.0f, 1.1f, 0.0f));
-  collider2->setSize(glm::vec3(0.5f, 0.5f, 0.5f));
+  collider2->setSize(glm::vec3(1.0f, 1.5f, 1.5f));
   std::cout<<shapeTransform2->getScale().x;
 
   //LightCube3

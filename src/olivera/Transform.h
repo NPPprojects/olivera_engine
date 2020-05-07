@@ -9,92 +9,93 @@ namespace olivera
   *******************************************************************/
   class Transform : public Component
   {
-  public:
+    public:
   
-  /**
-  @brief Getter for the model matrix of an entity
+    /**
+    @brief Getter for the model matrix of an entity
 
-  @return mat4 model;
-  */
-    glm::mat4 getModel();
+    @return mat4 model;
+    */
+      glm::mat4 getModel();
   
-  /************************************************
-  @brief Update the model matrix with the last set 
-  position, rotation and scale vectors
+    /************************************************
+    @brief Update the model matrix with the last set 
+    position, rotation and scale vectors
 
-  *************************************************/
-	  void updateModel();
+    *************************************************/
+	    void updateModel();
   
-  /***************************************
-  *@brief Setter for the position vector
+    /***************************************
+    *@brief Setter for the position vector
   
-  @param vec3 Position
+    @param vec3 Position
 
-  ****************************************/
-	  void setPosition(glm::vec3 _position);
+    ****************************************/
+	    void setPosition(glm::vec3 _position);
 	
-  /**************************************
-  @brief setter for the rotation vector
+    /**************************************
+    @brief setter for the rotation vector
   
-  @param vec3 Rotation
+    @param vec3 Rotation
 
-  ***************************************/
-    void setRotation(glm::vec3 _rotation);
+    ***************************************/
+      void setRotation(glm::vec3 _rotation);
   
-  /**************************************
-  @brief setter for the scale vector
+    /**************************************
+    @brief setter for the scale vector
   
-  @param vec3 Scale
+    @param vec3 Scale
 
-  ***************************************/
-    void setScale(glm::vec3 _scale);
+    ***************************************/
+      void setScale(glm::vec3 _scale);
 
-  /**************************************
-  @brief Getter for the position vector
+    /**************************************
+    @brief Getter for the position vector
 
-  @return entity's position
+    @return entity's position
 
-  ***************************************/
-    glm::vec3 getPosition();
+    ***************************************/
+      glm::vec3 getPosition();
 
-  /**************************************
-  @brief Getter for the rotation vector
+    /**************************************
+    @brief Getter for the rotation vector
 
-  @return entity's rotation
+    @return entity's rotation
 
-  ***************************************/
-    glm::vec3 getRotation();
+    ***************************************/
+      glm::vec3 getRotation();
 	
-  /**************************************
-  @brief Getter for the scale vector
+    /**************************************
+    @brief Getter for the scale vector
 
-  @return entity's scale
+    @return entity's scale
 
-  ***************************************/
-    glm::vec3 getScale();
+    ***************************************/
+      glm::vec3 getScale();
 
-  /**************************************
-  @brief UpdateModel is called every tick
+    /**************************************
+    @brief UpdateModel is called every tick
 
-  ***************************************/
-    void onTick();
+    ***************************************/
+      void onTick();
 	
-  /********************************************
-  @brief initalisation transform component with
-  default values
+    /********************************************
+    @brief initalisation transform component with
+    default values
 
-  *********************************************/
-    void onInitialise();
+    *********************************************/
+      void onInitialise();
   
-  private:  
-  /***********************************************************************************************/
-	glm::vec3 position;                                                       //!<position of Entity
-  glm::vec3 rotation;                                                       //!<rotation of Entity
-  glm::vec3 scale;                                                             //!<scale of Entity
-                                                                                                                                                                                                                      
-  glm::mat4 model;                                                      //!<Model Matrix of Entity
+    private:  
+    /***********************************************************************************************/
+
+      glm::vec3 position;                                                     //!<position of Entity
+      glm::vec3 rotation;                                                     //!<rotation of Entity
+      glm::vec3 scale;                                                           //!<scale of Entity
+                                                                                                                                                                                                                    
+      glm::mat4 model;                                                    //!<Model Matrix of Entity
     
-  /***********************************************************************************************/
+    /***********************************************************************************************/
   };
 
 }

@@ -10,9 +10,14 @@ NEED TO REWORK CLASS
 
 
 {
-  class Entity;
   class ShaderProgram;
+  
+  class Entity;
 
+  /***************************************************
+  @brief Holds values to calculate light attenuation
+
+  ****************************************************/
   struct Attenuation
   {
     float constant;
@@ -20,38 +25,70 @@ NEED TO REWORK CLASS
     float quadratic;
   };
 
-  /**
-  *Component derived class to set up lighting for object
-  */
+  /************************************************************
+  @brief Component derived class to set up lighting for object
+  
+  *************************************************************/
   class Light :public Component
   {
-  public:
-    /**
-    *\Updates light set lights location
-    */
-    void onTick();
-    /**
-    *\Initialise lights
-    */
-    void onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther);
+    public:
 
+      /*****************************************************************************
+      @brief Update an object's lighting based on the location of the light source
+      lighting it.
 
-    void setLightColor(glm::vec3 _lightColor);
-    void setDiffuseColor(glm::vec3 _diffuseColor);
-    void setAmbientColor(glm::vec3 _ambientColor);
-    void setSpecularColor(glm::vec3 _specularColor);
-    void setAttenuation(float _constant,float _linear,  float _quadratic);
-  private:
+      ******************************************************************************/
+        void onTick();
 
-    std::weak_ptr<ShaderProgram> shader;///<Weak Refrence to shader program
-    std::vector<std::weak_ptr<Entity>> entitiesOther;///< vector of weak pointers to entites that will be light sources
+      /**************************
+      @brief Initialise lights
+
+      ***************************/
+        void onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther);
+
+      /**************************
+      @brief Explanation
+
+      ***************************/
+        void setLightColor(glm::vec3 _lightColor);
+
+      /**************************
+      @brief Explanation
+
+      ***************************/
+        void setDiffuseColor(glm::vec3 _diffuseColor);
+
+      /**************************
+      @brief Explanation
+
+      ***************************/
+        void setAmbientColor(glm::vec3 _ambientColor);
+
+      /**************************
+      @brief Explanation
+
+      ***************************/
+        void setSpecularColor(glm::vec3 _specularColor);
+
+      /**************************
+      @brief Explanation
+
+      ***************************/
+        void setAttenuation(float _constant,float _linear,  float _quadratic);
+
+    private:
+    /************************************************************************************************************************/
+
+      std::weak_ptr<ShaderProgram> shader;                                                //!<Weak Refrence to shader program
+      std::vector<std::weak_ptr<Entity>> entitiesOther;    //!< vector of weak pointers to entites that will be light sources
     
-    glm::vec3 lightColor;
-    glm::vec3 diffuseColor;
-    glm::vec3 ambientColor;
-    glm::vec3 specularColor;
-    Attenuation attenuationValues;
+      glm::vec3 lightColor;
+      glm::vec3 diffuseColor;
+      glm::vec3 ambientColor;
+      glm::vec3 specularColor;
+      Attenuation attenuationValues;
     
+    /************************************************************************************************************************/
   };
 
 
