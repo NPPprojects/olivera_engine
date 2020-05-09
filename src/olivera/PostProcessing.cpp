@@ -13,7 +13,7 @@ namespace olivera
     core = _core;
 
     shader = core.lock()->getResources()->load<ShaderProgram>(_shader);
-    squareMesh = core.lock()->getResources()->load<VertexArray>(_mesh);
+    rectangleMesh = core.lock()->getResources()->load<VertexArray>(_mesh);
 
     width = _width;
     height = _height;
@@ -62,9 +62,9 @@ namespace olivera
     shader.lock()->setBool("filter", filter);
 
 
-    glBindVertexArray(squareMesh.lock()->getVAO());
+    glBindVertexArray(rectangleMesh.lock()->getVAO());
     glBindTexture(GL_TEXTURE_2D, textureColorBuffer);
-    glDrawArrays(GL_TRIANGLES, 0, squareMesh.lock()->getVerticiesCount());
+    glDrawArrays(GL_TRIANGLES, 0, rectangleMesh.lock()->getVerticiesCount());
 
     glBindVertexArray(0);
     glUseProgram(0);

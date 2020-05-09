@@ -46,11 +46,6 @@ namespace olivera
       ******************************************************/
         void clearKey();
 
-      /******************************************
-      @brief Sets the keyboard state so that key 
-      presses can be tracked from inside core.
-      *******************************************/
-        void SetKeyboardState();
 
       /**************************************
       @brief Getter function for pressedKeys.
@@ -69,7 +64,7 @@ namespace olivera
     private:
     /***************************************************************************************************************/
 
-      const Uint8 *keyboard_state_array;                             //!< Set KeyboardState to track keyboard events
+
 
 	    bool released;                                        //!< Boolean to keep track of whenever keys get released
 

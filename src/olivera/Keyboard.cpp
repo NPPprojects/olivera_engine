@@ -28,17 +28,6 @@ namespace olivera
     }
   }
 
-  void Keyboard::SetKeyboardState()
-  {
-    keyboard_state_array = SDL_GetKeyboardState(NULL);
-  }
-
-
-
- 
- 
-
-
   std::vector<int> Keyboard::getKeyPressed()
   {
     return pressedKeys;

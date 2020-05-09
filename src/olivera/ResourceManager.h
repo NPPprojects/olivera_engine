@@ -10,7 +10,7 @@
 namespace olivera
 {
   /************************************************************
-  @briefResource Manager class to create/store/load resources
+  @brief Resource Manager class to create/store/load resources
   
   *************************************************************/
   class ResourceManager

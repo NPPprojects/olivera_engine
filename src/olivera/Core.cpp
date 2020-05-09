@@ -112,8 +112,6 @@ namespace olivera
 
       while (SDL_PollEvent(&event))
       {
-
-        keyboard->SetKeyboardState();
         switch (event.type)
         {
         case SDL_KEYDOWN:
