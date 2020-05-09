@@ -10,7 +10,7 @@
 
 #include "PostProcessing.h"
 #include "ShaderProgram.h"
-#include "VertexBuffer.h"
+#include "VertexArray.h"
 
 namespace olivera
 {

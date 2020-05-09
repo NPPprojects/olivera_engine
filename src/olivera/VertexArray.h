@@ -10,18 +10,13 @@
 #include <fstream>
 #include <sstream>
 
-/****************************************************************************
-RENAME TO VERTEX ARRAY 
-*****************************************************************************/
-
-
 namespace olivera
 {
 /**********************************************************************************
 @brief class to generate a vertex array by passing in a .data file(simple shapes)
 
 ***********************************************************************************/
-	class VertexBuffer : public Resource
+	class VertexArray : public Resource
 	{   
 	  public:
  
@@ -31,7 +26,7 @@ namespace olivera
     @param string filePath
 
     ************************************************/
-      VertexBuffer(std::string _path);
+      VertexArray(std::string _path);
 
     /**********************************
     @brief reads a .data file

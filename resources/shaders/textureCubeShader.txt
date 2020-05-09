@@ -1,2 +1,2 @@
-resources/shaders/vertFragFiles/TextureShader.vert
-resources/shaders/vertFragFiles/TextureShader.frag
+../resources/shaders/vertFragFiles/TextureShader.vert
+../resources/shaders/vertFragFiles/TextureShader.frag

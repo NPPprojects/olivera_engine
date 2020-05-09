@@ -12,7 +12,7 @@ namespace olivera
 {
   class ShaderProgram;
 
-  class VertexBuffer;
+  class VertexArray;
 
   class CurrentCamera;
 
@@ -83,7 +83,7 @@ namespace olivera
  
      std::weak_ptr<CurrentCamera> cameraContext;                                                  //!< Weak pointer to the camera context so that it can display on screen
      std::weak_ptr<ShaderProgram> shader;                                                                                                      //!< Weak pointer to shader
-     std::weak_ptr<VertexBuffer> object;                                                                                       //!< Weak pointer to mesh for .data objects
+     std::weak_ptr<VertexArray> object;                                                                                       //!< Weak pointer to mesh for .data objects
      std::weak_ptr<Transform> transform;                                                                                 //!< Weak pointer to entity's transform component
      std::weak_ptr<Entity> entitySelf;                                                                               //!< Weak pointer to entity this component belongs to
      std::weak_ptr<Model> model;                                                                            //!< Weak pointer pointing to .obj 3D model loaded with assimp

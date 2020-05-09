@@ -1,2 +1,2 @@
-resources/shaders/vertFragFiles/framebufferScreen.vert
-resources/shaders/vertFragFiles/framebufferScreen.frag
+../resources/shaders/vertFragFiles/framebufferScreen.vert
+../resources/shaders/vertFragFiles/framebufferScreen.frag

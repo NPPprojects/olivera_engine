@@ -1,7 +1,7 @@
-#include "VertexBuffer.h"
+#include "VertexArray.h"
 
 namespace olivera {
-	void VertexBuffer::splitStringWhitespace(std::string& input, std::vector<std::string>& output)
+	void VertexArray::splitStringWhitespace(std::string& input, std::vector<std::string>& output)
 	{
 		std::string curr;
 		output.clear();
@@ -31,13 +31,13 @@ namespace olivera {
 		}
 	}
 
-  VertexBuffer::VertexBuffer(std::string _path)
+  VertexArray::VertexArray(std::string _path)
   {
     readVertexData(_path);
     setVertexData();
   }
 
-  void VertexBuffer::readVertexData(std::string _ObjectFile)
+  void VertexArray::readVertexData(std::string _ObjectFile)
 	{
 		std::string line;
 		std::vector <std::string> Splitline;
@@ -73,7 +73,7 @@ namespace olivera {
 		vertexData.close();
 	}
 
-	void VertexBuffer::setVertexData()
+	void VertexArray::setVertexData()
 	{
 		unsigned int SkipCounter = 0;
 		glGenVertexArrays(1, &VAO);
@@ -97,12 +97,12 @@ namespace olivera {
 
 	}
 
-	GLuint VertexBuffer::getVAO()
+	GLuint VertexArray::getVAO()
 	{
 		return VAO;
 	}
 
-	int VertexBuffer::getVerticiesCount()
+	int VertexArray::getVerticiesCount()
 	{
 		return vertexCount;
 	}

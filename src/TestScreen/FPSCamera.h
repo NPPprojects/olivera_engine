@@ -51,13 +51,12 @@
     float SENSITIVITY = 0.1f;
     float ZOOM = 45.0f;
 
-    glm::mat4 projection;
-    //
+    glm::mat4 projection;   
    
     std::shared_ptr<olivera::CurrentCamera> cameraContext;
 	
-	std::weak_ptr<olivera::Core> core;
-	std::weak_ptr<olivera::Transform> transform;
-	std::weak_ptr<olivera::Entity> entitySelf;
+	  std::weak_ptr<olivera::Core> core;
+	  std::weak_ptr<olivera::Transform> transform;
+	  std::weak_ptr<olivera::Entity> entitySelf;
   };
 

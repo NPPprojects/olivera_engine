@@ -1,5 +1,5 @@
 #include "ShaderProgram.h"
-#include "VertexBuffer.h"
+#include "VertexArray.h"
 #include "PostProcessing.h"
 #include "ResourceManager.h"
 #include "CurrentCamera.h"
@@ -13,7 +13,7 @@ namespace olivera
     core = _core;
 
     shader = core.lock()->getResources()->load<ShaderProgram>(_shader);
-    squareMesh = core.lock()->getResources()->load<VertexBuffer>(_mesh);
+    squareMesh = core.lock()->getResources()->load<VertexArray>(_mesh);
 
     width = _width;
     height = _height;

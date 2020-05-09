@@ -30,7 +30,7 @@
     std::weak_ptr<FPSCamera> camera;
 
 
-	std::vector <bool> Keys;
+	  std::vector <bool> Keys;
 	struct KeyHeld 
 	{
 		bool w;

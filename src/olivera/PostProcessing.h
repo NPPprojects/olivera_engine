@@ -12,7 +12,7 @@ namespace olivera
 
   class ShaderProgram;
  
-  class VertexBuffer;
+  class VertexArray;
 
   class CurrentCamera;
   
@@ -74,7 +74,7 @@ namespace olivera
       int height;                                                                                              //!<Height of Framebuffer
 
 
-      std::weak_ptr<VertexBuffer> squareMesh;                                                       //!<Weak pointer to framebuffer mesh
+      std::weak_ptr<VertexArray> squareMesh;                                                       //!<Weak pointer to framebuffer mesh
       std::weak_ptr<ShaderProgram> shader;                                                            //!<Weak pointer to shader program
       std::weak_ptr<Core> core;                                                                                 //!<Weak pointer to core
 

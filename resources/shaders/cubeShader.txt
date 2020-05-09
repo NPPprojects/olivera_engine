@@ -1,2 +1,2 @@
-resources/shaders/vertFragFiles/cube.vert
-resources/shaders/vertFragFiles/cube.frag
+../resources/shaders/vertFragFiles/cube.vert
+../resources/shaders/vertFragFiles/cube.frag

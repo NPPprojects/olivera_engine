@@ -1,2 +1,2 @@
-resources/shaders/vertFragFiles/Blinn-PhongTextured.vert
-resources/shaders/vertFragFiles/Blinn-PhongTextured.frag
+../resources/shaders/vertFragFiles/Blinn-PhongTextured.vert
+../resources/shaders/vertFragFiles/Blinn-PhongTextured.frag

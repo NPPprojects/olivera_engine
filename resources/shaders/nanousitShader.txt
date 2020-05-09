@@ -1,2 +1,2 @@
-resources/shaders/vertFragFiles/nanosuit.vert
-resources/shaders/vertFragFiles/nanosuit.frag
+../resources/shaders/vertFragFiles/nanosuit.vert
+../resources/shaders/vertFragFiles/nanosuit.frag

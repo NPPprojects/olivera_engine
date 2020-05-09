@@ -8,7 +8,7 @@
 #include "ShaderProgram.h"
 #include "MeshRenderer.h"
 #include "Texture.h"
-#include "VertexBuffer.h"
+#include "VertexArray.h"
 #include "CurrentCamera.h"
 #include "Keyboard.h"
 #include "Environment.h"
