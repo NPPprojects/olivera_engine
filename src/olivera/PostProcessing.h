@@ -1,9 +1,6 @@
 #include <memory>
 #include "Component.h"
 
-/********************************************************************
-REMOVE HARDCODED SHADER UNIFORMS
-*********************************************************************/
 
 namespace olivera
 {
@@ -73,7 +70,7 @@ namespace olivera
       int height;                                                                                              //!<Height of Framebuffer
 
 
-      std::weak_ptr<VertexArray> rectangleMesh;                                                       //!<Weak pointer to framebuffer mesh
+      std::weak_ptr<VertexArray> rectangleMesh;                                                     //!<Weak pointer to framebuffer mesh
       std::weak_ptr<ShaderProgram> shader;                                                            //!<Weak pointer to shader program
       std::weak_ptr<Core> core;                                                                                 //!<Weak pointer to core
 

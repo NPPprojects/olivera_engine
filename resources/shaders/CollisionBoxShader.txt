@@ -1,0 +1,2 @@
+../resources/shaders/vertFragFiles/CollisionBoxShader.vert
+../resources/shaders/vertFragFiles/CollisionBoxShader.frag

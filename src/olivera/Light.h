@@ -33,47 +33,62 @@ NEED TO REWORK CLASS
   {
     public:
 
-      /*****************************************************************************
-      @brief Update an object's lighting based on the location of the light source
+      /******************************************************************************
+      @brief Update an object's lighting based on the location of the light source/s
       lighting it.
 
-      ******************************************************************************/
+      *******************************************************************************/
         void onTick();
 
-      /**************************
-      @brief Initialise lights
+      /*********************************************************************************************
+      @brief Add all entities to a list of light sources that affect the shader of the object.
+      
+      *Set up initial values for light color,diffuse, ambient, specular and all attenuation values.
+      They can be further modified using the corresponding method.
 
-      ***************************/
+      @param std::string _shader of the object
+      @param std::vector<std::shared_ptr<Entity>> &Light Entitites
+
+      **********************************************************************************************/
         void onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther);
 
-      /**************************
-      @brief Explanation
+      /*****************************
+      @brief Setter for lightColor
 
-      ***************************/
+      @param glm::vec3 lightColor
+
+      *****************************/
         void setLightColor(glm::vec3 _lightColor);
 
-      /**************************
-      @brief Explanation
+      /******************************
+      @brief Setter for lightColor
 
-      ***************************/
+      @param glm::vec3 difffuseColor
+
+      *******************************/
         void setDiffuseColor(glm::vec3 _diffuseColor);
 
-      /**************************
-      @brief Explanation
+      /******************************
+      @brief Setter for ambientColor
 
-      ***************************/
+      @param glm::vec3 ambientColor
+      *******************************/
         void setAmbientColor(glm::vec3 _ambientColor);
 
-      /**************************
-      @brief Explanation
+      /*******************************
+      @brief Setter for specularColor
 
-      ***************************/
+      @param glm::vec3 specularColor
+      ********************************/
         void setSpecularColor(glm::vec3 _specularColor);
 
-      /**************************
-      @brief Explanation
+      /****************************
+      @brief Setter for attenuation
 
-      ***************************/
+      @param float constant
+      @param float linear
+      @param float quadratic
+      *****************************/
         void setAttenuation(float _constant,float _linear,  float _quadratic);
 
     private:

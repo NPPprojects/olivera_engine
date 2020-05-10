@@ -6,9 +6,6 @@
 #include <memory>
 #include <vector>
 
-/********************************************************************
-CHANGE FOR LOOPS
-*********************************************************************/
 
 namespace olivera
 {
@@ -62,7 +59,7 @@ namespace olivera
         template<typename T>
         void GetEntities(std::vector<std::shared_ptr<Entity>>& _entities)
         {
-          for (std::vector<std::shared_ptr<Entity>>::iterator it = entities.begin(); it != entities.end(); it++)
+          for (auto it = entities.begin(); it != entities.end(); it++)
           {
             bool found = (*it)->checkForComponent<T>();
 

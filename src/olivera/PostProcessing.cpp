@@ -18,10 +18,6 @@ namespace olivera
     width = _width;
     height = _height;
 
-    blurIntesity = 1;
-    exposure = 0.5;
-    gamma = 1.25;
-    filter = false;
 
     FrameBufferConfiguration();
   }
@@ -55,12 +51,6 @@ namespace olivera
   {
 
     shader.lock()->useShader();
-
-    shader.lock()->setFloat("gamma", gamma);
-    shader.lock()->setFloat("exposure", exposure);
-    shader.lock()->setInt("blurIntesity", blurIntesity);
-    shader.lock()->setBool("filter", filter);
-
 
     glBindVertexArray(rectangleMesh.lock()->getVAO());
     glBindTexture(GL_TEXTURE_2D, textureColorBuffer);

@@ -6,6 +6,8 @@
 
 #include "Sound.h"
 #include "ResourceManager.h"
+
+#include <iostream>
 namespace olivera
 {
   void SoundSource::onInitialise(std::string _name, std::shared_ptr<Entity> _cameraEntity)
@@ -35,14 +37,17 @@ namespace olivera
   {
     ALuint sid = 0;
     alGenSources(1, &sid);
+    alSource3f(sid, AL_POSITION,
+      selfTransform.lock()->getPosition().x,
+      selfTransform.lock()->getPosition().y,
+      selfTransform.lock()->getPosition().z);
+
     alListener3f(AL_POSITION, 
       cameraTransform.lock()->getPosition().x,
       cameraTransform.lock()->getPosition().y,
       cameraTransform.lock()->getPosition().z);
-    alSource3f(sid, AL_POSITION, 
-      selfTransform.lock()->getPosition().x,
-      selfTransform.lock()->getPosition().y,
-      selfTransform.lock()->getPosition().z);
+   // alListener3f(AL_ORIENTATION,)
+    std::cout << cameraTransform.lock()->getPosition().x << "  " << cameraTransform.lock()->getPosition().y << "  " << cameraTransform.lock()->getPosition().z << std::endl;
     alSourcei(sid, AL_BUFFER, sound.lock()->getId());
     alSourcePlay(sid);
 

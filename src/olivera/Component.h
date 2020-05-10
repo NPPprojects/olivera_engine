@@ -2,9 +2,6 @@
 #define OLIVERA_COMPONENT_H
 
 #include <memory>
-/********************************************************************
-ALL MEMBER VARIABLES SHOULD BE PRIVATE
-*********************************************************************/
 
 
 namespace olivera

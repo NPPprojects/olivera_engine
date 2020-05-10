@@ -75,6 +75,7 @@ FPSCamera::~FPSCamera()
     front.y = sin(glm::radians(Pitch));
     front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
     Front = glm::normalize(front);
+    std::cout << Front.x << " " << Front.y << " "<< Front.z << std::endl;
     // Also re-calculate the Right and Up vector
     Right = glm::normalize(glm::cross(Front, WorldUp));  // Normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
     Up = glm::normalize(glm::cross(Right, Front));
@@ -111,7 +112,7 @@ FPSCamera::~FPSCamera()
   WorldUp = glm::vec3(0.0f, 1.0f, 0.0f);
   Yaw = YAW;
   Pitch = PITCH;
-  Front = (glm::vec3(1.0f, 0.0f, -1.0f));
+  Front = (glm::vec3(0.0f, -1.0f, 0.0f));
   MovementSpeed = SPEED;
   MouseSensitivity = SENSITIVITY;
   Zoom = ZOOM;
@@ -126,3 +127,4 @@ FPSCamera::~FPSCamera()
   }
 
 
+  

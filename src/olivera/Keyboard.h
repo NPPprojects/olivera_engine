@@ -3,10 +3,6 @@
 #include <vector>
 #include <memory>
 
-/********************************************************************
-SetKeyboardState might be useless
-*********************************************************************/
-
 namespace olivera 
 {
   /*******************************
@@ -45,7 +41,6 @@ namespace olivera
 
       ******************************************************/
         void clearKey();
-
 
       /**************************************
       @brief Getter function for pressedKeys.

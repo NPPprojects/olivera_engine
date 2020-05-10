@@ -63,7 +63,7 @@ namespace olivera
     {
       // Read bytes into temporary array
       bytes = ov_read(&oggFile, array, 2048, endian, 2, 1, &bitStream);
-
+      
       if (bytes < 0)
       {
         ov_clear(&oggFile);
@@ -74,7 +74,7 @@ namespace olivera
       {
         break;
       }
-
+      
       // Copy from temporary array into output buffer
       buffer.insert(buffer.end(), array, array + bytes);
     }

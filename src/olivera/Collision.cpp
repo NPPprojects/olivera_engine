@@ -4,7 +4,10 @@
 #include "Core.h"
 #include "Transform.h"
 #include "Entity.h"
-
+#include "VertexArray.h"
+#include "ShaderProgram.h"
+#include "ResourceManager.h"
+#include "Resource.h"
 namespace olivera
 {
   void Collision::setOffset(const glm::vec3 & _offset)
@@ -12,7 +15,7 @@ namespace olivera
     offset = _offset;
   }
 
-  void Collision::setSize(const glm::vec3 & _size)
+  void Collision::setScale(const glm::vec3 & _size)
   {
     size = _size;
   }
@@ -25,10 +28,10 @@ namespace olivera
       model = glm::mat4(1.0f);
       model = glm::translate(model, transform.lock()->getPosition());
       model = glm::scale(model, size);
-      glUseProgram(shaderProgram);
-      setMat4("projection", cameraContext.lock()->getProjection());
-      setMat4("view", cameraContext.lock()->getView());
-      setMat4("model", model);
+      shader.lock()->useShader();
+      shader.lock()->setMat4("projection", cameraContext.lock()->getProjection());
+      shader.lock()->setMat4("view", cameraContext.lock()->getView());
+      shader.lock()->setMat4("model", model);
       glUseProgram(0);
     }
   }
@@ -50,57 +53,12 @@ namespace olivera
 
     if (isVisable == true)
     {
-      //GLSL code for the vertex shader
-      vertexShaderSource = "#version 330 core\n"
-        "layout (location = 0) in vec3 aPos;\n"
-        "uniform mat4 model;\n"
-        "uniform mat4 view;\n"
-        "uniform mat4 projection;\n"
+      collisionResources = std::make_shared<ResourceManager>();
+      collisionResources->create<VertexArray>(std::string("CollisionBox"), std::string("../resources/objects/CollisionBox.data"));
+      collisionResources->create<ShaderProgram>(std::string("BoxShader"), std::string("../resources/shaders/CollisionBoxShader.txt"));
 
-        "void main()\n"
-        "{\n"
-        "   gl_Position = projection * view * model *vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-        "}\0";
-
-      //GLSL code for the fragment shader
-      fragmentShaderSource = "#version 330 core\n"
-        "out vec4 FragColor;\n"
-        "void main()\n"
-        "{\n"
-        "   FragColor = vec4(0.0f, 1.0f, 0.0f, 1.0f);\n"
-        "}\n\0";
-      //build the vertex shader pgoram
-      vertexShader = glCreateShader(GL_VERTEX_SHADER);
-      glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-      glCompileShader(vertexShader);
-
-      fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-      glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-      glCompileShader(fragmentShader);
-
-      // link shaders
-      shaderProgram = glCreateProgram();
-      glAttachShader(shaderProgram, vertexShader);
-      glAttachShader(shaderProgram, fragmentShader);
-      glLinkProgram(shaderProgram);
-
-      glDeleteShader(vertexShader);
-      glDeleteShader(fragmentShader);
-
-
-
-      glGenVertexArrays(1, &VAO);
-      glGenBuffers(1, &VBO);
-
-      glBindVertexArray(VAO);
-
-      glBindBuffer(GL_ARRAY_BUFFER, VBO);
-      glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-      // position attribute
-      glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-      glEnableVertexAttribArray(0);
-      glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+      mesh = collisionResources->load<VertexArray>("CollisionBox");
+      shader = collisionResources->load<ShaderProgram>("BoxShader");
     }
   }
 
@@ -221,20 +179,13 @@ namespace olivera
   { 
     if (isVisable == true)
     {
-      glUseProgram(shaderProgram);
-      glBindVertexArray(VAO);
-      glDrawArrays(GL_LINES, 0, 36);
+      shader.lock()->useShader();
+      glBindVertexArray(mesh.lock()->getVAO());
+      glDrawArrays(GL_LINES, 0, mesh.lock()->getVerticiesCount());
       glBindVertexArray(0);
       glUseProgram(0);
     } 
   }
-
-  void Collision::setMat4(const std::string & name, const glm::mat4 & mat) const
-  {
-    glUniformMatrix4fv(glGetUniformLocation(shaderProgram, name.c_str()), 1, GL_FALSE, &mat[0][0]);
-  }
-
-
  
 }
 

@@ -1,5 +1,3 @@
-/// TO DO LIST ADD FUCKI Slayin UML Diagram fool
-
 
 #include <olivera/olivera.h>
 
@@ -26,13 +24,11 @@ public:
 
 	void onTick()
 	{
-		//   std::cout << "onTick" << std::endl;
 
-		// getCore()->stop();
 	}
 	void onDisplay()
 	{
-		//std::cout << "onTick" << std::endl;
+
 	}
 
 };
@@ -68,7 +64,7 @@ int main()
 
   engine->getResources()->create<olivera::Model>(std::string("nanosuit"), std::string("../resources/objects/nanosuit/nanosuit.obj"));
   
-  engine->getResources()->create<olivera::Sound>(std::string("Horn"), std::string("../resources/sound/dixie_horn.ogg"));
+  engine->getResources()->create<olivera::Sound>(std::string("Horn"), std::string("../resources/sound/dixie_horn1.ogg"));
 
  
   
@@ -98,16 +94,15 @@ int main()
   cameraComponent1->getCurrentContext()->setFrameBuffer(engine, "postProcessingAcidicShader", "PostProcessingSquare");
 
 
-
-
-
 	//Moving cube
 	std::shared_ptr<olivera::Entity> cube = engine->addEntity();
 	std::shared_ptr<olivera::Transform> shapeTransform = cube->addComponent<olivera::Transform>();
 	std::shared_ptr<olivera::MeshRenderer> mr = cube->addComponent<olivera::MeshRenderer>(TextureContainer, "TextureCubeMesh","texturedCubeShader");
-	std::shared_ptr<olivera::Collision> collider = cube->addComponent<olivera::Collision>(false);
+	std::shared_ptr<olivera::Collision> collider = cube->addComponent<olivera::Collision>(true);
+  std::shared_ptr<olivera::SoundSource> soundy = cube->addComponent<olivera::SoundSource>("Horn", cameraEntity);
+  std::shared_ptr<SoundInputManager> soundyControl = cube->addComponent<SoundInputManager>();
   std::shared_ptr<BoxInputManager> controller = cube->addComponent<BoxInputManager>();
-  collider->setSize(glm::vec3(0.5f, 0.5f, 0.5f));
+  collider->setScale(glm::vec3(0.5f, 0.5f, 0.5f));
 
 
 	//LightCube2
@@ -115,10 +110,9 @@ int main()
 	std::shared_ptr<olivera::Transform> shapeTransform2 = cube2->addComponent<olivera::Transform>();
   std::shared_ptr<olivera::MeshRenderer> mr1 = cube2->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh","cubeShader");
 	std::shared_ptr<olivera::Collision> collider2 = cube2->addComponent<olivera::Collision>(true);
-  std::shared_ptr<olivera::SoundSource> soundy = cube2->addComponent<olivera::SoundSource>("Horn", cameraEntity);
-  std::shared_ptr<SoundInputManager> soundyControl = cube2->addComponent<SoundInputManager>();
+
   shapeTransform2->setPosition(glm::vec3(0.0f, 1.1f, 0.0f));
-  collider2->setSize(glm::vec3(1.0f, 1.5f, 1.5f));
+  collider2->setScale(glm::vec3(1.0f, 1.5f, 1.5f));
   std::cout<<shapeTransform2->getScale().x;
 
   //LightCube3
@@ -127,7 +121,7 @@ int main()
   std::shared_ptr<olivera::MeshRenderer> mr2 = cube3->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh", "cubeShader1");
   std::shared_ptr<olivera::Collision> collider3 = cube3->addComponent<olivera::Collision>(true);
   shapeTransform3->setPosition(glm::vec3(1.0f, 1.1f, 0.0f));
-  collider3->setSize(glm::vec3(0.5f, 0.5f, 0.5f));
+  collider3->setScale(glm::vec3(0.5f, 0.5f, 0.5f));
   std::vector<std::shared_ptr<olivera::Entity>> lightSources;
 
 
@@ -137,6 +131,7 @@ int main()
   std::shared_ptr<olivera::Entity> nanosuit = engine->addEntity();
   std::shared_ptr<olivera::Transform> nanosuitTransform = nanosuit->addComponent<olivera::Transform>();
   std::shared_ptr<olivera::Materials> nanosuitMaterials = nanosuit->addComponent<olivera::Materials>("blinnPhongShader");
+  nanosuitMaterials->setDefaultMaterial(32.0f, 0, 1);
   std::shared_ptr<olivera::Light> nanosuitLights = nanosuit->addComponent<olivera::Light>("blinnPhongShader",lightSources);
   std::shared_ptr<olivera::MeshRenderer> nanosuitMesh = nanosuit->addComponent<olivera::MeshRenderer>("nanosuit","blinnPhongShader");
 

@@ -84,14 +84,15 @@ namespace olivera
       ***************************************************/
         void setupMesh();
                                                                        
-      std::vector<Vertex> vertices;                                          //!< Store verticies relevent data                                                                    
-      std::vector<Textures> textures;                                             //!< Store textures of object
-                                                                       
-      unsigned int VAO;                                                                //!< Vertex Array Object
-      unsigned int VBO;                                                               //!<Element Buffer Object 
-      unsigned int EBO;                                                                //!<Vertex Buffer Object  
+      std::vector<Vertex> vertices;                                           //!< Store verticies relevent data                                                                    
+      std::vector<Textures> textures;                                              //!< Store textures of object
+                                                                        
+      unsigned int VAO;                                                                 //!< Vertex Array Object
+      unsigned int VBO;                                                                //!<Element Buffer Object 
+      unsigned int EBO;                                                                 //!<Vertex Buffer Object  
+                                                       
+      std::vector<unsigned int> indices;                   //!<Store vertex indicies in models where EBO is used
 
-      std::vector<unsigned int> indices;                  //!<Store vertex indicies in models where EBO is used
     /************************************************************************************************************/
   };
 }

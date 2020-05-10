@@ -42,7 +42,7 @@ namespace olivera
       shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].constant", attenuationValues.constant);
       shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].linear", attenuationValues.linear);
       shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].quadratic", attenuationValues.quadratic);
-    shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].position", entitiesOther.at(i).lock()->getComponent<Transform>()->getPosition());
+      shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].position", entitiesOther.at(i).lock()->getComponent<Transform>()->getPosition());
     };
   }
 

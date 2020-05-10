@@ -4,8 +4,6 @@
 #include <string>
 
 /********************************************************************
-VARIABLE AND FUNCTION THAT NEED RENAMING 
-SetSize()
 MAY WANT TO ATTACH A VERTEX BUFFER + SHADER INSTEAD OF REPEATING CODE
 *********************************************************************/
 
@@ -15,18 +13,25 @@ namespace olivera
 
   class CurrentCamera;
 
+  class ShaderProgram;
+
+  class VertexArray;
+
+  class ResourceManager;
+
+  class Resource;
   
-  /**********************************************************************
+  /*********************************************************************
   @brief Handle collision between objects with this components attached.
 
   *Limited to AABB, collision box is outlined using a shader.
 
-  ***********************************************************************/
+  **********************************************************************/
 	class Collision : public Component
 	{
 	  public:
 
-     /*****************************************************
+     /****************************************************
      @brief Setter for the offset when colliding.
    
      @param glm::vec3 offset for calculating new position.
@@ -41,7 +46,7 @@ namespace olivera
     @param glm::vec3 size
 
     *************************************************/
-	    void setSize(const glm::vec3& _size);
+	    void setScale(const glm::vec3& _size);
     
     /**************************************************
     @brief Check if entities are colliding every tick.
@@ -106,81 +111,25 @@ namespace olivera
       void DrawBox();
 
 	  private:
-    /************************************************************************************************************/
-		
-      /*******************************************
-      @brief uniform setter for the model matrix.
+    /************************************************************************************************************/		    
 
-      ********************************************/
-        void setMat4(const std::string &name, const glm::mat4 &mat) const;
-    
-    
       glm::vec3 size;                                                                //!< Size of collision box
 		  glm::vec3 offset;                                                            //!< Offset of collsiion box
 		  glm::vec3 lastPosition;                                      //!< Last position of the box when colliding
 
-      glm::mat4 model;                                                  //!< mModel matrix of the collision box
+      glm::mat4 model;                                                    //!<Model matrix of the collision box
 
 
 		  std::weak_ptr<Core> core;                                                       //!< Weak pointer to core
+      std::weak_ptr<VertexArray> mesh;                                                  //!< Collision box mesh   
 		  std::weak_ptr<Entity> entitySelf;                     //!< Weak pointer to entity this is a component off
       std::weak_ptr<Transform> transform;                        //!< Weak pointer to store entitie's transform
+      std::weak_ptr<ShaderProgram> shader;                                            //!< Collision box shader
       std::weak_ptr<CurrentCamera> cameraContext;                 //!< Weak pointer to store the current Camera
-
-      const char *vertexShaderSource;                                        //!< Storage for the vertex shader                                              
-      const char *fragmentShaderSource;                                    //!< Storage for the fragment shader                                              
-
-      unsigned int VBO, VAO;                                  //!< Vertex Buffer Object and Vertex Array Object                                              
-
-      int vertexShader, fragmentShader, shaderProgram;         //!< Vertex and fragment programs and the shader                                              
-                                                                          //!< pProgram they will be attached to                                               
-
+      std::shared_ptr<ResourceManager> collisionResources;        //!< Storage for all collision needed resources
+                                          
       bool isVisable;                                //!<Boolean to check if the bounding box should be visable                                              
-                                                                                                    
-      static constexpr float vertices[] = {
-              -1.0f, -1.0f, -1.0f,
-              1.0f, -1.0f, -1.0f,
-              1.0f,  1.0f, -1.0f,
-              1.0f,  1.0f, -1.0f,
-              -1.0f,  1.0f, -1.0f,
-              -1.0f, -1.0f, -1.0f,
-
-              -1.0f, -1.0f,  1.0f,
-              1.0f, -1.0f,  1.0f,
-              1.0f,  1.0f,  1.0f,
-              1.0f,  1.0f,  1.0f,
-              -1.0f,  1.0f,  1.0f,
-              -1.0f, -1.0f,  1.0f,
-
-              -1.0f,  1.0f,  1.0f,
-              -1.0f,  1.0f, -1.0f,
-              -1.0f, -1.0f, -1.0f,
-              -1.0f, -1.0f, -1.0f,
-              -1.0f, -1.0f,  1.0f,
-              -1.0f,  1.0f,  1.0f,
-
-              1.0f,  1.0f,  1.0f,
-              1.0f,  1.0f, -1.0f,
-              1.0f, -1.0f, -1.0f,
-              1.0f, -1.0f, -1.0f,
-              1.0f, -1.0f,  1.0f,
-              1.0f,  1.0f,  1.0f,
-
-              -1.0f, -1.0f, -1.0f,
-              1.0f, -1.0f, -1.0f,
-              1.0f, -1.0f,  1.0f,
-              1.0f, -1.0f,  1.0f,
-              -1.0f, -1.0f,  1.0f,
-              -1.0f, -1.0f, -1.0f,
-
-              -1.0f,  1.0f, -1.0f,
-              1.0f,  1.0f, -1.0f,
-              1.0f,  1.0f,  1.0f,
-              1.0f,  1.0f,  1.0f,
-              -1.0f,  1.0f,  1.0f,
-              -1.0f,  1.0f, -1.0f,
-      };                                                   
-                                                                //!< Vertices of the bounding box in local space     
+                                                                                                       
                                                                                                     
                                                                                                    
     /************************************************************************************************************/
