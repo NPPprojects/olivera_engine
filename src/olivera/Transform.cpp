@@ -15,6 +15,7 @@ namespace olivera
 		model = glm::mat4(1.0f);
 		model = glm::translate(model, position);	
     model = glm::scale(model, scale);
+    
 	}
 
 	void Transform::setPosition(glm::vec3 _position)
@@ -50,7 +51,22 @@ namespace olivera
 	void Transform::onTick()
 	{
 		updateModel();
-	} 
+	}
+  glm::vec3 Transform::getFront()
+  {
+    return front;
+  }
+
+  glm::vec3 Transform::getWorldUp()
+  {
+    return worldUp;
+  }
+
+  void Transform::setFront(glm::vec3 _front)
+  {
+    front = _front;
+  }
+
 
 	void Transform::onInitialise()
 	{
@@ -58,7 +74,9 @@ namespace olivera
 		position = glm::vec3(0.0f);
 		rotation = glm::vec3(0.0f);
 		scale = glm::vec3(1.0f);
-	}
+    worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
+	
+  }
 
 
 }

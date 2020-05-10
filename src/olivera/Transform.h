@@ -78,23 +78,50 @@ namespace olivera
 
     ***************************************/
       void onTick();
-	
-    /********************************************
-    @brief initalisation transform component with
-    default values
 
-    *********************************************/
+
+      /***********************
+      @brief Getter for front
+
+      ************************/
+      glm::vec3 getFront();
+      
+      /*************************
+      @brief Getter for worldUp
+
+      **************************/
+      glm::vec3 getWorldUp();
+
+      /*****************************
+      @brief Setter for front
+
+      @param glm:vec3 updated front
+
+      ******************************/
+      void setFront(glm::vec3 _front);
+
+  
+	
+    /*********************************************
+    @brief Initalisation transform component with
+    default values.
+
+    **********************************************/
       void onInitialise();
   
     private:  
     /***********************************************************************************************/
 
-      glm::vec3 position;                                                     //!<position of Entity
-      glm::vec3 rotation;                                                     //!<rotation of Entity
-      glm::vec3 scale;                                                           //!<scale of Entity
+      glm::vec3 position;                                                    //!< Position of Entity
+      glm::vec3 rotation;                                                    //!< Rotation of Entity
+      glm::vec3 scale;                                                          //!< Scale of Entity
+      glm::vec3 front;                                                          //!< Front of Entity
+
+      glm::vec3 worldUp;                                                      //!< Up in World Space
                                                                                                                                                                                                                     
       glm::mat4 model;                                                    //!<Model Matrix of Entity
     
+
     /***********************************************************************************************/
   };
 

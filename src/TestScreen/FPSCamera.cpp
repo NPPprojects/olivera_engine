@@ -2,6 +2,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "FPSCamera.h"
 
+
 FPSCamera::FPSCamera()
   {
  
@@ -14,16 +15,16 @@ FPSCamera::~FPSCamera()
 
   glm::mat4 FPSCamera::GetViewMatrix()
   {
-    return glm::lookAt(transform.lock()->getPosition(), transform.lock()->getPosition() + Front, Up);
+    return glm::lookAt(transform.lock()->getPosition(), transform.lock()->getPosition() +  transform.lock()->getFront(), Up);
   }
   void FPSCamera::ProcessKeyboard(CameraMovement _direction, float _deltaTime)
   {
     float velocity = MovementSpeed * _deltaTime;
     if (_direction == FORWARD)
 	//Position += Front * velocity;
-	transform.lock()->setPosition(transform.lock()->getPosition() +(Front * velocity));
+	transform.lock()->setPosition(transform.lock()->getPosition() +(transform.lock()->getFront() * velocity));
     if (_direction == BACKWARD)
-	transform.lock()->setPosition(transform.lock()->getPosition() -(Front * velocity));
+	transform.lock()->setPosition(transform.lock()->getPosition() -(transform.lock()->getFront() * velocity));
     if (_direction == LEFT)
 	transform.lock()->setPosition(transform.lock()->getPosition() -(Right * velocity));
     if (_direction == RIGHT)
@@ -71,14 +72,14 @@ FPSCamera::~FPSCamera()
   {
     // Calculate the new Front vector
     glm::vec3 front;
+    
     front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
     front.y = sin(glm::radians(Pitch));
     front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
-    Front = glm::normalize(front);
-    std::cout << Front.x << " " << Front.y << " "<< Front.z << std::endl;
-    // Also re-calculate the Right and Up vector
-    Right = glm::normalize(glm::cross(Front, WorldUp));  // Normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
-    Up = glm::normalize(glm::cross(Right, Front));
+    transform.lock()->setFront(glm::normalize(front));
+
+    Right = glm::normalize(glm::cross(transform.lock()->getFront(), transform.lock()->getWorldUp()));  // Normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.
+    Up = glm::normalize(glm::cross(Right, transform.lock()->getFront()));
   }
 
   float FPSCamera::getZoom() const
@@ -109,10 +110,8 @@ FPSCamera::~FPSCamera()
   entitySelf.lock()->getCore()->getCameraList()->addCamera(cameraContext);
 	transform = entitySelf.lock()->getComponent<olivera::Transform>();
 	transform.lock()->setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
-  WorldUp = glm::vec3(0.0f, 1.0f, 0.0f);
   Yaw = YAW;
   Pitch = PITCH;
-  Front = (glm::vec3(0.0f, -1.0f, 0.0f));
   MovementSpeed = SPEED;
   MouseSensitivity = SENSITIVITY;
   Zoom = ZOOM;
@@ -123,7 +122,6 @@ FPSCamera::~FPSCamera()
   {
     cameraContext->setProjection(glm::perspective(glm::radians(getZoom()), (float)core.lock()->getScreenWidth() / core.lock()->getScreenHeight(), 0.1f, 100.0f));
     cameraContext->setView(GetViewMatrix());
-    
   }
 
 

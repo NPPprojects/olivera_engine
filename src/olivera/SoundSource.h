@@ -57,6 +57,7 @@ namespace olivera
       std::weak_ptr<Transform> selfTransform;                 //!< Transform for the entity with the sound source component attached
       std::weak_ptr<Transform> cameraTransform;                           //!< Transform for the camera Entity which is the listener 
 
+      float orientation[6];
       bool isPlaying;                                                     //!< Boolean used to enable and disable the attached sound
 
     /*******************************************************************************************************************************/

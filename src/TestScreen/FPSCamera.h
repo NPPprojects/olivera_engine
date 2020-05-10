@@ -33,10 +33,8 @@
     void onTick();
   private:
     // Camera Attributes
-    glm::vec3 Front;
     glm::vec3 Up;
     glm::vec3 Right;
-    glm::vec3 WorldUp;
     // Euler Angles
     float Yaw;
     float Pitch;

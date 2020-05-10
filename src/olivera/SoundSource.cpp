@@ -46,7 +46,16 @@ namespace olivera
       cameraTransform.lock()->getPosition().x,
       cameraTransform.lock()->getPosition().y,
       cameraTransform.lock()->getPosition().z);
-   // alListener3f(AL_ORIENTATION,)
+    
+    orientation[0] = cameraTransform.lock()->getFront().x;
+    orientation[1] = cameraTransform.lock()->getFront().y;
+    orientation[2] = cameraTransform.lock()->getFront().z;
+
+    orientation[3] = cameraTransform.lock()->getWorldUp().x;
+    orientation[4] = cameraTransform.lock()->getWorldUp().y;
+    orientation[5] = cameraTransform.lock()->getWorldUp().z;
+
+    alListenerfv(AL_ORIENTATION,orientation);
     std::cout << cameraTransform.lock()->getPosition().x << "  " << cameraTransform.lock()->getPosition().y << "  " << cameraTransform.lock()->getPosition().z << std::endl;
     alSourcei(sid, AL_BUFFER, sound.lock()->getId());
     alSourcePlay(sid);
