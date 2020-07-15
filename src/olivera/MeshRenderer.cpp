@@ -25,7 +25,7 @@ namespace olivera
 {
 
 
-void MeshRenderer::onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath, std::string _shaderPath)
+void MeshRenderer::onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath,const std::string &_shaderPath)
 {
   entitySelf= getEntity();
   core = getCore();

@@ -43,40 +43,49 @@ int main()
 
   std::shared_ptr<olivera::ShaderProgram> test = std::make_shared<olivera::ShaderProgram>("../resources/shaders/cubeShader.txt");
 
+
+  //Shader Resources
+
   engine->getResources()->create<olivera::ShaderProgram>(std::string("cubeShader"), std::string("../resources/shaders/cubeShader.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("cubeShader1"), std::string("../resources/shaders/cubeShader.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("texturedCubeShader"), std::string("../resources/shaders/textureCubeShader.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("postProcessingAcidicShader"), std::string("../resources/shaders/postProcessingShader.txt"));
-  engine->getResources()->create<olivera::ShaderProgram>(std::string("postProcessingBlurShader"), std::string("../resources/shaders/framebufferBlurScreen.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("blinnPhongShader"), std::string("../resources/shaders/Blinn-PhongShader.txt"));
+  engine->getResources()->create<olivera::ShaderProgram>(std::string("postProcessingBlurShader"), std::string("../resources/shaders/framebufferBlurScreen.txt"));
 
 
+  //Texture Resources
 
 	engine->getResources()->create<olivera::Texture>(std::string("BetterBox"), std::string("../resources/textures/BetterBox.png"));
 	engine->getResources()->create<olivera::Texture>(std::string("AwesomeFace"), std::string("../resources/textures/awesomeface.png"));
-  
-  engine->getResources()->create<olivera::VertexArray>(std::string("TextureCubeMesh"), std::string("../resources/objects/TexturedCube.data"));
+  std::vector<std::string> TextureContainer = { "BetterBox", "AwesomeFace" };
+ 
+ 
+  //Mesh Resources 
   engine->getResources()->create<olivera::VertexArray>(std::string("ColoredCubeMesh"), std::string("../resources/objects/cube.data"));
+  engine->getResources()->create<olivera::VertexArray>(std::string("TextureCubeMesh"), std::string("../resources/objects/TexturedCube.data"));
+
+
+
+
+  //Model Resources
+  engine->getResources()->create<olivera::Model>(std::string("nanosuit"), std::string("../resources/objects/nanosuit/nanosuit.obj"));
+  
+  
+  
+
+  //Sound Resources
+  engine->getResources()->create<olivera::Sound>(std::string("Horn"), std::string("../resources/sound/dixie_horn1.ogg"));
+
+  
+
+  //Post Processing Resources
   engine->getResources()->create<olivera::VertexArray>(std::string("PostProcessingSquare"), std::string("../resources/objects/postProcessingSquare.data"));
 
 
-
-
-  engine->getResources()->create<olivera::Model>(std::string("nanosuit"), std::string("../resources/objects/nanosuit/nanosuit.obj"));
-  
-  engine->getResources()->create<olivera::Sound>(std::string("Horn"), std::string("../resources/sound/dixie_horn1.ogg"));
-
- 
-  
-  //Set PostProcessing
-
-
-
-	std::vector<std::string> TextureContainer = {"BetterBox", "AwesomeFace"};
-
-
   //Camera 1 
-	std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
+
+  std::shared_ptr<olivera::Entity> cameraEntity = engine->addEntity();
 	std::shared_ptr<olivera::Transform> cameraTransform = cameraEntity->addComponent<olivera::Transform>();
 	std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();
 	std::shared_ptr<CameraInputManager> cameraInput = cameraEntity->addComponent<CameraInputManager>();
@@ -104,6 +113,8 @@ int main()
   std::shared_ptr<BoxInputManager> controller = cube->addComponent<BoxInputManager>();
   collider->setScale(glm::vec3(0.5f, 0.5f, 0.5f));
 
+
+  
 
 	//LightCube2
 	std::shared_ptr<olivera::Entity> cube2 = engine->addEntity();

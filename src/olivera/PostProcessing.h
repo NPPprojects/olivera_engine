@@ -42,6 +42,13 @@ namespace olivera
     ***********************************************************/
       void FrameBufferConfiguration();
 
+      /***********************************************************
+      @brief Assigns FBO, and all other needed configurations for
+      a depth map
+
+      ************************************************************/
+      void depthMapConfiguration();
+
     /*********************
     @brief Getter for FBO
     **********************/

@@ -1,0 +1,2 @@
+../resources/shaders/vertFragFiles/debugDepthQuad.vert
+../resources/shaders/vertFragFiles/debugDepthQuad.frag
