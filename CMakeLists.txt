@@ -112,6 +112,9 @@ src/olivera/Light.cpp
 
 src/olivera/CameraContext.h
 src/olivera/CameraContext.cpp
+
+src/olivera/ShadowsFBO.h
+src/olivera/ShadowsFBO.cpp
 )
 
 

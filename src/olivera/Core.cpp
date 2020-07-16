@@ -138,25 +138,26 @@ namespace olivera
       //Set relativeMotion
 
 
-      for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
-        it != entities.end(); it++)
+      for (auto it : entities)
       {
-        (*it)->tick();
+        (it)->tick();
       }
 
       //Clear keys after each frame
      //Set delta Time and set frame rate to 60fps
 
-
-
-
-
       environment->tick();
       keyboard->clearKey();
 
+      //DepthRender
+      for (auto it : entities)
+      {
+        (it)->depthDisplay();
+      }
 
-      //Set the main Viewport
-      glViewport(0, 0, windowWidth, windowHeight);
+
+
+ 
 
       //Set smaller viewports to which to draw each camera's output
       for (int i = 0; i < cameraContext->getCameraList().size(); i++)
@@ -164,10 +165,9 @@ namespace olivera
 
         cameraContext->getCameraList().at(i)->activeFrameBuffer();
 
-          for (std::vector<std::shared_ptr<Entity> >::iterator it = entities.begin();
-            it != entities.end(); it++)
+          for (auto it : entities)
           {
-            (*it)->display();
+            (it)->display();
           }
 
         cameraContext->getCameraList().at(i)->clear();
@@ -186,7 +186,12 @@ namespace olivera
         cameraContext->getCameraList().at(i)->useFrameBuffer();
         
       }
+
+      //Set the main Viewport
+      glViewport(0, 0, windowWidth, windowHeight);
+
       SDL_GL_SwapWindow(window);
+
 
     }
   }

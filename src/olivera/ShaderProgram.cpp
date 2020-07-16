@@ -9,10 +9,13 @@ namespace olivera
   {
     std::string vertPath;
     std::string fragPath;
-
+    std::string geoPath;
     
+    bool isGeometryShader = false;
     
-    std::ifstream file(_path);
+  
+      std::ifstream file(_path);
+    
     if (!file.is_open())
     {
       std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
@@ -24,12 +27,26 @@ namespace olivera
       vertPath += line;
       std::getline(file, line);
       fragPath += line;
+      std::getline(file, line);
+      geoPath += line;
+
+      //Check if shader program contains geometry shader
+
+      size_t foundGeometryShader = geoPath.find(".geo");
+      if (foundGeometryShader != std::string::npos)
+      {
+        isGeometryShader = true;
+      }
     }
+    
     file.close();
 
     std::string vertexCode;
     std::string fragmentCode;
-    
+    std::string geometryCode;
+
+    //.vert file reading
+
     file.open(vertPath);
     if (!file.is_open())
     {
@@ -45,7 +62,8 @@ namespace olivera
       }
     }
     file.close();
-
+    
+    //.frag file reading
     file.open(fragPath);
 
     if (!file.is_open())
@@ -60,31 +78,66 @@ namespace olivera
         std::getline(file, line);
         fragmentCode += line + "\n";
       }
+      
     }
     file.close();
 
-    // 1. retrieve the vertex/fragment source code from filePath
+    //.geo file reading
+   
+    if (isGeometryShader == true)
+    {
+      file.open(geoPath);
+
+      if (!file.is_open())
+      {
+        std::cout << "ERROR::SHADER.GEOMETRY::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+
+      }
+      else
+      {
+        while (!file.eof())
+        {
+          std::string line;
+          std::getline(file, line);
+          geometryCode += line + "\n";
+        }
+
+      }
+      file.close();
+    }
+
+
+    // 1. retrieve the vertex/fragment/Geometry source code from filePath
     std::ifstream vShaderFile;
     std::ifstream fShaderFile;
+    std::ifstream gShaderFile;
+
     // ensure ifstream objects can throw exceptions:
     vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
     fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-  
+    gShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
     try
     {
       // open files
       vShaderFile.open(vertexCode);
       fShaderFile.open(fragmentCode);
-      std::stringstream vShaderStream, fShaderStream;
+      gShaderFile.open(geometryCode);
+
+      std::stringstream vShaderStream, fShaderStream, gShaderStream;
       // read file's buffer contents into streams
       vShaderStream << vShaderFile.rdbuf();
       fShaderStream << fShaderFile.rdbuf();
+      gShaderStream << gShaderFile.rdbuf();
+
       // close file handlers
       vShaderFile.close();
       fShaderFile.close();
+      gShaderFile.close();
       // convert stream into string
       vertexCode = vShaderStream.str();
       fragmentCode = fShaderStream.str();
+      geometryCode = gShaderStream.str();
       // if geometry shader path is present, also load a geometry shader
       
     }
@@ -94,6 +147,9 @@ namespace olivera
     }
     const char* vShaderCode = vertexCode.c_str();
     const char * fShaderCode = fragmentCode.c_str();
+    const char * gShaderCode = geometryCode.c_str();
+
+
     // 2. compile shaders
     unsigned int vertex, fragment;
     // vertex shader
@@ -106,19 +162,35 @@ namespace olivera
     glShaderSource(fragment, 1, &fShaderCode, NULL);
     glCompileShader(fragment);
     checkCompileErrors(fragment, "FRAGMENT");
+    
     // if geometry shader is given, compile geometry shader
-   
+
+    unsigned int geometry;
+    if (isGeometryShader == true)
+    {
+      geometry = glCreateShader(GL_GEOMETRY_SHADER);
+      glShaderSource(geometry, 1, &gShaderCode, NULL);
+      glCompileShader(geometry);
+      checkCompileErrors(geometry, "GEOMETRY");
+    }
     // shader Program
     ID = glCreateProgram();
     glAttachShader(ID, vertex);
     glAttachShader(ID, fragment);
-   
+    if (isGeometryShader == true)
+    {
+     glAttachShader(ID, geometry);
+    }
+
     glLinkProgram(ID);
     checkCompileErrors(ID, "PROGRAM");
     // delete the shaders as they're linked into our program now and no longer necessery
     glDeleteShader(vertex);
     glDeleteShader(fragment);
-    
+    if (isGeometryShader == true)
+    {
+      glDeleteShader(geometry);
+    }
     //Reset shader state
     glUseProgram(0);
   }

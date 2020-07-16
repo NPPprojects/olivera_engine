@@ -140,12 +140,21 @@ namespace olivera
       ******************************************/
         void tick();
 
+     
+
       /*****************************************
       @brief Go thorugh each component and call
       their onDisplay function
 
       ******************************************/
        void display();
+
+       /*****************************************************
+       @brief Call display() function to create a DepthMap
+       which will be used for shadows       
+       
+       ******************************************************/
+       void depthDisplay();
 
 
       std::weak_ptr<Entity> self;                                                   //!< Weak pointer to self

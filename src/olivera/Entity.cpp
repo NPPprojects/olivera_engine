@@ -23,6 +23,11 @@ namespace olivera
 
   }
 
+  void Entity::depthDisplay()
+  {
+    display();
+  }
+
   void Entity::display()
   {
     for (std::vector<std::shared_ptr<Component> >::iterator it = components.begin();
