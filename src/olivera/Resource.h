@@ -27,6 +27,18 @@ namespace olivera
 
     ***********************/
 	    void setName(std::string _name);
+      
+     /**********************
+     @brief Setter for name
+
+     ***********************/
+      std::string getPath();
+
+    /**********************
+    @brief Setter for path
+      
+    ***********************/
+      void setPath(std::string _path);
 
     /*******************************************************
     @brief virtual destructor to be used by derived classes
@@ -39,6 +51,7 @@ namespace olivera
     /**************************************************************/
 
 		  std::string name;                     //!<Resource's name tag
+      std::string path;                        //!<Path to resource
 
     /**************************************************************/
 	};

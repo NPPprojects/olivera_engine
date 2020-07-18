@@ -5,9 +5,9 @@
 namespace olivera 
 {
 
-  void Materials::onInitialise(std::string _shader)
+  void Materials::onInitialise(std::string _shader, std::shared_ptr<olivera::ResourceManager> _objectResouces)
   {
-    shader = getCore()->getResources()->load<ShaderProgram>(_shader);
+    shader = _objectResouces->load<ShaderProgram>(_shader);
     modifications = false;
     shader.lock()->useShader();
     shader.lock()->setFloat("material.shininess", 0.0f);

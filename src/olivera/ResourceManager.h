@@ -43,6 +43,7 @@ namespace olivera
           return nullptr;
           }
 
+
       /********************************************************************************
       @brief Create a resource by calling its constuctor and then giving it a name tag 
       to find it within the resource vector.
@@ -56,9 +57,12 @@ namespace olivera
         {
 		    std::shared_ptr<T> resource = std::make_shared<T>(_path);
 		    resource->setName(_name);
+        resource->setPath(_path);
 		    resources.push_back(resource);
 		    return resource;
         }
+
+
 
       /****************************
       @brief Getter for resources

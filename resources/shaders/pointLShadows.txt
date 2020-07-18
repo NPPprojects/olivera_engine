@@ -1,0 +1,2 @@
+../resources/shaders/vertFragFiles/pointLShadows.vert
+../resources/shaders/vertFragFiles/pointLShadows.frag

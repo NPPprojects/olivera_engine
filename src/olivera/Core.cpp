@@ -106,6 +106,9 @@ namespace olivera
 
     SDL_GetWindowSize(window, &windowWidth, &windowHeight);
 
+    //Depth Shader
+    getResources()->create<olivera::ShaderProgram>(std::string("depthShader"), std::string("../resources/shaders/DepthShader.txt"));
+
     while (running)
     {
       SDL_Event event;

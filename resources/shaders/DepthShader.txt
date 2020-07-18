@@ -1,0 +1,3 @@
+../resources/shaders/vertFragFiles/pointLShadowsDepth.vert
+../resources/shaders/vertFragFiles/pointLShadowsDepth.frag
+../resources/shaders/vertFragFiles/pointLShadowsDepth.geo

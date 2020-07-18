@@ -7,7 +7,7 @@
 namespace olivera
 {
  
-  void Light::onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther)
+  void Light::onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther, std::shared_ptr<ResourceManager> _resourceManager)
   {
     for (int i = 0; i < _entitiesOther.size(); i++)
     {
@@ -24,7 +24,7 @@ namespace olivera
     attenuationValues.quadratic = 0.0075f;
 
 
-    shader = getCore()->getResources()->load<ShaderProgram>(_shader);
+    shader = _resourceManager->load<ShaderProgram>(_shader);
     shader.lock()->useShader();
 
   }

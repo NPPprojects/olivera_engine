@@ -10,6 +10,8 @@ namespace olivera
 {
   class ShaderProgram;
 
+  class ResourceManager;
+
   /********************************************************
   @brief Hold all material related variables for an object.
 
@@ -36,7 +38,7 @@ namespace olivera
     @param std::string shader of the object
 
     ********************************************************/
-      void onInitialise(std::string _shader);
+      void onInitialise(std::string _shader, std::shared_ptr<olivera::ResourceManager> _objectResouces);
 
     /*******************************************************************
     @brief set new Material values.

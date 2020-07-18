@@ -24,6 +24,8 @@ namespace olivera
 
   class Model;
 
+  class ResourceManager;
+
     /*************************************************************************
     @brief Component derived class to handle drawing meshes to the screen.
 
@@ -47,13 +49,13 @@ namespace olivera
   
 
       **************************************************************************/
-        void onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath, const std::string &_shaderPath);
+        void onInitialise(std::vector<std::string> _texturePaths, std::string _meshPath,  std::string _shaderPath);
   
       /*************************************************************
       @brief Initalisation for 3D models of .obj loaded with assimp
 
       *************************************************************/
-        void onInitialise(std::string _modelPath, std::string _shaderPath);
+        void onInitialise(std::string _modelPath, std::string _shaderPath,  std::shared_ptr<ResourceManager> _resourceManager);
 
 
       /************************************************

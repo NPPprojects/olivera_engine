@@ -12,6 +12,9 @@ NEED TO REWORK CLASS
 {
   class ShaderProgram;
   
+  class ResourceManager;
+
+
   class Entity;
 
   /***************************************************
@@ -50,7 +53,7 @@ NEED TO REWORK CLASS
       @param std::vector<std::shared_ptr<Entity>> &Light Entitites
 
       **********************************************************************************************/
-        void onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther);
+        void onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther, std::shared_ptr<ResourceManager> _resourceManager);
 
       /*****************************
       @brief Setter for lightColor

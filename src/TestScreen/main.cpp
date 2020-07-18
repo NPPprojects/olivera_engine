@@ -7,31 +7,8 @@
 #include "BoxInputManager.h"
 #include <iostream>
 #include <string>
+#include "GameObject.h"
 
-class TestScreen : public olivera::Component
-{
-public:
-
-	void onInitialise(std::string color)
-	{
-		std::cout << "onInitialise " << color << std::endl;
-	}
-
-	void onStart()
-	{
-		std::cout << "onStart" << std::endl;
-	}
-
-	void onTick()
-	{
-
-	}
-	void onDisplay()
-	{
-
-	}
-
-};
 
 int main()
 {
@@ -40,11 +17,10 @@ int main()
   int windowHeight = 800;
 	std::shared_ptr<olivera::Core> engine = olivera::Core::initialise(windowWidth, windowHeight);
 
-
   std::shared_ptr<olivera::ShaderProgram> test = std::make_shared<olivera::ShaderProgram>("../resources/shaders/cubeShader.txt");
 
 
-  //Shader Resources
+  /**********************************************************SHADER RESOURCES*************************************************************************/
 
   engine->getResources()->create<olivera::ShaderProgram>(std::string("cubeShader"), std::string("../resources/shaders/cubeShader.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("cubeShader1"), std::string("../resources/shaders/cubeShader.txt"));
@@ -53,6 +29,14 @@ int main()
   engine->getResources()->create<olivera::ShaderProgram>(std::string("blinnPhongShader"), std::string("../resources/shaders/Blinn-PhongShader.txt"));
   engine->getResources()->create<olivera::ShaderProgram>(std::string("postProcessingBlurShader"), std::string("../resources/shaders/framebufferBlurScreen.txt"));
 
+  ////ROOM DEMO/////
+
+  //Object Shader
+  engine->getResources()->create<olivera::ShaderProgram>(std::string("ShadowShader"), std::string("../resources/shaders/pointLShadows.txt"));
+
+
+
+  /**********************************************************SHADER RESOURCES*************************************************************************/
 
   //Texture Resources
 
@@ -68,16 +52,40 @@ int main()
 
 
 
-  //Model Resources
+  /**********************************************************MODEL RESOURCES*************************************************************************/
+
+  //Nanosuit
   engine->getResources()->create<olivera::Model>(std::string("nanosuit"), std::string("../resources/objects/nanosuit/nanosuit.obj"));
   
+  //Table
+  engine->getResources()->create<olivera::Model>(std::string("table"), std::string("../resources/objects/obj_mesa/obj_mesa.obj"));
   
-  
+  //Mug
+  engine->getResources()->create<olivera::Model>(std::string("coffeeMug"), std::string("../resources/objects/coffeeMug/coffeMug1_free_obj.obj"));
 
-  //Sound Resources
+  //Bed
+  engine->getResources()->create<olivera::Model>(std::string("bed"), std::string("../resources/objects/bed/krovat-2.obj"));
+
+  //Wardrobe
+  engine->getResources()->create<olivera::Model>(std::string("wardrobe"), std::string("../resources/objects/wardrobe/Wardrobe  4 door.obj"));
+  
+  //Samus
+  engine->getResources()->create<olivera::Model>(std::string("Samus"), std::string("../resources/objects/Samus/DolSzerosuitR1.obj"));
+
+  //Frida Picture
+  engine->getResources()->create<olivera::Model>(std::string("fridaPicture"), std::string("../resources/objects/picture/frida.obj"));
+
+  //Picture Frame
+  engine->getResources()->create<olivera::Model>(std::string("pictureFrame"), std::string("../resources/objects/picture/frame.obj"));
+
+  /**********************************************************MODEL RESOURCES*************************************************************************/
+  
+  
+  /**********************************************************SOUND RESOURCES*************************************************************************/
+ 
   engine->getResources()->create<olivera::Sound>(std::string("Horn"), std::string("../resources/sound/dixie_horn1.ogg"));
 
-  
+  /**********************************************************SOUND RESOURCES*************************************************************************/
 
   //Post Processing Resources
   engine->getResources()->create<olivera::VertexArray>(std::string("PostProcessingSquare"), std::string("../resources/objects/postProcessingSquare.data"));
@@ -119,7 +127,7 @@ int main()
 	//LightCube2
 	std::shared_ptr<olivera::Entity> cube2 = engine->addEntity();
 	std::shared_ptr<olivera::Transform> shapeTransform2 = cube2->addComponent<olivera::Transform>();
-  std::shared_ptr<olivera::MeshRenderer> mr1 = cube2->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh","cubeShader");
+  std::shared_ptr<olivera::MeshRenderer> mr1 = cube2->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh","cubeShader1");
 	std::shared_ptr<olivera::Collision> collider2 = cube2->addComponent<olivera::Collision>(true);
 
   shapeTransform2->setPosition(glm::vec3(0.0f, 1.1f, 0.0f));
@@ -129,7 +137,7 @@ int main()
   //LightCube3
   std::shared_ptr<olivera::Entity> cube3 = engine->addEntity();
   std::shared_ptr<olivera::Transform> shapeTransform3 = cube3->addComponent<olivera::Transform>();
-  std::shared_ptr<olivera::MeshRenderer> mr2 = cube3->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh", "cubeShader1");
+  std::shared_ptr<olivera::MeshRenderer> mr2 = cube3->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh", "cubeShader");
   std::shared_ptr<olivera::Collision> collider3 = cube3->addComponent<olivera::Collision>(true);
   shapeTransform3->setPosition(glm::vec3(1.0f, 1.1f, 0.0f));
   collider3->setScale(glm::vec3(0.5f, 0.5f, 0.5f));
@@ -138,20 +146,66 @@ int main()
 
   lightSources.push_back(cube2);
   lightSources.push_back(cube3);
-  //Nanosuit
-  std::shared_ptr<olivera::Entity> nanosuit = engine->addEntity();
-  std::shared_ptr<olivera::Transform> nanosuitTransform = nanosuit->addComponent<olivera::Transform>();
-  std::shared_ptr<olivera::Materials> nanosuitMaterials = nanosuit->addComponent<olivera::Materials>("blinnPhongShader");
-  nanosuitMaterials->setDefaultMaterial(32.0f, 0, 1);
-  std::shared_ptr<olivera::Light> nanosuitLights = nanosuit->addComponent<olivera::Light>("blinnPhongShader",lightSources);
-  std::shared_ptr<olivera::MeshRenderer> nanosuitMesh = nanosuit->addComponent<olivera::MeshRenderer>("nanosuit","blinnPhongShader");
 
-
-  nanosuitTransform->setPosition(glm::vec3(1.0f, -1.0f, 1.0f));
-  nanosuitTransform->setScale(glm::vec3(0.2f, 0.2f, 0.2f));
   
+  //Nanosuit
 
 
+
+
+  //NanosuitObject1
+  std::unique_ptr<GameObject> nanosuitObject = std::make_unique<GameObject>(engine, "blinnPhongShader", "nanosuit");
+  nanosuitObject->addLight(lightSources);
+  nanosuitObject->getTransform()->setPosition(glm::vec3(0.0f, 0.0f, 1.0f));
+  nanosuitObject->getTransform()->setScale(glm::vec3(0.2f, 0.2f, 0.2f));
+
+
+
+
+  /**************************************************************ROOM DEMO***************************************************************************/
+  //Table
+  std::unique_ptr<GameObject> table = std::make_unique<GameObject>(engine, "ShadowShader", "table");
+  table->addLight(lightSources);
+  table->getTransform()->setPosition(glm::vec3(7.5f, 0.0f, 5.0f));
+  table->getTransform()->setScale(glm::vec3(4.0f));
+  
+  //Coffee Mug
+  std::unique_ptr<GameObject> coffeeMug = std::make_unique<GameObject>(engine, "ShadowShader", "coffeeMug");
+  coffeeMug->addLight(lightSources);
+  coffeeMug->getTransform()->setPosition(glm::vec3(7.5f, 4.0f, 5.0f));
+  coffeeMug->getTransform()->setScale(glm::vec3(0.02f));
+
+  //Bed
+  std::unique_ptr<GameObject> bed = std::make_unique<GameObject>(engine, "ShadowShader", "bed");
+  bed->addLight(lightSources);
+  bed->getTransform()->setPosition(glm::vec3(-5.0f, 0.0f, 5.0f));
+  bed->getTransform()->setScale(glm::vec3(5.0f));
+
+  //Wardrobe
+  std::unique_ptr<GameObject> wardrobe = std::make_unique<GameObject>(engine, "ShadowShader", "wardrobe");
+  wardrobe->addLight(lightSources);
+  wardrobe->getTransform()->setPosition(glm::vec3(-5.0f, 0.0f, -10.0f));
+  wardrobe->getTransform()->setScale(glm::vec3(4.0f));
+
+  //Samus
+  std::unique_ptr<GameObject> samus = std::make_unique<GameObject>(engine, "ShadowShader", "Samus");
+  samus->addLight(lightSources);
+  samus->getTransform()->setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
+  samus->getTransform()->setScale(glm::vec3(0.4f));
+
+  //Frida
+  std::unique_ptr<GameObject> fridaPicture = std::make_unique<GameObject>(engine, "ShadowShader", "fridaPicture");
+  fridaPicture->addLight(lightSources);
+  fridaPicture->getTransform()->setPosition(glm::vec3(-3.0f, -4.0f, -12.2f));
+  fridaPicture->getTransform()->setScale(glm::vec3(7.5f));
+
+  //Frame
+  std::unique_ptr<GameObject> pictureFrame = std::make_unique<GameObject>(engine, "ShadowShader", "pictureFrame");
+  pictureFrame->addLight(lightSources);
+  pictureFrame->getTransform()->setPosition(glm::vec3(-3.0f, -4.0f, -12.2f));
+  pictureFrame->getTransform()->setScale(glm::vec3(7.5f));
+
+  /**************************************************************ROOM DEMO***************************************************************************/
 	engine->start();
 
 	return 0;
