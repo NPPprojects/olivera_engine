@@ -115,6 +115,9 @@ src/olivera/CameraContext.cpp
 
 src/olivera/ShadowsFBO.h
 src/olivera/ShadowsFBO.cpp
+
+src/olivera/Shadows.h
+src/olivera/Shadows.cpp
 )
 
 

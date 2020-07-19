@@ -23,4 +23,5 @@
 #include "Materials.h"
 #include "Light.h"
 #include "CameraContext.h"
+#include "Shadows.h"
 #endif

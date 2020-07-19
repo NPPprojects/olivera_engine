@@ -34,6 +34,8 @@ int main()
   //Object Shader
   engine->getResources()->create<olivera::ShaderProgram>(std::string("ShadowShader"), std::string("../resources/shaders/pointLShadows.txt"));
 
+  //Depth Shader
+  engine->getResources()->create<olivera::ShaderProgram>(std::string("depthShader"), std::string("../resources/shaders/DepthShader.txt"));
 
 
   /**********************************************************SHADER RESOURCES*************************************************************************/
@@ -59,7 +61,7 @@ int main()
   
   //Table
   engine->getResources()->create<olivera::Model>(std::string("table"), std::string("../resources/objects/obj_mesa/obj_mesa.obj"));
-  
+  /*
   //Mug
   engine->getResources()->create<olivera::Model>(std::string("coffeeMug"), std::string("../resources/objects/coffeeMug/coffeMug1_free_obj.obj"));
 
@@ -77,7 +79,7 @@ int main()
 
   //Picture Frame
   engine->getResources()->create<olivera::Model>(std::string("pictureFrame"), std::string("../resources/objects/picture/frame.obj"));
-
+  */
   /**********************************************************MODEL RESOURCES*************************************************************************/
   
   
@@ -154,7 +156,7 @@ int main()
 
 
   //NanosuitObject1
-  std::unique_ptr<GameObject> nanosuitObject = std::make_unique<GameObject>(engine, "blinnPhongShader", "nanosuit");
+  std::unique_ptr<GameObject> nanosuitObject = std::make_unique<GameObject>(engine, "blinnPhongShader", "depthShader", "nanosuit");
   nanosuitObject->addLight(lightSources);
   nanosuitObject->getTransform()->setPosition(glm::vec3(0.0f, 0.0f, 1.0f));
   nanosuitObject->getTransform()->setScale(glm::vec3(0.2f, 0.2f, 0.2f));
@@ -164,11 +166,12 @@ int main()
 
   /**************************************************************ROOM DEMO***************************************************************************/
   //Table
-  std::unique_ptr<GameObject> table = std::make_unique<GameObject>(engine, "ShadowShader", "table");
+  std::unique_ptr<GameObject> table = std::make_unique<GameObject>(engine, "ShadowShader","depthShader" ,"table");
   table->addLight(lightSources);
-  table->getTransform()->setPosition(glm::vec3(7.5f, 0.0f, 5.0f));
+  table->getTransform()->setPosition(glm::vec3(0.5f, 0.0f, 0.0f));
   table->getTransform()->setScale(glm::vec3(4.0f));
   
+  /*
   //Coffee Mug
   std::unique_ptr<GameObject> coffeeMug = std::make_unique<GameObject>(engine, "ShadowShader", "coffeeMug");
   coffeeMug->addLight(lightSources);
@@ -204,7 +207,7 @@ int main()
   pictureFrame->addLight(lightSources);
   pictureFrame->getTransform()->setPosition(glm::vec3(-3.0f, -4.0f, -12.2f));
   pictureFrame->getTransform()->setScale(glm::vec3(7.5f));
-
+  /*  
   /**************************************************************ROOM DEMO***************************************************************************/
 	engine->start();
 
