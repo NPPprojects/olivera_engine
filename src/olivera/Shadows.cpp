@@ -10,6 +10,7 @@ namespace olivera
 
   void Shadows::onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther, std::shared_ptr<ResourceManager> _resourceManager)
   {
+    shadowResources = _resourceManager;
     shader = _resourceManager->load<ShaderProgram>(_shader);
     for (int i = 0; i < _entitiesOther.size(); i++)
     {
@@ -19,10 +20,12 @@ namespace olivera
 
   void Shadows::onTick()
   {
-    //getCore()->getShadowFBO()->createCubemapTransformationMatrices(entitiesOther.at(0).lock()->getComponent<Transform>()->getPosition());
-    //shader.lock()->setFloat("far_plane", getCore()->getShadowFBO()->getFarPlane());
-    //shader.lock()->setVec3("lightPos", entitiesOther.at(0).lock()->getComponent<Transform>()->getPosition());
-    //getCore()->getShadowFBO()->bindFBO(getCore(), shader.lock()->getName());
+    getCore()->getShadowFBO()->createCubemapTransformationMatrices(entitiesOther.at(0).lock()->getComponent<Transform>()->getPosition());
+    shader.lock()->useShader();
+    shader.lock()->setVec3("lightPos", entitiesOther.at(0).lock()->getComponent<Transform>()->getPosition());
+    shader.lock()->setFloat("far_plane", getCore()->getShadowFBO()->getFarPlane());
+    getCore()->getShadowFBO()->bindFBO(shadowResources.lock(), shader.lock()->getName());
+
     
   }
 

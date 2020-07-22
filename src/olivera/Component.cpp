@@ -31,4 +31,7 @@ namespace olivera
   {
 
   }
+  void Component::onShadowDisplay()
+  {
+  }
 }

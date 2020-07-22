@@ -49,6 +49,7 @@ namespace olivera
     {
       glBindFramebuffer(GL_FRAMEBUFFER, framebuffer->getFBO());
       glEnable(GL_DEPTH_TEST); // enable depth testing (is di sabled for rendering screen-space quad)
+      glEnable(GL_CULL_FACE);
       glClearColor(0.0f, 0.0f, 0.3f, 1.0f);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }

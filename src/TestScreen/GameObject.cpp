@@ -12,17 +12,19 @@ GameObject::GameObject(std::shared_ptr<olivera::Core> &_scene, std::string _obje
 
   self = _scene->addEntity();
   transform = self->addComponent<olivera::Transform>();
-  meshRenderer = self->addComponent<olivera::MeshRenderer>(_model, objectShaderProgram->getName(), objectResouces);
+  meshRenderer = self->addComponent<olivera::MeshRenderer>(_model, objectShaderProgram->getName(), shadowShaderProgram->getName(), objectResouces);
 
 }
-void GameObject::addLight(std::vector <std::shared_ptr <olivera::Entity >> &_lightSources)
+void GameObject::addLight(std::vector <std::shared_ptr <olivera::Entity >> &_lightSources, std::vector <std::shared_ptr <olivera::Entity >> &_cameraEntities)
 {
 
   addMaterial();
   addShadows(_lightSources);
-  lightSources = self->addComponent<olivera::Light>(objectShaderProgram->getName(), _lightSources, objectResouces);
+  lightSources = self->addComponent<olivera::Light>(objectShaderProgram->getName(), _lightSources, _cameraEntities, objectResouces);
 
 }
+
+
 
 void GameObject::addMaterial()
 {
@@ -39,3 +41,4 @@ std::shared_ptr<olivera::Transform> GameObject::getTransform()
 {
   return transform;
 }
+

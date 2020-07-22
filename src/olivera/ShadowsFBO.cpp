@@ -7,7 +7,7 @@
 namespace olivera
 {
 
-  void ShadowsFBO::initialise()
+  void ShadowsFBO::configureFBO()
   {
 
     glGenFramebuffers(1, &FBO);
@@ -45,7 +45,7 @@ namespace olivera
     shadowTransforms.push_back(shadowProj * glm::lookAt(_lightPos, _lightPos + glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, -1.0f, 0.0f)));
   }
 
-  void ShadowsFBO::bindFBO(std::shared_ptr<Core> _core, std::string _shader)
+  void ShadowsFBO::bindFBO(std::shared_ptr<ResourceManager> _resourceManager, std::string _shader)
   {
     glViewport(0, 0, resolution, resolution);
     glBindFramebuffer(GL_FRAMEBUFFER, FBO);
@@ -53,7 +53,7 @@ namespace olivera
 
     for (unsigned int i = 0; i < 6; ++i)
     {
-      _core->getResources()->load<ShaderProgram>(_shader)->setMat4("shadowMatrices[" + std::to_string(i) + "]", shadowTransforms[i]);
+      _resourceManager->load<ShaderProgram>(_shader)->setMat4("shadowMatrices[" + std::to_string(i) + "]", shadowTransforms[i]);
     }
   }
   float ShadowsFBO::getNearPlane()
@@ -63,5 +63,10 @@ namespace olivera
   float ShadowsFBO::getFarPlane()
   {
     return farPlane;
+  }
+
+  int ShadowsFBO::getDepthCubemap()
+  {
+    return depthCubemap;
   }
 }

@@ -57,8 +57,13 @@ namespace olivera {
 
       @param std::shared_ptr<ShaderProgram> shader file used by the model
       ******************************************************************************/
-        void draw(std::shared_ptr<ShaderProgram> shader);
+        void draw(std::shared_ptr<ShaderProgram> shader, unsigned int _shaderCubemap);
 
+        void draw();
+
+
+
+    
 
 
     private:

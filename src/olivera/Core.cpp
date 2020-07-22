@@ -11,6 +11,7 @@
 #include "PostProcessing.h"
 #include "ShaderProgram.h"
 #include "VertexArray.h"
+#include "ShadowsFBO.h"
 
 namespace olivera
 {
@@ -87,7 +88,10 @@ namespace olivera
 	  return resources;
   }
 
-
+  std::shared_ptr<ShadowsFBO> Core::getShadowFBO()
+  {
+    return shadowFBO;
+  }
 
   std::shared_ptr<Mouse> Core::getMouse()
   {
@@ -106,8 +110,12 @@ namespace olivera
 
     SDL_GetWindowSize(window, &windowWidth, &windowHeight);
 
-    //Depth Shader
-    getResources()->create<olivera::ShaderProgram>(std::string("depthShader"), std::string("../resources/shaders/DepthShader.txt"));
+
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_DEPTH_TEST);
+   
+   
+    shadowFBO->configureFBO();
 
     while (running)
     {
@@ -140,25 +148,32 @@ namespace olivera
 
       //Set relativeMotion
 
+      glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
       for (auto it : entities)
       {
         (it)->tick();
       }
 
-      //Clear keys after each frame
-     //Set delta Time and set frame rate to 60fps
 
       environment->tick();
       keyboard->clearKey();
 
-      //DepthRender
       for (auto it : entities)
       {
-        (it)->depthDisplay();
+        (it)->shadowDisplay();
       }
+      glBindFramebuffer(GL_FRAMEBUFFER, 0);
+      //Clear keys after each frame
+     //Set delta Time and set frame rate to 60fps
 
 
+
+
+      //Set the main Viewport
+      glViewport(0, 0, windowWidth, windowHeight);
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
  
 
@@ -190,8 +205,6 @@ namespace olivera
         
       }
 
-      //Set the main Viewport
-      glViewport(0, 0, windowWidth, windowHeight);
 
       SDL_GL_SwapWindow(window);
 

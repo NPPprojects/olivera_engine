@@ -72,7 +72,9 @@ namespace olivera
       @param std::shared_ptr<ShaderProgram>  shader 
     
       *********************************************************/
-       void draw(std::shared_ptr<ShaderProgram> shader);
+       void draw(std::shared_ptr<ShaderProgram> shader, unsigned int _shadowCubemap);
+
+      void draw();
 
 
     private:

@@ -25,6 +25,8 @@ namespace olivera
 
   class ResourceManager;
 
+  class ShadowsFBO;
+
   /**********************************************
   @brief Engine is contained within this class
   
@@ -148,6 +150,14 @@ namespace olivera
       *******************************/
         int getScreenHeight();
 
+      /******************************************
+      @brief Get the Shadow FrameBuffer
+
+      @return ShadowFBO
+
+      *******************************************/
+        std::shared_ptr<ShadowsFBO> getShadowFBO();
+
     private:
     /************************************************************************************************************************/
     
@@ -168,7 +178,9 @@ namespace olivera
       std::shared_ptr<Environment> environment = std::make_shared<Environment>();                //!<Store environment object 
       std::shared_ptr<Keyboard> keyboard = std::make_shared<Keyboard>();                           //!<Stores keyboard inputs
       std::shared_ptr<Mouse> mouse = std::make_shared <Mouse>();                                     //!< Stores Mouse Inputs
-    
+      
+      std::shared_ptr<ShadowsFBO> shadowFBO = std::make_shared<ShadowsFBO>();
+
       int windowWidth;                                                                               //</ Stores window width
       int windowHeight;                                                                              //</Stores window height
     

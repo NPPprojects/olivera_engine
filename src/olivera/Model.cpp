@@ -11,11 +11,19 @@ namespace olivera
   }
 
   // draws the model, and thus all its meshes
-  void Model::draw(std::shared_ptr<ShaderProgram> _shader)
+  void Model::draw(std::shared_ptr<ShaderProgram> _shader, unsigned int _shaderCubemap)
   {
     for (unsigned int i = 0; i < meshes.size(); i++)
-      meshes[i].draw(_shader);
+      meshes[i].draw(_shader,  _shaderCubemap);
   }
+
+  void Model::draw()
+  {
+    for (unsigned int i = 0; i < meshes.size(); i++)
+      meshes[i].draw();
+  }
+
+
 
   /*  Functions   */
   // loads a model with supported ASSIMP extensions from file and stores the resulting meshes in the meshes vector.

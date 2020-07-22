@@ -23,9 +23,13 @@ namespace olivera
 
   }
 
-  void Entity::depthDisplay()
+  void Entity::shadowDisplay()
   {
-    display();
+    for (std::vector<std::shared_ptr<Component> >::iterator it = components.begin();
+      it != components.end(); it++)
+    {
+      (*it)->onShadowDisplay();
+    }
   }
 
   void Entity::display()

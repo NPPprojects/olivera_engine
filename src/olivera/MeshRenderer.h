@@ -55,7 +55,7 @@ namespace olivera
       @brief Initalisation for 3D models of .obj loaded with assimp
 
       *************************************************************/
-        void onInitialise(std::string _modelPath, std::string _shaderPath,  std::shared_ptr<ResourceManager> _resourceManager);
+        void onInitialise(std::string _modelPath, std::string _shaderPath, std::string _depthMapShader, std::shared_ptr<ResourceManager> _resourceManager);
 
 
       /************************************************
@@ -63,6 +63,8 @@ namespace olivera
 
       *************************************************/
         void onDisplay();
+
+        void onShadowDisplay();
   
       /****************************************************
       @brief Set projection,view and model matrix uniforms 
@@ -84,7 +86,9 @@ namespace olivera
  
  
      std::weak_ptr<CurrentCamera> cameraContext;                                                  //!< Weak pointer to the camera context so that it can display on screen
-     std::weak_ptr<ShaderProgram> shader;                                                                                                      //!< Weak pointer to shader
+     std::vector<std::weak_ptr<ShaderProgram>> shaders;                                                                            //!< Vector of weak pointers to shaders
+     std::weak_ptr<ShaderProgram> shader;
+     std::weak_ptr<ShaderProgram> depthShader;
      std::weak_ptr<VertexArray> object;                                                                                       //!< Weak pointer to mesh for .data objects
      std::weak_ptr<Transform> transform;                                                                                 //!< Weak pointer to entity's transform component
      std::weak_ptr<Entity> entitySelf;                                                                               //!< Weak pointer to entity this component belongs to

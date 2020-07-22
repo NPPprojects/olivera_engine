@@ -14,7 +14,7 @@ namespace olivera
   }
 
   // render the mesh
-  void Mesh::draw(std::shared_ptr<ShaderProgram> shader)
+  void Mesh::draw(std::shared_ptr<ShaderProgram> shader, unsigned int _shadowCubemap = 0)
   {
     // bind appropriate textures
     unsigned int diffuseNr = 1;
@@ -42,6 +42,12 @@ namespace olivera
       glBindTexture(GL_TEXTURE_2D, textures[i].id);
     }
 
+    if (_shadowCubemap != 0)
+    {
+      glActiveTexture(GL_TEXTURE0 + textures.size());
+      glBindTexture(GL_TEXTURE_CUBE_MAP, _shadowCubemap);
+    }
+
     // draw mesh
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
@@ -50,7 +56,16 @@ namespace olivera
     // always good practice to set everything back to defaults once configured.
     glActiveTexture(GL_TEXTURE0);
   }
+  void Mesh::draw()
+  {
+    // draw mesh
+    glBindVertexArray(VAO);
+    glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
 
+    // always good practice to set everything back to defaults once configured.
+    glActiveTexture(GL_TEXTURE0);
+    glBindVertexArray(0);
+  }
 
   void Mesh::setupMesh()
   {

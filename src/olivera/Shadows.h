@@ -26,5 +26,7 @@ namespace olivera
     std::weak_ptr<ShaderProgram> shader;                                        //!<Weak pointer to shader
 
     std::vector<std::weak_ptr<Entity>> entitiesOther;
+
+    std::weak_ptr<ResourceManager> shadowResources;
   };
 }

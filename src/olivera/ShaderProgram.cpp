@@ -149,6 +149,8 @@ namespace olivera
     const char * fShaderCode = fragmentCode.c_str();
     const char * gShaderCode = geometryCode.c_str();
 
+    // Variables to check if compilation for shaders have failed
+
 
     // 2. compile shaders
     unsigned int vertex, fragment;
@@ -157,6 +159,8 @@ namespace olivera
     glShaderSource(vertex, 1, &vShaderCode, NULL);
     glCompileShader(vertex);
     checkCompileErrors(vertex, "VERTEX");
+
+
     // fragment Shader
     fragment = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragment, 1, &fShaderCode, NULL);

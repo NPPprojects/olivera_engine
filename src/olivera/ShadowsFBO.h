@@ -11,15 +11,17 @@ namespace olivera
   {
   public:
 
-    void initialise();
+    void configureFBO();
 
     void createCubemapTransformationMatrices(glm::vec3 _lightPos);
 
-    void bindFBO(std::shared_ptr<Core> _core, std::string _shader);
+    void bindFBO(std::shared_ptr<ResourceManager> _resourceManager, std::string _shader);
 
     float getNearPlane();
 
     float getFarPlane();
+
+    int getDepthCubemap();
 
 
   private:

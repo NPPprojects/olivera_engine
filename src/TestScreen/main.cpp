@@ -61,12 +61,12 @@ int main()
   
   //Table
   engine->getResources()->create<olivera::Model>(std::string("table"), std::string("../resources/objects/obj_mesa/obj_mesa.obj"));
-  /*
+  
   //Mug
   engine->getResources()->create<olivera::Model>(std::string("coffeeMug"), std::string("../resources/objects/coffeeMug/coffeMug1_free_obj.obj"));
-
+  
   //Bed
-  engine->getResources()->create<olivera::Model>(std::string("bed"), std::string("../resources/objects/bed/krovat-2.obj"));
+  //engine->getResources()->create<olivera::Model>(std::string("bed"), std::string("../resources/objects/bed/krovat-2.obj"));
 
   //Wardrobe
   engine->getResources()->create<olivera::Model>(std::string("wardrobe"), std::string("../resources/objects/wardrobe/Wardrobe  4 door.obj"));
@@ -79,7 +79,8 @@ int main()
 
   //Picture Frame
   engine->getResources()->create<olivera::Model>(std::string("pictureFrame"), std::string("../resources/objects/picture/frame.obj"));
-  */
+  
+  
   /**********************************************************MODEL RESOURCES*************************************************************************/
   
   
@@ -100,17 +101,18 @@ int main()
 	std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();
 	std::shared_ptr<CameraInputManager> cameraInput = cameraEntity->addComponent<CameraInputManager>();
   cameraTransform->setPosition(glm::vec3(0, 0, 0));
-  cameraComponent->getCurrentContext()->setViewport(glm::vec4(0, 0, 900, 800));
-  cameraComponent->getCurrentContext()->setFrameBuffer(engine, "postProcessingBlurShader", "PostProcessingSquare");
+  //cameraComponent->getCurrentContext()->setViewport(glm::vec4(0, 0, 900, 800));
+  //cameraComponent->getCurrentContext()->setFrameBuffer(engine, "postProcessingBlurShader", "PostProcessingSquare");
 
  // Camera 2 
-  std::shared_ptr<olivera::Entity> cameraEntity1 = engine->addEntity();
-  std::shared_ptr<olivera::Transform> cameraTransform1 = cameraEntity1->addComponent<olivera::Transform>();
-  std::shared_ptr<FPSCamera> cameraComponent1 = cameraEntity1->addComponent<FPSCamera>();
-  std::shared_ptr<CameraInputManager> cameraInput1 = cameraEntity1->addComponent<CameraInputManager>();
-  cameraTransform1->setPosition(glm::vec3(0, 0, 0));
-  cameraComponent1->getCurrentContext()->setViewport(glm::vec4(900, 0, 900, 800));
-  cameraComponent1->getCurrentContext()->setFrameBuffer(engine, "postProcessingAcidicShader", "PostProcessingSquare");
+
+  //std::shared_ptr<olivera::Entity> cameraEntity1 = engine->addEntity();
+  //std::shared_ptr<olivera::Transform> cameraTransform1 = cameraEntity1->addComponent<olivera::Transform>();
+  //std::shared_ptr<FPSCamera> cameraComponent1 = cameraEntity1->addComponent<FPSCamera>();
+  //std::shared_ptr<CameraInputManager> cameraInput1 = cameraEntity1->addComponent<CameraInputManager>();
+  //cameraTransform1->setPosition(glm::vec3(0, 0, 0));
+  //cameraComponent1->getCurrentContext()->setViewport(glm::vec4(900, 0, 900, 800));
+  //cameraComponent1->getCurrentContext()->setFrameBuffer(engine, "postProcessingAcidicShader", "PostProcessingSquare");
 
 
 	//Moving cube
@@ -132,7 +134,7 @@ int main()
   std::shared_ptr<olivera::MeshRenderer> mr1 = cube2->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh","cubeShader1");
 	std::shared_ptr<olivera::Collision> collider2 = cube2->addComponent<olivera::Collision>(true);
 
-  shapeTransform2->setPosition(glm::vec3(0.0f, 1.1f, 0.0f));
+  shapeTransform2->setPosition(glm::vec3(5.0f, 1.1f, 0.0f));
   collider2->setScale(glm::vec3(1.0f, 1.5f, 1.5f));
   std::cout<<shapeTransform2->getScale().x;
 
@@ -144,11 +146,13 @@ int main()
   shapeTransform3->setPosition(glm::vec3(1.0f, 1.1f, 0.0f));
   collider3->setScale(glm::vec3(0.5f, 0.5f, 0.5f));
   std::vector<std::shared_ptr<olivera::Entity>> lightSources;
-
+  std::vector<std::shared_ptr<olivera::Entity>> cameraEntities;
 
   lightSources.push_back(cube2);
-  lightSources.push_back(cube3);
+ // lightSources.push_back(cube3);
 
+  cameraEntities.push_back(cameraEntity);
+ // cameraEntities.push_back(cameraEntity1);
   
   //Nanosuit
 
@@ -157,8 +161,9 @@ int main()
 
   //NanosuitObject1
   std::unique_ptr<GameObject> nanosuitObject = std::make_unique<GameObject>(engine, "blinnPhongShader", "depthShader", "nanosuit");
-  nanosuitObject->addLight(lightSources);
-  nanosuitObject->getTransform()->setPosition(glm::vec3(0.0f, 0.0f, 1.0f));
+  nanosuitObject->addLight(lightSources, cameraEntities);
+
+  nanosuitObject->getTransform()->setPosition(glm::vec3(3.0f, 0.0f, 1.0f));
   nanosuitObject->getTransform()->setScale(glm::vec3(0.2f, 0.2f, 0.2f));
 
 
@@ -167,47 +172,51 @@ int main()
   /**************************************************************ROOM DEMO***************************************************************************/
   //Table
   std::unique_ptr<GameObject> table = std::make_unique<GameObject>(engine, "ShadowShader","depthShader" ,"table");
-  table->addLight(lightSources);
-  table->getTransform()->setPosition(glm::vec3(0.5f, 0.0f, 0.0f));
+  table->addLight(lightSources, cameraEntities);
+ 
+  table->getTransform()->setPosition(glm::vec3(7.5f, 0.0f, 5.0f));
   table->getTransform()->setScale(glm::vec3(4.0f));
   
-  /*
+  
   //Coffee Mug
-  std::unique_ptr<GameObject> coffeeMug = std::make_unique<GameObject>(engine, "ShadowShader", "coffeeMug");
-  coffeeMug->addLight(lightSources);
+  std::unique_ptr<GameObject> coffeeMug = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader","coffeeMug");
+  coffeeMug->addLight(lightSources, cameraEntities);
+
   coffeeMug->getTransform()->setPosition(glm::vec3(7.5f, 4.0f, 5.0f));
   coffeeMug->getTransform()->setScale(glm::vec3(0.02f));
 
+  
   //Bed
-  std::unique_ptr<GameObject> bed = std::make_unique<GameObject>(engine, "ShadowShader", "bed");
-  bed->addLight(lightSources);
-  bed->getTransform()->setPosition(glm::vec3(-5.0f, 0.0f, 5.0f));
-  bed->getTransform()->setScale(glm::vec3(5.0f));
+ // std::unique_ptr<GameObject> bed = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "bed");
+ // bed->addLight(lightSources, cameraEntities);
+ // bed->getTransform()->setPosition(glm::vec3(-5.0f, 0.0f, 5.0f));
+ // bed->getTransform()->setScale(glm::vec3(5.0f));
 
-  //Wardrobe
-  std::unique_ptr<GameObject> wardrobe = std::make_unique<GameObject>(engine, "ShadowShader", "wardrobe");
-  wardrobe->addLight(lightSources);
-  wardrobe->getTransform()->setPosition(glm::vec3(-5.0f, 0.0f, -10.0f));
-  wardrobe->getTransform()->setScale(glm::vec3(4.0f));
 
   //Samus
-  std::unique_ptr<GameObject> samus = std::make_unique<GameObject>(engine, "ShadowShader", "Samus");
-  samus->addLight(lightSources);
+  std::unique_ptr<GameObject> samus = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "Samus");
+  samus->addLight(lightSources, cameraEntities);
   samus->getTransform()->setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
   samus->getTransform()->setScale(glm::vec3(0.4f));
 
+  //Wardrobe
+  std::unique_ptr<GameObject> wardrobe = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "wardrobe");
+  wardrobe->addLight(lightSources, cameraEntities);
+  wardrobe->getTransform()->setPosition(glm::vec3(-5.0f, 0.0f, -10.0f));
+  wardrobe->getTransform()->setScale(glm::vec3(4.0f));
+
   //Frida
-  std::unique_ptr<GameObject> fridaPicture = std::make_unique<GameObject>(engine, "ShadowShader", "fridaPicture");
-  fridaPicture->addLight(lightSources);
+  std::unique_ptr<GameObject> fridaPicture = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "fridaPicture");
+  fridaPicture->addLight(lightSources, cameraEntities);
   fridaPicture->getTransform()->setPosition(glm::vec3(-3.0f, -4.0f, -12.2f));
   fridaPicture->getTransform()->setScale(glm::vec3(7.5f));
 
   //Frame
-  std::unique_ptr<GameObject> pictureFrame = std::make_unique<GameObject>(engine, "ShadowShader", "pictureFrame");
-  pictureFrame->addLight(lightSources);
+  std::unique_ptr<GameObject> pictureFrame = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "pictureFrame");
+  pictureFrame->addLight(lightSources, cameraEntities);
   pictureFrame->getTransform()->setPosition(glm::vec3(-3.0f, -4.0f, -12.2f));
   pictureFrame->getTransform()->setScale(glm::vec3(7.5f));
-  /*  
+  
   /**************************************************************ROOM DEMO***************************************************************************/
 	engine->start();
 

@@ -106,6 +106,20 @@ namespace olivera
 
         return component;
       }
+        /********************************
+        @brief Add a component to entity
+        and pass 3 parameter
+
+        *********************************/
+        template <typename T, typename A, typename B, typename C, typename D>
+        std::shared_ptr<T> addComponent(A a, B b, C c,D d)
+        {
+          ADDCOMPONENT
+            component->onInitialise(a, b, c, d);
+
+          return component;
+        }
+
 
       /*******************************************************
       @brief Search for a specific component within entities 
@@ -154,7 +168,7 @@ namespace olivera
        which will be used for shadows       
        
        ******************************************************/
-       void depthDisplay();
+       void shadowDisplay();
 
 
       std::weak_ptr<Entity> self;                                                   //!< Weak pointer to self

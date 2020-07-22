@@ -24,7 +24,7 @@ namespace olivera
 
   void PostProcessing::FrameBufferConfiguration()
   {
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glGenFramebuffers(1, &FBO);
     glBindFramebuffer(GL_FRAMEBUFFER, FBO);
     // create a color attachment texture

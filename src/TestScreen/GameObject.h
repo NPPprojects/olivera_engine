@@ -6,7 +6,8 @@ public:
 
   GameObject(std::shared_ptr<olivera::Core> &_scene, std::string _objectShader, std::string _depthMapShader, std::string _model);
 
-  void addLight(std::vector<std::shared_ptr<olivera::Entity>> &_lightSources);
+  void addLight(std::vector<std::shared_ptr<olivera::Entity>> &_lightSources, std::vector <std::shared_ptr <olivera::Entity >> &_cameraEntities);
+
 
   void addMaterial();
 
@@ -17,7 +18,6 @@ public:
 private:
   std::shared_ptr<olivera::Entity> self;
   std::shared_ptr<olivera::Transform> transform;
-  std::string shaderName;
   std::shared_ptr<olivera::MeshRenderer> meshRenderer;
   std::shared_ptr<olivera::Materials> material;
   std::shared_ptr<olivera::Light> lightSources;

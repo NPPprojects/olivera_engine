@@ -41,6 +41,8 @@ NEED TO REWORK CLASS
       lighting it.
 
       *******************************************************************************/
+        void onDisplay();
+
         void onTick();
 
       /*********************************************************************************************
@@ -53,7 +55,7 @@ NEED TO REWORK CLASS
       @param std::vector<std::shared_ptr<Entity>> &Light Entitites
 
       **********************************************************************************************/
-        void onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther, std::shared_ptr<ResourceManager> _resourceManager);
+        void onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_lightEntities, std::vector<std::shared_ptr<Entity>> &_cameraEntities, std::shared_ptr<ResourceManager> _resourceManager);
 
       /*****************************
       @brief Setter for lightColor
@@ -98,8 +100,10 @@ NEED TO REWORK CLASS
     /************************************************************************************************************************/
 
       std::weak_ptr<ShaderProgram> shader;                                                //!<Weak Refrence to shader program
-      std::vector<std::weak_ptr<Entity>> entitiesOther;    //!< vector of weak pointers to entites that will be light sources
-    
+      std::vector<std::weak_ptr<Entity>> lightEntities;    //!< vector of weak pointers to entites that will be light sources
+      std::vector<std::weak_ptr<Entity>> cameraEntities;         //!< vector of weak pointers to entites that will be cameras
+      
+
       glm::vec3 lightColor;
       glm::vec3 diffuseColor;
       glm::vec3 ambientColor;
