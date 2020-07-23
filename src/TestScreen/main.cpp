@@ -15,6 +15,9 @@ int main()
 	//Engine
   int windowWidth = 1800;
   int windowHeight = 800;
+
+
+  stbi_set_flip_vertically_on_load(false);
 	std::shared_ptr<olivera::Core> engine = olivera::Core::initialise(windowWidth, windowHeight);
 
   std::shared_ptr<olivera::ShaderProgram> test = std::make_shared<olivera::ShaderProgram>("../resources/shaders/cubeShader.txt");
@@ -101,8 +104,8 @@ int main()
 	std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();
 	std::shared_ptr<CameraInputManager> cameraInput = cameraEntity->addComponent<CameraInputManager>();
   cameraTransform->setPosition(glm::vec3(0, 0, 0));
-  //cameraComponent->getCurrentContext()->setViewport(glm::vec4(0, 0, 900, 800));
-  //cameraComponent->getCurrentContext()->setFrameBuffer(engine, "postProcessingBlurShader", "PostProcessingSquare");
+  cameraComponent->getCurrentContext()->setViewport(glm::vec4(0, 0, 900, 800));
+  cameraComponent->getCurrentContext()->setFrameBuffer(engine, "postProcessingBlurShader", "PostProcessingSquare");
 
  // Camera 2 
 
@@ -149,10 +152,10 @@ int main()
   std::vector<std::shared_ptr<olivera::Entity>> cameraEntities;
 
   lightSources.push_back(cube2);
- // lightSources.push_back(cube3);
+  lightSources.push_back(cube3);
 
   cameraEntities.push_back(cameraEntity);
- // cameraEntities.push_back(cameraEntity1);
+  //cameraEntities.push_back(cameraEntity1);
   
   //Nanosuit
 
@@ -160,16 +163,17 @@ int main()
 
 
   //NanosuitObject1
-  std::unique_ptr<GameObject> nanosuitObject = std::make_unique<GameObject>(engine, "blinnPhongShader", "depthShader", "nanosuit");
+  std::unique_ptr<GameObject> nanosuitObject = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "nanosuit");
   nanosuitObject->addLight(lightSources, cameraEntities);
 
   nanosuitObject->getTransform()->setPosition(glm::vec3(3.0f, 0.0f, 1.0f));
-  nanosuitObject->getTransform()->setScale(glm::vec3(0.2f, 0.2f, 0.2f));
+                nanosuitObject->getTransform()->setScale(glm::vec3(0.2f, 0.2f, 0.2f));
 
 
 
 
   /**************************************************************ROOM DEMO***************************************************************************/
+  
   //Table
   std::unique_ptr<GameObject> table = std::make_unique<GameObject>(engine, "ShadowShader","depthShader" ,"table");
   table->addLight(lightSources, cameraEntities);
@@ -199,6 +203,8 @@ int main()
   samus->getTransform()->setPosition(glm::vec3(0.0f, 0.0f, 0.0f));
   samus->getTransform()->setScale(glm::vec3(0.4f));
 
+
+  
   //Wardrobe
   std::unique_ptr<GameObject> wardrobe = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "wardrobe");
   wardrobe->addLight(lightSources, cameraEntities);
@@ -216,6 +222,7 @@ int main()
   pictureFrame->addLight(lightSources, cameraEntities);
   pictureFrame->getTransform()->setPosition(glm::vec3(-3.0f, -4.0f, -12.2f));
   pictureFrame->getTransform()->setScale(glm::vec3(7.5f));
+  
   
   /**************************************************************ROOM DEMO***************************************************************************/
 	engine->start();

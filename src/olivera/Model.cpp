@@ -29,6 +29,8 @@ namespace olivera
   // loads a model with supported ASSIMP extensions from file and stores the resulting meshes in the meshes vector.
   void Model::loadModel(std::string const &_path)
   {
+
+
     // read file via ASSIMP
     Assimp::Importer importer;
     const aiScene* scene = importer.ReadFile(_path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
@@ -188,6 +190,7 @@ namespace olivera
     glGenTextures(1, &textureID);
 
     int width, height, nrComponents;
+    stbi_set_flip_vertically_on_load(false);
     unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
     if (data)
     {

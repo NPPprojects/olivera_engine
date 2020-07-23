@@ -13,6 +13,8 @@
 #include "VertexArray.h"
 #include "ShadowsFBO.h"
 
+#include "stb_image.h"
+
 namespace olivera
 {
   std::shared_ptr<Core> Core::initialise(int _windowWidth, int _windowHeight)
@@ -31,7 +33,7 @@ namespace olivera
       SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
       _windowWidth, _windowHeight,
       SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_GRABBED);
-	
+
 	//Lock Mouse
  //   SDL_ShowCursor(SDL_DISABLE);
     
@@ -39,6 +41,7 @@ namespace olivera
     if (!SDL_GL_CreateContext(core->window))
     {
       throw std::exception();
+
     }
 
     if (glewInit() != GLEW_OK)

@@ -78,7 +78,7 @@ void MeshRenderer::onShadowDisplay()
 void MeshRenderer::onTick()
 {
 
-  glUseProgram(0);
+  
 }
 void MeshRenderer::Draw()
 {
@@ -101,6 +101,15 @@ void MeshRenderer::Draw()
     glDrawArrays(GL_TRIANGLES, 0, object.lock()->getVerticiesCount());
     glBindVertexArray(0);
     glUseProgram(0);
+
+    //Unbind Textures
+
+    for (int i = 0; i < texture.size(); i++)
+    {
+      glActiveTexture(GL_TEXTURE0 + i);
+      glBindTexture(GL_TEXTURE_2D, 0);
+    }
+
   }
   else
   {
