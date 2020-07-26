@@ -1,0 +1,126 @@
+\hypertarget{classolivera_1_1_materials}{}\doxysection{olivera\+::Materials Class Reference}
+\label{classolivera_1_1_materials}\index{olivera::Materials@{olivera::Materials}}
+
+
+Set up material values for object.  
+
+
+
+
+{\ttfamily \#include $<$Materials.\+h$>$}
+
+Inheritance diagram for olivera\+::Materials\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_materials}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_materials_a84bb6b19b6ff7896994509f0a5a688e9}{on\+Initialise}} (std\+::string \+\_\+shader, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{olivera\+::\+Resource\+Manager}} $>$ \+\_\+object\+Resouces)
+\begin{DoxyCompactList}\small\item\em Initialise default material values for an object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_materials_aaf1efc412f08faabe77adccfe56c7932}{set\+Material}} (float \+\_\+shininess, int \+\_\+diffuse, int \+\_\+specular)
+\begin{DoxyCompactList}\small\item\em set new \mbox{\hyperlink{structolivera_1_1_material}{Material}} values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_materials_adc726558834e704d57785bca57b57fb8}{set\+Default\+Material}} (float \+\_\+shininess, int \+\_\+diffuse, int \+\_\+specular)
+\begin{DoxyCompactList}\small\item\em set new \mbox{\hyperlink{structolivera_1_1_material}{Material}} values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_materials_ac565aad6562b82b4ee55d18dd02dfc54}{on\+Tick}} ()
+\begin{DoxyCompactList}\small\item\em Set uniform values for the shader, every frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_materials_a21b8f065c58336a62598cd067ad81a26}\label{classolivera_1_1_materials_a21b8f065c58336a62598cd067ad81a26}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$ \mbox{\hyperlink{classolivera_1_1_materials_a21b8f065c58336a62598cd067ad81a26}{shader}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to shader. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_materials_a73146c297e3363dadbf6532bb42bc661}\label{classolivera_1_1_materials_a73146c297e3363dadbf6532bb42bc661}} 
+\mbox{\hyperlink{structolivera_1_1_material}{Material}} \mbox{\hyperlink{classolivera_1_1_materials_a73146c297e3363dadbf6532bb42bc661}{material}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structolivera_1_1_material}{Material}} values of the object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_materials_a5b66a61efc19d3a8f8dde6f97052ef8b}\label{classolivera_1_1_materials_a5b66a61efc19d3a8f8dde6f97052ef8b}} 
+bool {\bfseries modifications}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Set up material values for object. 
+
+Further methods are implemented to add additional functunality. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_materials_a84bb6b19b6ff7896994509f0a5a688e9}\label{classolivera_1_1_materials_a84bb6b19b6ff7896994509f0a5a688e9}} 
+\index{olivera::Materials@{olivera::Materials}!onInitialise@{onInitialise}}
+\index{onInitialise@{onInitialise}!olivera::Materials@{olivera::Materials}}
+\doxysubsubsection{\texorpdfstring{onInitialise()}{onInitialise()}}
+{\footnotesize\ttfamily void olivera\+::\+Materials\+::on\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+shader,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{olivera\+::\+Resource\+Manager}} $>$}]{\+\_\+object\+Resouces }\end{DoxyParamCaption})}
+
+
+
+Initialise default material values for an object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & shader of the object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_materials_ac565aad6562b82b4ee55d18dd02dfc54}\label{classolivera_1_1_materials_ac565aad6562b82b4ee55d18dd02dfc54}} 
+\index{olivera::Materials@{olivera::Materials}!onTick@{onTick}}
+\index{onTick@{onTick}!olivera::Materials@{olivera::Materials}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily void olivera\+::\+Materials\+::on\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set uniform values for the shader, every frame. 
+
+Will only occur if set\+Material has been called. 
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a7ffbee9cd61035ffb5b5795718b4d056}{olivera\+::\+Component}}.
+
+\mbox{\Hypertarget{classolivera_1_1_materials_adc726558834e704d57785bca57b57fb8}\label{classolivera_1_1_materials_adc726558834e704d57785bca57b57fb8}} 
+\index{olivera::Materials@{olivera::Materials}!setDefaultMaterial@{setDefaultMaterial}}
+\index{setDefaultMaterial@{setDefaultMaterial}!olivera::Materials@{olivera::Materials}}
+\doxysubsubsection{\texorpdfstring{setDefaultMaterial()}{setDefaultMaterial()}}
+{\footnotesize\ttfamily void olivera\+::\+Materials\+::set\+Default\+Material (\begin{DoxyParamCaption}\item[{float}]{\+\_\+shininess,  }\item[{int}]{\+\_\+diffuse,  }\item[{int}]{\+\_\+specular }\end{DoxyParamCaption})}
+
+
+
+set new \mbox{\hyperlink{structolivera_1_1_material}{Material}} values. 
+
+If materials won\textquotesingle{}t change in the main loop, use this method, as values will get set for the shader only once instead of every tick.
+
+
+\begin{DoxyParams}{Parameters}
+{\em float} & shininess of the material \\
+\hline
+{\em int} & diffuse color of the material \\
+\hline
+{\em int} & specular color of the materials \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_materials_aaf1efc412f08faabe77adccfe56c7932}\label{classolivera_1_1_materials_aaf1efc412f08faabe77adccfe56c7932}} 
+\index{olivera::Materials@{olivera::Materials}!setMaterial@{setMaterial}}
+\index{setMaterial@{setMaterial}!olivera::Materials@{olivera::Materials}}
+\doxysubsubsection{\texorpdfstring{setMaterial()}{setMaterial()}}
+{\footnotesize\ttfamily void olivera\+::\+Materials\+::set\+Material (\begin{DoxyParamCaption}\item[{float}]{\+\_\+shininess,  }\item[{int}]{\+\_\+diffuse,  }\item[{int}]{\+\_\+specular }\end{DoxyParamCaption})}
+
+
+
+set new \mbox{\hyperlink{structolivera_1_1_material}{Material}} values. 
+
+Set modifications to true. This is done because normally \mbox{\hyperlink{classolivera_1_1_materials}{Materials}}, need to be set only once. If setting them after the game loop has started uniform values, need to be updated every tick.
+
+
+\begin{DoxyParams}{Parameters}
+{\em float} & shininess of the material \\
+\hline
+{\em int} & diffuse color of the material \\
+\hline
+{\em int} & specular color of the materials \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Materials.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Materials.\+cpp\end{DoxyCompactItemize}

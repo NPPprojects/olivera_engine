@@ -1,0 +1,159 @@
+\hypertarget{classolivera_1_1_mesh_renderer}{}\doxysection{olivera\+::Mesh\+Renderer Class Reference}
+\label{classolivera_1_1_mesh_renderer}\index{olivera::MeshRenderer@{olivera::MeshRenderer}}
+
+
+\mbox{\hyperlink{classolivera_1_1_component}{Component}} derived class to handle drawing meshes to the screen.  
+
+
+
+
+{\ttfamily \#include $<$Mesh\+Renderer.\+h$>$}
+
+Inheritance diagram for olivera\+::Mesh\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_mesh_renderer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_mesh_renderer_ad4549c1fb86ca612ad0021a4513c18c0}{on\+Initialise}} (std\+::vector$<$ std\+::string $>$ \+\_\+texture\+Paths, std\+::string \+\_\+mesh\+Path, std\+::string \+\_\+shader\+Path)
+\begin{DoxyCompactList}\small\item\em Initalisation for 3d models that are written in the .data format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_mesh_renderer_a15a8684761edff759e871e7c5bdf1133}{on\+Initialise}} (std\+::string \+\_\+model\+Path, std\+::string \+\_\+shader\+Path, std\+::string \+\_\+depth\+Map\+Shader, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$ \+\_\+resource\+Manager)
+\begin{DoxyCompactList}\small\item\em Initalisation for 3D models of .obj loaded with assimp. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_mesh_renderer_ad60812c43fb734778588ef93cfd1f856}{on\+Display}} ()
+\begin{DoxyCompactList}\small\item\em Draw function gets called every draw call. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_mesh_renderer_a038e52996d2001696b0f1c24eff02180}{on\+Shadow\+Display}} ()
+\item 
+void \mbox{\hyperlink{classolivera_1_1_mesh_renderer_a0175cc1b02d65c77dd2a445fa852bf80}{on\+Tick}} ()
+\begin{DoxyCompactList}\small\item\em Set projection,view and model matrix uniforms every tick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_mesh_renderer_a7689d67063dc3b1f3eb7cc9b1c1fd130}{Draw}} ()
+\begin{DoxyCompactList}\small\item\em Draw function for drawing either .objs or .data objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_aa50b8c26cf3076677f000a285a2066c9}\label{classolivera_1_1_mesh_renderer_aa50b8c26cf3076677f000a285a2066c9}} 
+std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_texture}{Texture}} $>$ $>$ \mbox{\hyperlink{classolivera_1_1_mesh_renderer_aa50b8c26cf3076677f000a285a2066c9}{texture}}
+\begin{DoxyCompactList}\small\item\em Vector for textures used by object defined by user(not .obj files, but .data files) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_a98ac3c3d483829417fdf5b3709c43411}\label{classolivera_1_1_mesh_renderer_a98ac3c3d483829417fdf5b3709c43411}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_current_camera}{Current\+Camera}} $>$ \mbox{\hyperlink{classolivera_1_1_mesh_renderer_a98ac3c3d483829417fdf5b3709c43411}{camera\+Context}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to the camera context so that it can display on screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_aa2f7beba3a2d48093b7b2f0f4a68936e}\label{classolivera_1_1_mesh_renderer_aa2f7beba3a2d48093b7b2f0f4a68936e}} 
+std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$ $>$ \mbox{\hyperlink{classolivera_1_1_mesh_renderer_aa2f7beba3a2d48093b7b2f0f4a68936e}{shaders}}
+\begin{DoxyCompactList}\small\item\em Vector of weak pointers to shaders. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_a63e7fabd1340d8bd0845244ceaa25a7b}\label{classolivera_1_1_mesh_renderer_a63e7fabd1340d8bd0845244ceaa25a7b}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$ {\bfseries shader}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_a37a7b824999fe0ecb253f80624f86cad}\label{classolivera_1_1_mesh_renderer_a37a7b824999fe0ecb253f80624f86cad}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$ {\bfseries depth\+Shader}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_ae4cc8c1e6f8f754f6db84bdd794467e9}\label{classolivera_1_1_mesh_renderer_ae4cc8c1e6f8f754f6db84bdd794467e9}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_vertex_array}{Vertex\+Array}} $>$ \mbox{\hyperlink{classolivera_1_1_mesh_renderer_ae4cc8c1e6f8f754f6db84bdd794467e9}{object}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to mesh for .data objects. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_ae20c67fd2212546659ac5832082639d7}\label{classolivera_1_1_mesh_renderer_ae20c67fd2212546659ac5832082639d7}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_transform}{Transform}} $>$ \mbox{\hyperlink{classolivera_1_1_mesh_renderer_ae20c67fd2212546659ac5832082639d7}{transform}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to entity\textquotesingle{}s transform component. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_a2b2178acc0be58c3c2a208be4e535854}\label{classolivera_1_1_mesh_renderer_a2b2178acc0be58c3c2a208be4e535854}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classolivera_1_1_mesh_renderer_a2b2178acc0be58c3c2a208be4e535854}{entity\+Self}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to entity this component belongs to. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_a0161c70ee4e6def5c7669ea7708c2906}\label{classolivera_1_1_mesh_renderer_a0161c70ee4e6def5c7669ea7708c2906}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_model}{Model}} $>$ \mbox{\hyperlink{classolivera_1_1_mesh_renderer_a0161c70ee4e6def5c7669ea7708c2906}{model}}
+\begin{DoxyCompactList}\small\item\em Weak pointer pointing to .obj 3D model loaded with assimp. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_a1806e0d920591b419334305d8d264b22}\label{classolivera_1_1_mesh_renderer_a1806e0d920591b419334305d8d264b22}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ \mbox{\hyperlink{classolivera_1_1_mesh_renderer_a1806e0d920591b419334305d8d264b22}{core}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to core. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classolivera_1_1_component}{Component}} derived class to handle drawing meshes to the screen. 
+
+Can currently handle .obj files and user defined using the .data format. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_a7689d67063dc3b1f3eb7cc9b1c1fd130}\label{classolivera_1_1_mesh_renderer_a7689d67063dc3b1f3eb7cc9b1c1fd130}} 
+\index{olivera::MeshRenderer@{olivera::MeshRenderer}!Draw@{Draw}}
+\index{Draw@{Draw}!olivera::MeshRenderer@{olivera::MeshRenderer}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void olivera\+::\+Mesh\+Renderer\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draw function for drawing either .objs or .data objects. 
+
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_ad60812c43fb734778588ef93cfd1f856}\label{classolivera_1_1_mesh_renderer_ad60812c43fb734778588ef93cfd1f856}} 
+\index{olivera::MeshRenderer@{olivera::MeshRenderer}!onDisplay@{onDisplay}}
+\index{onDisplay@{onDisplay}!olivera::MeshRenderer@{olivera::MeshRenderer}}
+\doxysubsubsection{\texorpdfstring{onDisplay()}{onDisplay()}}
+{\footnotesize\ttfamily void olivera\+::\+Mesh\+Renderer\+::on\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw function gets called every draw call. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a752d4d19d7b3b7655bd0eb1b515cba29}{olivera\+::\+Component}}.
+
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_a15a8684761edff759e871e7c5bdf1133}\label{classolivera_1_1_mesh_renderer_a15a8684761edff759e871e7c5bdf1133}} 
+\index{olivera::MeshRenderer@{olivera::MeshRenderer}!onInitialise@{onInitialise}}
+\index{onInitialise@{onInitialise}!olivera::MeshRenderer@{olivera::MeshRenderer}}
+\doxysubsubsection{\texorpdfstring{onInitialise()}{onInitialise()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void olivera\+::\+Mesh\+Renderer\+::on\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+model\+Path,  }\item[{std\+::string}]{\+\_\+shader\+Path,  }\item[{std\+::string}]{\+\_\+depth\+Map\+Shader,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$}]{\+\_\+resource\+Manager }\end{DoxyParamCaption})}
+
+
+
+Initalisation for 3D models of .obj loaded with assimp. 
+
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_ad4549c1fb86ca612ad0021a4513c18c0}\label{classolivera_1_1_mesh_renderer_ad4549c1fb86ca612ad0021a4513c18c0}} 
+\index{olivera::MeshRenderer@{olivera::MeshRenderer}!onInitialise@{onInitialise}}
+\index{onInitialise@{onInitialise}!olivera::MeshRenderer@{olivera::MeshRenderer}}
+\doxysubsubsection{\texorpdfstring{onInitialise()}{onInitialise()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void olivera\+::\+Mesh\+Renderer\+::on\+Initialise (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{\+\_\+texture\+Paths,  }\item[{std\+::string}]{\+\_\+mesh\+Path,  }\item[{std\+::string}]{\+\_\+shader\+Path }\end{DoxyParamCaption})}
+
+
+
+Initalisation for 3d models that are written in the .data format. 
+
+Loads
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::vector$<$std\+::string$>$} & texture\+Paths a vector of loaded textures.\\
+\hline
+{\em std\+::string} & mesh\+Path\\
+\hline
+{\em std\+::string} & \+\_\+shader\+Path \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_a038e52996d2001696b0f1c24eff02180}\label{classolivera_1_1_mesh_renderer_a038e52996d2001696b0f1c24eff02180}} 
+\index{olivera::MeshRenderer@{olivera::MeshRenderer}!onShadowDisplay@{onShadowDisplay}}
+\index{onShadowDisplay@{onShadowDisplay}!olivera::MeshRenderer@{olivera::MeshRenderer}}
+\doxysubsubsection{\texorpdfstring{onShadowDisplay()}{onShadowDisplay()}}
+{\footnotesize\ttfamily void olivera\+::\+Mesh\+Renderer\+::on\+Shadow\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\textbackslash{}\+Virtual function that handles Shadow Display functions 
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a8f6d66fec9693f344d57e83e3f484f99}{olivera\+::\+Component}}.
+
+\mbox{\Hypertarget{classolivera_1_1_mesh_renderer_a0175cc1b02d65c77dd2a445fa852bf80}\label{classolivera_1_1_mesh_renderer_a0175cc1b02d65c77dd2a445fa852bf80}} 
+\index{olivera::MeshRenderer@{olivera::MeshRenderer}!onTick@{onTick}}
+\index{onTick@{onTick}!olivera::MeshRenderer@{olivera::MeshRenderer}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily void olivera\+::\+Mesh\+Renderer\+::on\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set projection,view and model matrix uniforms every tick. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a7ffbee9cd61035ffb5b5795718b4d056}{olivera\+::\+Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Mesh\+Renderer.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Mesh\+Renderer.\+cpp\end{DoxyCompactItemize}

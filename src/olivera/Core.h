@@ -179,7 +179,7 @@ namespace olivera
       std::shared_ptr<Keyboard> keyboard = std::make_shared<Keyboard>();                           //!<Stores keyboard inputs
       std::shared_ptr<Mouse> mouse = std::make_shared <Mouse>();                                     //!< Stores Mouse Inputs
       
-      std::shared_ptr<ShadowsFBO> shadowFBO = std::make_shared<ShadowsFBO>();
+      std::shared_ptr<ShadowsFBO> shadowFBO = std::make_shared<ShadowsFBO>();                       //Framebuffer for Shadows
 
       int windowWidth;                                                                               //</ Stores window width
       int windowHeight;                                                                              //</Stores window height

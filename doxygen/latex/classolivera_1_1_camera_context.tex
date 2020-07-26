@@ -1,0 +1,101 @@
+\hypertarget{classolivera_1_1_camera_context}{}\doxysection{olivera\+::Camera\+Context Class Reference}
+\label{classolivera_1_1_camera_context}\index{olivera::CameraContext@{olivera::CameraContext}}
+
+
+Contains a list of camera\textquotesingle{}s and methods to access them.  
+
+
+
+
+{\ttfamily \#include $<$Camera\+Context.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_current_camera}{Current\+Camera}} $>$ $>$ \mbox{\hyperlink{classolivera_1_1_camera_context_a1b3891034ad9d88b7c4754e8128f07b8}{get\+Camera\+List}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the camera list contained within core. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_camera_context_a1e07b7e0f30f3cfbf10512589060e960}{add\+Camera}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_current_camera}{Current\+Camera}} $>$ \+\_\+camera\+Context)
+\begin{DoxyCompactList}\small\item\em Add a camera to the list of cameras. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_camera_context_a6e0bd69a945405c7876ee2dd0dd01dca}{set\+Current\+Camera}} (int \+\_\+current\+Camera)
+\begin{DoxyCompactList}\small\item\em Sets the current camera index. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_current_camera}{Current\+Camera}} $>$ \mbox{\hyperlink{classolivera_1_1_camera_context_afbc0ef7c20ac4f4425a92254b72e5199}{get\+Current\+Camera}} ()
+\begin{DoxyCompactList}\small\item\em Gets the currently indexed camera. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_camera_context_a5ca700376fb64079ad349c0b6f807cc6}\label{classolivera_1_1_camera_context_a5ca700376fb64079ad349c0b6f807cc6}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_current_camera}{Current\+Camera}} $>$ $>$ \mbox{\hyperlink{classolivera_1_1_camera_context_a5ca700376fb64079ad349c0b6f807cc6}{camera\+List}}
+\begin{DoxyCompactList}\small\item\em List of cameras. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_camera_context_a8613ba27a9f28945e084e42e83f3c371}\label{classolivera_1_1_camera_context_a8613ba27a9f28945e084e42e83f3c371}} 
+int \mbox{\hyperlink{classolivera_1_1_camera_context_a8613ba27a9f28945e084e42e83f3c371}{current\+Camera}}
+\begin{DoxyCompactList}\small\item\em Container for camera index value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains a list of camera\textquotesingle{}s and methods to access them. 
+
+Contains an index to access the currently active camera at any time. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_camera_context_a1e07b7e0f30f3cfbf10512589060e960}\label{classolivera_1_1_camera_context_a1e07b7e0f30f3cfbf10512589060e960}} 
+\index{olivera::CameraContext@{olivera::CameraContext}!addCamera@{addCamera}}
+\index{addCamera@{addCamera}!olivera::CameraContext@{olivera::CameraContext}}
+\doxysubsubsection{\texorpdfstring{addCamera()}{addCamera()}}
+{\footnotesize\ttfamily void olivera\+::\+Camera\+Context\+::add\+Camera (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_current_camera}{Current\+Camera}} $>$}]{\+\_\+camera\+Context }\end{DoxyParamCaption})}
+
+
+
+Add a camera to the list of cameras. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{classolivera_1_1_current_camera}{Current\+Camera}}} & camera\+Context \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_camera_context_a1b3891034ad9d88b7c4754e8128f07b8}\label{classolivera_1_1_camera_context_a1b3891034ad9d88b7c4754e8128f07b8}} 
+\index{olivera::CameraContext@{olivera::CameraContext}!getCameraList@{getCameraList}}
+\index{getCameraList@{getCameraList}!olivera::CameraContext@{olivera::CameraContext}}
+\doxysubsubsection{\texorpdfstring{getCameraList()}{getCameraList()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_current_camera}{Current\+Camera}} $>$ $>$ olivera\+::\+Camera\+Context\+::get\+Camera\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the camera list contained within core. 
+
+\begin{DoxyReturn}{Returns}
+a vector of cameras. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_camera_context_afbc0ef7c20ac4f4425a92254b72e5199}\label{classolivera_1_1_camera_context_afbc0ef7c20ac4f4425a92254b72e5199}} 
+\index{olivera::CameraContext@{olivera::CameraContext}!getCurrentCamera@{getCurrentCamera}}
+\index{getCurrentCamera@{getCurrentCamera}!olivera::CameraContext@{olivera::CameraContext}}
+\doxysubsubsection{\texorpdfstring{getCurrentCamera()}{getCurrentCamera()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_current_camera}{Current\+Camera}} $>$ olivera\+::\+Camera\+Context\+::get\+Current\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the currently indexed camera. 
+
+\begin{DoxyReturn}{Returns}
+Camera at the current index. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_camera_context_a6e0bd69a945405c7876ee2dd0dd01dca}\label{classolivera_1_1_camera_context_a6e0bd69a945405c7876ee2dd0dd01dca}} 
+\index{olivera::CameraContext@{olivera::CameraContext}!setCurrentCamera@{setCurrentCamera}}
+\index{setCurrentCamera@{setCurrentCamera}!olivera::CameraContext@{olivera::CameraContext}}
+\doxysubsubsection{\texorpdfstring{setCurrentCamera()}{setCurrentCamera()}}
+{\footnotesize\ttfamily void olivera\+::\+Camera\+Context\+::set\+Current\+Camera (\begin{DoxyParamCaption}\item[{int}]{\+\_\+current\+Camera }\end{DoxyParamCaption})}
+
+
+
+Sets the current camera index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & camera\+Index \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Camera\+Context.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Camera\+Context.\+cpp\end{DoxyCompactItemize}

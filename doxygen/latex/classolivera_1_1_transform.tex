@@ -1,0 +1,252 @@
+\hypertarget{classolivera_1_1_transform}{}\doxysection{olivera\+::Transform Class Reference}
+\label{classolivera_1_1_transform}\index{olivera::Transform@{olivera::Transform}}
+
+
+\mbox{\hyperlink{classolivera_1_1_component}{Component}} class to hold transformation logic for entities.  
+
+
+
+
+{\ttfamily \#include $<$Transform.\+h$>$}
+
+Inheritance diagram for olivera\+::Transform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_transform}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::mat4 \mbox{\hyperlink{classolivera_1_1_transform_a7c25ac95149b45dc3bff661ddfc2943e}{get\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the model matrix of an entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_transform_aabe8201fb79bf92259d678dee66a18af}{update\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Update the model matrix with the last set position, rotation and scale vectors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_transform_a836a6a286bcae27c3bd86501148f81d3}{set\+Position}} (glm\+::vec3 \+\_\+position)
+\begin{DoxyCompactList}\small\item\em Setter for the position vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_transform_a242a65d1d4279f087bba8bb0f111dc43}{set\+Rotation}} (glm\+::vec3 \+\_\+rotation)
+\begin{DoxyCompactList}\small\item\em setter for the rotation vector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_transform_a522f5fb034d4129cc23534073c8aacd6}{set\+Scale}} (glm\+::vec3 \+\_\+scale)
+\begin{DoxyCompactList}\small\item\em setter for the scale vector \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_transform_a7aa85a84a557570704ef937b7daf21cf}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the position vector. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_transform_a707914d48e229dc46d186877bc8b4da9}{get\+Rotation}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the rotation vector. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_transform_a499e1ee08a50ec21b28838957c06a3d3}{get\+Scale}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the scale vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_transform_abbb8a93c566b7f52ca5fe4054559b008}{on\+Tick}} ()
+\begin{DoxyCompactList}\small\item\em Update\+Model is called every tick. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_transform_a40f6816c03214d7ff1fe8c52e6ec94a6}{get\+Front}} ()
+\begin{DoxyCompactList}\small\item\em Getter for front. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_transform_a045090ba9908cd7dcf08ad4aaba13e9b}{get\+World\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Getter for world\+Up. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_transform_a419bcfdf9331943527bd6cc11df5aff8}{set\+Front}} (glm\+::vec3 \+\_\+front)
+\begin{DoxyCompactList}\small\item\em Setter for front. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_transform_a0d8a6d26ba1dc7e8a5a402c838b4f2c3}{on\+Initialise}} ()
+\begin{DoxyCompactList}\small\item\em Initalisation transform component with default values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_transform_aa1ff6e8d1cb26462a26b9474e50cad12}\label{classolivera_1_1_transform_aa1ff6e8d1cb26462a26b9474e50cad12}} 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_transform_aa1ff6e8d1cb26462a26b9474e50cad12}{position}}
+\begin{DoxyCompactList}\small\item\em Position of \mbox{\hyperlink{classolivera_1_1_entity}{Entity}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_transform_aee5be3926e014148576a00c0e928e03e}\label{classolivera_1_1_transform_aee5be3926e014148576a00c0e928e03e}} 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_transform_aee5be3926e014148576a00c0e928e03e}{rotation}}
+\begin{DoxyCompactList}\small\item\em Rotation of \mbox{\hyperlink{classolivera_1_1_entity}{Entity}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_transform_a4b43719c5b5a11796a7d0807c13328d7}\label{classolivera_1_1_transform_a4b43719c5b5a11796a7d0807c13328d7}} 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_transform_a4b43719c5b5a11796a7d0807c13328d7}{scale}}
+\begin{DoxyCompactList}\small\item\em Scale of \mbox{\hyperlink{classolivera_1_1_entity}{Entity}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_transform_a57476fc00bc9148fae3b361f18158be6}\label{classolivera_1_1_transform_a57476fc00bc9148fae3b361f18158be6}} 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_transform_a57476fc00bc9148fae3b361f18158be6}{front}}
+\begin{DoxyCompactList}\small\item\em Front of \mbox{\hyperlink{classolivera_1_1_entity}{Entity}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_transform_a693d0a4818dd549dc7a77d9a16b0e683}\label{classolivera_1_1_transform_a693d0a4818dd549dc7a77d9a16b0e683}} 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_transform_a693d0a4818dd549dc7a77d9a16b0e683}{world\+Up}}
+\begin{DoxyCompactList}\small\item\em Up in World Space. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_transform_aa06fc883eb8ba2a9f4f8c0dd19d0f33e}\label{classolivera_1_1_transform_aa06fc883eb8ba2a9f4f8c0dd19d0f33e}} 
+glm\+::mat4 \mbox{\hyperlink{classolivera_1_1_transform_aa06fc883eb8ba2a9f4f8c0dd19d0f33e}{model}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_model}{Model}} Matrix of \mbox{\hyperlink{classolivera_1_1_entity}{Entity}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classolivera_1_1_component}{Component}} class to hold transformation logic for entities. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_transform_a40f6816c03214d7ff1fe8c52e6ec94a6}\label{classolivera_1_1_transform_a40f6816c03214d7ff1fe8c52e6ec94a6}} 
+\index{olivera::Transform@{olivera::Transform}!getFront@{getFront}}
+\index{getFront@{getFront}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{getFront()}{getFront()}}
+{\footnotesize\ttfamily glm\+::vec3 olivera\+::\+Transform\+::get\+Front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for front. 
+
+\mbox{\Hypertarget{classolivera_1_1_transform_a7c25ac95149b45dc3bff661ddfc2943e}\label{classolivera_1_1_transform_a7c25ac95149b45dc3bff661ddfc2943e}} 
+\index{olivera::Transform@{olivera::Transform}!getModel@{getModel}}
+\index{getModel@{getModel}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{getModel()}{getModel()}}
+{\footnotesize\ttfamily glm\+::mat4 olivera\+::\+Transform\+::get\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the model matrix of an entity. 
+
+\begin{DoxyReturn}{Returns}
+mat4 model; 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_transform_a7aa85a84a557570704ef937b7daf21cf}\label{classolivera_1_1_transform_a7aa85a84a557570704ef937b7daf21cf}} 
+\index{olivera::Transform@{olivera::Transform}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily glm\+::vec3 olivera\+::\+Transform\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the position vector. 
+
+\begin{DoxyReturn}{Returns}
+entity\textquotesingle{}s position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_transform_a707914d48e229dc46d186877bc8b4da9}\label{classolivera_1_1_transform_a707914d48e229dc46d186877bc8b4da9}} 
+\index{olivera::Transform@{olivera::Transform}!getRotation@{getRotation}}
+\index{getRotation@{getRotation}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{getRotation()}{getRotation()}}
+{\footnotesize\ttfamily glm\+::vec3 olivera\+::\+Transform\+::get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the rotation vector. 
+
+\begin{DoxyReturn}{Returns}
+entity\textquotesingle{}s rotation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_transform_a499e1ee08a50ec21b28838957c06a3d3}\label{classolivera_1_1_transform_a499e1ee08a50ec21b28838957c06a3d3}} 
+\index{olivera::Transform@{olivera::Transform}!getScale@{getScale}}
+\index{getScale@{getScale}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{getScale()}{getScale()}}
+{\footnotesize\ttfamily glm\+::vec3 olivera\+::\+Transform\+::get\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the scale vector. 
+
+\begin{DoxyReturn}{Returns}
+entity\textquotesingle{}s scale 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_transform_a045090ba9908cd7dcf08ad4aaba13e9b}\label{classolivera_1_1_transform_a045090ba9908cd7dcf08ad4aaba13e9b}} 
+\index{olivera::Transform@{olivera::Transform}!getWorldUp@{getWorldUp}}
+\index{getWorldUp@{getWorldUp}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{getWorldUp()}{getWorldUp()}}
+{\footnotesize\ttfamily glm\+::vec3 olivera\+::\+Transform\+::get\+World\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for world\+Up. 
+
+\mbox{\Hypertarget{classolivera_1_1_transform_a0d8a6d26ba1dc7e8a5a402c838b4f2c3}\label{classolivera_1_1_transform_a0d8a6d26ba1dc7e8a5a402c838b4f2c3}} 
+\index{olivera::Transform@{olivera::Transform}!onInitialise@{onInitialise}}
+\index{onInitialise@{onInitialise}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{onInitialise()}{onInitialise()}}
+{\footnotesize\ttfamily void olivera\+::\+Transform\+::on\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initalisation transform component with default values. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a076f1ad8e910cf5cf016e006d3293e7d}{olivera\+::\+Component}}.
+
+\mbox{\Hypertarget{classolivera_1_1_transform_abbb8a93c566b7f52ca5fe4054559b008}\label{classolivera_1_1_transform_abbb8a93c566b7f52ca5fe4054559b008}} 
+\index{olivera::Transform@{olivera::Transform}!onTick@{onTick}}
+\index{onTick@{onTick}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily void olivera\+::\+Transform\+::on\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update\+Model is called every tick. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a7ffbee9cd61035ffb5b5795718b4d056}{olivera\+::\+Component}}.
+
+\mbox{\Hypertarget{classolivera_1_1_transform_a419bcfdf9331943527bd6cc11df5aff8}\label{classolivera_1_1_transform_a419bcfdf9331943527bd6cc11df5aff8}} 
+\index{olivera::Transform@{olivera::Transform}!setFront@{setFront}}
+\index{setFront@{setFront}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{setFront()}{setFront()}}
+{\footnotesize\ttfamily void olivera\+::\+Transform\+::set\+Front (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+front }\end{DoxyParamCaption})}
+
+
+
+Setter for front. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em glm\+:vec3} & updated front \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_transform_a836a6a286bcae27c3bd86501148f81d3}\label{classolivera_1_1_transform_a836a6a286bcae27c3bd86501148f81d3}} 
+\index{olivera::Transform@{olivera::Transform}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void olivera\+::\+Transform\+::set\+Position (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+position }\end{DoxyParamCaption})}
+
+
+
+Setter for the position vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec3} & Position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_transform_a242a65d1d4279f087bba8bb0f111dc43}\label{classolivera_1_1_transform_a242a65d1d4279f087bba8bb0f111dc43}} 
+\index{olivera::Transform@{olivera::Transform}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{setRotation()}{setRotation()}}
+{\footnotesize\ttfamily void olivera\+::\+Transform\+::set\+Rotation (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+rotation }\end{DoxyParamCaption})}
+
+
+
+setter for the rotation vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec3} & Rotation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_transform_a522f5fb034d4129cc23534073c8aacd6}\label{classolivera_1_1_transform_a522f5fb034d4129cc23534073c8aacd6}} 
+\index{olivera::Transform@{olivera::Transform}!setScale@{setScale}}
+\index{setScale@{setScale}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{setScale()}{setScale()}}
+{\footnotesize\ttfamily void olivera\+::\+Transform\+::set\+Scale (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+scale }\end{DoxyParamCaption})}
+
+
+
+setter for the scale vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec3} & Scale \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_transform_aabe8201fb79bf92259d678dee66a18af}\label{classolivera_1_1_transform_aabe8201fb79bf92259d678dee66a18af}} 
+\index{olivera::Transform@{olivera::Transform}!updateModel@{updateModel}}
+\index{updateModel@{updateModel}!olivera::Transform@{olivera::Transform}}
+\doxysubsubsection{\texorpdfstring{updateModel()}{updateModel()}}
+{\footnotesize\ttfamily void olivera\+::\+Transform\+::update\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update the model matrix with the last set position, rotation and scale vectors. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Transform.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Transform.\+cpp\end{DoxyCompactItemize}

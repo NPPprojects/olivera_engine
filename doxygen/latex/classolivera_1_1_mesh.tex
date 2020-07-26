@@ -1,0 +1,110 @@
+\hypertarget{classolivera_1_1_mesh}{}\doxysection{olivera\+::Mesh Class Reference}
+\label{classolivera_1_1_mesh}\index{olivera::Mesh@{olivera::Mesh}}
+
+
+\mbox{\hyperlink{classolivera_1_1_mesh}{Mesh}} class used by the model class to generate the mesh for the 3D object.  
+
+
+
+
+{\ttfamily \#include $<$Mesh.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classolivera_1_1_mesh_a798e2a178158adcbb201738d85876374}{Mesh}} (std\+::vector$<$ \mbox{\hyperlink{structolivera_1_1_vertex}{Vertex}} $>$ \mbox{\hyperlink{classolivera_1_1_mesh_aae3500d9252f341067b43831242f3bd9}{vertices}}, std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classolivera_1_1_mesh_ad873a3f0a1eee75c42863b482f9083f5}{indices}}, std\+::vector$<$ \mbox{\hyperlink{structolivera_1_1_textures}{Textures}} $>$ \mbox{\hyperlink{classolivera_1_1_mesh_a6e693b66692b45a648583dd611aaed74}{textures}})
+\begin{DoxyCompactList}\small\item\em When its constructed, pass the object\textquotesingle{}s verticies, indicies and textures to then call \mbox{\hyperlink{classolivera_1_1_mesh_a81d310be04bc1ff1c63667f050226a8d}{setup\+Mesh()}} to initialise all V\+A\+O/\+V\+B\+O/\+E\+B\+Os the mesh contains. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_mesh_aa4555ca8ec9da94692b02ff8882de869}{draw}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$ shader, unsigned int \+\_\+shadow\+Cubemap)
+\begin{DoxyCompactList}\small\item\em Render the mesh using the attached shader program. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_a1d4278825a510a7c58360bbc74f5fb57}\label{classolivera_1_1_mesh_a1d4278825a510a7c58360bbc74f5fb57}} 
+void {\bfseries draw} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_mesh_a81d310be04bc1ff1c63667f050226a8d}{setup\+Mesh}} ()
+\begin{DoxyCompactList}\small\item\em Initalise all V\+A\+O/\+V\+B\+O/\+E\+BO the mesh contains. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_aae3500d9252f341067b43831242f3bd9}\label{classolivera_1_1_mesh_aae3500d9252f341067b43831242f3bd9}} 
+std\+::vector$<$ \mbox{\hyperlink{structolivera_1_1_vertex}{Vertex}} $>$ \mbox{\hyperlink{classolivera_1_1_mesh_aae3500d9252f341067b43831242f3bd9}{vertices}}
+\begin{DoxyCompactList}\small\item\em Store verticies relevent data ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_a6e693b66692b45a648583dd611aaed74}\label{classolivera_1_1_mesh_a6e693b66692b45a648583dd611aaed74}} 
+std\+::vector$<$ \mbox{\hyperlink{structolivera_1_1_textures}{Textures}} $>$ \mbox{\hyperlink{classolivera_1_1_mesh_a6e693b66692b45a648583dd611aaed74}{textures}}
+\begin{DoxyCompactList}\small\item\em Store textures of object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_aaabe7ca4d08118d0bc4b466a86ad53a1}\label{classolivera_1_1_mesh_aaabe7ca4d08118d0bc4b466a86ad53a1}} 
+unsigned int \mbox{\hyperlink{classolivera_1_1_mesh_aaabe7ca4d08118d0bc4b466a86ad53a1}{V\+AO}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structolivera_1_1_vertex}{Vertex}} Array Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_a9de4dd7c6f2770256a452e7800839cda}\label{classolivera_1_1_mesh_a9de4dd7c6f2770256a452e7800839cda}} 
+unsigned int \mbox{\hyperlink{classolivera_1_1_mesh_a9de4dd7c6f2770256a452e7800839cda}{V\+BO}}
+\begin{DoxyCompactList}\small\item\em Element Buffer Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_ae93a999435ca0cd6806a76df2a559330}\label{classolivera_1_1_mesh_ae93a999435ca0cd6806a76df2a559330}} 
+unsigned int \mbox{\hyperlink{classolivera_1_1_mesh_ae93a999435ca0cd6806a76df2a559330}{E\+BO}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structolivera_1_1_vertex}{Vertex}} Buffer Object ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mesh_ad873a3f0a1eee75c42863b482f9083f5}\label{classolivera_1_1_mesh_ad873a3f0a1eee75c42863b482f9083f5}} 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{classolivera_1_1_mesh_ad873a3f0a1eee75c42863b482f9083f5}{indices}}
+\begin{DoxyCompactList}\small\item\em Store vertex indicies in models where E\+BO is used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classolivera_1_1_mesh}{Mesh}} class used by the model class to generate the mesh for the 3D object. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classolivera_1_1_mesh_a798e2a178158adcbb201738d85876374}\label{classolivera_1_1_mesh_a798e2a178158adcbb201738d85876374}} 
+\index{olivera::Mesh@{olivera::Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!olivera::Mesh@{olivera::Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}}
+{\footnotesize\ttfamily olivera\+::\+Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structolivera_1_1_vertex}{Vertex}} $>$}]{vertices,  }\item[{std\+::vector$<$ unsigned int $>$}]{indices,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structolivera_1_1_textures}{Textures}} $>$}]{textures }\end{DoxyParamCaption})}
+
+
+
+When its constructed, pass the object\textquotesingle{}s verticies, indicies and textures to then call \mbox{\hyperlink{classolivera_1_1_mesh_a81d310be04bc1ff1c63667f050226a8d}{setup\+Mesh()}} to initialise all V\+A\+O/\+V\+B\+O/\+E\+B\+Os the mesh contains. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::vector$<$\+Vetex$>$} & vertices \\
+\hline
+{\em std\+::vector$<$unsigned} & int$>$ indices \\
+\hline
+{\em std\+::vector$<$\+Textures$>$} & textures \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_mesh_aa4555ca8ec9da94692b02ff8882de869}\label{classolivera_1_1_mesh_aa4555ca8ec9da94692b02ff8882de869}} 
+\index{olivera::Mesh@{olivera::Mesh}!draw@{draw}}
+\index{draw@{draw}!olivera::Mesh@{olivera::Mesh}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void olivera\+::\+Mesh\+::draw (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$}]{shader,  }\item[{unsigned int}]{\+\_\+shadow\+Cubemap = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Render the mesh using the attached shader program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::shared\+\_\+ptr$<$\+Shader\+Program$>$} & shader \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_mesh_a81d310be04bc1ff1c63667f050226a8d}\label{classolivera_1_1_mesh_a81d310be04bc1ff1c63667f050226a8d}} 
+\index{olivera::Mesh@{olivera::Mesh}!setupMesh@{setupMesh}}
+\index{setupMesh@{setupMesh}!olivera::Mesh@{olivera::Mesh}}
+\doxysubsubsection{\texorpdfstring{setupMesh()}{setupMesh()}}
+{\footnotesize\ttfamily void olivera\+::\+Mesh\+::setup\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Initalise all V\+A\+O/\+V\+B\+O/\+E\+BO the mesh contains. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Mesh.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Mesh.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,131 @@
+\hypertarget{classolivera_1_1_shadows_f_b_o}{}\doxysection{olivera\+::Shadows\+F\+BO Class Reference}
+\label{classolivera_1_1_shadows_f_b_o}\index{olivera::ShadowsFBO@{olivera::ShadowsFBO}}
+
+
+Class to handle generating a Depth\+Map to create shadows.  
+
+
+
+
+{\ttfamily \#include $<$Shadows\+F\+B\+O.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_shadows_f_b_o_a91c0546ffa2e2dde99c57a99384f0772}{configure\+F\+BO}} ()
+\begin{DoxyCompactList}\small\item\em Call Open\+GL Methods to configure Framebuffer that will be used to create a depth\+Map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_shadows_f_b_o_aac71eb42281de95c33335659532ecbac}{create\+Cubemap\+Transformation\+Matrices}} (glm\+::vec3 \+\_\+light\+Pos)
+\begin{DoxyCompactList}\small\item\em Assign shadow\+Cubemap transformations using light positions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_shadows_f_b_o_a464f9180e021531486abe37e2dd5e4bf}{bind\+F\+BO}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$ \+\_\+resource\+Manager, std\+::string \+\_\+shader)
+\begin{DoxyCompactList}\small\item\em Bind F\+BO, using shadow Resutiolon, and then assign uniform values for shadow Matracies. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classolivera_1_1_shadows_f_b_o_a9dbeaeeeb91b5b507056e163d1c2b9b0}{get\+Near\+Plane}} ()
+\begin{DoxyCompactList}\small\item\em Getter for near plane. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classolivera_1_1_shadows_f_b_o_a54acc60c5fb44d4daab29b6ad3413a58}{get\+Far\+Plane}} ()
+\begin{DoxyCompactList}\small\item\em Getter for far plane. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classolivera_1_1_shadows_f_b_o_a09b783a15921233be69be7afac5e4413}{get\+Depth\+Cubemap}} ()
+\begin{DoxyCompactList}\small\item\em Getter for Depth Cubemap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_a6749a9d7ff295be7b336664c78a9b1fa}\label{classolivera_1_1_shadows_f_b_o_a6749a9d7ff295be7b336664c78a9b1fa}} 
+const unsigned int {\bfseries resolution} = 2048
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_a62b7a622c4e5aafaef9ac367935ef676}\label{classolivera_1_1_shadows_f_b_o_a62b7a622c4e5aafaef9ac367935ef676}} 
+unsigned int {\bfseries depth\+Cubemap}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_a925763d8497f8dd87108b49c9110bad0}\label{classolivera_1_1_shadows_f_b_o_a925763d8497f8dd87108b49c9110bad0}} 
+unsigned int {\bfseries F\+BO}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_a78485fe59a09ef7e0b587045942861d1}\label{classolivera_1_1_shadows_f_b_o_a78485fe59a09ef7e0b587045942861d1}} 
+const float {\bfseries far\+Plane} = 100.f
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_a010b4fc8d8c10b7501bb5bff5a44e429}\label{classolivera_1_1_shadows_f_b_o_a010b4fc8d8c10b7501bb5bff5a44e429}} 
+const float {\bfseries near\+Plane} = 1.\+0f
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_ae649a0e1eb5253d1dcdb587ca3ab3b4b}\label{classolivera_1_1_shadows_f_b_o_ae649a0e1eb5253d1dcdb587ca3ab3b4b}} 
+std\+::vector$<$ glm\+::mat4 $>$ {\bfseries shadow\+Transforms}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to handle generating a Depth\+Map to create shadows. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_a464f9180e021531486abe37e2dd5e4bf}\label{classolivera_1_1_shadows_f_b_o_a464f9180e021531486abe37e2dd5e4bf}} 
+\index{olivera::ShadowsFBO@{olivera::ShadowsFBO}!bindFBO@{bindFBO}}
+\index{bindFBO@{bindFBO}!olivera::ShadowsFBO@{olivera::ShadowsFBO}}
+\doxysubsubsection{\texorpdfstring{bindFBO()}{bindFBO()}}
+{\footnotesize\ttfamily void olivera\+::\+Shadows\+F\+B\+O\+::bind\+F\+BO (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$}]{\+\_\+resource\+Manager,  }\item[{std\+::string}]{\+\_\+shader }\end{DoxyParamCaption})}
+
+
+
+Bind F\+BO, using shadow Resutiolon, and then assign uniform values for shadow Matracies. 
+
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_a91c0546ffa2e2dde99c57a99384f0772}\label{classolivera_1_1_shadows_f_b_o_a91c0546ffa2e2dde99c57a99384f0772}} 
+\index{olivera::ShadowsFBO@{olivera::ShadowsFBO}!configureFBO@{configureFBO}}
+\index{configureFBO@{configureFBO}!olivera::ShadowsFBO@{olivera::ShadowsFBO}}
+\doxysubsubsection{\texorpdfstring{configureFBO()}{configureFBO()}}
+{\footnotesize\ttfamily void olivera\+::\+Shadows\+F\+B\+O\+::configure\+F\+BO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Call Open\+GL Methods to configure Framebuffer that will be used to create a depth\+Map. 
+
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_aac71eb42281de95c33335659532ecbac}\label{classolivera_1_1_shadows_f_b_o_aac71eb42281de95c33335659532ecbac}} 
+\index{olivera::ShadowsFBO@{olivera::ShadowsFBO}!createCubemapTransformationMatrices@{createCubemapTransformationMatrices}}
+\index{createCubemapTransformationMatrices@{createCubemapTransformationMatrices}!olivera::ShadowsFBO@{olivera::ShadowsFBO}}
+\doxysubsubsection{\texorpdfstring{createCubemapTransformationMatrices()}{createCubemapTransformationMatrices()}}
+{\footnotesize\ttfamily void olivera\+::\+Shadows\+F\+B\+O\+::create\+Cubemap\+Transformation\+Matrices (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+light\+Pos }\end{DoxyParamCaption})}
+
+
+
+Assign shadow\+Cubemap transformations using light positions. 
+
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_a09b783a15921233be69be7afac5e4413}\label{classolivera_1_1_shadows_f_b_o_a09b783a15921233be69be7afac5e4413}} 
+\index{olivera::ShadowsFBO@{olivera::ShadowsFBO}!getDepthCubemap@{getDepthCubemap}}
+\index{getDepthCubemap@{getDepthCubemap}!olivera::ShadowsFBO@{olivera::ShadowsFBO}}
+\doxysubsubsection{\texorpdfstring{getDepthCubemap()}{getDepthCubemap()}}
+{\footnotesize\ttfamily int olivera\+::\+Shadows\+F\+B\+O\+::get\+Depth\+Cubemap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for Depth Cubemap. 
+
+\begin{DoxyReturn}{Returns}
+depth\+Cubemap 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_a54acc60c5fb44d4daab29b6ad3413a58}\label{classolivera_1_1_shadows_f_b_o_a54acc60c5fb44d4daab29b6ad3413a58}} 
+\index{olivera::ShadowsFBO@{olivera::ShadowsFBO}!getFarPlane@{getFarPlane}}
+\index{getFarPlane@{getFarPlane}!olivera::ShadowsFBO@{olivera::ShadowsFBO}}
+\doxysubsubsection{\texorpdfstring{getFarPlane()}{getFarPlane()}}
+{\footnotesize\ttfamily float olivera\+::\+Shadows\+F\+B\+O\+::get\+Far\+Plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for far plane. 
+
+\begin{DoxyReturn}{Returns}
+far\+Plane ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_shadows_f_b_o_a9dbeaeeeb91b5b507056e163d1c2b9b0}\label{classolivera_1_1_shadows_f_b_o_a9dbeaeeeb91b5b507056e163d1c2b9b0}} 
+\index{olivera::ShadowsFBO@{olivera::ShadowsFBO}!getNearPlane@{getNearPlane}}
+\index{getNearPlane@{getNearPlane}!olivera::ShadowsFBO@{olivera::ShadowsFBO}}
+\doxysubsubsection{\texorpdfstring{getNearPlane()}{getNearPlane()}}
+{\footnotesize\ttfamily float olivera\+::\+Shadows\+F\+B\+O\+::get\+Near\+Plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for near plane. 
+
+\begin{DoxyReturn}{Returns}
+near\+Plane 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Shadows\+F\+B\+O.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Shadows\+F\+B\+O.\+cpp\end{DoxyCompactItemize}

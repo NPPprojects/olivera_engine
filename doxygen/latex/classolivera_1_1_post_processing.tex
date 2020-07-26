@@ -1,0 +1,143 @@
+\hypertarget{classolivera_1_1_post_processing}{}\doxysection{olivera\+::Post\+Processing Class Reference}
+\label{classolivera_1_1_post_processing}\index{olivera::PostProcessing@{olivera::PostProcessing}}
+
+
+Post-\/\+Processing enabled by creating a 2D texture and outpitting everything in the scene to it. enabling the user to add custom Shader Programs for different post Processing effects.  
+
+
+
+
+{\ttfamily \#include $<$Post\+Processing.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classolivera_1_1_post_processing_a78fccfed5d693b745ef1a6d4c1d50097}{Post\+Processing}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ \+\_\+core, std\+::string \+\_\+shader, std\+::string \+\_\+mesh, int \+\_\+width, int \+\_\+height)
+\begin{DoxyCompactList}\small\item\em Constructor for framebuffer that will be used for post-\/processing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_post_processing_aec8bd1317b3e4c9f9138ff1139314e18}{Frame\+Buffer\+Configuration}} ()
+\begin{DoxyCompactList}\small\item\em Assigns F\+BO, and all other needed configurations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_post_processing_a3dbe6c93784dc6f5374db8251e1fde38}{depth\+Map\+Configuration}} ()
+\begin{DoxyCompactList}\small\item\em Assigns F\+BO, and all other needed configurations for a depth map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classolivera_1_1_post_processing_aeeed7b26a30281d33ebcca941cd3958e}{get\+F\+BO}} ()
+\begin{DoxyCompactList}\small\item\em Getter for F\+BO. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_post_processing_a0de7a6b95752006552fd25499e4474f9}{use}} ()
+\begin{DoxyCompactList}\small\item\em bind framebuffer and draw it \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_af664cdbc92762ec9e1b91e3737a20b0e}\label{classolivera_1_1_post_processing_af664cdbc92762ec9e1b91e3737a20b0e}} 
+unsigned int \mbox{\hyperlink{classolivera_1_1_post_processing_af664cdbc92762ec9e1b91e3737a20b0e}{F\+BO}}
+\begin{DoxyCompactList}\small\item\em Frame Buffer Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_a636232992bd70702cd6be61557010b02}\label{classolivera_1_1_post_processing_a636232992bd70702cd6be61557010b02}} 
+unsigned int \mbox{\hyperlink{classolivera_1_1_post_processing_a636232992bd70702cd6be61557010b02}{texture\+Color\+Buffer}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_texture}{Texture}} color buffer for framebuffer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_aa8d86abe0055f2b22e205712ae46068e}\label{classolivera_1_1_post_processing_aa8d86abe0055f2b22e205712ae46068e}} 
+unsigned int \mbox{\hyperlink{classolivera_1_1_post_processing_aa8d86abe0055f2b22e205712ae46068e}{render\+Buffer}}
+\begin{DoxyCompactList}\small\item\em Render buffer object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_afed4cb6cdf68e0407f17564e94abfa99}\label{classolivera_1_1_post_processing_afed4cb6cdf68e0407f17564e94abfa99}} 
+int \mbox{\hyperlink{classolivera_1_1_post_processing_afed4cb6cdf68e0407f17564e94abfa99}{blur\+Intesity}}
+\begin{DoxyCompactList}\small\item\em Uniform values that i need to delete. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_a45b9e33b2f45109d897272ec1f70b690}\label{classolivera_1_1_post_processing_a45b9e33b2f45109d897272ec1f70b690}} 
+float {\bfseries exposure}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_a930091a79a55a1cccb2876e444a3815f}\label{classolivera_1_1_post_processing_a930091a79a55a1cccb2876e444a3815f}} 
+float {\bfseries gamma}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_ad6fc3181f9bca0139a0aa656a6042c62}\label{classolivera_1_1_post_processing_ad6fc3181f9bca0139a0aa656a6042c62}} 
+bool {\bfseries filter}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_a43b14b428fb7d8fa5279f555b7b91863}\label{classolivera_1_1_post_processing_a43b14b428fb7d8fa5279f555b7b91863}} 
+int \mbox{\hyperlink{classolivera_1_1_post_processing_a43b14b428fb7d8fa5279f555b7b91863}{width}}
+\begin{DoxyCompactList}\small\item\em Width of Framebuffer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_a5927f4472814d94c14f82cc421904de2}\label{classolivera_1_1_post_processing_a5927f4472814d94c14f82cc421904de2}} 
+int \mbox{\hyperlink{classolivera_1_1_post_processing_a5927f4472814d94c14f82cc421904de2}{height}}
+\begin{DoxyCompactList}\small\item\em Height of Framebuffer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_affaf23cef142de07cb034fe97306feb7}\label{classolivera_1_1_post_processing_affaf23cef142de07cb034fe97306feb7}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_vertex_array}{Vertex\+Array}} $>$ \mbox{\hyperlink{classolivera_1_1_post_processing_affaf23cef142de07cb034fe97306feb7}{rectangle\+Mesh}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to framebuffer mesh. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_ad9041add21dd8ee549235827ac54592b}\label{classolivera_1_1_post_processing_ad9041add21dd8ee549235827ac54592b}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$ \mbox{\hyperlink{classolivera_1_1_post_processing_ad9041add21dd8ee549235827ac54592b}{shader}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to shader program. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_post_processing_ab6f083e328f5ec0f61cb3dede3476df9}\label{classolivera_1_1_post_processing_ab6f083e328f5ec0f61cb3dede3476df9}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ \mbox{\hyperlink{classolivera_1_1_post_processing_ab6f083e328f5ec0f61cb3dede3476df9}{core}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to core. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Post-\/\+Processing enabled by creating a 2D texture and outpitting everything in the scene to it. enabling the user to add custom Shader Programs for different post Processing effects. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classolivera_1_1_post_processing_a78fccfed5d693b745ef1a6d4c1d50097}\label{classolivera_1_1_post_processing_a78fccfed5d693b745ef1a6d4c1d50097}} 
+\index{olivera::PostProcessing@{olivera::PostProcessing}!PostProcessing@{PostProcessing}}
+\index{PostProcessing@{PostProcessing}!olivera::PostProcessing@{olivera::PostProcessing}}
+\doxysubsubsection{\texorpdfstring{PostProcessing()}{PostProcessing()}}
+{\footnotesize\ttfamily olivera\+::\+Post\+Processing\+::\+Post\+Processing (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$}]{\+\_\+core,  }\item[{std\+::string}]{\+\_\+shader,  }\item[{std\+::string}]{\+\_\+mesh,  }\item[{int}]{\+\_\+width,  }\item[{int}]{\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+Constructor for framebuffer that will be used for post-\/processing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::shared\+\_\+ptr$<$\+Core$>$} & core \\
+\hline
+{\em std\+::string} & shader resource \\
+\hline
+{\em std\+::string} & mesh resource \\
+\hline
+{\em int} & width of window \\
+\hline
+{\em int} & height of window \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_post_processing_a3dbe6c93784dc6f5374db8251e1fde38}\label{classolivera_1_1_post_processing_a3dbe6c93784dc6f5374db8251e1fde38}} 
+\index{olivera::PostProcessing@{olivera::PostProcessing}!depthMapConfiguration@{depthMapConfiguration}}
+\index{depthMapConfiguration@{depthMapConfiguration}!olivera::PostProcessing@{olivera::PostProcessing}}
+\doxysubsubsection{\texorpdfstring{depthMapConfiguration()}{depthMapConfiguration()}}
+{\footnotesize\ttfamily void olivera\+::\+Post\+Processing\+::depth\+Map\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Assigns F\+BO, and all other needed configurations for a depth map. 
+
+\mbox{\Hypertarget{classolivera_1_1_post_processing_aec8bd1317b3e4c9f9138ff1139314e18}\label{classolivera_1_1_post_processing_aec8bd1317b3e4c9f9138ff1139314e18}} 
+\index{olivera::PostProcessing@{olivera::PostProcessing}!FrameBufferConfiguration@{FrameBufferConfiguration}}
+\index{FrameBufferConfiguration@{FrameBufferConfiguration}!olivera::PostProcessing@{olivera::PostProcessing}}
+\doxysubsubsection{\texorpdfstring{FrameBufferConfiguration()}{FrameBufferConfiguration()}}
+{\footnotesize\ttfamily void olivera\+::\+Post\+Processing\+::\+Frame\+Buffer\+Configuration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Assigns F\+BO, and all other needed configurations. 
+
+\mbox{\Hypertarget{classolivera_1_1_post_processing_aeeed7b26a30281d33ebcca941cd3958e}\label{classolivera_1_1_post_processing_aeeed7b26a30281d33ebcca941cd3958e}} 
+\index{olivera::PostProcessing@{olivera::PostProcessing}!getFBO@{getFBO}}
+\index{getFBO@{getFBO}!olivera::PostProcessing@{olivera::PostProcessing}}
+\doxysubsubsection{\texorpdfstring{getFBO()}{getFBO()}}
+{\footnotesize\ttfamily int olivera\+::\+Post\+Processing\+::get\+F\+BO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for F\+BO. 
+
+\mbox{\Hypertarget{classolivera_1_1_post_processing_a0de7a6b95752006552fd25499e4474f9}\label{classolivera_1_1_post_processing_a0de7a6b95752006552fd25499e4474f9}} 
+\index{olivera::PostProcessing@{olivera::PostProcessing}!use@{use}}
+\index{use@{use}!olivera::PostProcessing@{olivera::PostProcessing}}
+\doxysubsubsection{\texorpdfstring{use()}{use()}}
+{\footnotesize\ttfamily void olivera\+::\+Post\+Processing\+::use (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+bind framebuffer and draw it 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Post\+Processing.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Post\+Processing.\+cpp\end{DoxyCompactItemize}

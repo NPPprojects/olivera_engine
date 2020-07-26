@@ -1,0 +1,74 @@
+\hypertarget{class_static_model_collider}{}\doxysection{Static\+Model\+Collider Class Reference}
+\label{class_static_model_collider}\index{StaticModelCollider@{StaticModelCollider}}
+Inheritance diagram for Static\+Model\+Collider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_static_model_collider}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_static_model_collider_a52f6e3c8f286bc89f5eb063d2ec7d4b7}\label{class_static_model_collider_a52f6e3c8f286bc89f5eb063d2ec7d4b7}} 
+void {\bfseries on\+Init} ()
+\item 
+\mbox{\Hypertarget{class_static_model_collider_a227788ff8a3ea0817695da745f1b6577}\label{class_static_model_collider_a227788ff8a3ea0817695da745f1b6577}} 
+\mbox{\hyperlink{struct_extent}{Extent}} {\bfseries get\+Extent} ()
+\item 
+\mbox{\Hypertarget{class_static_model_collider_abb3885241a3064cbe854798a3903e5dc}\label{class_static_model_collider_abb3885241a3064cbe854798a3903e5dc}} 
+bool {\bfseries is\+Colliding} (qsoft\+::\+Face \&face, qsoft\+::\+Vector3 position, qsoft\+::\+Vector3 size)
+\item 
+\mbox{\Hypertarget{class_static_model_collider_a2646d37c233b735132e5fad08d5738dd}\label{class_static_model_collider_a2646d37c233b735132e5fad08d5738dd}} 
+bool {\bfseries is\+Colliding} (qsoft\+::\+Vector3 position, qsoft\+::\+Vector3 size)
+\item 
+\mbox{\Hypertarget{class_static_model_collider_a75e6f152f81a6af300a07554995275f1}\label{class_static_model_collider_a75e6f152f81a6af300a07554995275f1}} 
+void {\bfseries get\+Colliding} (qsoft\+::\+Vector3 position, qsoft\+::\+Vector3 size)
+\item 
+\mbox{\Hypertarget{class_static_model_collider_a25ed5562ed33c966d477b03a6b887889}\label{class_static_model_collider_a25ed5562ed33c966d477b03a6b887889}} 
+qsoft\+::\+Vector3 {\bfseries get\+Collision\+Response} (qsoft\+::\+Vector3 position, qsoft\+::\+Vector3 size, bool \&solved)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_static_model_collider_a642c6f686f8d666ee22708be3d602009}\label{class_static_model_collider_a642c6f686f8d666ee22708be3d602009}} 
+void {\bfseries generate\+Extent} ()
+\item 
+\mbox{\Hypertarget{class_static_model_collider_a78cf5632a946370a80af8047221bb91a}\label{class_static_model_collider_a78cf5632a946370a80af8047221bb91a}} 
+void {\bfseries add\+Face} (qsoft\+::\+Face face)
+\item 
+\mbox{\Hypertarget{class_static_model_collider_acc823e4879a7cb7037a3d30c56c8f9cb}\label{class_static_model_collider_acc823e4879a7cb7037a3d30c56c8f9cb}} 
+qsoft\+::\+Vector3 {\bfseries face\+Normal} (qsoft\+::\+Face \&face)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_static_model_collider_af5665c2f6371ddb89ba4c159fefd3378}\label{class_static_model_collider_af5665c2f6371ddb89ba4c159fefd3378}} 
+std\+::vector$<$ std\+::sr1\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_collider_column}{Collider\+Column}} $>$ $>$ {\bfseries cols}
+\item 
+\mbox{\Hypertarget{class_static_model_collider_ace026ab3e2b1f2c49a7e59a9fc386880}\label{class_static_model_collider_ace026ab3e2b1f2c49a7e59a9fc386880}} 
+\mbox{\hyperlink{struct_extent}{Extent}} {\bfseries extent}
+\item 
+\mbox{\Hypertarget{class_static_model_collider_adb78be37679bfc69a249882fe329d140}\label{class_static_model_collider_adb78be37679bfc69a249882fe329d140}} 
+std\+::sr1\+::zero\+\_\+initialized$<$ float $>$ {\bfseries resolution}
+\item 
+\mbox{\Hypertarget{class_static_model_collider_a79f9649bb9f25d605e289bd2c9f5cde4}\label{class_static_model_collider_a79f9649bb9f25d605e289bd2c9f5cde4}} 
+std\+::sr1\+::zero\+\_\+initialized$<$ float $>$ {\bfseries try\+Step}
+\item 
+\mbox{\Hypertarget{class_static_model_collider_a17a8d7a4f18209c8ae43040b1e44d01c}\label{class_static_model_collider_a17a8d7a4f18209c8ae43040b1e44d01c}} 
+std\+::sr1\+::zero\+\_\+initialized$<$ float $>$ {\bfseries max\+Step}
+\item 
+\mbox{\Hypertarget{class_static_model_collider_ad17078211a0623521849b6700e3bd734}\label{class_static_model_collider_ad17078211a0623521849b6700e3bd734}} 
+std\+::sr1\+::zero\+\_\+initialized$<$ float $>$ {\bfseries try\+Inc}
+\item 
+\mbox{\Hypertarget{class_static_model_collider_ad3e37996fd8a08721406182159dfee03}\label{class_static_model_collider_ad3e37996fd8a08721406182159dfee03}} 
+std\+::sr1\+::zero\+\_\+initialized$<$ float $>$ {\bfseries max\+Inc}
+\item 
+\mbox{\Hypertarget{class_static_model_collider_a7f02add73c5fa338b891e838ab864f15}\label{class_static_model_collider_a7f02add73c5fa338b891e838ab864f15}} 
+std\+::vector$<$ qsoft\+::\+Face $>$ {\bfseries collisions}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Static\+Model\+Collider.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Static\+Model\+Collider.\+cpp\end{DoxyCompactItemize}

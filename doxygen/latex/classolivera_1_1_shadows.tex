@@ -1,0 +1,75 @@
+\hypertarget{classolivera_1_1_shadows}{}\doxysection{olivera\+::Shadows Class Reference}
+\label{classolivera_1_1_shadows}\index{olivera::Shadows@{olivera::Shadows}}
+
+
+\mbox{\hyperlink{classolivera_1_1_component}{Component}} derived class to set up shadows for object.  
+
+
+
+
+{\ttfamily \#include $<$Shadows.\+h$>$}
+
+Inheritance diagram for olivera\+::Shadows\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_shadows}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_shadows_a3652964a588d1a8f02f84f401fe4eb08}{on\+Initialise}} (std\+::string \+\_\+shader, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$$>$ \&\+\_\+entities\+Other, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$ \+\_\+resource\+Manager)
+\begin{DoxyCompactList}\small\item\em Add depth Shader, and provide method to obtrain all pos of lightsources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_shadows_ae3588fabc2a43ef11e920bf94f1f038f}{on\+Tick}} ()
+\begin{DoxyCompactList}\small\item\em configure Depth\+Shader and set relevenat uniform values \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shadows_af55514ea73bf43ce27b2192b5a1c7c12}\label{classolivera_1_1_shadows_af55514ea73bf43ce27b2192b5a1c7c12}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$ \mbox{\hyperlink{classolivera_1_1_shadows_af55514ea73bf43ce27b2192b5a1c7c12}{shader}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to shader. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_shadows_aff170efb64afa1c97f5ceabe0301841b}\label{classolivera_1_1_shadows_aff170efb64afa1c97f5ceabe0301841b}} 
+std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ $>$ {\bfseries entities\+Other}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shadows_aa08aea6258e9520129da167639d4de54}\label{classolivera_1_1_shadows_aa08aea6258e9520129da167639d4de54}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$ {\bfseries shadow\+Resources}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classolivera_1_1_component}{Component}} derived class to set up shadows for object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_shadows_a3652964a588d1a8f02f84f401fe4eb08}\label{classolivera_1_1_shadows_a3652964a588d1a8f02f84f401fe4eb08}} 
+\index{olivera::Shadows@{olivera::Shadows}!onInitialise@{onInitialise}}
+\index{onInitialise@{onInitialise}!olivera::Shadows@{olivera::Shadows}}
+\doxysubsubsection{\texorpdfstring{onInitialise()}{onInitialise()}}
+{\footnotesize\ttfamily void olivera\+::\+Shadows\+::on\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+shader,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$$>$ \&}]{\+\_\+entities\+Other,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$}]{\+\_\+resource\+Manager }\end{DoxyParamCaption})}
+
+
+
+Add depth Shader, and provide method to obtrain all pos of lightsources. 
+
+\mbox{\Hypertarget{classolivera_1_1_shadows_ae3588fabc2a43ef11e920bf94f1f038f}\label{classolivera_1_1_shadows_ae3588fabc2a43ef11e920bf94f1f038f}} 
+\index{olivera::Shadows@{olivera::Shadows}!onTick@{onTick}}
+\index{onTick@{onTick}!olivera::Shadows@{olivera::Shadows}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily void olivera\+::\+Shadows\+::on\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+configure Depth\+Shader and set relevenat uniform values 
+
+
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a7ffbee9cd61035ffb5b5795718b4d056}{olivera\+::\+Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Shadows.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Shadows.\+cpp\end{DoxyCompactItemize}

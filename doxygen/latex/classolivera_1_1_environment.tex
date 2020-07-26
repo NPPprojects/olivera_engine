@@ -1,0 +1,79 @@
+\hypertarget{classolivera_1_1_environment}{}\doxysection{olivera\+::Environment Class Reference}
+\label{classolivera_1_1_environment}\index{olivera::Environment@{olivera::Environment}}
+
+
+Calcuate and store delta time.  
+
+
+
+
+{\ttfamily \#include $<$Environment.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classolivera_1_1_environment_ad955da0bfede43037971d267ad6383b8}{get\+Delta\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Getter for Delta\+Time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_environment_a366670dcfc476004f097dddd8db78243}{initialise}} ()
+\begin{DoxyCompactList}\small\item\em Initialise last\+Time to S\+DL\textquotesingle{}s tick rate and sets the ideal framerate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_environment_aba8a04432663479d2d107b46d47c250d}{tick}} ()
+\begin{DoxyCompactList}\small\item\em sets delta\+Time every tick \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_environment_a6550ba558adedeb671cdb26e31e4f5ae}\label{classolivera_1_1_environment_a6550ba558adedeb671cdb26e31e4f5ae}} 
+float \mbox{\hyperlink{classolivera_1_1_environment_a6550ba558adedeb671cdb26e31e4f5ae}{delta\+Time}}
+\begin{DoxyCompactList}\small\item\em Time value that would be equal to make movement the same on any system. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_environment_ad83e130332b5ac161f1cfe2eaa2f1727}\label{classolivera_1_1_environment_ad83e130332b5ac161f1cfe2eaa2f1727}} 
+float \mbox{\hyperlink{classolivera_1_1_environment_ad83e130332b5ac161f1cfe2eaa2f1727}{last\+Time}}
+\begin{DoxyCompactList}\small\item\em Initially set to the amount of milisecond\textquotesingle{}s since S\+DL\textquotesingle{}s initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_environment_ac1d196bd114b39a0cb8919dd3e85909a}\label{classolivera_1_1_environment_ac1d196bd114b39a0cb8919dd3e85909a}} 
+float \mbox{\hyperlink{classolivera_1_1_environment_ac1d196bd114b39a0cb8919dd3e85909a}{ideal\+Time}}
+\begin{DoxyCompactList}\small\item\em Ideal frame rate set on initilisation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Calcuate and store delta time. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_environment_ad955da0bfede43037971d267ad6383b8}\label{classolivera_1_1_environment_ad955da0bfede43037971d267ad6383b8}} 
+\index{olivera::Environment@{olivera::Environment}!getDeltaTime@{getDeltaTime}}
+\index{getDeltaTime@{getDeltaTime}!olivera::Environment@{olivera::Environment}}
+\doxysubsubsection{\texorpdfstring{getDeltaTime()}{getDeltaTime()}}
+{\footnotesize\ttfamily float olivera\+::\+Environment\+::get\+Delta\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for Delta\+Time. 
+
+\begin{DoxyReturn}{Returns}
+Delta\+Time as a float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_environment_a366670dcfc476004f097dddd8db78243}\label{classolivera_1_1_environment_a366670dcfc476004f097dddd8db78243}} 
+\index{olivera::Environment@{olivera::Environment}!initialise@{initialise}}
+\index{initialise@{initialise}!olivera::Environment@{olivera::Environment}}
+\doxysubsubsection{\texorpdfstring{initialise()}{initialise()}}
+{\footnotesize\ttfamily void olivera\+::\+Environment\+::initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialise last\+Time to S\+DL\textquotesingle{}s tick rate and sets the ideal framerate. 
+
+\mbox{\Hypertarget{classolivera_1_1_environment_aba8a04432663479d2d107b46d47c250d}\label{classolivera_1_1_environment_aba8a04432663479d2d107b46d47c250d}} 
+\index{olivera::Environment@{olivera::Environment}!tick@{tick}}
+\index{tick@{tick}!olivera::Environment@{olivera::Environment}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void olivera\+::\+Environment\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets delta\+Time every tick 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Environment.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Environment.\+cpp\end{DoxyCompactItemize}

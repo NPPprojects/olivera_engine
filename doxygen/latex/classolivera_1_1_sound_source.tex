@@ -1,0 +1,114 @@
+\hypertarget{classolivera_1_1_sound_source}{}\doxysection{olivera\+::Sound\+Source Class Reference}
+\label{classolivera_1_1_sound_source}\index{olivera::SoundSource@{olivera::SoundSource}}
+
+
+Componenet derived class that holds a sound and plays it to a listener entity.  
+
+
+
+
+{\ttfamily \#include $<$Sound\+Source.\+h$>$}
+
+Inheritance diagram for olivera\+::Sound\+Source\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_sound_source}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_sound_source_a486ef23daaf57ecedb6515b1b4ddcf9a}{on\+Initialise}} (std\+::string \+\_\+name, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ \+\_\+camera\+Entity)
+\begin{DoxyCompactList}\small\item\em Initalise sound\+Source class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_sound_source_a9d4567857ec31bddfdfac81d527186af}{on\+Tick}} ()
+\begin{DoxyCompactList}\small\item\em update the locations of the sound source entity and the listener entity and check if the sound is playing every tick \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_sound_source_ad605302e2037ee629ae585271b68ec51}{play}} ()
+\begin{DoxyCompactList}\small\item\em When called the sound attached to the component will play. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_sound_source_a8f612ea9d21ba8462a87647ec4fa907b}{set\+Is\+Playing}} (bool \+\_\+val)
+\begin{DoxyCompactList}\small\item\em Setter for Is\+Playing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_sound_source_a481dcea23bf62596a2de138b6d131c27}\label{classolivera_1_1_sound_source_a481dcea23bf62596a2de138b6d131c27}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_sound}{Sound}} $>$ \mbox{\hyperlink{classolivera_1_1_sound_source_a481dcea23bf62596a2de138b6d131c27}{sound}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to the sound file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_sound_source_a0d11a624c224b0cc2c988b81e6e4c9b0}\label{classolivera_1_1_sound_source_a0d11a624c224b0cc2c988b81e6e4c9b0}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classolivera_1_1_sound_source_a0d11a624c224b0cc2c988b81e6e4c9b0}{entity\+Self}}
+\begin{DoxyCompactList}\small\item\em eak pointer to self entity \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_sound_source_a232450d85a5f94a56e8a6997b6134cba}\label{classolivera_1_1_sound_source_a232450d85a5f94a56e8a6997b6134cba}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ \mbox{\hyperlink{classolivera_1_1_sound_source_a232450d85a5f94a56e8a6997b6134cba}{core}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to the core. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_sound_source_a1cb727f44eb943f19c9f1e0be9e27d51}\label{classolivera_1_1_sound_source_a1cb727f44eb943f19c9f1e0be9e27d51}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classolivera_1_1_sound_source_a1cb727f44eb943f19c9f1e0be9e27d51}{camera\+Entity}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to the camera \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} which is the listener. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_sound_source_aa868b765498d1abe0a1771b34945b6e6}\label{classolivera_1_1_sound_source_aa868b765498d1abe0a1771b34945b6e6}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_transform}{Transform}} $>$ \mbox{\hyperlink{classolivera_1_1_sound_source_aa868b765498d1abe0a1771b34945b6e6}{self\+Transform}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_transform}{Transform}} for the entity with the sound source component attached. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_sound_source_ae8747b38000ea09a19c715eab35f7502}\label{classolivera_1_1_sound_source_ae8747b38000ea09a19c715eab35f7502}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_transform}{Transform}} $>$ \mbox{\hyperlink{classolivera_1_1_sound_source_ae8747b38000ea09a19c715eab35f7502}{camera\+Transform}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_transform}{Transform}} for the camera \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} which is the listener. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_sound_source_a3866c349156766413f46dafaef056c7b}\label{classolivera_1_1_sound_source_a3866c349156766413f46dafaef056c7b}} 
+float \mbox{\hyperlink{classolivera_1_1_sound_source_a3866c349156766413f46dafaef056c7b}{orientation}} \mbox{[}6\mbox{]}
+\begin{DoxyCompactList}\small\item\em Orientation from which the sound is coming from. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_sound_source_a15a1a25a3d3cab8789a6dd003c8f3b5b}\label{classolivera_1_1_sound_source_a15a1a25a3d3cab8789a6dd003c8f3b5b}} 
+bool \mbox{\hyperlink{classolivera_1_1_sound_source_a15a1a25a3d3cab8789a6dd003c8f3b5b}{is\+Playing}}
+\begin{DoxyCompactList}\small\item\em Boolean used to enable and disable the attached sound. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Componenet derived class that holds a sound and plays it to a listener entity. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_sound_source_a486ef23daaf57ecedb6515b1b4ddcf9a}\label{classolivera_1_1_sound_source_a486ef23daaf57ecedb6515b1b4ddcf9a}} 
+\index{olivera::SoundSource@{olivera::SoundSource}!onInitialise@{onInitialise}}
+\index{onInitialise@{onInitialise}!olivera::SoundSource@{olivera::SoundSource}}
+\doxysubsubsection{\texorpdfstring{onInitialise()}{onInitialise()}}
+{\footnotesize\ttfamily void olivera\+::\+Sound\+Source\+::on\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+name,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$}]{\+\_\+camera\+Entity }\end{DoxyParamCaption})}
+
+
+
+Initalise sound\+Source class. 
+
+\mbox{\Hypertarget{classolivera_1_1_sound_source_a9d4567857ec31bddfdfac81d527186af}\label{classolivera_1_1_sound_source_a9d4567857ec31bddfdfac81d527186af}} 
+\index{olivera::SoundSource@{olivera::SoundSource}!onTick@{onTick}}
+\index{onTick@{onTick}!olivera::SoundSource@{olivera::SoundSource}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily void olivera\+::\+Sound\+Source\+::on\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+update the locations of the sound source entity and the listener entity and check if the sound is playing every tick 
+
+
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a7ffbee9cd61035ffb5b5795718b4d056}{olivera\+::\+Component}}.
+
+\mbox{\Hypertarget{classolivera_1_1_sound_source_ad605302e2037ee629ae585271b68ec51}\label{classolivera_1_1_sound_source_ad605302e2037ee629ae585271b68ec51}} 
+\index{olivera::SoundSource@{olivera::SoundSource}!play@{play}}
+\index{play@{play}!olivera::SoundSource@{olivera::SoundSource}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily void olivera\+::\+Sound\+Source\+::play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+When called the sound attached to the component will play. 
+
+\mbox{\Hypertarget{classolivera_1_1_sound_source_a8f612ea9d21ba8462a87647ec4fa907b}\label{classolivera_1_1_sound_source_a8f612ea9d21ba8462a87647ec4fa907b}} 
+\index{olivera::SoundSource@{olivera::SoundSource}!setIsPlaying@{setIsPlaying}}
+\index{setIsPlaying@{setIsPlaying}!olivera::SoundSource@{olivera::SoundSource}}
+\doxysubsubsection{\texorpdfstring{setIsPlaying()}{setIsPlaying()}}
+{\footnotesize\ttfamily void olivera\+::\+Sound\+Source\+::set\+Is\+Playing (\begin{DoxyParamCaption}\item[{bool}]{\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+Setter for Is\+Playing. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Sound\+Source.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Sound\+Source.\+cpp\end{DoxyCompactItemize}

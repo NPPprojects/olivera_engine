@@ -12,21 +12,38 @@ namespace olivera
 
   class Entity;
 
+  /************************************************************
+  @brief Component derived class to set up shadows for object
 
+  *************************************************************/
   class Shadows :public Component
   {
-  public:
+    public:
+    
+      /************************************************************
+      @brief Add depth Shader, and provide method to obtrain 
+      all pos of lightsources.
 
-    void onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther, std::shared_ptr<ResourceManager> _resourceManager);
+      *************************************************************/
+        void onInitialise(std::string _shader, std::vector<std::shared_ptr<Entity>> &_entitiesOther, std::shared_ptr<ResourceManager> _resourceManager);
 
-    void onTick();
+      /************************************************************
+      @brief configure DepthShader and set relevenat uniform values
+      
+      *************************************************************/
+        void onTick();
 
-    void onDisplay();
 
-    std::weak_ptr<ShaderProgram> shader;                                        //!<Weak pointer to shader
 
-    std::vector<std::weak_ptr<Entity>> entitiesOther;
+    private: 
+      /********************************************************************************************************************/
+      std::weak_ptr<ShaderProgram> shader;                                        //!<Weak pointer to shader
 
-    std::weak_ptr<ResourceManager> shadowResources;
+      std::vector<std::weak_ptr<Entity>> entitiesOther;
+
+
+      std::weak_ptr<ResourceManager> shadowResources;
+
+      /************************************************************************************************************************/
   };
 }

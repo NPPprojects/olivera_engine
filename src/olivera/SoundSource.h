@@ -51,13 +51,13 @@ namespace olivera
     /*******************************************************************************************************************************/
 
       std::weak_ptr<Sound> sound;                                                                //!< Weak pointer to the sound file
-      std::weak_ptr<Entity> entitySelf;                                                             //!< eak pointer to self entity
+      std::weak_ptr<Entity> entitySelf;                                                              //!< eak pointer to self entity
       std::weak_ptr<Core> core;                                                                        //!< Weak pointer to the core
       std::weak_ptr<Entity> cameraEntity;                               //!< Weak pointer to the camera Entity which is the listener 
       std::weak_ptr<Transform> selfTransform;                 //!< Transform for the entity with the sound source component attached
       std::weak_ptr<Transform> cameraTransform;                           //!< Transform for the camera Entity which is the listener 
 
-      float orientation[6];
+      float orientation[6];                                                     //!< Orientation from which the sound is coming from
       bool isPlaying;                                                     //!< Boolean used to enable and disable the attached sound
 
     /*******************************************************************************************************************************/

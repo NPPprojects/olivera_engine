@@ -1,0 +1,205 @@
+\hypertarget{classolivera_1_1_light}{}\doxysection{olivera\+::Light Class Reference}
+\label{classolivera_1_1_light}\index{olivera::Light@{olivera::Light}}
+
+
+\mbox{\hyperlink{classolivera_1_1_component}{Component}} derived class to set up lighting for object.  
+
+
+
+
+{\ttfamily \#include $<$Light.\+h$>$}
+
+Inheritance diagram for olivera\+::Light\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_light}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_light_a9a73ad47df0f01b857063b060964d4d0}{on\+Display}} ()
+\begin{DoxyCompactList}\small\item\em Update an object\textquotesingle{}s lighting based on the location of the light source/s lighting it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_light_ac1a3126ad3adf95ba9958da66ed8c90e}{on\+Tick}} ()
+\item 
+void \mbox{\hyperlink{classolivera_1_1_light_a05e7d3e3ac87310020b037a4d5250285}{on\+Initialise}} (std\+::string \+\_\+shader, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$$>$ \&\+\_\+light\+Entities, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$$>$ \&\+\_\+camera\+Entities, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$ \+\_\+resource\+Manager)
+\begin{DoxyCompactList}\small\item\em Add all entities to a list of light sources that affect the shader of the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_light_a416a10302ec59581eba73fa786a0c501}{set\+Light\+Color}} (glm\+::vec3 \+\_\+light\+Color)
+\begin{DoxyCompactList}\small\item\em Setter for light\+Color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_light_abf199a0375ec122a68f6536c15830e10}{set\+Diffuse\+Color}} (glm\+::vec3 \+\_\+diffuse\+Color)
+\begin{DoxyCompactList}\small\item\em Setter for light\+Color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_light_a3516eee67c4ed92675ad2e9dbae33a1a}{set\+Ambient\+Color}} (glm\+::vec3 \+\_\+ambient\+Color)
+\begin{DoxyCompactList}\small\item\em Setter for ambient\+Color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_light_a88a2b85266f062eff67d3669333719b7}{set\+Specular\+Color}} (glm\+::vec3 \+\_\+specular\+Color)
+\begin{DoxyCompactList}\small\item\em Setter for specular\+Color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_light_ac512e2af459ad13c91a7cc01b46c66a9}{set\+Attenuation}} (float \+\_\+constant, float \+\_\+linear, float \+\_\+quadratic)
+\begin{DoxyCompactList}\small\item\em Setter for attenuation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_light_a75c79a33358eb3bcc9ec94575d5d8c92}\label{classolivera_1_1_light_a75c79a33358eb3bcc9ec94575d5d8c92}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$ \mbox{\hyperlink{classolivera_1_1_light_a75c79a33358eb3bcc9ec94575d5d8c92}{shader}}
+\begin{DoxyCompactList}\small\item\em Weak Refrence to shader program. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_light_ae747d994156f9c779d520d8940a22f46}\label{classolivera_1_1_light_ae747d994156f9c779d520d8940a22f46}} 
+std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ $>$ \mbox{\hyperlink{classolivera_1_1_light_ae747d994156f9c779d520d8940a22f46}{light\+Entities}}
+\begin{DoxyCompactList}\small\item\em vector of weak pointers to entites that will be light sources \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_light_ae3e3e9433b35ce7b0e60b0b39078c677}\label{classolivera_1_1_light_ae3e3e9433b35ce7b0e60b0b39078c677}} 
+std\+::vector$<$ std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ $>$ \mbox{\hyperlink{classolivera_1_1_light_ae3e3e9433b35ce7b0e60b0b39078c677}{camera\+Entities}}
+\begin{DoxyCompactList}\small\item\em vector of weak pointers to entites that will be cameras \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_light_ae569d0e737306fde024e39c784701e72}\label{classolivera_1_1_light_ae569d0e737306fde024e39c784701e72}} 
+glm\+::vec3 {\bfseries light\+Color}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_light_afac8ec1600d292ac249b7555124e18f5}\label{classolivera_1_1_light_afac8ec1600d292ac249b7555124e18f5}} 
+glm\+::vec3 {\bfseries diffuse\+Color}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_light_a31933a6e9571b05c7f57e15c4251ed00}\label{classolivera_1_1_light_a31933a6e9571b05c7f57e15c4251ed00}} 
+glm\+::vec3 {\bfseries ambient\+Color}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_light_a429b85bad9fb0020a46a623816633dcc}\label{classolivera_1_1_light_a429b85bad9fb0020a46a623816633dcc}} 
+glm\+::vec3 {\bfseries specular\+Color}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_light_a6f4619ac2f438b7d15c19a56949b5d0e}\label{classolivera_1_1_light_a6f4619ac2f438b7d15c19a56949b5d0e}} 
+\mbox{\hyperlink{structolivera_1_1_attenuation}{Attenuation}} {\bfseries attenuation\+Values}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classolivera_1_1_component}{Component}} derived class to set up lighting for object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_light_a9a73ad47df0f01b857063b060964d4d0}\label{classolivera_1_1_light_a9a73ad47df0f01b857063b060964d4d0}} 
+\index{olivera::Light@{olivera::Light}!onDisplay@{onDisplay}}
+\index{onDisplay@{onDisplay}!olivera::Light@{olivera::Light}}
+\doxysubsubsection{\texorpdfstring{onDisplay()}{onDisplay()}}
+{\footnotesize\ttfamily void olivera\+::\+Light\+::on\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update an object\textquotesingle{}s lighting based on the location of the light source/s lighting it. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a752d4d19d7b3b7655bd0eb1b515cba29}{olivera\+::\+Component}}.
+
+\mbox{\Hypertarget{classolivera_1_1_light_a05e7d3e3ac87310020b037a4d5250285}\label{classolivera_1_1_light_a05e7d3e3ac87310020b037a4d5250285}} 
+\index{olivera::Light@{olivera::Light}!onInitialise@{onInitialise}}
+\index{onInitialise@{onInitialise}!olivera::Light@{olivera::Light}}
+\doxysubsubsection{\texorpdfstring{onInitialise()}{onInitialise()}}
+{\footnotesize\ttfamily void olivera\+::\+Light\+::on\+Initialise (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+shader,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$$>$ \&}]{\+\_\+light\+Entities,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$$>$ \&}]{\+\_\+camera\+Entities,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$}]{\+\_\+resource\+Manager }\end{DoxyParamCaption})}
+
+
+
+Add all entities to a list of light sources that affect the shader of the object. 
+
+Set up initial values for light color,diffuse, ambient, specular and all attenuation values. They can be further modified using the corresponding method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & \+\_\+shader of the object \\
+\hline
+{\em std\+::vector$<$std\+::shared\+\_\+ptr$<$\+Entity$>$$>$} & \&\mbox{\hyperlink{classolivera_1_1_light}{Light}} Entitites \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_light_ac1a3126ad3adf95ba9958da66ed8c90e}\label{classolivera_1_1_light_ac1a3126ad3adf95ba9958da66ed8c90e}} 
+\index{olivera::Light@{olivera::Light}!onTick@{onTick}}
+\index{onTick@{onTick}!olivera::Light@{olivera::Light}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily void olivera\+::\+Light\+::on\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Virtual} & function that gets called every tick after the core\textquotesingle{}s start function gets called. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a7ffbee9cd61035ffb5b5795718b4d056}{olivera\+::\+Component}}.
+
+\mbox{\Hypertarget{classolivera_1_1_light_a3516eee67c4ed92675ad2e9dbae33a1a}\label{classolivera_1_1_light_a3516eee67c4ed92675ad2e9dbae33a1a}} 
+\index{olivera::Light@{olivera::Light}!setAmbientColor@{setAmbientColor}}
+\index{setAmbientColor@{setAmbientColor}!olivera::Light@{olivera::Light}}
+\doxysubsubsection{\texorpdfstring{setAmbientColor()}{setAmbientColor()}}
+{\footnotesize\ttfamily void olivera\+::\+Light\+::set\+Ambient\+Color (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+ambient\+Color }\end{DoxyParamCaption})}
+
+
+
+Setter for ambient\+Color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em glm\+::vec3} & ambient\+Color \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_light_ac512e2af459ad13c91a7cc01b46c66a9}\label{classolivera_1_1_light_ac512e2af459ad13c91a7cc01b46c66a9}} 
+\index{olivera::Light@{olivera::Light}!setAttenuation@{setAttenuation}}
+\index{setAttenuation@{setAttenuation}!olivera::Light@{olivera::Light}}
+\doxysubsubsection{\texorpdfstring{setAttenuation()}{setAttenuation()}}
+{\footnotesize\ttfamily void olivera\+::\+Light\+::set\+Attenuation (\begin{DoxyParamCaption}\item[{float}]{\+\_\+constant,  }\item[{float}]{\+\_\+linear,  }\item[{float}]{\+\_\+quadratic }\end{DoxyParamCaption})}
+
+
+
+Setter for attenuation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em float} & constant \\
+\hline
+{\em float} & linear \\
+\hline
+{\em float} & quadratic \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_light_abf199a0375ec122a68f6536c15830e10}\label{classolivera_1_1_light_abf199a0375ec122a68f6536c15830e10}} 
+\index{olivera::Light@{olivera::Light}!setDiffuseColor@{setDiffuseColor}}
+\index{setDiffuseColor@{setDiffuseColor}!olivera::Light@{olivera::Light}}
+\doxysubsubsection{\texorpdfstring{setDiffuseColor()}{setDiffuseColor()}}
+{\footnotesize\ttfamily void olivera\+::\+Light\+::set\+Diffuse\+Color (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+diffuse\+Color }\end{DoxyParamCaption})}
+
+
+
+Setter for light\+Color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em glm\+::vec3} & difffuse\+Color \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_light_a416a10302ec59581eba73fa786a0c501}\label{classolivera_1_1_light_a416a10302ec59581eba73fa786a0c501}} 
+\index{olivera::Light@{olivera::Light}!setLightColor@{setLightColor}}
+\index{setLightColor@{setLightColor}!olivera::Light@{olivera::Light}}
+\doxysubsubsection{\texorpdfstring{setLightColor()}{setLightColor()}}
+{\footnotesize\ttfamily void olivera\+::\+Light\+::set\+Light\+Color (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+light\+Color }\end{DoxyParamCaption})}
+
+
+
+Setter for light\+Color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em glm\+::vec3} & light\+Color \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_light_a88a2b85266f062eff67d3669333719b7}\label{classolivera_1_1_light_a88a2b85266f062eff67d3669333719b7}} 
+\index{olivera::Light@{olivera::Light}!setSpecularColor@{setSpecularColor}}
+\index{setSpecularColor@{setSpecularColor}!olivera::Light@{olivera::Light}}
+\doxysubsubsection{\texorpdfstring{setSpecularColor()}{setSpecularColor()}}
+{\footnotesize\ttfamily void olivera\+::\+Light\+::set\+Specular\+Color (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+specular\+Color }\end{DoxyParamCaption})}
+
+
+
+Setter for specular\+Color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em glm\+::vec3} & specular\+Color \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Light.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Light.\+cpp\end{DoxyCompactItemize}

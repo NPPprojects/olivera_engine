@@ -80,6 +80,10 @@ namespace olivera
     *********************************************************/
      virtual void onDisplay();
 
+     /*******************************************************
+    *\Virtual function that handles Shadow Display functions
+
+    *********************************************************/
      virtual void onShadowDisplay();
     };
 

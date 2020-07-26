@@ -1,0 +1,150 @@
+\hypertarget{classolivera_1_1_model}{}\doxysection{olivera\+::Model Class Reference}
+\label{classolivera_1_1_model}\index{olivera::Model@{olivera::Model}}
+
+
+\mbox{\hyperlink{classolivera_1_1_resource}{Resource}} derived class for loading 3D models.  
+
+
+
+
+{\ttfamily \#include $<$Model.\+h$>$}
+
+Inheritance diagram for olivera\+::Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_model}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classolivera_1_1_model_a6978fdf8396ba4be2251effc41fab6a3}{Model}} (std\+::string const \&\mbox{\hyperlink{classolivera_1_1_resource_a562900bb8b9505cf4cdcef1219889bc4}{path}}, bool gamma=false)
+\begin{DoxyCompactList}\small\item\em Constructor, expects a filepath to a 3D model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_model_af1bd335d35db9001f59fc35d6d9a3339}{draw}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$ shader, unsigned int \+\_\+shader\+Cubemap)
+\begin{DoxyCompactList}\small\item\em Draws the model and all its meshes using the specified shader program. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_model_ae13d115e988b6fc18a43adf3a5c7bdf1}\label{classolivera_1_1_model_ae13d115e988b6fc18a43adf3a5c7bdf1}} 
+void {\bfseries draw} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_model_a2232344c8589f08b269f6c966b65387c}{process\+Node}} (ai\+Node $\ast$\+\_\+node, const ai\+Scene $\ast$\+\_\+scene)
+\begin{DoxyCompactList}\small\item\em processes a node in a recursive fashion. Processes each individual mesh located at the node and repeats this process on its children nodes (if any). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classolivera_1_1_mesh}{Mesh}} \mbox{\hyperlink{classolivera_1_1_model_a170a9e96bc6694eec07ad66d26e6c123}{process\+Mesh}} (ai\+Mesh $\ast$\+\_\+mesh, const ai\+Scene $\ast$\+\_\+scene)
+\begin{DoxyCompactList}\small\item\em processes a node in a recursive fashion. Processes each individual mesh located at the node and repeats this process on its children nodes (if any). \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structolivera_1_1_textures}{Textures}} $>$ \mbox{\hyperlink{classolivera_1_1_model_a3322b745a1e8d66fe6d7a3c5486347a2}{load\+Material\+Textures}} (ai\+Material $\ast$\+\_\+mat, ai\+Texture\+Type \+\_\+type, std\+::string \+\_\+type\+Name)
+\begin{DoxyCompactList}\small\item\em Checks all material textures of a given type and loads the textures if they\textquotesingle{}re not loaded yet. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_model_a4601ea083108d5867a97b30fd596a66a}{load\+Model}} (std\+::string const \&\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Loads the model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_model_a4d25b94bf4961a3550b0bdf61a4b2681}\label{classolivera_1_1_model_a4d25b94bf4961a3550b0bdf61a4b2681}} 
+std\+::vector$<$ \mbox{\hyperlink{structolivera_1_1_textures}{Textures}} $>$ \mbox{\hyperlink{classolivera_1_1_model_a4d25b94bf4961a3550b0bdf61a4b2681}{textures\+\_\+loaded}}
+\begin{DoxyCompactList}\small\item\em Stores all the textures loaded so far, optimization to make sure textures aren\textquotesingle{}t loaded more than once. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_model_ab9ce6283cad7e4dc500087cf48e80aba}\label{classolivera_1_1_model_ab9ce6283cad7e4dc500087cf48e80aba}} 
+std\+::vector$<$ \mbox{\hyperlink{classolivera_1_1_mesh}{Mesh}} $>$ \mbox{\hyperlink{classolivera_1_1_model_ab9ce6283cad7e4dc500087cf48e80aba}{meshes}}
+\begin{DoxyCompactList}\small\item\em Stores all the meshes of the object that are loaded. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_model_aa8b970a067efdc48f48a0f67ef032a2b}\label{classolivera_1_1_model_aa8b970a067efdc48f48a0f67ef032a2b}} 
+std\+::string \mbox{\hyperlink{classolivera_1_1_model_aa8b970a067efdc48f48a0f67ef032a2b}{directory}}
+\begin{DoxyCompactList}\small\item\em Holds neccessary directories. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_model_a4898447cf22b037a06789786a56a126d}\label{classolivera_1_1_model_a4898447cf22b037a06789786a56a126d}} 
+bool \mbox{\hyperlink{classolivera_1_1_model_a4898447cf22b037a06789786a56a126d}{gamma\+Correction}}
+\begin{DoxyCompactList}\small\item\em Gamma correct objects if specified in the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classolivera_1_1_resource}{Resource}} derived class for loading 3D models. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classolivera_1_1_model_a6978fdf8396ba4be2251effc41fab6a3}\label{classolivera_1_1_model_a6978fdf8396ba4be2251effc41fab6a3}} 
+\index{olivera::Model@{olivera::Model}!Model@{Model}}
+\index{Model@{Model}!olivera::Model@{olivera::Model}}
+\doxysubsubsection{\texorpdfstring{Model()}{Model()}}
+{\footnotesize\ttfamily olivera\+::\+Model\+::\+Model (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{path,  }\item[{bool}]{gamma = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Constructor, expects a filepath to a 3D model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & const @path to file \\
+\hline
+{\em bool} & gamma false by default \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_model_af1bd335d35db9001f59fc35d6d9a3339}\label{classolivera_1_1_model_af1bd335d35db9001f59fc35d6d9a3339}} 
+\index{olivera::Model@{olivera::Model}!draw@{draw}}
+\index{draw@{draw}!olivera::Model@{olivera::Model}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void olivera\+::\+Model\+::draw (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$}]{shader,  }\item[{unsigned int}]{\+\_\+shader\+Cubemap }\end{DoxyParamCaption})}
+
+
+
+Draws the model and all its meshes using the specified shader program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::shared\+\_\+ptr$<$\+Shader\+Program$>$} & shader file used by the model \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_model_a3322b745a1e8d66fe6d7a3c5486347a2}\label{classolivera_1_1_model_a3322b745a1e8d66fe6d7a3c5486347a2}} 
+\index{olivera::Model@{olivera::Model}!loadMaterialTextures@{loadMaterialTextures}}
+\index{loadMaterialTextures@{loadMaterialTextures}!olivera::Model@{olivera::Model}}
+\doxysubsubsection{\texorpdfstring{loadMaterialTextures()}{loadMaterialTextures()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structolivera_1_1_textures}{Textures}} $>$ olivera\+::\+Model\+::load\+Material\+Textures (\begin{DoxyParamCaption}\item[{ai\+Material $\ast$}]{\+\_\+mat,  }\item[{ai\+Texture\+Type}]{\+\_\+type,  }\item[{std\+::string}]{\+\_\+type\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks all material textures of a given type and loads the textures if they\textquotesingle{}re not loaded yet. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classolivera_1_1_texture}{Texture}} struct. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_model_a4601ea083108d5867a97b30fd596a66a}\label{classolivera_1_1_model_a4601ea083108d5867a97b30fd596a66a}} 
+\index{olivera::Model@{olivera::Model}!loadModel@{loadModel}}
+\index{loadModel@{loadModel}!olivera::Model@{olivera::Model}}
+\doxysubsubsection{\texorpdfstring{loadModel()}{loadModel()}}
+{\footnotesize\ttfamily void olivera\+::\+Model\+::load\+Model (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Loads the model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & const $\ast$\+Path to model \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_model_a170a9e96bc6694eec07ad66d26e6c123}\label{classolivera_1_1_model_a170a9e96bc6694eec07ad66d26e6c123}} 
+\index{olivera::Model@{olivera::Model}!processMesh@{processMesh}}
+\index{processMesh@{processMesh}!olivera::Model@{olivera::Model}}
+\doxysubsubsection{\texorpdfstring{processMesh()}{processMesh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classolivera_1_1_mesh}{Mesh}} olivera\+::\+Model\+::process\+Mesh (\begin{DoxyParamCaption}\item[{ai\+Mesh $\ast$}]{\+\_\+mesh,  }\item[{const ai\+Scene $\ast$}]{\+\_\+scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+processes a node in a recursive fashion. Processes each individual mesh located at the node and repeats this process on its children nodes (if any). 
+
+\mbox{\Hypertarget{classolivera_1_1_model_a2232344c8589f08b269f6c966b65387c}\label{classolivera_1_1_model_a2232344c8589f08b269f6c966b65387c}} 
+\index{olivera::Model@{olivera::Model}!processNode@{processNode}}
+\index{processNode@{processNode}!olivera::Model@{olivera::Model}}
+\doxysubsubsection{\texorpdfstring{processNode()}{processNode()}}
+{\footnotesize\ttfamily void olivera\+::\+Model\+::process\+Node (\begin{DoxyParamCaption}\item[{ai\+Node $\ast$}]{\+\_\+node,  }\item[{const ai\+Scene $\ast$}]{\+\_\+scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+processes a node in a recursive fashion. Processes each individual mesh located at the node and repeats this process on its children nodes (if any). 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Model.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Model.\+cpp\end{DoxyCompactItemize}

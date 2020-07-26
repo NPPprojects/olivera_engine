@@ -175,10 +175,10 @@ namespace olivera
 
 
       //Set the main Viewport
-      glViewport(0, 0, windowWidth, windowHeight);
+   
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
- 
+      glViewport(0, 0, windowWidth, windowHeight);
 
       //Set smaller viewports to which to draw each camera's output
       for (int i = 0; i < cameraContext->getCameraList().size(); i++)

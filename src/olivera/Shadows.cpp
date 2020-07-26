@@ -29,9 +29,6 @@ namespace olivera
     
   }
 
-  void Shadows::onDisplay()
-  {
 
-  }
 
 }

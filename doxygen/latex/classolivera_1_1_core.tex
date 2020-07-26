@@ -1,0 +1,279 @@
+\hypertarget{classolivera_1_1_core}{}\doxysection{olivera\+::Core Class Reference}
+\label{classolivera_1_1_core}\index{olivera::Core@{olivera::Core}}
+
+
+Engine is contained within this class.  
+
+
+
+
+{\ttfamily \#include $<$Core.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a936f07323b100e5f8ef6dcd5e1693766}{add\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Adds an entity to the entity vector. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classolivera_1_1_core_a16176069a72018b85bed72988b29e5dd}{Get\+Entities}} (std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$$>$ \&\+\_\+entities)
+\begin{DoxyCompactList}\small\item\em Get Entities with a specific component attached. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_keyboard}{Keyboard}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a5f5951675dbba74f90508934ec2aad16}{get\+Keyboard}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classolivera_1_1_keyboard}{Keyboard}} object in core. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_environment}{Environment}} $>$ \mbox{\hyperlink{classolivera_1_1_core_ae1c204c440f140df46a8bed0d489b98f}{get\+Environment}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{classolivera_1_1_environment}{Environment}} object in core. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_camera_context}{Camera\+Context}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a62238673c7ef6628b49f6e0ca4095b96}{get\+Camera\+List}} ()
+\begin{DoxyCompactList}\small\item\em Get access to the camera list in core. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a925e05baebe9cfa1266e33bf08a9d9f0}{get\+Resources}} ()
+\begin{DoxyCompactList}\small\item\em Get the list of current resources. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_mouse}{Mouse}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a096de01922437eaaa950456f3f406873}{get\+Mouse}} ()
+\begin{DoxyCompactList}\small\item\em Get access to mouse object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_core_aac325c75581f1432b5abd4f758d64323}{start}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_core}{Core}} while loop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_core_a1542ccbf461413b28043b0ed6338dbdf}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Stops the main loop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classolivera_1_1_core_ac41d89afcbb77e1f22d04f5c4f4f1477}{get\+Screen\+Width}} ()
+\begin{DoxyCompactList}\small\item\em Get the screen width. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classolivera_1_1_core_a5a27205d9b8403dc2c8f949a5ddbf407}{get\+Screen\+Height}} ()
+\begin{DoxyCompactList}\small\item\em get the screen height. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shadows_f_b_o}{Shadows\+F\+BO}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a4c13bca86d28802eda43a0287e907102}{get\+Shadow\+F\+BO}} ()
+\begin{DoxyCompactList}\small\item\em Get the Shadow Frame\+Buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ \mbox{\hyperlink{classolivera_1_1_core_abe299827f83f4177bacae6b4fd81873b}{initialise}} (int \+\_\+window\+Width, int \+\_\+window\+Height)
+\begin{DoxyCompactList}\small\item\em Initialisation function that will add all entities to the tick rate and display them. ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_core_a50baff9ea3da5498214bb5b91735db16}\label{classolivera_1_1_core_a50baff9ea3da5498214bb5b91735db16}} 
+S\+D\+L\+\_\+\+Window $\ast$ \mbox{\hyperlink{classolivera_1_1_core_a50baff9ea3da5498214bb5b91735db16}{window}}
+\begin{DoxyCompactList}\small\item\em Window context. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_core_adfc7b83896444ae3dc43978165c1a82c}\label{classolivera_1_1_core_adfc7b83896444ae3dc43978165c1a82c}} 
+A\+L\+Cdevice $\ast$ \mbox{\hyperlink{classolivera_1_1_core_adfc7b83896444ae3dc43978165c1a82c}{device}}
+\begin{DoxyCompactList}\small\item\em Audio. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_core_a74b6cbbf077fd746c565a61027930ed4}\label{classolivera_1_1_core_a74b6cbbf077fd746c565a61027930ed4}} 
+A\+L\+Ccontext $\ast$ \mbox{\hyperlink{classolivera_1_1_core_a74b6cbbf077fd746c565a61027930ed4}{context}}
+\begin{DoxyCompactList}\small\item\em Audio. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_core_a988f9a2b66d7d4cd6450e052807391e8}\label{classolivera_1_1_core_a988f9a2b66d7d4cd6450e052807391e8}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ $>$ \mbox{\hyperlink{classolivera_1_1_core_a988f9a2b66d7d4cd6450e052807391e8}{entities}}
+\begin{DoxyCompactList}\small\item\em Vector of all entities. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_core_a3a623b1e133fc5696933b69ecd3ae056}\label{classolivera_1_1_core_a3a623b1e133fc5696933b69ecd3ae056}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a3a623b1e133fc5696933b69ecd3ae056}{self}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to self refrence. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_core_a6accb09161a1f14fd74e8fece7a598d0}\label{classolivera_1_1_core_a6accb09161a1f14fd74e8fece7a598d0}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_camera_context}{Camera\+Context}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a6accb09161a1f14fd74e8fece7a598d0}{camera\+Context}} = std\+::make\+\_\+shared$<$\mbox{\hyperlink{classolivera_1_1_camera_context}{Camera\+Context}}$>$()
+\begin{DoxyCompactList}\small\item\em Store Cameras. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_core_a24c87b1cbd7d22a23392720d3fecd63f}\label{classolivera_1_1_core_a24c87b1cbd7d22a23392720d3fecd63f}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a24c87b1cbd7d22a23392720d3fecd63f}{resources}} = std\+::make\+\_\+shared$<$\mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}}$>$()
+\begin{DoxyCompactList}\small\item\em Store all Resources. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_core_a6c7915954176ae8b59cb03d31a547b24}\label{classolivera_1_1_core_a6c7915954176ae8b59cb03d31a547b24}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_environment}{Environment}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a6c7915954176ae8b59cb03d31a547b24}{environment}} = std\+::make\+\_\+shared$<$\mbox{\hyperlink{classolivera_1_1_environment}{Environment}}$>$()
+\begin{DoxyCompactList}\small\item\em Store environment object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_core_a89f7d1e0731bb296eca3e7fe5438ba75}\label{classolivera_1_1_core_a89f7d1e0731bb296eca3e7fe5438ba75}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_keyboard}{Keyboard}} $>$ \mbox{\hyperlink{classolivera_1_1_core_a89f7d1e0731bb296eca3e7fe5438ba75}{keyboard}} = std\+::make\+\_\+shared$<$\mbox{\hyperlink{classolivera_1_1_keyboard}{Keyboard}}$>$()
+\begin{DoxyCompactList}\small\item\em Stores keyboard inputs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_core_abba817872ed78ee609a23c6a1842f1f5}\label{classolivera_1_1_core_abba817872ed78ee609a23c6a1842f1f5}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_mouse}{Mouse}} $>$ \mbox{\hyperlink{classolivera_1_1_core_abba817872ed78ee609a23c6a1842f1f5}{mouse}} = std\+::make\+\_\+shared $<$\mbox{\hyperlink{classolivera_1_1_mouse}{Mouse}}$>$()
+\begin{DoxyCompactList}\small\item\em Stores \mbox{\hyperlink{classolivera_1_1_mouse}{Mouse}} Inputs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_core_a3ff5f2b398534f5c777b58082b678be9}\label{classolivera_1_1_core_a3ff5f2b398534f5c777b58082b678be9}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shadows_f_b_o}{Shadows\+F\+BO}} $>$ {\bfseries shadow\+F\+BO} = std\+::make\+\_\+shared$<$\mbox{\hyperlink{classolivera_1_1_shadows_f_b_o}{Shadows\+F\+BO}}$>$()
+\item 
+\mbox{\Hypertarget{classolivera_1_1_core_a8e09cc68faab8ed7bc71d1e048dbaa11}\label{classolivera_1_1_core_a8e09cc68faab8ed7bc71d1e048dbaa11}} 
+int {\bfseries window\+Width}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_core_addf689141b644a079a2993e1dc3f7add}\label{classolivera_1_1_core_addf689141b644a079a2993e1dc3f7add}} 
+int {\bfseries window\+Height}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_core_ae7e31b1e5ed599a5ba4ad54c7a883770}\label{classolivera_1_1_core_ae7e31b1e5ed599a5ba4ad54c7a883770}} 
+bool {\bfseries running}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Engine is contained within this class. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_core_a936f07323b100e5f8ef6dcd5e1693766}\label{classolivera_1_1_core_a936f07323b100e5f8ef6dcd5e1693766}} 
+\index{olivera::Core@{olivera::Core}!addEntity@{addEntity}}
+\index{addEntity@{addEntity}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{addEntity()}{addEntity()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ olivera\+::\+Core\+::add\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Adds an entity to the entity vector. 
+
+\begin{DoxyReturn}{Returns}
+pointer to the entity. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_core_a62238673c7ef6628b49f6e0ca4095b96}\label{classolivera_1_1_core_a62238673c7ef6628b49f6e0ca4095b96}} 
+\index{olivera::Core@{olivera::Core}!getCameraList@{getCameraList}}
+\index{getCameraList@{getCameraList}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{getCameraList()}{getCameraList()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_camera_context}{Camera\+Context}} $>$ olivera\+::\+Core\+::get\+Camera\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get access to the camera list in core. 
+
+\begin{DoxyReturn}{Returns}
+weak pointer to the camera\+List in core. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_core_a16176069a72018b85bed72988b29e5dd}\label{classolivera_1_1_core_a16176069a72018b85bed72988b29e5dd}} 
+\index{olivera::Core@{olivera::Core}!GetEntities@{GetEntities}}
+\index{GetEntities@{GetEntities}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{GetEntities()}{GetEntities()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void olivera\+::\+Core\+::\+Get\+Entities (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$$>$ \&}]{\+\_\+entities }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get Entities with a specific component attached. 
+
+\mbox{\Hypertarget{classolivera_1_1_core_ae1c204c440f140df46a8bed0d489b98f}\label{classolivera_1_1_core_ae1c204c440f140df46a8bed0d489b98f}} 
+\index{olivera::Core@{olivera::Core}!getEnvironment@{getEnvironment}}
+\index{getEnvironment@{getEnvironment}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{getEnvironment()}{getEnvironment()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_environment}{Environment}} $>$ olivera\+::\+Core\+::get\+Environment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classolivera_1_1_environment}{Environment}} object in core. 
+
+Contains methods for accessing and modifying delta\+Time
+
+\begin{DoxyReturn}{Returns}
+weak pointer to the environment object in core. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_core_a5f5951675dbba74f90508934ec2aad16}\label{classolivera_1_1_core_a5f5951675dbba74f90508934ec2aad16}} 
+\index{olivera::Core@{olivera::Core}!getKeyboard@{getKeyboard}}
+\index{getKeyboard@{getKeyboard}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{getKeyboard()}{getKeyboard()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_keyboard}{Keyboard}} $>$ olivera\+::\+Core\+::get\+Keyboard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the \mbox{\hyperlink{classolivera_1_1_keyboard}{Keyboard}} object in core. 
+
+Contains methods for accessing the current keys that are pressed or held.
+
+\begin{DoxyReturn}{Returns}
+weak pointer to the keyboard object in core. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_core_a096de01922437eaaa950456f3f406873}\label{classolivera_1_1_core_a096de01922437eaaa950456f3f406873}} 
+\index{olivera::Core@{olivera::Core}!getMouse@{getMouse}}
+\index{getMouse@{getMouse}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{getMouse()}{getMouse()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_mouse}{Mouse}} $>$ olivera\+::\+Core\+::get\+Mouse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get access to mouse object. 
+
+\begin{DoxyReturn}{Returns}
+mouse object inside core. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_core_a925e05baebe9cfa1266e33bf08a9d9f0}\label{classolivera_1_1_core_a925e05baebe9cfa1266e33bf08a9d9f0}} 
+\index{olivera::Core@{olivera::Core}!getResources@{getResources}}
+\index{getResources@{getResources}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$ olivera\+::\+Core\+::get\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the list of current resources. 
+
+\begin{DoxyReturn}{Returns}
+a weak pointer to a resource list in core. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_core_a5a27205d9b8403dc2c8f949a5ddbf407}\label{classolivera_1_1_core_a5a27205d9b8403dc2c8f949a5ddbf407}} 
+\index{olivera::Core@{olivera::Core}!getScreenHeight@{getScreenHeight}}
+\index{getScreenHeight@{getScreenHeight}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{getScreenHeight()}{getScreenHeight()}}
+{\footnotesize\ttfamily int olivera\+::\+Core\+::get\+Screen\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get the screen height. 
+
+\begin{DoxyReturn}{Returns}
+screen\+Height 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_core_ac41d89afcbb77e1f22d04f5c4f4f1477}\label{classolivera_1_1_core_ac41d89afcbb77e1f22d04f5c4f4f1477}} 
+\index{olivera::Core@{olivera::Core}!getScreenWidth@{getScreenWidth}}
+\index{getScreenWidth@{getScreenWidth}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{getScreenWidth()}{getScreenWidth()}}
+{\footnotesize\ttfamily int olivera\+::\+Core\+::get\+Screen\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the screen width. 
+
+\begin{DoxyReturn}{Returns}
+screen\+Width 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_core_a4c13bca86d28802eda43a0287e907102}\label{classolivera_1_1_core_a4c13bca86d28802eda43a0287e907102}} 
+\index{olivera::Core@{olivera::Core}!getShadowFBO@{getShadowFBO}}
+\index{getShadowFBO@{getShadowFBO}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{getShadowFBO()}{getShadowFBO()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shadows_f_b_o}{Shadows\+F\+BO}} $>$ olivera\+::\+Core\+::get\+Shadow\+F\+BO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Shadow Frame\+Buffer. 
+
+\begin{DoxyReturn}{Returns}
+Shadow\+F\+BO 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_core_abe299827f83f4177bacae6b4fd81873b}\label{classolivera_1_1_core_abe299827f83f4177bacae6b4fd81873b}} 
+\index{olivera::Core@{olivera::Core}!initialise@{initialise}}
+\index{initialise@{initialise}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{initialise()}{initialise()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ olivera\+::\+Core\+::initialise (\begin{DoxyParamCaption}\item[{int}]{\+\_\+window\+Width,  }\item[{int}]{\+\_\+window\+Height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialisation function that will add all entities to the tick rate and display them. ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & Window\+Width ~\newline
+ \\
+\hline
+{\em int} & Window\+Height ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the core set up ~\newline
+ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_core_aac325c75581f1432b5abd4f758d64323}\label{classolivera_1_1_core_aac325c75581f1432b5abd4f758d64323}} 
+\index{olivera::Core@{olivera::Core}!start@{start}}
+\index{start@{start}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void olivera\+::\+Core\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classolivera_1_1_core}{Core}} while loop. 
+
+Record mouse and keyboard inputs and sends them to their respective objects. All entites go through their tick functions, and then through their dispay functions. A viewport is set up using the user inputed window width and height. Further viewports are created for user defined cameras. \mbox{\Hypertarget{classolivera_1_1_core_a1542ccbf461413b28043b0ed6338dbdf}\label{classolivera_1_1_core_a1542ccbf461413b28043b0ed6338dbdf}} 
+\index{olivera::Core@{olivera::Core}!stop@{stop}}
+\index{stop@{stop}!olivera::Core@{olivera::Core}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void olivera\+::\+Core\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops the main loop. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Core.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Core.\+cpp\end{DoxyCompactItemize}

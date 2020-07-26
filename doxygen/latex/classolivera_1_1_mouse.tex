@@ -1,0 +1,164 @@
+\hypertarget{classolivera_1_1_mouse}{}\doxysection{olivera\+::Mouse Class Reference}
+\label{classolivera_1_1_mouse}\index{olivera::Mouse@{olivera::Mouse}}
+
+
+Class to keep track and record mouse events.  
+
+
+
+
+{\ttfamily \#include $<$Mouse.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_mouse_a90878ae295990bfea6665229fd75d900}{set\+Mouse\+State}} (bool \+\_\+mouse\+Motion)
+\begin{DoxyCompactList}\small\item\em Setter for is\+Mouse\+Moving. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classolivera_1_1_mouse_aa6eef23f006f18ff0d7aa9e85456d406}{get\+X\+Coordinate}} ()
+\begin{DoxyCompactList}\small\item\em Getter for X coordinate of the mouse on the window. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classolivera_1_1_mouse_aaff8eff22aae59c7306a5a423d5d47f6}{get\+Mouse\+State}} ()
+\begin{DoxyCompactList}\small\item\em Getter for is\+Mouse\+Moving. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classolivera_1_1_mouse_aed7c12f4301141294d9bdd4a57cfe6d3}{get\+Y\+Coordinate}} ()
+\begin{DoxyCompactList}\small\item\em Getter for Y coordinate of the mouse on the window. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classolivera_1_1_mouse_a446ba2bcdfc5d4f82acb237543cabbad}{get\+X\+Motion}} ()
+\begin{DoxyCompactList}\small\item\em Getter for mouses x coordinate relative motion. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classolivera_1_1_mouse_aded431583c8e97aeab74f68a11adcf11}{get\+Y\+Motion}} ()
+\begin{DoxyCompactList}\small\item\em Getter for mouses x coordinate relative motion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_mouse_ae23bfe9dda3a04c92c6cfd841945b51e}{set\+X\+Motion}} (int \+\_\+x\+Rel\+Motion)
+\begin{DoxyCompactList}\small\item\em Setter for mouses x coordinate relative motion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_mouse_a6862dfc9e38b9bce6510a3cbbadc53e4}{set\+Y\+Motion}} (int \+\_\+y\+Rel\+Motion)
+\begin{DoxyCompactList}\small\item\em Setter for mouses x coordinate relative motion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_mouse_af5e91d22534885be32aab4e551d0473f}{tick}} (int \+\_\+x\+Rel\+Motion, int \+\_\+y\+Rel\+Motion)
+\begin{DoxyCompactList}\small\item\em Set up mouse tracking every tick ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_mouse_a68c635723ed4a07bbaf85375c5f9f422}\label{classolivera_1_1_mouse_a68c635723ed4a07bbaf85375c5f9f422}} 
+int \mbox{\hyperlink{classolivera_1_1_mouse_a68c635723ed4a07bbaf85375c5f9f422}{x\+Coord}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_mouse}{Mouse}} X Coordinates on window. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mouse_a797d753882ba91bca8730552df0d6721}\label{classolivera_1_1_mouse_a797d753882ba91bca8730552df0d6721}} 
+int \mbox{\hyperlink{classolivera_1_1_mouse_a797d753882ba91bca8730552df0d6721}{y\+Coord}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_mouse}{Mouse}} Y Coordinates on window. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mouse_a29783428055095ebe7b846be80b1ff9e}\label{classolivera_1_1_mouse_a29783428055095ebe7b846be80b1ff9e}} 
+float \mbox{\hyperlink{classolivera_1_1_mouse_a29783428055095ebe7b846be80b1ff9e}{x\+Motion}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_mouse}{Mouse}} x relative motion. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mouse_a78914ffbe497b8678b6e72e949851ed9}\label{classolivera_1_1_mouse_a78914ffbe497b8678b6e72e949851ed9}} 
+float \mbox{\hyperlink{classolivera_1_1_mouse_a78914ffbe497b8678b6e72e949851ed9}{y\+Motion}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_mouse}{Mouse}} x relative motion. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_mouse_a42a608431e74df8efc623a72aaa880db}\label{classolivera_1_1_mouse_a42a608431e74df8efc623a72aaa880db}} 
+bool {\bfseries is\+Mouse\+Moving}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to keep track and record mouse events. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_mouse_aaff8eff22aae59c7306a5a423d5d47f6}\label{classolivera_1_1_mouse_aaff8eff22aae59c7306a5a423d5d47f6}} 
+\index{olivera::Mouse@{olivera::Mouse}!getMouseState@{getMouseState}}
+\index{getMouseState@{getMouseState}!olivera::Mouse@{olivera::Mouse}}
+\doxysubsubsection{\texorpdfstring{getMouseState()}{getMouseState()}}
+{\footnotesize\ttfamily bool olivera\+::\+Mouse\+::get\+Mouse\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for is\+Mouse\+Moving. 
+
+\mbox{\Hypertarget{classolivera_1_1_mouse_aa6eef23f006f18ff0d7aa9e85456d406}\label{classolivera_1_1_mouse_aa6eef23f006f18ff0d7aa9e85456d406}} 
+\index{olivera::Mouse@{olivera::Mouse}!getXCoordinate@{getXCoordinate}}
+\index{getXCoordinate@{getXCoordinate}!olivera::Mouse@{olivera::Mouse}}
+\doxysubsubsection{\texorpdfstring{getXCoordinate()}{getXCoordinate()}}
+{\footnotesize\ttfamily int olivera\+::\+Mouse\+::get\+X\+Coordinate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for X coordinate of the mouse on the window. 
+
+\mbox{\Hypertarget{classolivera_1_1_mouse_a446ba2bcdfc5d4f82acb237543cabbad}\label{classolivera_1_1_mouse_a446ba2bcdfc5d4f82acb237543cabbad}} 
+\index{olivera::Mouse@{olivera::Mouse}!getXMotion@{getXMotion}}
+\index{getXMotion@{getXMotion}!olivera::Mouse@{olivera::Mouse}}
+\doxysubsubsection{\texorpdfstring{getXMotion()}{getXMotion()}}
+{\footnotesize\ttfamily float olivera\+::\+Mouse\+::get\+X\+Motion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for mouses x coordinate relative motion. 
+
+\begin{DoxyReturn}{Returns}
+X relative motion 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_mouse_aed7c12f4301141294d9bdd4a57cfe6d3}\label{classolivera_1_1_mouse_aed7c12f4301141294d9bdd4a57cfe6d3}} 
+\index{olivera::Mouse@{olivera::Mouse}!getYCoordinate@{getYCoordinate}}
+\index{getYCoordinate@{getYCoordinate}!olivera::Mouse@{olivera::Mouse}}
+\doxysubsubsection{\texorpdfstring{getYCoordinate()}{getYCoordinate()}}
+{\footnotesize\ttfamily int olivera\+::\+Mouse\+::get\+Y\+Coordinate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for Y coordinate of the mouse on the window. 
+
+\mbox{\Hypertarget{classolivera_1_1_mouse_aded431583c8e97aeab74f68a11adcf11}\label{classolivera_1_1_mouse_aded431583c8e97aeab74f68a11adcf11}} 
+\index{olivera::Mouse@{olivera::Mouse}!getYMotion@{getYMotion}}
+\index{getYMotion@{getYMotion}!olivera::Mouse@{olivera::Mouse}}
+\doxysubsubsection{\texorpdfstring{getYMotion()}{getYMotion()}}
+{\footnotesize\ttfamily float olivera\+::\+Mouse\+::get\+Y\+Motion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for mouses x coordinate relative motion. 
+
+\begin{DoxyReturn}{Returns}
+Y relative motion 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_mouse_a90878ae295990bfea6665229fd75d900}\label{classolivera_1_1_mouse_a90878ae295990bfea6665229fd75d900}} 
+\index{olivera::Mouse@{olivera::Mouse}!setMouseState@{setMouseState}}
+\index{setMouseState@{setMouseState}!olivera::Mouse@{olivera::Mouse}}
+\doxysubsubsection{\texorpdfstring{setMouseState()}{setMouseState()}}
+{\footnotesize\ttfamily void olivera\+::\+Mouse\+::set\+Mouse\+State (\begin{DoxyParamCaption}\item[{bool}]{\+\_\+mouse\+Motion }\end{DoxyParamCaption})}
+
+
+
+Setter for is\+Mouse\+Moving. 
+
+\mbox{\Hypertarget{classolivera_1_1_mouse_ae23bfe9dda3a04c92c6cfd841945b51e}\label{classolivera_1_1_mouse_ae23bfe9dda3a04c92c6cfd841945b51e}} 
+\index{olivera::Mouse@{olivera::Mouse}!setXMotion@{setXMotion}}
+\index{setXMotion@{setXMotion}!olivera::Mouse@{olivera::Mouse}}
+\doxysubsubsection{\texorpdfstring{setXMotion()}{setXMotion()}}
+{\footnotesize\ttfamily void olivera\+::\+Mouse\+::set\+X\+Motion (\begin{DoxyParamCaption}\item[{int}]{\+\_\+x\+Rel\+Motion }\end{DoxyParamCaption})}
+
+
+
+Setter for mouses x coordinate relative motion. 
+
+\mbox{\Hypertarget{classolivera_1_1_mouse_a6862dfc9e38b9bce6510a3cbbadc53e4}\label{classolivera_1_1_mouse_a6862dfc9e38b9bce6510a3cbbadc53e4}} 
+\index{olivera::Mouse@{olivera::Mouse}!setYMotion@{setYMotion}}
+\index{setYMotion@{setYMotion}!olivera::Mouse@{olivera::Mouse}}
+\doxysubsubsection{\texorpdfstring{setYMotion()}{setYMotion()}}
+{\footnotesize\ttfamily void olivera\+::\+Mouse\+::set\+Y\+Motion (\begin{DoxyParamCaption}\item[{int}]{\+\_\+y\+Rel\+Motion }\end{DoxyParamCaption})}
+
+
+
+Setter for mouses x coordinate relative motion. 
+
+\mbox{\Hypertarget{classolivera_1_1_mouse_af5e91d22534885be32aab4e551d0473f}\label{classolivera_1_1_mouse_af5e91d22534885be32aab4e551d0473f}} 
+\index{olivera::Mouse@{olivera::Mouse}!tick@{tick}}
+\index{tick@{tick}!olivera::Mouse@{olivera::Mouse}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void olivera\+::\+Mouse\+::tick (\begin{DoxyParamCaption}\item[{int}]{\+\_\+x\+Rel\+Motion,  }\item[{int}]{\+\_\+y\+Rel\+Motion }\end{DoxyParamCaption})}
+
+
+
+Set up mouse tracking every tick ~\newline
+ 
+
+Every tick, set the current mouse X and Y coordinates ~\newline
+ based on where the mouse is on the window and set any relative X or Y motion event, when it\textquotesingle{}s occuring. ~\newline
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Mouse.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Mouse.\+cpp\end{DoxyCompactItemize}

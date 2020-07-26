@@ -1,0 +1,101 @@
+\hypertarget{classolivera_1_1_sound}{}\doxysection{olivera\+::Sound Class Reference}
+\label{classolivera_1_1_sound}\index{olivera::Sound@{olivera::Sound}}
+
+
+\mbox{\hyperlink{classolivera_1_1_resource}{Resource}} derived class for playing audio files.  
+
+
+
+
+{\ttfamily \#include $<$Sound.\+h$>$}
+
+Inheritance diagram for olivera\+::Sound\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_sound}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classolivera_1_1_sound_adef6df9ff50f2480a28815b4bcd2bebf}{Sound}} (std\+::string \+\_\+path)
+\begin{DoxyCompactList}\small\item\em Constructor that calls load function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_sound_aa5028ebbf74302eca18a5a2cd5afee13}{load}} (std\+::string \+\_\+path)
+\begin{DoxyCompactList}\small\item\em Load an audio file from the specified file path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_sound_aca8aad3fa53cf07d178adcb3ffd156fe}{load\+Ogg\+File}} (const std\+::string \&file\+Name, std\+::vector$<$ char $>$ \&buffer, A\+Lenum \&format, A\+Lsizei \&freq)
+\begin{DoxyCompactList}\small\item\em Load .ogg file. \end{DoxyCompactList}\item 
+A\+Luint \mbox{\hyperlink{classolivera_1_1_sound_a3fb092b953b7a8606410c98ce2b6a332}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Getter for ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_sound_aab11e8ca45816711908d498a22a39307}\label{classolivera_1_1_sound_aab11e8ca45816711908d498a22a39307}} 
+A\+Luint \mbox{\hyperlink{classolivera_1_1_sound_aab11e8ca45816711908d498a22a39307}{id}}
+\begin{DoxyCompactList}\small\item\em ID to refrence sound. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classolivera_1_1_resource}{Resource}} derived class for playing audio files. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classolivera_1_1_sound_adef6df9ff50f2480a28815b4bcd2bebf}\label{classolivera_1_1_sound_adef6df9ff50f2480a28815b4bcd2bebf}} 
+\index{olivera::Sound@{olivera::Sound}!Sound@{Sound}}
+\index{Sound@{Sound}!olivera::Sound@{olivera::Sound}}
+\doxysubsubsection{\texorpdfstring{Sound()}{Sound()}}
+{\footnotesize\ttfamily olivera\+::\+Sound\+::\+Sound (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Constructor that calls load function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & path to file \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_sound_a3fb092b953b7a8606410c98ce2b6a332}\label{classolivera_1_1_sound_a3fb092b953b7a8606410c98ce2b6a332}} 
+\index{olivera::Sound@{olivera::Sound}!getId@{getId}}
+\index{getId@{getId}!olivera::Sound@{olivera::Sound}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily A\+Luint olivera\+::\+Sound\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for ID. 
+
+\mbox{\Hypertarget{classolivera_1_1_sound_aa5028ebbf74302eca18a5a2cd5afee13}\label{classolivera_1_1_sound_aa5028ebbf74302eca18a5a2cd5afee13}} 
+\index{olivera::Sound@{olivera::Sound}!load@{load}}
+\index{load@{load}!olivera::Sound@{olivera::Sound}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void olivera\+::\+Sound\+::load (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Load an audio file from the specified file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & \+\_\+path \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_sound_aca8aad3fa53cf07d178adcb3ffd156fe}\label{classolivera_1_1_sound_aca8aad3fa53cf07d178adcb3ffd156fe}} 
+\index{olivera::Sound@{olivera::Sound}!loadOggFile@{loadOggFile}}
+\index{loadOggFile@{loadOggFile}!olivera::Sound@{olivera::Sound}}
+\doxysubsubsection{\texorpdfstring{loadOggFile()}{loadOggFile()}}
+{\footnotesize\ttfamily void olivera\+::\+Sound\+::load\+Ogg\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name,  }\item[{std\+::vector$<$ char $>$ \&}]{buffer,  }\item[{A\+Lenum \&}]{format,  }\item[{A\+Lsizei \&}]{freq }\end{DoxyParamCaption})}
+
+
+
+Load .ogg file. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Sound.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Sound.\+cpp\end{DoxyCompactItemize}

@@ -69,7 +69,7 @@ int main()
   engine->getResources()->create<olivera::Model>(std::string("coffeeMug"), std::string("../resources/objects/coffeeMug/coffeMug1_free_obj.obj"));
   
   //Bed
-  //engine->getResources()->create<olivera::Model>(std::string("bed"), std::string("../resources/objects/bed/krovat-2.obj"));
+  engine->getResources()->create<olivera::Model>(std::string("bed"), std::string("../resources/objects/bed/krovat-2.obj"));
 
   //Wardrobe
   engine->getResources()->create<olivera::Model>(std::string("wardrobe"), std::string("../resources/objects/wardrobe/Wardrobe  4 door.obj"));
@@ -104,18 +104,18 @@ int main()
 	std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();
 	std::shared_ptr<CameraInputManager> cameraInput = cameraEntity->addComponent<CameraInputManager>();
   cameraTransform->setPosition(glm::vec3(0, 0, 0));
-  cameraComponent->getCurrentContext()->setViewport(glm::vec4(0, 0, 900, 800));
+ cameraComponent->getCurrentContext()->setViewport(glm::vec4(0, 0, 900, 800));
   cameraComponent->getCurrentContext()->setFrameBuffer(engine, "postProcessingBlurShader", "PostProcessingSquare");
 
  // Camera 2 
 
-  //std::shared_ptr<olivera::Entity> cameraEntity1 = engine->addEntity();
-  //std::shared_ptr<olivera::Transform> cameraTransform1 = cameraEntity1->addComponent<olivera::Transform>();
-  //std::shared_ptr<FPSCamera> cameraComponent1 = cameraEntity1->addComponent<FPSCamera>();
-  //std::shared_ptr<CameraInputManager> cameraInput1 = cameraEntity1->addComponent<CameraInputManager>();
-  //cameraTransform1->setPosition(glm::vec3(0, 0, 0));
-  //cameraComponent1->getCurrentContext()->setViewport(glm::vec4(900, 0, 900, 800));
-  //cameraComponent1->getCurrentContext()->setFrameBuffer(engine, "postProcessingAcidicShader", "PostProcessingSquare");
+  std::shared_ptr<olivera::Entity> cameraEntity1 = engine->addEntity();
+  std::shared_ptr<olivera::Transform> cameraTransform1 = cameraEntity1->addComponent<olivera::Transform>();
+  std::shared_ptr<FPSCamera> cameraComponent1 = cameraEntity1->addComponent<FPSCamera>();
+  std::shared_ptr<CameraInputManager> cameraInput1 = cameraEntity1->addComponent<CameraInputManager>();
+  cameraTransform1->setPosition(glm::vec3(0, 0, 0));
+  cameraComponent1->getCurrentContext()->setViewport(glm::vec4(900, 0, 900, 800));
+  cameraComponent1->getCurrentContext()->setFrameBuffer(engine, "postProcessingAcidicShader", "PostProcessingSquare");
 
 
 	//Moving cube
@@ -155,7 +155,7 @@ int main()
   lightSources.push_back(cube3);
 
   cameraEntities.push_back(cameraEntity);
-  //cameraEntities.push_back(cameraEntity1);
+  cameraEntities.push_back(cameraEntity1);
   
   //Nanosuit
 
@@ -191,10 +191,10 @@ int main()
 
   
   //Bed
- // std::unique_ptr<GameObject> bed = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "bed");
- // bed->addLight(lightSources, cameraEntities);
- // bed->getTransform()->setPosition(glm::vec3(-5.0f, 0.0f, 5.0f));
- // bed->getTransform()->setScale(glm::vec3(5.0f));
+   std::unique_ptr<GameObject> bed = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "bed");
+   bed->addLight(lightSources, cameraEntities);
+   bed->getTransform()->setPosition(glm::vec3(-5.0f, 0.0f, 5.0f));
+   bed->getTransform()->setScale(glm::vec3(5.0f));
 
 
   //Samus

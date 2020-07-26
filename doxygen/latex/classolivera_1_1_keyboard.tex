@@ -1,0 +1,123 @@
+\hypertarget{classolivera_1_1_keyboard}{}\doxysection{olivera\+::Keyboard Class Reference}
+\label{classolivera_1_1_keyboard}\index{olivera::Keyboard@{olivera::Keyboard}}
+
+
+Process keyboard inputs.  
+
+
+
+
+{\ttfamily \#include $<$Keyboard.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classolivera_1_1_keyboard_aac1a1c032c47ecac87104b564c930d9f}{is\+Key\+Pressed}} (int \+\_\+key)
+\begin{DoxyCompactList}\small\item\em When a key gets pressed it gets added to the pressed keys list. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classolivera_1_1_keyboard_a5db765f03292d2da391671cdb7f29b4f}{is\+Key\+Released}} (int \+\_\+key)
+\begin{DoxyCompactList}\small\item\em When a key gets released it gets added to the released keys list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_keyboard_abbdabc9c69f49140132bfb0f34266cce}{clear\+Key}} ()
+\begin{DoxyCompactList}\small\item\em Clears the key\+Pressed and Key\+Released vectors. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classolivera_1_1_keyboard_a114142b01a95f1708713fef44004716a}{get\+Key\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Getter function for pressed\+Keys. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classolivera_1_1_keyboard_ab18f1c9e98c0bc360a325a86f84ed7c2}{get\+Key\+Released}} ()
+\begin{DoxyCompactList}\small\item\em Getter function for released\+Keys. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_keyboard_a9f462d24f27d83f6760838395e84b8c4}\label{classolivera_1_1_keyboard_a9f462d24f27d83f6760838395e84b8c4}} 
+bool \mbox{\hyperlink{classolivera_1_1_keyboard_a9f462d24f27d83f6760838395e84b8c4}{released}}
+\begin{DoxyCompactList}\small\item\em Boolean to keep track of whenever keys get released. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_keyboard_a27f6573dab676d8e05b87687028f0d0d}\label{classolivera_1_1_keyboard_a27f6573dab676d8e05b87687028f0d0d}} 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classolivera_1_1_keyboard_a27f6573dab676d8e05b87687028f0d0d}{released\+Keys}}
+\begin{DoxyCompactList}\small\item\em Vector to store released keys ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_keyboard_aad11290ade52a2d02f85d3ff64d2bf0f}\label{classolivera_1_1_keyboard_aad11290ade52a2d02f85d3ff64d2bf0f}} 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classolivera_1_1_keyboard_aad11290ade52a2d02f85d3ff64d2bf0f}{pressed\+Keys}}
+\begin{DoxyCompactList}\small\item\em Vector to store pressed keys. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Process keyboard inputs. 
+
+Provides methods to access released and pressed key. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_keyboard_abbdabc9c69f49140132bfb0f34266cce}\label{classolivera_1_1_keyboard_abbdabc9c69f49140132bfb0f34266cce}} 
+\index{olivera::Keyboard@{olivera::Keyboard}!clearKey@{clearKey}}
+\index{clearKey@{clearKey}!olivera::Keyboard@{olivera::Keyboard}}
+\doxysubsubsection{\texorpdfstring{clearKey()}{clearKey()}}
+{\footnotesize\ttfamily void olivera\+::\+Keyboard\+::clear\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears the key\+Pressed and Key\+Released vectors. 
+
+\mbox{\Hypertarget{classolivera_1_1_keyboard_a114142b01a95f1708713fef44004716a}\label{classolivera_1_1_keyboard_a114142b01a95f1708713fef44004716a}} 
+\index{olivera::Keyboard@{olivera::Keyboard}!getKeyPressed@{getKeyPressed}}
+\index{getKeyPressed@{getKeyPressed}!olivera::Keyboard@{olivera::Keyboard}}
+\doxysubsubsection{\texorpdfstring{getKeyPressed()}{getKeyPressed()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ olivera\+::\+Keyboard\+::get\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter function for pressed\+Keys. 
+
+\begin{DoxyReturn}{Returns}
+vector of pressed keys. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_keyboard_ab18f1c9e98c0bc360a325a86f84ed7c2}\label{classolivera_1_1_keyboard_ab18f1c9e98c0bc360a325a86f84ed7c2}} 
+\index{olivera::Keyboard@{olivera::Keyboard}!getKeyReleased@{getKeyReleased}}
+\index{getKeyReleased@{getKeyReleased}!olivera::Keyboard@{olivera::Keyboard}}
+\doxysubsubsection{\texorpdfstring{getKeyReleased()}{getKeyReleased()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ olivera\+::\+Keyboard\+::get\+Key\+Released (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter function for released\+Keys. 
+
+\begin{DoxyReturn}{Returns}
+vector of released keys. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_keyboard_aac1a1c032c47ecac87104b564c930d9f}\label{classolivera_1_1_keyboard_aac1a1c032c47ecac87104b564c930d9f}} 
+\index{olivera::Keyboard@{olivera::Keyboard}!isKeyPressed@{isKeyPressed}}
+\index{isKeyPressed@{isKeyPressed}!olivera::Keyboard@{olivera::Keyboard}}
+\doxysubsubsection{\texorpdfstring{isKeyPressed()}{isKeyPressed()}}
+{\footnotesize\ttfamily bool olivera\+::\+Keyboard\+::is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{int}]{\+\_\+key }\end{DoxyParamCaption})}
+
+
+
+When a key gets pressed it gets added to the pressed keys list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & key code of the currently pressed key\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+released bollean set to false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_keyboard_a5db765f03292d2da391671cdb7f29b4f}\label{classolivera_1_1_keyboard_a5db765f03292d2da391671cdb7f29b4f}} 
+\index{olivera::Keyboard@{olivera::Keyboard}!isKeyReleased@{isKeyReleased}}
+\index{isKeyReleased@{isKeyReleased}!olivera::Keyboard@{olivera::Keyboard}}
+\doxysubsubsection{\texorpdfstring{isKeyReleased()}{isKeyReleased()}}
+{\footnotesize\ttfamily bool olivera\+::\+Keyboard\+::is\+Key\+Released (\begin{DoxyParamCaption}\item[{int}]{\+\_\+key }\end{DoxyParamCaption})}
+
+
+
+When a key gets released it gets added to the released keys list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & key code of the currently released key\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+released bollean set to true 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Keyboard.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Keyboard.\+cpp\end{DoxyCompactItemize}

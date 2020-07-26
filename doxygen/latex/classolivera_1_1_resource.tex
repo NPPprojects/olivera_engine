@@ -1,0 +1,106 @@
+\hypertarget{classolivera_1_1_resource}{}\doxysection{olivera\+::Resource Class Reference}
+\label{classolivera_1_1_resource}\index{olivera::Resource@{olivera::Resource}}
+
+
+Base class for all resources.  
+
+
+
+
+{\ttfamily \#include $<$Resource.\+h$>$}
+
+Inheritance diagram for olivera\+::Resource\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.454545cm]{classolivera_1_1_resource}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classolivera_1_1_resource_a3421e145dfae9ba38d598f52774c82b0}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Getter for name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_resource_ac65cb73164a150340d9ce4dde14a48bd}{set\+Name}} (std\+::string \+\_\+name)
+\begin{DoxyCompactList}\small\item\em Setter for name. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classolivera_1_1_resource_a75976198727075ad8edb427e227dad3e}{get\+Path}} ()
+\begin{DoxyCompactList}\small\item\em Setter for name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_resource_ab71abae8032ed33c86989fa0534a6c07}{set\+Path}} (std\+::string \+\_\+path)
+\begin{DoxyCompactList}\small\item\em Setter for path. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classolivera_1_1_resource_a0fd84e193005dbf56ac9fc760c9a5928}{$\sim$\+Resource}} ()
+\begin{DoxyCompactList}\small\item\em virtual destructor to be used by derived classes \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}\label{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}} 
+std\+::string \mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_resource}{Resource}}\textquotesingle{}s name tag. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_resource_a562900bb8b9505cf4cdcef1219889bc4}\label{classolivera_1_1_resource_a562900bb8b9505cf4cdcef1219889bc4}} 
+std\+::string \mbox{\hyperlink{classolivera_1_1_resource_a562900bb8b9505cf4cdcef1219889bc4}{path}}
+\begin{DoxyCompactList}\small\item\em Path to resource. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all resources. 
+
+when a resource is loaded a string is attached to it so that the resource can be refrenced using it. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classolivera_1_1_resource_a0fd84e193005dbf56ac9fc760c9a5928}\label{classolivera_1_1_resource_a0fd84e193005dbf56ac9fc760c9a5928}} 
+\index{olivera::Resource@{olivera::Resource}!````~Resource@{$\sim$Resource}}
+\index{````~Resource@{$\sim$Resource}!olivera::Resource@{olivera::Resource}}
+\doxysubsubsection{\texorpdfstring{$\sim$Resource()}{~Resource()}}
+{\footnotesize\ttfamily virtual olivera\+::\+Resource\+::$\sim$\+Resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+virtual destructor to be used by derived classes 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_resource_a3421e145dfae9ba38d598f52774c82b0}\label{classolivera_1_1_resource_a3421e145dfae9ba38d598f52774c82b0}} 
+\index{olivera::Resource@{olivera::Resource}!getName@{getName}}
+\index{getName@{getName}!olivera::Resource@{olivera::Resource}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string olivera\+::\+Resource\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for name. 
+
+\mbox{\Hypertarget{classolivera_1_1_resource_a75976198727075ad8edb427e227dad3e}\label{classolivera_1_1_resource_a75976198727075ad8edb427e227dad3e}} 
+\index{olivera::Resource@{olivera::Resource}!getPath@{getPath}}
+\index{getPath@{getPath}!olivera::Resource@{olivera::Resource}}
+\doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily std\+::string olivera\+::\+Resource\+::get\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Setter for name. 
+
+\mbox{\Hypertarget{classolivera_1_1_resource_ac65cb73164a150340d9ce4dde14a48bd}\label{classolivera_1_1_resource_ac65cb73164a150340d9ce4dde14a48bd}} 
+\index{olivera::Resource@{olivera::Resource}!setName@{setName}}
+\index{setName@{setName}!olivera::Resource@{olivera::Resource}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void olivera\+::\+Resource\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Setter for name. 
+
+\mbox{\Hypertarget{classolivera_1_1_resource_ab71abae8032ed33c86989fa0534a6c07}\label{classolivera_1_1_resource_ab71abae8032ed33c86989fa0534a6c07}} 
+\index{olivera::Resource@{olivera::Resource}!setPath@{setPath}}
+\index{setPath@{setPath}!olivera::Resource@{olivera::Resource}}
+\doxysubsubsection{\texorpdfstring{setPath()}{setPath()}}
+{\footnotesize\ttfamily void olivera\+::\+Resource\+::set\+Path (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Setter for path. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Resource.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Resource.\+cpp\end{DoxyCompactItemize}

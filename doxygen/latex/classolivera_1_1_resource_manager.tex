@@ -1,0 +1,84 @@
+\hypertarget{classolivera_1_1_resource_manager}{}\doxysection{olivera\+::Resource\+Manager Class Reference}
+\label{classolivera_1_1_resource_manager}\index{olivera::ResourceManager@{olivera::ResourceManager}}
+
+
+\mbox{\hyperlink{classolivera_1_1_resource}{Resource}} Manager class to create/store/load resources.  
+
+
+
+
+{\ttfamily \#include $<$Resource\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{classolivera_1_1_resource_manager_a5596a6671b9b166ca543986c900fe7fa}{load}} (std\+::string \+\_\+name)
+\begin{DoxyCompactList}\small\item\em Load a resource from the resources vector by finding it using its name tag. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{classolivera_1_1_resource_manager_a790ceff46d5a425b4440ab65d41b743b}{create}} (const std\+::string \&\+\_\+name, std\+::string \&\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Create a resource by calling its constuctor and then giving it a name tag to find it within the resource vector. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource}{Resource}} $>$ $>$ \mbox{\hyperlink{classolivera_1_1_resource_manager_acd3e72802c0387f3f078799531ce12f8}{get\+Resources}} ()
+\begin{DoxyCompactList}\small\item\em Getter for resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_resource_manager_a68a27eeeb2bc43b64ef02077a4a19939}\label{classolivera_1_1_resource_manager_a68a27eeeb2bc43b64ef02077a4a19939}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource}{Resource}} $>$ $>$ \mbox{\hyperlink{classolivera_1_1_resource_manager_a68a27eeeb2bc43b64ef02077a4a19939}{resources}}
+\begin{DoxyCompactList}\small\item\em Resources vector that holds all objects derived from the \mbox{\hyperlink{classolivera_1_1_resource}{Resource}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classolivera_1_1_resource}{Resource}} Manager class to create/store/load resources. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_resource_manager_a790ceff46d5a425b4440ab65d41b743b}\label{classolivera_1_1_resource_manager_a790ceff46d5a425b4440ab65d41b743b}} 
+\index{olivera::ResourceManager@{olivera::ResourceManager}!create@{create}}
+\index{create@{create}!olivera::ResourceManager@{olivera::ResourceManager}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::shared\+\_\+ptr$<$T$>$ olivera\+::\+Resource\+Manager\+::create (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+name,  }\item[{std\+::string \&}]{\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a resource by calling its constuctor and then giving it a name tag to find it within the resource vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & std\+::string \&name defined by user \\
+\hline
+{\em std\+::string} & \& path to resource \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_resource_manager_acd3e72802c0387f3f078799531ce12f8}\label{classolivera_1_1_resource_manager_acd3e72802c0387f3f078799531ce12f8}} 
+\index{olivera::ResourceManager@{olivera::ResourceManager}!getResources@{getResources}}
+\index{getResources@{getResources}!olivera::ResourceManager@{olivera::ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource}{Resource}} $>$ $>$ olivera\+::\+Resource\+Manager\+::get\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for resources. 
+
+\mbox{\Hypertarget{classolivera_1_1_resource_manager_a5596a6671b9b166ca543986c900fe7fa}\label{classolivera_1_1_resource_manager_a5596a6671b9b166ca543986c900fe7fa}} 
+\index{olivera::ResourceManager@{olivera::ResourceManager}!load@{load}}
+\index{load@{load}!olivera::ResourceManager@{olivera::ResourceManager}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::shared\+\_\+ptr$<$T$>$ olivera\+::\+Resource\+Manager\+::load (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Load a resource from the resources vector by finding it using its name tag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::string} & name of resource \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Resource\+Manager.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Resource\+Manager.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,166 @@
+\hypertarget{classolivera_1_1_component}{}\doxysection{olivera\+::Component Class Reference}
+\label{classolivera_1_1_component}\index{olivera::Component@{olivera::Component}}
+
+
+Base class to add components to entities.  
+
+
+
+
+{\ttfamily \#include $<$Component.\+h$>$}
+
+Inheritance diagram for olivera\+::Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=9.000000cm]{classolivera_1_1_component}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classolivera_1_1_component_ab8378fa275af98e568a7e91d33d867af}{$\sim$\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Virtual deconstructor for derived classes. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classolivera_1_1_component_a92ef571e1fbb268954c05e0c74c888eb}{get\+Entity}} ()
+\begin{DoxyCompactList}\small\item\em Getter for entity. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ \mbox{\hyperlink{classolivera_1_1_component_a08a69222c57e5d1399569932f7ea958e}{get\+Core}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the engine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_component_a651ca545a097a224131e59e9f52b7155}\label{classolivera_1_1_component_a651ca545a097a224131e59e9f52b7155}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classolivera_1_1_component_a651ca545a097a224131e59e9f52b7155}{entity}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to the entity the component belongs to. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_component_a7d443662944a7a464351c63527a903f9}\label{classolivera_1_1_component_a7d443662944a7a464351c63527a903f9}} 
+bool {\bfseries began}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classolivera_1_1_component_a076f1ad8e910cf5cf016e006d3293e7d}{on\+Initialise}} ()
+\begin{DoxyCompactList}\small\item\em Virtual function for a component\textquotesingle{}s initilastion. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classolivera_1_1_component_a8847457780648c7bffc4a7ad6fed11db}{on\+Start}} ()
+\begin{DoxyCompactList}\small\item\em Virtual function for on Start Function. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classolivera_1_1_component_a7ffbee9cd61035ffb5b5795718b4d056}{on\+Tick}} ()
+\item 
+virtual void \mbox{\hyperlink{classolivera_1_1_component_a752d4d19d7b3b7655bd0eb1b515cba29}{on\+Display}} ()
+\item 
+virtual void \mbox{\hyperlink{classolivera_1_1_component_a8f6d66fec9693f344d57e83e3f484f99}{on\+Shadow\+Display}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_component_a614439ccac0344926adc4c0165d64060}\label{classolivera_1_1_component_a614439ccac0344926adc4c0165d64060}} 
+class {\bfseries Entity}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class to add components to entities. 
+
+Every class inheriting from component will have access to 4 virtual functions, as well as methods for getting access to the engine core and the entity the component belongs to 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classolivera_1_1_component_ab8378fa275af98e568a7e91d33d867af}\label{classolivera_1_1_component_ab8378fa275af98e568a7e91d33d867af}} 
+\index{olivera::Component@{olivera::Component}!````~Component@{$\sim$Component}}
+\index{````~Component@{$\sim$Component}!olivera::Component@{olivera::Component}}
+\doxysubsubsection{\texorpdfstring{$\sim$Component()}{~Component()}}
+{\footnotesize\ttfamily Component\+::$\sim$\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Virtual deconstructor for derived classes. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_component_a08a69222c57e5d1399569932f7ea958e}\label{classolivera_1_1_component_a08a69222c57e5d1399569932f7ea958e}} 
+\index{olivera::Component@{olivera::Component}!getCore@{getCore}}
+\index{getCore@{getCore}!olivera::Component@{olivera::Component}}
+\doxysubsubsection{\texorpdfstring{getCore()}{getCore()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ Component\+::get\+Core (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the engine. 
+
+\begin{DoxyReturn}{Returns}
+the engine as a weak pointer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_component_a92ef571e1fbb268954c05e0c74c888eb}\label{classolivera_1_1_component_a92ef571e1fbb268954c05e0c74c888eb}} 
+\index{olivera::Component@{olivera::Component}!getEntity@{getEntity}}
+\index{getEntity@{getEntity}!olivera::Component@{olivera::Component}}
+\doxysubsubsection{\texorpdfstring{getEntity()}{getEntity()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ Component\+::get\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for entity. 
+
+\begin{DoxyReturn}{Returns}
+the entity this component is attached to. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_component_a752d4d19d7b3b7655bd0eb1b515cba29}\label{classolivera_1_1_component_a752d4d19d7b3b7655bd0eb1b515cba29}} 
+\index{olivera::Component@{olivera::Component}!onDisplay@{onDisplay}}
+\index{onDisplay@{onDisplay}!olivera::Component@{olivera::Component}}
+\doxysubsubsection{\texorpdfstring{onDisplay()}{onDisplay()}}
+{\footnotesize\ttfamily void Component\+::on\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+\textbackslash{}\+Virtual function that gets called every display call. 
+
+Reimplemented in \mbox{\hyperlink{classolivera_1_1_mesh_renderer_ad60812c43fb734778588ef93cfd1f856}{olivera\+::\+Mesh\+Renderer}}, \mbox{\hyperlink{classolivera_1_1_collision_a9985a13ec1754d384d1c5ca2c7781bb4}{olivera\+::\+Collision}}, and \mbox{\hyperlink{classolivera_1_1_light_a9a73ad47df0f01b857063b060964d4d0}{olivera\+::\+Light}}.
+
+\mbox{\Hypertarget{classolivera_1_1_component_a076f1ad8e910cf5cf016e006d3293e7d}\label{classolivera_1_1_component_a076f1ad8e910cf5cf016e006d3293e7d}} 
+\index{olivera::Component@{olivera::Component}!onInitialise@{onInitialise}}
+\index{onInitialise@{onInitialise}!olivera::Component@{olivera::Component}}
+\doxysubsubsection{\texorpdfstring{onInitialise()}{onInitialise()}}
+{\footnotesize\ttfamily void Component\+::on\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Virtual function for a component\textquotesingle{}s initilastion. 
+
+Constructor for the component 
+
+Reimplemented in \mbox{\hyperlink{classolivera_1_1_transform_a0d8a6d26ba1dc7e8a5a402c838b4f2c3}{olivera\+::\+Transform}}, and \mbox{\hyperlink{classolivera_1_1_input_manager_a21dac7a2809c468b29f2f3ad432b7354}{olivera\+::\+Input\+Manager}}.
+
+\mbox{\Hypertarget{classolivera_1_1_component_a8f6d66fec9693f344d57e83e3f484f99}\label{classolivera_1_1_component_a8f6d66fec9693f344d57e83e3f484f99}} 
+\index{olivera::Component@{olivera::Component}!onShadowDisplay@{onShadowDisplay}}
+\index{onShadowDisplay@{onShadowDisplay}!olivera::Component@{olivera::Component}}
+\doxysubsubsection{\texorpdfstring{onShadowDisplay()}{onShadowDisplay()}}
+{\footnotesize\ttfamily void Component\+::on\+Shadow\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+\textbackslash{}\+Virtual function that handles Shadow Display functions 
+
+Reimplemented in \mbox{\hyperlink{classolivera_1_1_mesh_renderer_a038e52996d2001696b0f1c24eff02180}{olivera\+::\+Mesh\+Renderer}}.
+
+\mbox{\Hypertarget{classolivera_1_1_component_a8847457780648c7bffc4a7ad6fed11db}\label{classolivera_1_1_component_a8847457780648c7bffc4a7ad6fed11db}} 
+\index{olivera::Component@{olivera::Component}!onStart@{onStart}}
+\index{onStart@{onStart}!olivera::Component@{olivera::Component}}
+\doxysubsubsection{\texorpdfstring{onStart()}{onStart()}}
+{\footnotesize\ttfamily void Component\+::on\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Virtual function for on Start Function. 
+
+\mbox{\Hypertarget{classolivera_1_1_component_a7ffbee9cd61035ffb5b5795718b4d056}\label{classolivera_1_1_component_a7ffbee9cd61035ffb5b5795718b4d056}} 
+\index{olivera::Component@{olivera::Component}!onTick@{onTick}}
+\index{onTick@{onTick}!olivera::Component@{olivera::Component}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily void Component\+::on\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Virtual} & function that gets called every tick after the core\textquotesingle{}s start function gets called. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classolivera_1_1_transform_abbb8a93c566b7f52ca5fe4054559b008}{olivera\+::\+Transform}}, \mbox{\hyperlink{classolivera_1_1_materials_ac565aad6562b82b4ee55d18dd02dfc54}{olivera\+::\+Materials}}, \mbox{\hyperlink{classolivera_1_1_mesh_renderer_a0175cc1b02d65c77dd2a445fa852bf80}{olivera\+::\+Mesh\+Renderer}}, \mbox{\hyperlink{classolivera_1_1_collision_a6124df2d82a3e31f976a2959ae9cb36e}{olivera\+::\+Collision}}, \mbox{\hyperlink{classolivera_1_1_light_ac1a3126ad3adf95ba9958da66ed8c90e}{olivera\+::\+Light}}, \mbox{\hyperlink{classolivera_1_1_sound_source_a9d4567857ec31bddfdfac81d527186af}{olivera\+::\+Sound\+Source}}, \mbox{\hyperlink{classolivera_1_1_shadows_ae3588fabc2a43ef11e920bf94f1f038f}{olivera\+::\+Shadows}}, and \mbox{\hyperlink{classolivera_1_1_input_manager_af6880c099aba3387024e180a29a712b0}{olivera\+::\+Input\+Manager}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Component.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Component.\+cpp\end{DoxyCompactItemize}

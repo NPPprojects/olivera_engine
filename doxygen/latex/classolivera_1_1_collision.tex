@@ -1,0 +1,227 @@
+\hypertarget{classolivera_1_1_collision}{}\doxysection{olivera\+::Collision Class Reference}
+\label{classolivera_1_1_collision}\index{olivera::Collision@{olivera::Collision}}
+
+
+Handle collision between objects with this components attached.  
+
+
+
+
+{\ttfamily \#include $<$Collision.\+h$>$}
+
+Inheritance diagram for olivera\+::Collision\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_collision}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_collision_ae059d8f956a0e19f7cfe448e0f46564b}{set\+Offset}} (const glm\+::vec3 \&\+\_\+offset)
+\begin{DoxyCompactList}\small\item\em Setter for the offset when colliding. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_collision_a8213ba1db60a2556aace8c4bf6e43eac}{set\+Scale}} (const glm\+::vec3 \&\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Setter for the scale of the collision box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_collision_a6124df2d82a3e31f976a2959ae9cb36e}{on\+Tick}} ()
+\begin{DoxyCompactList}\small\item\em Check if entities are colliding every tick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_collision_a9985a13ec1754d384d1c5ca2c7781bb4}{on\+Display}} ()
+\begin{DoxyCompactList}\small\item\em Display collision boulding box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_collision_a1780a08d76aaf3bb9adf78f0292b6e43}{on\+Initialise}} (bool \+\_\+is\+Visable)
+\begin{DoxyCompactList}\small\item\em set up for the collision box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_collision_a7d3a5394880537d5c43bac5d22dc5717}{collide\+Box}} ()
+\begin{DoxyCompactList}\small\item\em check if colliding. Checks for all entites with a collision component and adds it to a list whenever any of the A\+A\+B\+Bs cross each other enable is\+Colliding. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classolivera_1_1_collision_a80ad3ce4ce0eb01d7127a5fabcb248c6}{is\+Colliding}} (glm\+::vec3 \+\_\+position, glm\+::vec3 \+\_\+size)
+\begin{DoxyCompactList}\small\item\em A\+A\+BB collision check. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_collision_a5eb6ce340e41e8d8650db52b8a9637df}{get\+Collision\+Response}} (glm\+::vec3 \+\_\+position, glm\+::vec3 \+\_\+size)
+\begin{DoxyCompactList}\small\item\em Response whenever collision occurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_collision_a5ef9216634ff467117a20e54af2a08ec}{Draw\+Box}} ()
+\begin{DoxyCompactList}\small\item\em Draws the box if is\+Vissable is true. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_a6df4afc64c3de78d07a4929488d6b303}\label{classolivera_1_1_collision_a6df4afc64c3de78d07a4929488d6b303}} 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_collision_a6df4afc64c3de78d07a4929488d6b303}{size}}
+\begin{DoxyCompactList}\small\item\em Size of collision box. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_a55f9818cfdee44a33a9a6b1e71aa7398}\label{classolivera_1_1_collision_a55f9818cfdee44a33a9a6b1e71aa7398}} 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_collision_a55f9818cfdee44a33a9a6b1e71aa7398}{offset}}
+\begin{DoxyCompactList}\small\item\em Offset of collsiion box. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_a224a425b858f861924b0f3057a725db2}\label{classolivera_1_1_collision_a224a425b858f861924b0f3057a725db2}} 
+glm\+::vec3 \mbox{\hyperlink{classolivera_1_1_collision_a224a425b858f861924b0f3057a725db2}{last\+Position}}
+\begin{DoxyCompactList}\small\item\em Last position of the box when colliding. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_a7eccc0688b7cfd17f776ff621ba030cf}\label{classolivera_1_1_collision_a7eccc0688b7cfd17f776ff621ba030cf}} 
+glm\+::mat4 \mbox{\hyperlink{classolivera_1_1_collision_a7eccc0688b7cfd17f776ff621ba030cf}{model}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_model}{Model}} matrix of the collision box. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_ae04da9a274bb74e4f027ed1694208f06}\label{classolivera_1_1_collision_ae04da9a274bb74e4f027ed1694208f06}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ \mbox{\hyperlink{classolivera_1_1_collision_ae04da9a274bb74e4f027ed1694208f06}{core}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to core. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_ac6a4b7b32011fe89ad72d9f62f3ba38e}\label{classolivera_1_1_collision_ac6a4b7b32011fe89ad72d9f62f3ba38e}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_vertex_array}{Vertex\+Array}} $>$ \mbox{\hyperlink{classolivera_1_1_collision_ac6a4b7b32011fe89ad72d9f62f3ba38e}{mesh}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_collision}{Collision}} box mesh ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_aa4e48199f5b551a7ae8ec419cbaf76d0}\label{classolivera_1_1_collision_aa4e48199f5b551a7ae8ec419cbaf76d0}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classolivera_1_1_collision_aa4e48199f5b551a7ae8ec419cbaf76d0}{entity\+Self}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to entity this is a component off. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_abbc8f73c60354506c0e4c1dddce4ffbc}\label{classolivera_1_1_collision_abbc8f73c60354506c0e4c1dddce4ffbc}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_transform}{Transform}} $>$ \mbox{\hyperlink{classolivera_1_1_collision_abbc8f73c60354506c0e4c1dddce4ffbc}{transform}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to store entitie\textquotesingle{}s transform. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_aeba42dd6de5f29a53f7e30f8edc002be}\label{classolivera_1_1_collision_aeba42dd6de5f29a53f7e30f8edc002be}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}} $>$ \mbox{\hyperlink{classolivera_1_1_collision_aeba42dd6de5f29a53f7e30f8edc002be}{shader}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classolivera_1_1_collision}{Collision}} box shader. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_aa31c06aa97920830a981384cb61ea943}\label{classolivera_1_1_collision_aa31c06aa97920830a981384cb61ea943}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_current_camera}{Current\+Camera}} $>$ \mbox{\hyperlink{classolivera_1_1_collision_aa31c06aa97920830a981384cb61ea943}{camera\+Context}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to store the current Camera. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_ada0c973726f427f1442dd1edddd59fba}\label{classolivera_1_1_collision_ada0c973726f427f1442dd1edddd59fba}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_resource_manager}{Resource\+Manager}} $>$ \mbox{\hyperlink{classolivera_1_1_collision_ada0c973726f427f1442dd1edddd59fba}{collision\+Resources}}
+\begin{DoxyCompactList}\small\item\em Storage for all collision needed resources. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_collision_ab97ff561dc4f605f9e3ca56e570b6ed7}\label{classolivera_1_1_collision_ab97ff561dc4f605f9e3ca56e570b6ed7}} 
+bool \mbox{\hyperlink{classolivera_1_1_collision_ab97ff561dc4f605f9e3ca56e570b6ed7}{is\+Visable}}
+\begin{DoxyCompactList}\small\item\em Boolean to check if the bounding box should be visable ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Handle collision between objects with this components attached. 
+
+Limited to A\+A\+BB, collision box is outlined using a shader. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_collision_a7d3a5394880537d5c43bac5d22dc5717}\label{classolivera_1_1_collision_a7d3a5394880537d5c43bac5d22dc5717}} 
+\index{olivera::Collision@{olivera::Collision}!collideBox@{collideBox}}
+\index{collideBox@{collideBox}!olivera::Collision@{olivera::Collision}}
+\doxysubsubsection{\texorpdfstring{collideBox()}{collideBox()}}
+{\footnotesize\ttfamily void olivera\+::\+Collision\+::collide\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check if colliding. Checks for all entites with a collision component and adds it to a list whenever any of the A\+A\+B\+Bs cross each other enable is\+Colliding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & is\+Visable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_collision_a5ef9216634ff467117a20e54af2a08ec}\label{classolivera_1_1_collision_a5ef9216634ff467117a20e54af2a08ec}} 
+\index{olivera::Collision@{olivera::Collision}!DrawBox@{DrawBox}}
+\index{DrawBox@{DrawBox}!olivera::Collision@{olivera::Collision}}
+\doxysubsubsection{\texorpdfstring{DrawBox()}{DrawBox()}}
+{\footnotesize\ttfamily void olivera\+::\+Collision\+::\+Draw\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the box if is\+Vissable is true. 
+
+\mbox{\Hypertarget{classolivera_1_1_collision_a5eb6ce340e41e8d8650db52b8a9637df}\label{classolivera_1_1_collision_a5eb6ce340e41e8d8650db52b8a9637df}} 
+\index{olivera::Collision@{olivera::Collision}!getCollisionResponse@{getCollisionResponse}}
+\index{getCollisionResponse@{getCollisionResponse}!olivera::Collision@{olivera::Collision}}
+\doxysubsubsection{\texorpdfstring{getCollisionResponse()}{getCollisionResponse()}}
+{\footnotesize\ttfamily glm\+::vec3 olivera\+::\+Collision\+::get\+Collision\+Response (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+position,  }\item[{glm\+::vec3}]{\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Response whenever collision occurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em glm\+::vec3} & position of the colliding box. \\
+\hline
+{\em glm\+::\+Vec3} & size of the colliding box.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new position after colliding. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_collision_a80ad3ce4ce0eb01d7127a5fabcb248c6}\label{classolivera_1_1_collision_a80ad3ce4ce0eb01d7127a5fabcb248c6}} 
+\index{olivera::Collision@{olivera::Collision}!isColliding@{isColliding}}
+\index{isColliding@{isColliding}!olivera::Collision@{olivera::Collision}}
+\doxysubsubsection{\texorpdfstring{isColliding()}{isColliding()}}
+{\footnotesize\ttfamily bool olivera\+::\+Collision\+::is\+Colliding (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+position,  }\item[{glm\+::vec3}]{\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+A\+A\+BB collision check. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em glm\+::vec3} & position of colliding box \\
+\hline
+{\em glm\+::vec3} & size of colliding box\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if colliding 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_collision_a9985a13ec1754d384d1c5ca2c7781bb4}\label{classolivera_1_1_collision_a9985a13ec1754d384d1c5ca2c7781bb4}} 
+\index{olivera::Collision@{olivera::Collision}!onDisplay@{onDisplay}}
+\index{onDisplay@{onDisplay}!olivera::Collision@{olivera::Collision}}
+\doxysubsubsection{\texorpdfstring{onDisplay()}{onDisplay()}}
+{\footnotesize\ttfamily void olivera\+::\+Collision\+::on\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Display collision boulding box. 
+
+
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a752d4d19d7b3b7655bd0eb1b515cba29}{olivera\+::\+Component}}.
+
+\mbox{\Hypertarget{classolivera_1_1_collision_a1780a08d76aaf3bb9adf78f0292b6e43}\label{classolivera_1_1_collision_a1780a08d76aaf3bb9adf78f0292b6e43}} 
+\index{olivera::Collision@{olivera::Collision}!onInitialise@{onInitialise}}
+\index{onInitialise@{onInitialise}!olivera::Collision@{olivera::Collision}}
+\doxysubsubsection{\texorpdfstring{onInitialise()}{onInitialise()}}
+{\footnotesize\ttfamily void olivera\+::\+Collision\+::on\+Initialise (\begin{DoxyParamCaption}\item[{bool}]{\+\_\+is\+Visable }\end{DoxyParamCaption})}
+
+
+
+set up for the collision box. 
+
+Attached a collision box to the entity and if visablity is enabled prepares the V\+BO V\+AO and sets ups the hardcoded shaders for use. \mbox{\Hypertarget{classolivera_1_1_collision_a6124df2d82a3e31f976a2959ae9cb36e}\label{classolivera_1_1_collision_a6124df2d82a3e31f976a2959ae9cb36e}} 
+\index{olivera::Collision@{olivera::Collision}!onTick@{onTick}}
+\index{onTick@{onTick}!olivera::Collision@{olivera::Collision}}
+\doxysubsubsection{\texorpdfstring{onTick()}{onTick()}}
+{\footnotesize\ttfamily void olivera\+::\+Collision\+::on\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Check if entities are colliding every tick. 
+
+If is\+Visable is set to true, a hard coded green bounding box will appear. 
+
+Reimplemented from \mbox{\hyperlink{classolivera_1_1_component_a7ffbee9cd61035ffb5b5795718b4d056}{olivera\+::\+Component}}.
+
+\mbox{\Hypertarget{classolivera_1_1_collision_ae059d8f956a0e19f7cfe448e0f46564b}\label{classolivera_1_1_collision_ae059d8f956a0e19f7cfe448e0f46564b}} 
+\index{olivera::Collision@{olivera::Collision}!setOffset@{setOffset}}
+\index{setOffset@{setOffset}!olivera::Collision@{olivera::Collision}}
+\doxysubsubsection{\texorpdfstring{setOffset()}{setOffset()}}
+{\footnotesize\ttfamily void olivera\+::\+Collision\+::set\+Offset (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{\+\_\+offset }\end{DoxyParamCaption})}
+
+
+
+Setter for the offset when colliding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em glm\+::vec3} & offset for calculating new position. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_collision_a8213ba1db60a2556aace8c4bf6e43eac}\label{classolivera_1_1_collision_a8213ba1db60a2556aace8c4bf6e43eac}} 
+\index{olivera::Collision@{olivera::Collision}!setScale@{setScale}}
+\index{setScale@{setScale}!olivera::Collision@{olivera::Collision}}
+\doxysubsubsection{\texorpdfstring{setScale()}{setScale()}}
+{\footnotesize\ttfamily void olivera\+::\+Collision\+::set\+Scale (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Setter for the scale of the collision box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em glm\+::vec3} & size \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Collision.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Collision.\+cpp\end{DoxyCompactItemize}

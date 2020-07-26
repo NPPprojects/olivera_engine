@@ -6,31 +6,73 @@
 #include "Component.h"
 namespace olivera
 {
+  /******************************************************************
+  @brief Class to handle generating a DepthMap to create shadows
 
+  *******************************************************************/
   class ShadowsFBO
   {
-  public:
+    public:
 
-    void configureFBO();
+      /*****************************************************
+      @brief Call OpenGL Methods to configure Framebuffer
+      that will be used to create a depthMap.
+      
+      ******************************************************/
+      void configureFBO();
 
-    void createCubemapTransformationMatrices(glm::vec3 _lightPos);
+      /******************************************************************
+      @brief Assign shadowCubemap transformations using light positions
 
-    void bindFBO(std::shared_ptr<ResourceManager> _resourceManager, std::string _shader);
+      *******************************************************************/
+      void createCubemapTransformationMatrices(glm::vec3 _lightPos);
 
-    float getNearPlane();
+      /*****************************************************
+      @brief Bind FBO, using shadow Resutiolon, and then 
+      assign uniform values for shadow Matracies
+      
+      ******************************************************/
+      void bindFBO(std::shared_ptr<ResourceManager> _resourceManager, std::string _shader);
 
-    float getFarPlane();
+      /****************************
+      @brief Getter for near plane
 
-    int getDepthCubemap();
+      @return nearPlane
+
+      *****************************/
+       float getNearPlane();
+
+      /****************************
+      @brief Getter for far plane
+                                 
+      @return farPlane           
+
+      *****************************/
+        float getFarPlane();
+
+      /********************************
+      @brief Getter for Depth Cubemap
+     
+      @return depthCubemap
+     
+      *********************************/
+        int getDepthCubemap();
 
 
-  private:
-    const unsigned int resolution = 2048;
-    const float nearPlane = 1.0f;
-    const float farPlane = 100.f;
-    unsigned int FBO;
-    unsigned int depthCubemap;
-    std::vector<glm::mat4> shadowTransforms;
+    private:
+      /********************************************************************************************************************/
+     
+      const unsigned int resolution = 2048;                                                         //</ Shadows Resolution
+
+      unsigned int depthCubemap;                                                           //</ Texture CubeMap for Shadows
+      unsigned int FBO;                                                                             //</ Framebuffer Object
+
+      const float farPlane = 100.f;                                                              //</ Far plane for shadows
+      const float nearPlane = 1.0f;                                                             //</ Near plane for shadpws
+
+      std::vector<glm::mat4> shadowTransforms;                                    //</Vector to hold shadow Transformations
+
+      /********************************************************************************************************************/
 
   };
 

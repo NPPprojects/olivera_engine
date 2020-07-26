@@ -1,0 +1,142 @@
+\hypertarget{classolivera_1_1_shader_program}{}\doxysection{olivera\+::Shader\+Program Class Reference}
+\label{classolivera_1_1_shader_program}\index{olivera::ShaderProgram@{olivera::ShaderProgram}}
+
+
+\mbox{\hyperlink{classolivera_1_1_resource}{Resource}} derived class that generates a shader program from a .frag and .vert file.  
+
+
+
+
+{\ttfamily \#include $<$Shader\+Program.\+h$>$}
+
+Inheritance diagram for olivera\+::Shader\+Program\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_shader_program}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \mbox{\hyperlink{classolivera_1_1_shader_program_a01e5c49e12fbb7c54d51dea148479740}{get\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Getter for shader ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_shader_program_a8aec53b2063e9b458c5edcba3fbd2f5d}{use\+Shader}} ()
+\begin{DoxyCompactList}\small\item\em use Shader Program \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_shader_program_adaa12e738d401ab94bca270af42ef9c6}{load\+Shader\+Program}} (std\+::string \+\_\+path)
+\begin{DoxyCompactList}\small\item\em Create a shader program by loading in the .vert and .frag files. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classolivera_1_1_shader_program_ae61bdf4a2b981cf3d3616db1b2d91bfa}{Shader\+Program}} (std\+::string \+\_\+path)
+\begin{DoxyCompactList}\small\item\em Call load\+Shader\+Program when constructing. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a0fc5572e0a94bccf9c8d9f84dcaa94b5}\label{classolivera_1_1_shader_program_a0fc5572e0a94bccf9c8d9f84dcaa94b5}} 
+void {\bfseries set\+Bool} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, bool value) const
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_ae32f5d5eefdccd73d6506dfb790c25ca}\label{classolivera_1_1_shader_program_ae32f5d5eefdccd73d6506dfb790c25ca}} 
+void {\bfseries set\+Int} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, int value) const
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a333e8ecfb27ca3744bb9c7176473cf1d}\label{classolivera_1_1_shader_program_a333e8ecfb27ca3744bb9c7176473cf1d}} 
+void {\bfseries set\+Float} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, float value) const
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a840c5e1ad7e48606a256b3e926492ccb}\label{classolivera_1_1_shader_program_a840c5e1ad7e48606a256b3e926492ccb}} 
+void {\bfseries set\+Vec2} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, const glm\+::vec2 \&value) const
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a8c2c85defaf1497263946cbd805bea22}\label{classolivera_1_1_shader_program_a8c2c85defaf1497263946cbd805bea22}} 
+void {\bfseries set\+Vec2} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, float x, float y) const
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a7a5cf4c1926bcb274b6addb4572bfebc}\label{classolivera_1_1_shader_program_a7a5cf4c1926bcb274b6addb4572bfebc}} 
+void {\bfseries set\+Vec3} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, const glm\+::vec3 \&value) const
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a7abc5bc321fd62d19733b4c594e4978f}\label{classolivera_1_1_shader_program_a7abc5bc321fd62d19733b4c594e4978f}} 
+void {\bfseries set\+Vec3} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, float x, float y, float z) const
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a4c7266f785e4b30be78ae9ab294d6bf6}\label{classolivera_1_1_shader_program_a4c7266f785e4b30be78ae9ab294d6bf6}} 
+void {\bfseries set\+Vec4} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, const glm\+::vec4 \&value) const
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a57bea77f85ee9ccb00e52dd5c86ba8f1}\label{classolivera_1_1_shader_program_a57bea77f85ee9ccb00e52dd5c86ba8f1}} 
+void {\bfseries set\+Vec4} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, float x, float y, float z, float w)
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a4d3fca538f45c91516cf2492b2cbadc1}\label{classolivera_1_1_shader_program_a4d3fca538f45c91516cf2492b2cbadc1}} 
+void {\bfseries set\+Mat2} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, const glm\+::mat2 \&mat) const
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a33e83db994883f4ce84c046764c43787}\label{classolivera_1_1_shader_program_a33e83db994883f4ce84c046764c43787}} 
+void {\bfseries set\+Mat3} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, const glm\+::mat3 \&mat) const
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a79d0b9f3adca7645598aa003770a874a}\label{classolivera_1_1_shader_program_a79d0b9f3adca7645598aa003770a874a}} 
+void {\bfseries set\+Mat4} (const std\+::string \&\mbox{\hyperlink{classolivera_1_1_resource_a11e1174c6ffc10c699461907110a7bf1}{name}}, const glm\+::mat4 \&mat) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_shader_program_a623bfc662d989efc8127585c9935bb93}{check\+Compile\+Errors}} (G\+Luint, std\+::string)
+\begin{DoxyCompactList}\small\item\em Private function that checks for compile errors in the .vert and .frag files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a7b0131570f9f6b624956f481e4016b02}\label{classolivera_1_1_shader_program_a7b0131570f9f6b624956f481e4016b02}} 
+G\+Luint \mbox{\hyperlink{classolivera_1_1_shader_program_a7b0131570f9f6b624956f481e4016b02}{ID}}
+\begin{DoxyCompactList}\small\item\em Id for the \mbox{\hyperlink{classolivera_1_1_shader_program}{Shader\+Program}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classolivera_1_1_resource}{Resource}} derived class that generates a shader program from a .frag and .vert file. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classolivera_1_1_shader_program_ae61bdf4a2b981cf3d3616db1b2d91bfa}\label{classolivera_1_1_shader_program_ae61bdf4a2b981cf3d3616db1b2d91bfa}} 
+\index{olivera::ShaderProgram@{olivera::ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\index{ShaderProgram@{ShaderProgram}!olivera::ShaderProgram@{olivera::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{ShaderProgram()}{ShaderProgram()}}
+{\footnotesize\ttfamily olivera\+::\+Shader\+Program\+::\+Shader\+Program (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Call load\+Shader\+Program when constructing. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a623bfc662d989efc8127585c9935bb93}\label{classolivera_1_1_shader_program_a623bfc662d989efc8127585c9935bb93}} 
+\index{olivera::ShaderProgram@{olivera::ShaderProgram}!checkCompileErrors@{checkCompileErrors}}
+\index{checkCompileErrors@{checkCompileErrors}!olivera::ShaderProgram@{olivera::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{checkCompileErrors()}{checkCompileErrors()}}
+{\footnotesize\ttfamily void olivera\+::\+Shader\+Program\+::check\+Compile\+Errors (\begin{DoxyParamCaption}\item[{G\+Luint}]{shader,  }\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Private function that checks for compile errors in the .vert and .frag files. 
+
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a01e5c49e12fbb7c54d51dea148479740}\label{classolivera_1_1_shader_program_a01e5c49e12fbb7c54d51dea148479740}} 
+\index{olivera::ShaderProgram@{olivera::ShaderProgram}!getID@{getID}}
+\index{getID@{getID}!olivera::ShaderProgram@{olivera::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily G\+Luint olivera\+::\+Shader\+Program\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for shader ID. 
+
+\mbox{\Hypertarget{classolivera_1_1_shader_program_adaa12e738d401ab94bca270af42ef9c6}\label{classolivera_1_1_shader_program_adaa12e738d401ab94bca270af42ef9c6}} 
+\index{olivera::ShaderProgram@{olivera::ShaderProgram}!loadShaderProgram@{loadShaderProgram}}
+\index{loadShaderProgram@{loadShaderProgram}!olivera::ShaderProgram@{olivera::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{loadShaderProgram()}{loadShaderProgram()}}
+{\footnotesize\ttfamily void olivera\+::\+Shader\+Program\+::load\+Shader\+Program (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Create a shader program by loading in the .vert and .frag files. 
+
+\mbox{\Hypertarget{classolivera_1_1_shader_program_a8aec53b2063e9b458c5edcba3fbd2f5d}\label{classolivera_1_1_shader_program_a8aec53b2063e9b458c5edcba3fbd2f5d}} 
+\index{olivera::ShaderProgram@{olivera::ShaderProgram}!useShader@{useShader}}
+\index{useShader@{useShader}!olivera::ShaderProgram@{olivera::ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{useShader()}{useShader()}}
+{\footnotesize\ttfamily void olivera\+::\+Shader\+Program\+::use\+Shader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+use Shader Program 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Shader\+Program.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Shader\+Program.\+cpp\end{DoxyCompactItemize}

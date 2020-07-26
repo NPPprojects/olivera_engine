@@ -1,0 +1,155 @@
+\hypertarget{classolivera_1_1_vertex_array}{}\doxysection{olivera\+::Vertex\+Array Class Reference}
+\label{classolivera_1_1_vertex_array}\index{olivera::VertexArray@{olivera::VertexArray}}
+
+
+class to generate a vertex array by passing in a .data file(simple shapes)  
+
+
+
+
+{\ttfamily \#include $<$Vertex\+Array.\+h$>$}
+
+Inheritance diagram for olivera\+::Vertex\+Array\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classolivera_1_1_vertex_array}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classolivera_1_1_vertex_array_a51327c8440f404ab315cae86cff6788a}{Vertex\+Array}} (std\+::string \+\_\+path)
+\begin{DoxyCompactList}\small\item\em Constuctor calls set vertex\+Data function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_vertex_array_a95592d500539210f02e77e6229692824}{read\+Vertex\+Data}} (std\+::string \+\_\+\+Object\+File)
+\begin{DoxyCompactList}\small\item\em reads a .data file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_vertex_array_af3336d6853db151756606b6b309271f2}{set\+Vertex\+Data}} ()
+\begin{DoxyCompactList}\small\item\em sets \mbox{\hyperlink{structolivera_1_1_vertex}{Vertex}} Data setting up the V\+AO \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{classolivera_1_1_vertex_array_a1ae29d70a748ee840e3485ee05766181}{get\+V\+AO}} ()
+\begin{DoxyCompactList}\small\item\em Getter for V\+AO. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classolivera_1_1_vertex_array_a730865a8be631de2ed4c9ba9b012a418}{get\+Verticies\+Count}} ()
+\begin{DoxyCompactList}\small\item\em getter for the verticies count in a .data file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_vertex_array_adf2e307691b4f0e6bc27c0871112fb93}{split\+String\+Whitespace}} (std\+::string \&\+\_\+input, std\+::vector$<$ std\+::string $>$ \&\+\_\+output)
+\begin{DoxyCompactList}\small\item\em Removes white spaces in text files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_ab9f8454b1f7e48bc32540538209e0412}\label{classolivera_1_1_vertex_array_ab9f8454b1f7e48bc32540538209e0412}} 
+int \mbox{\hyperlink{classolivera_1_1_vertex_array_ab9f8454b1f7e48bc32540538209e0412}{vertex\+Count}}
+\begin{DoxyCompactList}\small\item\em Amount of vertecies in an object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_a345755d829b27c3d08b063b8995e10ce}\label{classolivera_1_1_vertex_array_a345755d829b27c3d08b063b8995e10ce}} 
+int \mbox{\hyperlink{classolivera_1_1_vertex_array_a345755d829b27c3d08b063b8995e10ce}{attribute\+Type\+Count}}
+\begin{DoxyCompactList}\small\item\em Counter for amount of vertex attributes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_a0031acb735fcb42536ba9f3efb1b0799}\label{classolivera_1_1_vertex_array_a0031acb735fcb42536ba9f3efb1b0799}} 
+int \mbox{\hyperlink{classolivera_1_1_vertex_array_a0031acb735fcb42536ba9f3efb1b0799}{stride}}
+\begin{DoxyCompactList}\small\item\em The vertex stride. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_ae9822a0063f3210e91785f026c68e8e7}\label{classolivera_1_1_vertex_array_ae9822a0063f3210e91785f026c68e8e7}} 
+G\+Luint \mbox{\hyperlink{classolivera_1_1_vertex_array_ae9822a0063f3210e91785f026c68e8e7}{V\+BO}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structolivera_1_1_vertex}{Vertex}} Buffer Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_a98e19dfff240c85b32a5f38be862b2f3}\label{classolivera_1_1_vertex_array_a98e19dfff240c85b32a5f38be862b2f3}} 
+G\+Luint \mbox{\hyperlink{classolivera_1_1_vertex_array_a98e19dfff240c85b32a5f38be862b2f3}{V\+AO}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{structolivera_1_1_vertex}{Vertex}} Array Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_adb8a368c808fbdd051fbd9aaecff427a}\label{classolivera_1_1_vertex_array_adb8a368c808fbdd051fbd9aaecff427a}} 
+G\+Luint \mbox{\hyperlink{classolivera_1_1_vertex_array_adb8a368c808fbdd051fbd9aaecff427a}{E\+BO}}
+\begin{DoxyCompactList}\small\item\em Element Buffer Object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_a9a8dccee2360b33cfd0762f393616443}\label{classolivera_1_1_vertex_array_a9a8dccee2360b33cfd0762f393616443}} 
+std\+::ifstream \mbox{\hyperlink{classolivera_1_1_vertex_array_a9a8dccee2360b33cfd0762f393616443}{vertex\+Data}}
+\begin{DoxyCompactList}\small\item\em vertex .data file \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_a7898c08474ec3cfc654f3385c8d43f4d}\label{classolivera_1_1_vertex_array_a7898c08474ec3cfc654f3385c8d43f4d}} 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{classolivera_1_1_vertex_array_a7898c08474ec3cfc654f3385c8d43f4d}{vertex\+Induvidual\+Data}}
+\begin{DoxyCompactList}\small\item\em All vertex data. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_af5053efd72d28fb52a4b510649fc831e}\label{classolivera_1_1_vertex_array_af5053efd72d28fb52a4b510649fc831e}} 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classolivera_1_1_vertex_array_af5053efd72d28fb52a4b510649fc831e}{vertex\+Attribute}}
+\begin{DoxyCompactList}\small\item\em vertex Attibute layout number \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_aa15eb5710f1da43803f77cafac400dee}\label{classolivera_1_1_vertex_array_aa15eb5710f1da43803f77cafac400dee}} 
+int \mbox{\hyperlink{classolivera_1_1_vertex_array_aa15eb5710f1da43803f77cafac400dee}{total\+Vertex\+Float\+Count}}
+\begin{DoxyCompactList}\small\item\em Total Vertecies Amount. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class to generate a vertex array by passing in a .data file(simple shapes) 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_a51327c8440f404ab315cae86cff6788a}\label{classolivera_1_1_vertex_array_a51327c8440f404ab315cae86cff6788a}} 
+\index{olivera::VertexArray@{olivera::VertexArray}!VertexArray@{VertexArray}}
+\index{VertexArray@{VertexArray}!olivera::VertexArray@{olivera::VertexArray}}
+\doxysubsubsection{\texorpdfstring{VertexArray()}{VertexArray()}}
+{\footnotesize\ttfamily olivera\+::\+Vertex\+Array\+::\+Vertex\+Array (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Constuctor calls set vertex\+Data function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & file\+Path \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_a1ae29d70a748ee840e3485ee05766181}\label{classolivera_1_1_vertex_array_a1ae29d70a748ee840e3485ee05766181}} 
+\index{olivera::VertexArray@{olivera::VertexArray}!getVAO@{getVAO}}
+\index{getVAO@{getVAO}!olivera::VertexArray@{olivera::VertexArray}}
+\doxysubsubsection{\texorpdfstring{getVAO()}{getVAO()}}
+{\footnotesize\ttfamily G\+Luint olivera\+::\+Vertex\+Array\+::get\+V\+AO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for V\+AO. 
+
+return G\+Luint V\+AO \mbox{\Hypertarget{classolivera_1_1_vertex_array_a730865a8be631de2ed4c9ba9b012a418}\label{classolivera_1_1_vertex_array_a730865a8be631de2ed4c9ba9b012a418}} 
+\index{olivera::VertexArray@{olivera::VertexArray}!getVerticiesCount@{getVerticiesCount}}
+\index{getVerticiesCount@{getVerticiesCount}!olivera::VertexArray@{olivera::VertexArray}}
+\doxysubsubsection{\texorpdfstring{getVerticiesCount()}{getVerticiesCount()}}
+{\footnotesize\ttfamily int olivera\+::\+Vertex\+Array\+::get\+Verticies\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getter for the verticies count in a .data file 
+
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_a95592d500539210f02e77e6229692824}\label{classolivera_1_1_vertex_array_a95592d500539210f02e77e6229692824}} 
+\index{olivera::VertexArray@{olivera::VertexArray}!readVertexData@{readVertexData}}
+\index{readVertexData@{readVertexData}!olivera::VertexArray@{olivera::VertexArray}}
+\doxysubsubsection{\texorpdfstring{readVertexData()}{readVertexData()}}
+{\footnotesize\ttfamily void olivera\+::\+Vertex\+Array\+::read\+Vertex\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+\+Object\+File }\end{DoxyParamCaption})}
+
+
+
+reads a .data file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & file\+Path \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_af3336d6853db151756606b6b309271f2}\label{classolivera_1_1_vertex_array_af3336d6853db151756606b6b309271f2}} 
+\index{olivera::VertexArray@{olivera::VertexArray}!setVertexData@{setVertexData}}
+\index{setVertexData@{setVertexData}!olivera::VertexArray@{olivera::VertexArray}}
+\doxysubsubsection{\texorpdfstring{setVertexData()}{setVertexData()}}
+{\footnotesize\ttfamily void olivera\+::\+Vertex\+Array\+::set\+Vertex\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+sets \mbox{\hyperlink{structolivera_1_1_vertex}{Vertex}} Data setting up the V\+AO 
+
+\mbox{\Hypertarget{classolivera_1_1_vertex_array_adf2e307691b4f0e6bc27c0871112fb93}\label{classolivera_1_1_vertex_array_adf2e307691b4f0e6bc27c0871112fb93}} 
+\index{olivera::VertexArray@{olivera::VertexArray}!splitStringWhitespace@{splitStringWhitespace}}
+\index{splitStringWhitespace@{splitStringWhitespace}!olivera::VertexArray@{olivera::VertexArray}}
+\doxysubsubsection{\texorpdfstring{splitStringWhitespace()}{splitStringWhitespace()}}
+{\footnotesize\ttfamily void olivera\+::\+Vertex\+Array\+::split\+String\+Whitespace (\begin{DoxyParamCaption}\item[{std\+::string \&}]{\+\_\+input,  }\item[{std\+::vector$<$ std\+::string $>$ \&}]{\+\_\+output }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Removes white spaces in text files. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Vertex\+Array.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Vertex\+Array.\+cpp\end{DoxyCompactItemize}

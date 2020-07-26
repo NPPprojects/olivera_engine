@@ -1,0 +1,193 @@
+\hypertarget{classolivera_1_1_entity}{}\doxysection{olivera\+::Entity Class Reference}
+\label{classolivera_1_1_entity}\index{olivera::Entity@{olivera::Entity}}
+
+
+\mbox{\hyperlink{classolivera_1_1_entity}{Entity}} class that handles the creation of objects(entities) to which components are added.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ \mbox{\hyperlink{classolivera_1_1_entity_ab26f7b32ddb17303cc65470b84e178d3}{get\+Core}} ()
+\begin{DoxyCompactList}\small\item\em Getter function for core. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{classolivera_1_1_entity_a55e4fd2fa0e4e077fee122fd976e9d09}{get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Getter function for component within entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{classolivera_1_1_entity_a3c0a943c5d832e3ae63d5d484bef0fb2}{add\+Component}} ()
+\begin{DoxyCompactList}\small\item\em function to add a component to entity without passing parameters \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename A $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{classolivera_1_1_entity_ab826c60eb57cddcea7ae9cfaf11cb06e}{add\+Component}} (A a)
+\begin{DoxyCompactList}\small\item\em Add a component to entity and pass 1 parameter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename A , typename B $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{classolivera_1_1_entity_a6f49a5b220bdd9d26ff37ae72e09454b}{add\+Component}} (A a, B b)
+\begin{DoxyCompactList}\small\item\em Add a component to entity and pass 2 parameter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename A , typename B , typename C $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{classolivera_1_1_entity_a5161d5e53a05105a3658429f10030f70}{add\+Component}} (A a, B b, C c)
+\begin{DoxyCompactList}\small\item\em Add a component to entity and pass 3 parameter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename A , typename B , typename C , typename D $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{classolivera_1_1_entity_a5bced32e92d25bc1325eb92fa4c5582c}{add\+Component}} (A a, B b, C c, D d)
+\begin{DoxyCompactList}\small\item\em Add a component to entity and pass 3 parameter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{classolivera_1_1_entity_a61cf66781d21d2b8ce4e72e287583586}{check\+For\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Search for a specific component within entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classolivera_1_1_entity_a0bb5047fd42d96bc928a04c3c14b001c}{tick}} ()
+\begin{DoxyCompactList}\small\item\em Go thorugh each component and call their on\+Tick function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_entity_a4461ad74fc46017be376d0468643f805}{display}} ()
+\begin{DoxyCompactList}\small\item\em Go thorugh each component and call their on\+Display function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classolivera_1_1_entity_ab10a2b8a6dc98b9da934bc518d97d828}{shadow\+Display}} ()
+\begin{DoxyCompactList}\small\item\em Call \mbox{\hyperlink{classolivera_1_1_entity_a4461ad74fc46017be376d0468643f805}{display()}} function to create a Depth\+Map which will be used for shadows ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_entity_a3d88ae85cf073b957c25fcf9d3752bf7}\label{classolivera_1_1_entity_a3d88ae85cf073b957c25fcf9d3752bf7}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{classolivera_1_1_entity_a3d88ae85cf073b957c25fcf9d3752bf7}{self}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to self. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_entity_a2fecbc8dfa738d2744bde488e1ac97d3}\label{classolivera_1_1_entity_a2fecbc8dfa738d2744bde488e1ac97d3}} 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ \mbox{\hyperlink{classolivera_1_1_entity_a2fecbc8dfa738d2744bde488e1ac97d3}{core}}
+\begin{DoxyCompactList}\small\item\em Weak pointer to core. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classolivera_1_1_entity_acab06e3f7bf4a5ed7cd7ce70341378ca}\label{classolivera_1_1_entity_acab06e3f7bf4a5ed7cd7ce70341378ca}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_component}{Component}} $>$ $>$ \mbox{\hyperlink{classolivera_1_1_entity_acab06e3f7bf4a5ed7cd7ce70341378ca}{components}}
+\begin{DoxyCompactList}\small\item\em Vector to store components. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classolivera_1_1_entity_a4107254ac74f90d4f91e810d755b98c2}\label{classolivera_1_1_entity_a4107254ac74f90d4f91e810d755b98c2}} 
+class {\bfseries Core}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classolivera_1_1_entity}{Entity}} class that handles the creation of objects(entities) to which components are added. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classolivera_1_1_entity_a3c0a943c5d832e3ae63d5d484bef0fb2}\label{classolivera_1_1_entity_a3c0a943c5d832e3ae63d5d484bef0fb2}} 
+\index{olivera::Entity@{olivera::Entity}!addComponent@{addComponent}}
+\index{addComponent@{addComponent}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{addComponent()}{addComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::shared\+\_\+ptr$<$T$>$ olivera\+::\+Entity\+::add\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+function to add a component to entity without passing parameters 
+
+\mbox{\Hypertarget{classolivera_1_1_entity_ab826c60eb57cddcea7ae9cfaf11cb06e}\label{classolivera_1_1_entity_ab826c60eb57cddcea7ae9cfaf11cb06e}} 
+\index{olivera::Entity@{olivera::Entity}!addComponent@{addComponent}}
+\index{addComponent@{addComponent}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{addComponent()}{addComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily template$<$typename T , typename A $>$ \\
+std\+::shared\+\_\+ptr$<$T$>$ olivera\+::\+Entity\+::add\+Component (\begin{DoxyParamCaption}\item[{A}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a component to entity and pass 1 parameter. 
+
+\mbox{\Hypertarget{classolivera_1_1_entity_a6f49a5b220bdd9d26ff37ae72e09454b}\label{classolivera_1_1_entity_a6f49a5b220bdd9d26ff37ae72e09454b}} 
+\index{olivera::Entity@{olivera::Entity}!addComponent@{addComponent}}
+\index{addComponent@{addComponent}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{addComponent()}{addComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily template$<$typename T , typename A , typename B $>$ \\
+std\+::shared\+\_\+ptr$<$T$>$ olivera\+::\+Entity\+::add\+Component (\begin{DoxyParamCaption}\item[{A}]{a,  }\item[{B}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a component to entity and pass 2 parameter. 
+
+\mbox{\Hypertarget{classolivera_1_1_entity_a5161d5e53a05105a3658429f10030f70}\label{classolivera_1_1_entity_a5161d5e53a05105a3658429f10030f70}} 
+\index{olivera::Entity@{olivera::Entity}!addComponent@{addComponent}}
+\index{addComponent@{addComponent}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{addComponent()}{addComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily template$<$typename T , typename A , typename B , typename C $>$ \\
+std\+::shared\+\_\+ptr$<$T$>$ olivera\+::\+Entity\+::add\+Component (\begin{DoxyParamCaption}\item[{A}]{a,  }\item[{B}]{b,  }\item[{C}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a component to entity and pass 3 parameter. 
+
+\mbox{\Hypertarget{classolivera_1_1_entity_a5bced32e92d25bc1325eb92fa4c5582c}\label{classolivera_1_1_entity_a5bced32e92d25bc1325eb92fa4c5582c}} 
+\index{olivera::Entity@{olivera::Entity}!addComponent@{addComponent}}
+\index{addComponent@{addComponent}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{addComponent()}{addComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily template$<$typename T , typename A , typename B , typename C , typename D $>$ \\
+std\+::shared\+\_\+ptr$<$T$>$ olivera\+::\+Entity\+::add\+Component (\begin{DoxyParamCaption}\item[{A}]{a,  }\item[{B}]{b,  }\item[{C}]{c,  }\item[{D}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a component to entity and pass 3 parameter. 
+
+\mbox{\Hypertarget{classolivera_1_1_entity_a61cf66781d21d2b8ce4e72e287583586}\label{classolivera_1_1_entity_a61cf66781d21d2b8ce4e72e287583586}} 
+\index{olivera::Entity@{olivera::Entity}!checkForComponent@{checkForComponent}}
+\index{checkForComponent@{checkForComponent}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{checkForComponent()}{checkForComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool olivera\+::\+Entity\+::check\+For\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Search for a specific component within entities. 
+
+\begin{DoxyReturn}{Returns}
+True if found specified component within entity or false if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classolivera_1_1_entity_a4461ad74fc46017be376d0468643f805}\label{classolivera_1_1_entity_a4461ad74fc46017be376d0468643f805}} 
+\index{olivera::Entity@{olivera::Entity}!display@{display}}
+\index{display@{display}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void olivera\+::\+Entity\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Go thorugh each component and call their on\+Display function. 
+
+\mbox{\Hypertarget{classolivera_1_1_entity_a55e4fd2fa0e4e077fee122fd976e9d09}\label{classolivera_1_1_entity_a55e4fd2fa0e4e077fee122fd976e9d09}} 
+\index{olivera::Entity@{olivera::Entity}!getComponent@{getComponent}}
+\index{getComponent@{getComponent}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{getComponent()}{getComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::shared\+\_\+ptr$<$T$>$ olivera\+::\+Entity\+::get\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter function for component within entity. 
+
+\mbox{\Hypertarget{classolivera_1_1_entity_ab26f7b32ddb17303cc65470b84e178d3}\label{classolivera_1_1_entity_ab26f7b32ddb17303cc65470b84e178d3}} 
+\index{olivera::Entity@{olivera::Entity}!getCore@{getCore}}
+\index{getCore@{getCore}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{getCore()}{getCore()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classolivera_1_1_core}{Core}} $>$ olivera\+::\+Entity\+::get\+Core (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter function for core. 
+
+\mbox{\Hypertarget{classolivera_1_1_entity_ab10a2b8a6dc98b9da934bc518d97d828}\label{classolivera_1_1_entity_ab10a2b8a6dc98b9da934bc518d97d828}} 
+\index{olivera::Entity@{olivera::Entity}!shadowDisplay@{shadowDisplay}}
+\index{shadowDisplay@{shadowDisplay}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{shadowDisplay()}{shadowDisplay()}}
+{\footnotesize\ttfamily void olivera\+::\+Entity\+::shadow\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Call \mbox{\hyperlink{classolivera_1_1_entity_a4461ad74fc46017be376d0468643f805}{display()}} function to create a Depth\+Map which will be used for shadows ~\newline
+ 
+
+\mbox{\Hypertarget{classolivera_1_1_entity_a0bb5047fd42d96bc928a04c3c14b001c}\label{classolivera_1_1_entity_a0bb5047fd42d96bc928a04c3c14b001c}} 
+\index{olivera::Entity@{olivera::Entity}!tick@{tick}}
+\index{tick@{tick}!olivera::Entity@{olivera::Entity}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void olivera\+::\+Entity\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Go thorugh each component and call their on\+Tick function. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Entity.\+h\item 
+D\+:/\+Testing/olivera\+\_\+engine/src/olivera/Entity.\+cpp\end{DoxyCompactItemize}
