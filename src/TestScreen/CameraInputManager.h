@@ -37,6 +37,8 @@
 		bool a;
 		bool s;
 		bool d;
+    bool shift;
+    bool space;
 
 	};
 

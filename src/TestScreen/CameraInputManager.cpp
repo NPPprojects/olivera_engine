@@ -47,6 +47,26 @@
 		  }
 	  }
     
+    if (WASDPressed.shift == true)
+    {
+      camera.lock()->ProcessKeyboard(camera.lock()->LEFTSHIFT, core.lock()->getEnvironment()->getDeltaTime() * 1);
+      std::cout << "Speed Up 5x" << std::endl;
+      if (WASDReleased.shift == true)
+      {
+        WASDPressed.shift = false;
+      }
+    }
+
+    if (WASDPressed.space == true)
+    {
+      camera.lock()->ProcessKeyboard(camera.lock()->SPACEBAR, core.lock()->getEnvironment()->getDeltaTime() * 1);
+      std::cout << "Flashlight On" << std::endl;
+      if (WASDReleased.space == true)
+      {
+        WASDPressed.space = false;
+      }
+    }
+
     if (core.lock()->getMouse()->getMouseState()==true)
     {
       mouse_callback(core.lock()->getMouse()->getXMotion(), core.lock()->getMouse()->getYMotion());
@@ -113,7 +133,14 @@
 			  {
 				  WASDPressed.a = true;
 			  }
-
+        if (keyboard.lock()->getKeyPressed().at(i) == SDL_SCANCODE_LSHIFT)
+        {
+          WASDPressed.shift = true;
+        }
+        if (keyboard.lock()->getKeyPressed().at(i) == SDL_SCANCODE_SPACE)
+        {
+          WASDPressed.space = true;
+        }
 		  }
 	  }
 
@@ -139,8 +166,14 @@
 			  {
 				  WASDReleased.a = true;
 			  }
-			  
-
+        if (keyboard.lock()->getKeyReleased().at(i) == SDL_SCANCODE_LSHIFT)
+        {
+          WASDReleased.shift = true;
+        }
+        if (keyboard.lock()->getKeyReleased().at(i) == SDL_SCANCODE_SPACE)
+        {
+          WASDReleased.space = true;
+        }
 		  }
 	  }
 	  else if (keyboard.lock()->getKeyReleased().size() == 0)
@@ -149,6 +182,8 @@
 		  WASDReleased.s = false;
 		  WASDReleased.d = false;
 		  WASDReleased.a = false;
+      WASDReleased.shift = false;
+      WASDReleased.space = false;
 	  }
   }
 

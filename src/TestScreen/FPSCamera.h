@@ -12,7 +12,9 @@
       FORWARD,
       BACKWARD,
       LEFT,
-      RIGHT
+      RIGHT,
+      LEFTSHIFT,
+      SPACEBAR
     };
     void updateCameraVectors();
 
@@ -41,6 +43,8 @@
     // Camera options
     float MovementSpeed;
     float MouseSensitivity;
+    float velocity;
+
     float Zoom;
 
     float YAW = -90.0f;
@@ -56,5 +60,7 @@
 	  std::weak_ptr<olivera::Core> core;
 	  std::weak_ptr<olivera::Transform> transform;
 	  std::weak_ptr<olivera::Entity> entitySelf;
+
+    bool flashlight;
   };
 

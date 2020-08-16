@@ -19,16 +19,37 @@ FPSCamera::~FPSCamera()
   }
   void FPSCamera::ProcessKeyboard(CameraMovement _direction, float _deltaTime)
   {
-    float velocity = MovementSpeed * _deltaTime;
+   
+    velocity = MovementSpeed * _deltaTime;
+    
+    if (_direction == LEFTSHIFT)
+    {
+      MovementSpeed = SPEED*5;
+    }
+    if (_direction != LEFTSHIFT)
+    {
+      MovementSpeed = SPEED;
+    }
+    
+
+
     if (_direction == FORWARD)
-	//Position += Front * velocity;
-	transform.lock()->setPosition(transform.lock()->getPosition() +(transform.lock()->getFront() * velocity));
-    if (_direction == BACKWARD)
-	transform.lock()->setPosition(transform.lock()->getPosition() -(transform.lock()->getFront() * velocity));
+    {
+      transform.lock()->setPosition(transform.lock()->getPosition() + (transform.lock()->getFront() * velocity));
+    }
+    if (_direction == BACKWARD) 
+    {
+      transform.lock()->setPosition(transform.lock()->getPosition() - (transform.lock()->getFront() * velocity));
+    }
     if (_direction == LEFT)
-	transform.lock()->setPosition(transform.lock()->getPosition() -(Right * velocity));
-    if (_direction == RIGHT)
-	transform.lock()->setPosition(transform.lock()->getPosition() +(Right * velocity));
+    {
+      transform.lock()->setPosition(transform.lock()->getPosition() - (Right * velocity));
+    }
+    if (_direction == RIGHT) 
+    {
+      transform.lock()->setPosition(transform.lock()->getPosition() + (Right * velocity));
+    }
+
   }
 
   std::shared_ptr<olivera::CurrentCamera> FPSCamera::getCurrentContext()

@@ -19,7 +19,7 @@ namespace olivera
       cameraEntities.push_back(_cameraEntities.at(i));
     }
 
-    lightColor = glm::vec3(10.0f, 10.0f, 10.0f);
+    lightColor = glm::vec3(3.0f, 3.0f, 3.0f);
     diffuseColor = lightColor * glm::vec3(0.5f); // decrease the influence
     ambientColor = diffuseColor * glm::vec3(0.2f); // low influence
     specularColor = glm::vec3(10.f, 10.f, 10.f);
@@ -97,6 +97,9 @@ namespace olivera
     attenuationValues.linear = _linear;
     attenuationValues.quadratic = _quadratic;
   }
-
+  void Light::setFlashlight(bool _flashlight)
+  {
+    flashlight = _flashlight;
+  }
 
 }

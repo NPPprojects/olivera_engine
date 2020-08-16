@@ -5,7 +5,7 @@ namespace olivera
 
 
   // constructor, expects a filepath to a 3D model.
-  Model::Model(std::string const &_path, bool _gamma) : gammaCorrection(_gamma)
+  Model::Model(std::string const &_path, bool _textureFlip, bool _gamma) : textureFlip(_textureFlip), gammaCorrection(_gamma)
   {
     loadModel(_path);
   }
@@ -179,9 +179,7 @@ namespace olivera
     return textures;
   }
 
-
-
-  unsigned int textureFromFile(const char *_path, const std::string &_directory, bool _gamma)
+  unsigned int Model::textureFromFile(const char *_path, const std::string &_directory)
   {
     std::string filename = std::string(_path);
     filename = _directory + '/' + filename;
@@ -190,7 +188,7 @@ namespace olivera
     glGenTextures(1, &textureID);
 
     int width, height, nrComponents;
-    stbi_set_flip_vertically_on_load(false);
+    stbi_set_flip_vertically_on_load(textureFlip);
     unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
     if (data)
     {

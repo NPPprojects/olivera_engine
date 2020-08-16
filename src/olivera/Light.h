@@ -96,6 +96,9 @@ NEED TO REWORK CLASS
       *****************************/
         void setAttenuation(float _constant,float _linear,  float _quadratic);
 
+
+      void setFlashlight(bool _flashlight);
+
     private:
     /************************************************************************************************************************/
 
@@ -108,6 +111,9 @@ NEED TO REWORK CLASS
       glm::vec3 diffuseColor;
       glm::vec3 ambientColor;
       glm::vec3 specularColor;
+      
+      bool flashlight;
+
       Attenuation attenuationValues;
     
     /************************************************************************************************************************/

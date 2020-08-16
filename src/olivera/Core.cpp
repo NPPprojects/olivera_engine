@@ -115,6 +115,7 @@ namespace olivera
 
 
     glEnable(GL_CULL_FACE);
+
     glEnable(GL_DEPTH_TEST);
    
    

@@ -23,16 +23,7 @@ namespace olivera {
   class ShaderProgram;
   
   
-  /***********************************************
-  @brief Load texture from file path
 
-  @param const char *path to file
-  @param cosnt std::string& directory
-  @param bool gamma false by default
-  
-  @return textureID
-  ************************************************/
-  unsigned int textureFromFile(const char *path, const std::string &directory, bool gamma = false);
 
 
   /****************************************************
@@ -50,7 +41,7 @@ namespace olivera {
       @param bool gamma false by default
 
       *****************************************************/
-        Model(std::string const &path, bool gamma = false);
+      Model(std::string const &path, bool textureFlip = false, bool gamma = false);
 
       /*****************************************************************************
       @brief Draws the model and all its meshes using the specified shader program
@@ -69,7 +60,16 @@ namespace olivera {
     private:
     /****************************************************************************************************************************************************************************/
 
+        /***********************************************
+         @brief Load texture from file path
 
+         @param const char *path to file
+         @param cosnt std::string& directory
+         @param bool gamma false by default
+
+         @return textureID
+         ************************************************/
+      unsigned int textureFromFile(const char *path, const std::string &directory);
 
       /*******************************************************************************
       @brief processes a node in a recursive fashion. Processes each individual mesh 
@@ -109,6 +109,8 @@ namespace olivera {
       std::vector<Mesh> meshes;                                                                                            //!<Stores all the meshes of the object that are loaded
       std::string directory;                                                                                                                     //!< Holds neccessary directories
       bool gammaCorrection;                                                                                                   //!<Gamma correct objects if specified in the object
+
+      bool textureFlip;                                                                                         //!<Specify if the object's textures need to be vertically flipped
 
       /****************************************************************************************************************************************************************************/
   };

@@ -148,6 +148,9 @@ src/TestScreen/GameObject.h
 src/TestScreen/BoxInputManager.cpp
 src/TestScreen/BoxInputManager.h
   
+src/TestScreen/Flashlight.cpp
+src/TestScreen/Flashlight.h
+
 src/TestScreen/main.cpp
 
 )

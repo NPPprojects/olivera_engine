@@ -59,6 +59,9 @@ int main()
 
   /**********************************************************MODEL RESOURCES*************************************************************************/
 
+  //crate
+  engine->getResources()->create<olivera::Model>(std::string("room"), std::string("../resources/objects/Room/Rom.obj"));
+
   //Nanosuit
   engine->getResources()->create<olivera::Model>(std::string("nanosuit"), std::string("../resources/objects/nanosuit/nanosuit.obj"));
   
@@ -69,7 +72,7 @@ int main()
   engine->getResources()->create<olivera::Model>(std::string("coffeeMug"), std::string("../resources/objects/coffeeMug/coffeMug1_free_obj.obj"));
   
   //Bed
-  engine->getResources()->create<olivera::Model>(std::string("bed"), std::string("../resources/objects/bed/krovat-2.obj"));
+  //engine->getResources()->create<olivera::Model>(std::string("bed"), std::string("../resources/objects/bed/krovat-2.obj"));
 
   //Wardrobe
   engine->getResources()->create<olivera::Model>(std::string("wardrobe"), std::string("../resources/objects/wardrobe/Wardrobe  4 door.obj"));
@@ -82,6 +85,8 @@ int main()
 
   //Picture Frame
   engine->getResources()->create<olivera::Model>(std::string("pictureFrame"), std::string("../resources/objects/picture/frame.obj"));
+
+
   
   
   /**********************************************************MODEL RESOURCES*************************************************************************/
@@ -157,23 +162,26 @@ int main()
   cameraEntities.push_back(cameraEntity);
   cameraEntities.push_back(cameraEntity1);
   
-  //Nanosuit
+  ////Nanosuit
 
 
 
 
-  //NanosuitObject1
-  std::unique_ptr<GameObject> nanosuitObject = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "nanosuit");
-  nanosuitObject->addLight(lightSources, cameraEntities);
+  ////NanosuitObject1
+  //std::unique_ptr<GameObject> nanosuitObject = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "nanosuit");
+  //nanosuitObject->addLight(lightSources, cameraEntities);
 
-  nanosuitObject->getTransform()->setPosition(glm::vec3(3.0f, 0.0f, 1.0f));
-                nanosuitObject->getTransform()->setScale(glm::vec3(0.2f, 0.2f, 0.2f));
+  //nanosuitObject->getTransform()->setPosition(glm::vec3(3.0f, 0.0f, 1.0f));
+  //nanosuitObject->getTransform()->setScale(glm::vec3(0.2f, 0.2f, 0.2f));
 
 
 
 
   /**************************************************************ROOM DEMO***************************************************************************/
   
+
+
+
   //Table
   std::unique_ptr<GameObject> table = std::make_unique<GameObject>(engine, "ShadowShader","depthShader" ,"table");
   table->addLight(lightSources, cameraEntities);
@@ -189,12 +197,6 @@ int main()
   coffeeMug->getTransform()->setPosition(glm::vec3(7.5f, 4.0f, 5.0f));
   coffeeMug->getTransform()->setScale(glm::vec3(0.02f));
 
-  
-  //Bed
-   std::unique_ptr<GameObject> bed = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "bed");
-   bed->addLight(lightSources, cameraEntities);
-   bed->getTransform()->setPosition(glm::vec3(-5.0f, 0.0f, 5.0f));
-   bed->getTransform()->setScale(glm::vec3(5.0f));
 
 
   //Samus
@@ -217,11 +219,20 @@ int main()
   fridaPicture->getTransform()->setPosition(glm::vec3(-3.0f, -4.0f, -12.2f));
   fridaPicture->getTransform()->setScale(glm::vec3(7.5f));
 
+  //room
+  std::unique_ptr<GameObject> room = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "room");
+  room->addLight(lightSources, cameraEntities);
+  room->getTransform()->setPosition(glm::vec3(0.0f));
+  room->getTransform()->setScale(glm::vec3(1.0f));
+
+
   //Frame
-  std::unique_ptr<GameObject> pictureFrame = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "pictureFrame");
+  std::unique_ptr<GameObject> pictureFrame = std::make_unique<GameObject>(engine, "ShadowShader", "depthShader", "pictureFrame");  
   pictureFrame->addLight(lightSources, cameraEntities);
   pictureFrame->getTransform()->setPosition(glm::vec3(-3.0f, -4.0f, -12.2f));
   pictureFrame->getTransform()->setScale(glm::vec3(7.5f));
+
+
   
   
   /**************************************************************ROOM DEMO***************************************************************************/
