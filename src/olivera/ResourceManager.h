@@ -27,7 +27,7 @@ namespace olivera
 	      std::shared_ptr<T> load(std::string _name)
           {
 		      std::shared_ptr<T> rtn;
-		      for (std::vector<std::shared_ptr<Resource>>::iterator i = resources.begin(); i != resources.end(); ++i)
+		      for (auto i = resources.begin(); i != resources.end(); ++i)
 		      {
 		
 			      if ((*i)->getName() == _name)

@@ -61,13 +61,13 @@ namespace olivera
         template<typename T>
         void GetEntities(std::vector<std::shared_ptr<Entity>>& _entities)
         {
-          for (auto it = entities.begin(); it != entities.end(); it++)
+          for (auto it : entities)
           {
-            bool found = (*it)->checkForComponent<T>();
+            bool found = (it)->checkForComponent<T>();
 
             if (found)
             {
-              _entities.push_back((*it));
+              _entities.push_back((it));
             }
           }
         }

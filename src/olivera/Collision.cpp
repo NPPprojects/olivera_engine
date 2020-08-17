@@ -65,20 +65,18 @@ namespace olivera
 
   void Collision::collideBox()
   {
-    std::vector<std::shared_ptr<Entity> > bces;
+
     getCore()->GetEntities<Collision>(bces);
     glm::vec3 np = transform.lock()->getPosition() + offset;
 
-    for (std::vector<std::shared_ptr<Entity> >::iterator it = bces.begin();
-      it != bces.end(); it++)
+    for (auto it : bces)
     {
-      if (*it == getEntity())
+      if (it == getEntity())
       {
         continue;
       }
 
-      std::shared_ptr<Collision> bc =
-        (*it)->getComponent<Collision>();
+      std::shared_ptr<Collision> bc = (it)->getComponent<Collision>();
 
       glm::vec3 sp = bc->getCollisionResponse(np, size);
       np = sp;

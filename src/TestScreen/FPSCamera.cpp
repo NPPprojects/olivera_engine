@@ -50,6 +50,17 @@ FPSCamera::~FPSCamera()
       transform.lock()->setPosition(transform.lock()->getPosition() + (Right * velocity));
     }
 
+    if (_direction == SPACEBAR)
+    {
+      flashlight = true;
+    }
+    if (_direction != SPACEBAR)
+    {
+      flashlight = false;
+    }
+
+
+
   }
 
   std::shared_ptr<olivera::CurrentCamera> FPSCamera::getCurrentContext()
@@ -146,4 +157,7 @@ FPSCamera::~FPSCamera()
   }
 
 
-  
+  int FPSCamera::getFlashlight()
+  {
+    return flashlight;
+  }

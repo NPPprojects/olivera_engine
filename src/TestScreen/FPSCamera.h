@@ -33,6 +33,7 @@
     void onInitialise();
 
     void onTick();
+    int getFlashlight();
   private:
     // Camera Attributes
     glm::vec3 Up;

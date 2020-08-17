@@ -1,6 +1,7 @@
 #include "Component.h"
 
 #include <glm/glm.hpp>
+#include <vector>
 #include <string>
 
 /********************************************************************
@@ -130,7 +131,7 @@ namespace olivera
                                           
       bool isVisable;                                //!<Boolean to check if the bounding box should be visable                                              
                                                                                                        
-                                                                                                    
+      std::vector<std::shared_ptr<Entity> > bces;                         //!/ Entities with collision component
                                                                                                    
     /************************************************************************************************************/
 	};

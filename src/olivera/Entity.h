@@ -131,9 +131,9 @@ namespace olivera
       template<typename T>
         bool checkForComponent()
       {
-        for (auto it = components.begin(); it != components.end(); it++)
+        for (auto it : components)
         {
-          std::shared_ptr<T> rtn = std::dynamic_pointer_cast<T>(*it);
+          std::shared_ptr<T> rtn = std::dynamic_pointer_cast<T>(it);
 
           if (rtn)
           {
