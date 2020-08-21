@@ -11,7 +11,7 @@
 	  if (WASDPressed.w == true)
 	  {
 		  camera.lock()->ProcessKeyboard(camera.lock()->FORWARD, core.lock()->getEnvironment()->getDeltaTime() * 1);
-		  std::cout << "Moved: FORWARD" << std::endl;
+		//  std::cout << "Moved: FORWARD" << std::endl;
 		  if (WASDReleased.w == true)
 		  {
 			  WASDPressed.w = false;
@@ -21,7 +21,7 @@
 	  if (WASDPressed.d == true)
 	  {
 		  camera.lock()->ProcessKeyboard(camera.lock()->RIGHT, core.lock()->getEnvironment()->getDeltaTime() * 1);
-		  std::cout << "Moved: RIGHT" << std::endl;
+		//  std::cout << "Moved: RIGHT" << std::endl;
 		  if (WASDReleased.d == true)
 		  {
 			  WASDPressed.d = false;
@@ -31,7 +31,7 @@
 	  if (WASDPressed.a == true)
 	  {
 		  camera.lock()->ProcessKeyboard(camera.lock()->LEFT, core.lock()->getEnvironment()->getDeltaTime() * 1);
-		  std::cout << "Moved: LEFT" << std::endl;
+		//  std::cout << "Moved: LEFT" << std::endl;
 		  if (WASDReleased.a == true)
 		  {
 			  WASDPressed.a = false;
@@ -40,7 +40,7 @@
 	  if (WASDPressed.s == true)
 	  {
 		  camera.lock()->ProcessKeyboard(camera.lock()->BACKWARD, core.lock()->getEnvironment()->getDeltaTime() * 1);
-		  std::cout << "Moved: DOWN" << std::endl;
+	//	  std::cout << "Moved: DOWN" << std::endl;
 		  if (WASDReleased.s == true)
 		  {
 			  WASDPressed.s = false;
@@ -50,7 +50,7 @@
     if (WASDPressed.shift == true)
     {
       camera.lock()->ProcessKeyboard(camera.lock()->LEFTSHIFT, core.lock()->getEnvironment()->getDeltaTime() * 1);
-      std::cout << "Speed Up 5x" << std::endl;
+   //   std::cout << "Speed Up 5x" << std::endl;
       if (WASDReleased.shift == true)
       {
         WASDPressed.shift = false;
@@ -60,7 +60,7 @@
     if (WASDPressed.space == true)
     {
       camera.lock()->ProcessKeyboard(camera.lock()->SPACEBAR, core.lock()->getEnvironment()->getDeltaTime() * 1);
-      std::cout << "Flashlight On" << std::endl;
+  //    std::cout << "Flashlight On" << std::endl;
       if (WASDReleased.space == true)
       {
         WASDPressed.space = false;

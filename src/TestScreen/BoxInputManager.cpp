@@ -11,7 +11,7 @@ void BoxInputManager::BoxMovement()
   if (UDLRPressed.up == true)
   {
     entitySelf.lock()->getComponent<olivera::Transform>()->setPosition(entitySelf.lock()->getComponent<olivera::Transform>()->getPosition() + glm::vec3(0.0, 0.1f, 0.0f));
-    std::cout << "Moved: FORWARD" << std::endl;
+  //  std::cout << "Moved: FORWARD" << std::endl;
     if (UDLRReleased.up == true)
     {
       UDLRPressed.up = false;
@@ -21,7 +21,7 @@ void BoxInputManager::BoxMovement()
   if (UDLRPressed.right == true)
   {
     entitySelf.lock()->getComponent<olivera::Transform>()->setPosition(entitySelf.lock()->getComponent<olivera::Transform>()->getPosition() + glm::vec3(0.1f, 0.0f, 0.0f));
-    std::cout << "Moved: RIGHT" << std::endl;
+  //  std::cout << "Moved: RIGHT" << std::endl;
     if (UDLRReleased.right == true)
     {
       UDLRPressed.right = false;
@@ -31,7 +31,7 @@ void BoxInputManager::BoxMovement()
   if (UDLRPressed.left == true)
   {
     entitySelf.lock()->getComponent<olivera::Transform>()->setPosition(entitySelf.lock()->getComponent<olivera::Transform>()->getPosition() - glm::vec3(0.1f,0.0f,0.0f));
-    std::cout << "Moved: LEFT" << std::endl;
+  //  std::cout << "Moved: LEFT" << std::endl;
     if (UDLRReleased.left == true)
     {
       UDLRPressed.left = false;
@@ -40,7 +40,7 @@ void BoxInputManager::BoxMovement()
   if (UDLRPressed.down == true)
   {
     entitySelf.lock()->getComponent<olivera::Transform>()->setPosition(entitySelf.lock()->getComponent<olivera::Transform>()->getPosition() - glm::vec3(0.0,0.1f,0.0f));
-    std::cout << "Moved: DOWN" << std::endl;
+  //  std::cout << "Moved: DOWN" << std::endl;
     if (UDLRReleased.down == true)
     {
       UDLRPressed.down = false;

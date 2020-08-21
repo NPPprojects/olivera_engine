@@ -1,17 +1,19 @@
-#include "glm/glm.hpp"
-#include <GL/glew.h>
 #include <olivera/olivera.h>
 
-//class FPSCamera;
-//
-//  class Flashlight : public olivera::Component
-//  {
-//  
-//  public: 
-//    Flashlight();
-//
-//    void onTick();
-//
-//  
-//  
-//  };
+
+
+
+class Flashlight : public olivera::Component
+{
+
+public:
+  void onInitialise();
+
+  void onTick();
+
+  void AddToList(std::shared_ptr<olivera::Entity> _entitiy);
+private:
+
+  std::vector<std::shared_ptr<olivera::Entity>> gameObjects;
+
+};

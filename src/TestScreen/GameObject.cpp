@@ -1,5 +1,5 @@
 #include "GameObject.h"
-
+#include "Flashlight.h"
 
 
 GameObject::GameObject(std::shared_ptr<olivera::Core> &_scene, std::string _objectShader, std::string _depthMapShader, std::string _model)
@@ -21,7 +21,12 @@ void GameObject::addLight(std::vector <std::shared_ptr <olivera::Entity >> &_lig
   addMaterial();
   addShadows(_lightSources);
   lightSources = self->addComponent<olivera::Light>(objectShaderProgram->getName(), _lightSources, _cameraEntities, objectResouces);
+  for (int i = 0; i < _cameraEntities.size(); i++)
+  {
 
+    _cameraEntities.at(i)->getComponent<Flashlight>()->AddToList(self);
+
+  }
 }
 
 

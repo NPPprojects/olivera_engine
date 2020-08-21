@@ -118,6 +118,12 @@ src/olivera/ShadowsFBO.cpp
 
 src/olivera/Shadows.h
 src/olivera/Shadows.cpp
+
+src/olivera/Scene.h
+src/olivera/Scene.cpp
+
+src/olivera/Skybox.h
+src/olivera/Skybox.cpp
 )
 
 
@@ -153,6 +159,8 @@ src/TestScreen/Flashlight.h
 
 src/TestScreen/main.cpp
 
+src/TestScreen/LowPoly.h
+src/TestScreen/LowPoly.cpp
 )
 
 target_link_libraries(TestScreen olivera)

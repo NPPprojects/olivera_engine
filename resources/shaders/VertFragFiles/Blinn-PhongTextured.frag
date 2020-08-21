@@ -1,8 +1,8 @@
 #version 330 core
 out vec4 FragColor;
 
-in vec3 Normal;  
 in vec3 FragPos;  
+in vec3 Normal;  
 in vec2 TexCoords;
 
 
@@ -27,20 +27,21 @@ struct Light
 
 
 uniform Material material;
-uniform Light light;
 
-uniform vec3 camPos;
+uniform vec3 viewPos;
 
 #define NR_POINT_LIGHTS 2
 uniform Light pointLights[NR_POINT_LIGHTS];
 
-uniform Light pointLight;
+
+
 vec3 pointLightCalc(Light light, vec3 normal, vec3 fragPos, vec3 viewDir);
+
 void main()
 {
 	// properties
     vec3 norm = normalize(Normal);
-    vec3 viewDir = normalize(camPos - FragPos);
+    vec3 viewDir = normalize(viewPos - FragPos);
 	vec3 result = vec3(0.0,0.0,0.0); 
 	 for(int i = 0; i < NR_POINT_LIGHTS; i++)
 	 {
@@ -51,10 +52,12 @@ void main()
 
 } 
 
+
 //Point Lights
 
 vec3 pointLightCalc(Light light, vec3 normal, vec3 fragPos, vec3 viewDir)
 {
+	
 	//Direciton of light based of light sources position unit vector
     vec3 lightDir = normalize(light.position - FragPos);
 	// ambient
@@ -75,5 +78,5 @@ vec3 pointLightCalc(Light light, vec3 normal, vec3 fragPos, vec3 viewDir)
 	float distance = length(light.position -FragPos);
 	float attenuation = 1.0 / (light.constant + light.linear * distance + light.quadratic *(distance *distance));
  	
-    return (ambient + diffuse+specular )*attenuation;
+    return (ambient * (diffuse+specular))*attenuation;
 }

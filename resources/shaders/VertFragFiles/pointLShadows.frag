@@ -24,7 +24,7 @@ in VS_OUT {
 uniform sampler2D diffuseTexture;
 uniform samplerCube depthMap;
 
-//uniform vec3 lightPos;
+
 uniform vec3 viewPos;
 
 uniform float far_plane;

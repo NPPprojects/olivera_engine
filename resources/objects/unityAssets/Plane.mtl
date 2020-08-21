@@ -1,0 +1,34 @@
+newmtl Park_Material
+Kd 1 1 1
+map_Kd Park-Texture.png
+illum 2
+
+newmtl Cross Roads
+Kd 1 1 1
+map_Kd Cross Roads.png
+illum 2
+
+newmtl Nature_Texture_01
+Kd 1 1 1
+map_Kd Nature_Texture_01.png
+illum 2
+
+newmtl MainMaterial
+Kd 1 1 1
+map_Kd TextureCityPack.png
+illum 2
+
+newmtl NatureMaterial
+Kd 1 1 1
+map_Kd NatureCityPack.png
+illum 2
+
+newmtl Illumin
+Kd 1 1 1
+illum 2
+
+newmtl Suburb House Grey
+Kd 1 1 1
+map_Kd Suburb House 4.png
+illum 2
+

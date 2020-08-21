@@ -1,0 +1,10 @@
+newmtl Furniture
+Kd 1 0.997121 0.9669811
+map_Kd MobileBedRoomFurniture_Albedo.png
+map_Bump MobileBedRoomFurniture_Normal.png
+illum 2
+
+newmtl Default-Material
+Kd 1 1 1
+illum 2
+

@@ -1,0 +1,2 @@
+../resources/shaders/vertFragFiles/Blinn-PhongShadows.vert
+../resources/shaders/vertFragFiles/Blinn-PhongShadows.frag

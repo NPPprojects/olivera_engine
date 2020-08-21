@@ -22,7 +22,7 @@ namespace olivera
     lightColor = glm::vec3(3.0f, 3.0f, 3.0f);
     diffuseColor = lightColor * glm::vec3(0.5f); // decrease the influence
     ambientColor = diffuseColor * glm::vec3(0.2f); // low influence
-    specularColor = glm::vec3(10.f, 10.f, 10.f);
+    specularColor = glm::vec3(100.f, 100.f, 100.f);
 
     attenuationValues.constant = 1.0f;
     attenuationValues.linear = 0.045f;
@@ -51,7 +51,7 @@ namespace olivera
     shader.lock()->setFloat("pointLight.quadratic", attenuationValues.quadratic);
   
     shader.lock()->setVec3("viewPos", cameraEntities.at(0).lock()->getComponent<Transform>()->getPosition());
-
+    shader.lock()->setBool("shadows", flashlight);
   }
 
   void Light::onTick()
@@ -68,6 +68,8 @@ namespace olivera
       shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].linear", attenuationValues.linear);
       shader.lock()->setFloat("pointLights[" + std::to_string(i) + "].quadratic", attenuationValues.quadratic);
       shader.lock()->setVec3("pointLights[" + std::to_string(i) + "].position", lightEntities.at(i).lock()->getComponent<Transform>()->getPosition());
+
+     // shader.lock()->setVec3("viewPos", cameraEntities.at(i).lock()->getComponent<Transform>()->getPosition());
     };
   }
 
@@ -100,6 +102,7 @@ namespace olivera
   void Light::setFlashlight(bool _flashlight)
   {
     flashlight = _flashlight;
+   // std::cout << "flashlight bool: " << _flashlight << std::endl;
   }
 
 }
