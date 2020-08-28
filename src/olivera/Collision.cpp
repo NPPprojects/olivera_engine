@@ -1,49 +1,24 @@
 #include "Collision.h"
+
 #include "CurrentCamera.h"
 #include "CameraContext.h"
+
 #include "Core.h"
 #include "Transform.h"
+
 #include "Entity.h"
 #include "VertexArray.h"
+
 #include "ShaderProgram.h"
 #include "ResourceManager.h"
-#include "Resource.h"
+
 namespace olivera
 {
-  void Collision::setOffset(const glm::vec3 & _offset)
-  {
-    offset = _offset;
-  }
 
-  void Collision::setScale(const glm::vec3 & _size)
-  {
-    size = _size;
-  }
-
-  void Collision::onTick()
-  {
-    collideBox();
-    if (isVisable == true)
-    {
-      model = glm::mat4(1.0f);
-      model = glm::translate(model, transform.lock()->getPosition());
-      model = glm::scale(model, size);
-      shader.lock()->useShader();
-      shader.lock()->setMat4("projection", cameraContext.lock()->getProjection());
-      shader.lock()->setMat4("view", cameraContext.lock()->getView());
-      shader.lock()->setMat4("model", model);
-      glUseProgram(0);
-    }
-  }
-
-  void Collision::onDisplay()
-  {
-    DrawBox();
-  }
 
   void Collision::onInitialise(bool _isVisable)
   {
-    size = glm::vec3(1.0f, 1.0f, 1.0f);
+    size = glm::vec3(1.0f);
     entitySelf = getEntity();
     core = getCore();
     transform = entitySelf.lock()->getComponent<Transform>();
@@ -62,6 +37,15 @@ namespace olivera
     }
   }
 
+  void Collision::setOffset(const glm::vec3 & _offset)
+  {
+    offset = _offset;
+  }
+
+  void Collision::setScale(const glm::vec3 & _size)
+  {
+    size = _size;
+  }
 
   void Collision::collideBox()
   {
@@ -141,6 +125,18 @@ namespace olivera
     return true;
   }
 
+  void Collision::DrawBox()
+  { 
+    if (isVisable == true)
+    {
+      shader.lock()->useShader();
+      glBindVertexArray(mesh.lock()->getVAO());
+      glDrawArrays(GL_LINES, 0, mesh.lock()->getVerticiesCount());
+      glBindVertexArray(0);
+      glUseProgram(0);
+    } 
+  }
+
   glm::vec3 Collision::getCollisionResponse(glm::vec3 _position, glm::vec3 _size)
   {
     float amount = 0.1f;
@@ -172,19 +168,28 @@ namespace olivera
 
     return _position;
   }
-
-  void Collision::DrawBox()
-  { 
+ 
+  void Collision::onTick()
+  {
+    collideBox();
     if (isVisable == true)
     {
+      model = glm::mat4(1.0f);
+      model = glm::translate(model, transform.lock()->getPosition());
+      model = glm::scale(model, size);
       shader.lock()->useShader();
-      glBindVertexArray(mesh.lock()->getVAO());
-      glDrawArrays(GL_LINES, 0, mesh.lock()->getVerticiesCount());
-      glBindVertexArray(0);
+      shader.lock()->setMat4("projection", cameraContext.lock()->getProjection());
+      shader.lock()->setMat4("view", cameraContext.lock()->getView());
+      shader.lock()->setMat4("model", model);
       glUseProgram(0);
-    } 
+    }
   }
- 
+
+  void Collision::onDisplay()
+  {
+    DrawBox();
+  }
+
 }
 
 

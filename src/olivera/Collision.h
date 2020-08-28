@@ -4,9 +4,6 @@
 #include <vector>
 #include <string>
 
-/********************************************************************
-MAY WANT TO ATTACH A VERTEX BUFFER + SHADER INSTEAD OF REPEATING CODE
-*********************************************************************/
 
 namespace olivera            
 {
@@ -20,8 +17,6 @@ namespace olivera
 
   class ResourceManager;
 
-  class Resource;
-  
   /*********************************************************************
   @brief Handle collision between objects with this components attached.
 
@@ -127,7 +122,7 @@ namespace olivera
       std::weak_ptr<Transform> transform;                        //!< Weak pointer to store entitie's transform
       std::weak_ptr<ShaderProgram> shader;                                            //!< Collision box shader
       std::weak_ptr<CurrentCamera> cameraContext;                 //!< Weak pointer to store the current Camera
-      std::shared_ptr<ResourceManager> collisionResources;        //!< Storage for all collision needed resources
+      std::shared_ptr<ResourceManager> collisionResources;      //!< Storage for all collision needed resources
                                           
       bool isVisable;                                //!<Boolean to check if the bounding box should be visable                                              
                                                                                                        

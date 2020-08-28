@@ -1,0 +1,2 @@
+../resources/shaders/vertFragFiles/skyboxShader.vert
+../resources/shaders/vertFragFiles/skyboxShader.frag

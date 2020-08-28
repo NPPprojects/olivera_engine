@@ -3,7 +3,7 @@
 
 namespace olivera
 {
-  class Core;
+  
 
 
   class Scene
@@ -21,7 +21,7 @@ namespace olivera
     int windowWidth;
     int windowHeight;
 
-    std::shared_ptr<olivera::Core> engine;
+
   };
 
 }

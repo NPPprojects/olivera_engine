@@ -1,14 +1,7 @@
   
 #include <olivera/olivera.h>
 
-#include "FPSCamera.h"
-#include "Flashlight.h"
-#include "CameraInputManager.h"
-#include "SoundInputManager.h"
-#include "BoxInputManager.h"
-#include <iostream>
-#include <string>
-#include "GameObject.h"
+
 #include "LowPoly.h"
 
 int main()
@@ -21,7 +14,9 @@ int main()
   Scene->onInitialise(windowWidth, windowHeight);
   Scene->sceneSetup();
 
-
+  std::unique_ptr<LowPoly> Scene1 = std::make_unique<LowPoly>();
+  Scene1->onInitialise(windowWidth, windowHeight);
+  Scene1->sceneSetup();
 	return 0;
 }
 

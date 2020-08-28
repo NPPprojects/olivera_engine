@@ -24,5 +24,6 @@
 #include "Light.h"
 #include "CameraContext.h"
 #include "Shadows.h"
+#include "Skybox.h"
 #include "Scene.h"
 #endif

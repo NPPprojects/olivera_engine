@@ -137,7 +137,6 @@ FPSCamera::~FPSCamera()
   {
   
   entitySelf = getEntity();
-  core = getCore();
   cameraContext = std::make_shared<olivera::CurrentCamera>();
   entitySelf.lock()->getCore()->getCameraList()->addCamera(cameraContext);
 	transform = entitySelf.lock()->getComponent<olivera::Transform>();
@@ -152,7 +151,7 @@ FPSCamera::~FPSCamera()
 
   void FPSCamera::onTick()
   {
-    cameraContext->setProjection(glm::perspective(glm::radians(getZoom()), (float)core.lock()->getScreenWidth() / core.lock()->getScreenHeight(), 0.1f, 100.0f));
+    cameraContext->setProjection(glm::perspective(glm::radians(getZoom()), (float)getCore()->getScreenWidth() / getCore()->getScreenHeight(), 0.1f, 100.0f));
     cameraContext->setView(GetViewMatrix());
   }
 

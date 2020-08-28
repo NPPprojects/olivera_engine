@@ -42,12 +42,13 @@ void LowPoly::sceneSetup()
   std::vector<std::string> TextureContainer = { "BetterBox", "AwesomeFace" };
 
   //SkyBox Resource
-  engine->getResources()->create<olivera::Texture>(std::string("skyBack"), std::string("../resources/textures/skybox/back.jpg"));
+  engine->getResources()->create<olivera::Texture>(std::string("skyRight"), std::string("../resources/textures/skybox/right.jpg"));
+  engine->getResources()->create<olivera::Texture>(std::string("skyLeft"), std::string("../resources/textures/skybox/left.jpg"));
+  engine->getResources()->create<olivera::Texture>(std::string("skyTop"), std::string("../resources/textures/skybox/top.jpg"));
   engine->getResources()->create<olivera::Texture>(std::string("skyBottom"), std::string("../resources/textures/skybox/bottom.jpg"));
   engine->getResources()->create<olivera::Texture>(std::string("skyFront"), std::string("../resources/textures/skybox/front.jpg"));
-  engine->getResources()->create<olivera::Texture>(std::string("skyLeft"), std::string("../resources/textures/skybox/left.jpg"));
-  engine->getResources()->create<olivera::Texture>(std::string("skyRight"), std::string("../resources/textures/skybox/right.jpg"));
-  engine->getResources()->create<olivera::Texture>(std::string("skyTop"), std::string("../resources/textures/skybox/top.jpg"));
+  engine->getResources()->create<olivera::Texture>(std::string("skyBack"), std::string("../resources/textures/skybox/back.jpg "));
+  std::vector<std::string> skyboxTextures = { "skyRight", "skyLeft","skyTop","skyBottom","skyFront","skyBack" };
   //Mesh Resources 
   engine->getResources()->create<olivera::VertexArray>(std::string("ColoredCubeMesh"), std::string("../resources/objects/cube.data"));
   engine->getResources()->create<olivera::VertexArray>(std::string("TextureCubeMesh"), std::string("../resources/objects/TexturedCube.data"));
@@ -69,6 +70,7 @@ void LowPoly::sceneSetup()
 
   //Post Processing Resources
   engine->getResources()->create<olivera::VertexArray>(std::string("PostProcessingSquare"), std::string("../resources/objects/postProcessingSquare.data"));
+
 
 
   //Camera 1 
@@ -133,17 +135,6 @@ void LowPoly::sceneSetup()
   cameraEntities.push_back(cameraEntity);
   cameraEntities.push_back(cameraEntity1);
 
-  ////Nanosuit
-
-
-
-
-    ////NanosuitObject1
- /*   std::unique_ptr<GameObject> nanosuitObject = std::make_unique<GameObject>(engine, "blinnPhongShader", "depthShader", "nanosuit");
-    nanosuitObject->addLight(lightSources, cameraEntities);
-    
-    nanosuitObject->getTransform()->setPosition(glm::vec3(3.0f, 0.0f, 1.0f));
-    nanosuitObject->getTransform()->setScale(glm::vec3(0.2f, 0.2f, 0.2f));*/
 
 
 
@@ -157,6 +148,10 @@ void LowPoly::sceneSetup()
   Frame->getTransform()->setPosition(glm::vec3(0.0f));
   Frame->getTransform()->setScale(glm::vec3(0.5f));
 
+
+  //Skybox
+  std::shared_ptr<olivera::Entity> skyboxEntity =engine->addEntity();
+  std::shared_ptr<olivera::Skybox> skybox = skyboxEntity->addComponent<olivera::Skybox>(skyboxTextures);
 
   /**************************************************************ROOM DEMO***************************************************************************/
   engine->start();
