@@ -158,12 +158,23 @@ namespace olivera
       *******************************************/
         std::shared_ptr<ShadowsFBO> getShadowFBO();
 
+      /***********************************
+      @brief Load an image before loading 
+      objects to the screen
+      
+      @param const char* texture path
+
+      ************************************/
+        void loadingScreen(const char* _texturePath);
+
     private:
     /************************************************************************************************************************/
     
       SDL_Window *window;                                                                                  //!<Window context
-    
-    
+      SDL_Renderer *renderer;                                                                    //!< Renderer for the window
+      SDL_Texture *texture;                                                         //!< SDL Texture to be loaded to renderer
+
+
       ALCdevice* device;                                                                                            //!<Audio
       ALCcontext* context;                                                                                          //!<Audio
     

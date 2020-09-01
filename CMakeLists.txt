@@ -124,6 +124,9 @@ src/olivera/Scene.cpp
 
 src/olivera/Skybox.h
 src/olivera/Skybox.cpp
+
+src/olivera/Loader.h
+src/olivera/Loader.cpp
 )
 
 
@@ -161,6 +164,9 @@ src/TestScreen/main.cpp
 
 src/TestScreen/LowPoly.h
 src/TestScreen/LowPoly.cpp
+
+src/TestScreen/RoomDemo.h
+src/TestScreen/RoomDemo.cpp
 )
 
 target_link_libraries(TestScreen olivera)

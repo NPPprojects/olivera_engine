@@ -23,11 +23,9 @@ namespace olivera
    
     void onInitialise(std::vector<std::string> _textures);
 
-    void onTick();
-
     void onDisplay();
 
-    int loadCubemap();
+    int loadCubemap(); 
 
     private:
     /************************************************************************************************************/

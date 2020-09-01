@@ -3,6 +3,7 @@
 
 
 #include "LowPoly.h"
+#include "RoomDemo.h"
 
 int main()
 {
@@ -10,13 +11,13 @@ int main()
   int windowWidth = 1800;
   int windowHeight = 800;
 
-  std::unique_ptr<LowPoly> Scene = std::make_unique<LowPoly>();
-  Scene->onInitialise(windowWidth, windowHeight);
-  Scene->sceneSetup();
+  std::unique_ptr<LowPoly> lowPolyWorld = std::make_unique<LowPoly>();
+  lowPolyWorld->onInitialise(windowWidth, windowHeight);
+  lowPolyWorld->sceneSetup();
 
-  std::unique_ptr<LowPoly> Scene1 = std::make_unique<LowPoly>();
-  Scene1->onInitialise(windowWidth, windowHeight);
-  Scene1->sceneSetup();
+  std::unique_ptr<RoomDemo> Room = std::make_unique<RoomDemo>();
+  Room->onInitialise(windowWidth, windowHeight);
+  Room->sceneSetup();
 	return 0;
 }
 

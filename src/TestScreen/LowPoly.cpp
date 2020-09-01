@@ -11,7 +11,7 @@
 void LowPoly::sceneSetup()
 {
   std::shared_ptr<olivera::Core> engine = olivera::Core::initialise(windowWidth, windowHeight);
-
+  engine->loadingScreen("../resources/textures/LoadingScreen.jpeg");
   /**********************************************************SHADER RESOURCES*************************************************************************/
 
   engine->getResources()->create<olivera::ShaderProgram>(std::string("cubeShader"), std::string("../resources/shaders/cubeShader.txt"));
@@ -80,7 +80,7 @@ void LowPoly::sceneSetup()
   std::shared_ptr<FPSCamera> cameraComponent = cameraEntity->addComponent<FPSCamera>();
   std::shared_ptr<CameraInputManager> cameraInput = cameraEntity->addComponent<CameraInputManager>();
   std::shared_ptr<Flashlight> flashlight = cameraEntity->addComponent<Flashlight>();
-  cameraTransform->setPosition(glm::vec3(0, 0, 0));
+  cameraTransform->setPosition(glm::vec3(5, 0, 15));
   cameraComponent->getCurrentContext()->setViewport(glm::vec4(0, 0, 900, 800));
   cameraComponent->getCurrentContext()->setFrameBuffer(engine, "postProcessingBlurShader", "PostProcessingSquare");
 
@@ -91,7 +91,7 @@ void LowPoly::sceneSetup()
   std::shared_ptr<FPSCamera> cameraComponent1 = cameraEntity1->addComponent<FPSCamera>();
   std::shared_ptr<CameraInputManager> cameraInput1 = cameraEntity1->addComponent<CameraInputManager>();
   std::shared_ptr<Flashlight> flashlight1 = cameraEntity1->addComponent<Flashlight>();
-  cameraTransform1->setPosition(glm::vec3(0, 0, 0));
+  cameraTransform1->setPosition(glm::vec3(0, 0, 15));
   cameraComponent1->getCurrentContext()->setViewport(glm::vec4(900, 0, 900, 800));
   cameraComponent1->getCurrentContext()->setFrameBuffer(engine, "postProcessingAcidicShader", "PostProcessingSquare");
 
@@ -104,9 +104,8 @@ void LowPoly::sceneSetup()
   std::shared_ptr<olivera::SoundSource> soundy = cube->addComponent<olivera::SoundSource>("Horn", cameraEntity);
   std::shared_ptr<SoundInputManager> soundyControl = cube->addComponent<SoundInputManager>();
   std::shared_ptr<BoxInputManager> controller = cube->addComponent<BoxInputManager>();
+  shapeTransform->setPosition(glm::vec3(1.0f, 4.0f, 0.0f));
   collider->setScale(glm::vec3(0.5f, 0.5f, 0.5f));
-
-
 
 
   //LightCube2
@@ -115,7 +114,7 @@ void LowPoly::sceneSetup()
   std::shared_ptr<olivera::MeshRenderer> mr1 = cube2->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh", "cubeShader1");
   std::shared_ptr<olivera::Collision> collider2 = cube2->addComponent<olivera::Collision>(true);
 
-  shapeTransform2->setPosition(glm::vec3(5.0f, 1.1f, 0.0f));
+  shapeTransform2->setPosition(glm::vec3(1.0f, 1.1f, 0.0f));
   collider2->setScale(glm::vec3(0.5f, 0.5f, 0.5f));
   std::cout << shapeTransform2->getScale().x;
 
@@ -124,7 +123,7 @@ void LowPoly::sceneSetup()
   std::shared_ptr<olivera::Transform> shapeTransform3 = cube3->addComponent<olivera::Transform>();
   std::shared_ptr<olivera::MeshRenderer> mr2 = cube3->addComponent<olivera::MeshRenderer>(TextureContainer, "ColoredCubeMesh", "cubeShader");
   std::shared_ptr<olivera::Collision> collider3 = cube3->addComponent<olivera::Collision>(true);
-  shapeTransform3->setPosition(glm::vec3(1.0f, 1.1f, 0.0f));
+  shapeTransform3->setPosition(glm::vec3(5.0f, 50.1f, 0.0f));
   collider3->setScale(glm::vec3(0.5f, 0.5f, 0.5f));
   std::vector<std::shared_ptr<olivera::Entity>> lightSources;
   std::vector<std::shared_ptr<olivera::Entity>> cameraEntities;
@@ -142,10 +141,10 @@ void LowPoly::sceneSetup()
   /**************************************************************ISLAND DEMO***************************************************************************/
 
 
-  //Frame
+  //Plane
   std::unique_ptr<GameObject> Frame = std::make_unique<GameObject>(engine, "BetaShadowShader", "depthShader", "Plane");
   Frame->addLight(lightSources, cameraEntities);
-  Frame->getTransform()->setPosition(glm::vec3(0.0f));
+  Frame->getTransform()->setPosition(glm::vec3(15.0f, -7.0f, -20.0f));
   Frame->getTransform()->setScale(glm::vec3(0.5f));
 
 
@@ -153,6 +152,6 @@ void LowPoly::sceneSetup()
   std::shared_ptr<olivera::Entity> skyboxEntity =engine->addEntity();
   std::shared_ptr<olivera::Skybox> skybox = skyboxEntity->addComponent<olivera::Skybox>(skyboxTextures);
 
-  /**************************************************************ROOM DEMO***************************************************************************/
+  /**************************************************************ISLAND DEMO***************************************************************************/
   engine->start();
 }

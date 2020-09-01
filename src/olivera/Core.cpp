@@ -28,15 +28,12 @@ namespace olivera
     {
       throw std::exception();
     }
-
+    
     core->window = SDL_CreateWindow("Olivera Engine",
       SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
       _windowWidth, _windowHeight,
       SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL | SDL_WINDOW_INPUT_GRABBED);
-
-	//Lock Mouse
- //   SDL_ShowCursor(SDL_DISABLE);
-    
+ 
 	core->environment->initialise();
     if (!SDL_GL_CreateContext(core->window))
     {
@@ -71,8 +68,6 @@ namespace olivera
       throw std::exception();
     }
     
-
-
     return core;
   }
   
@@ -96,6 +91,60 @@ namespace olivera
     return shadowFBO;
   }
 
+  void Core::loadingScreen(const char* _texturePath)
+  {
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+
+    int req_format = STBI_rgb_alpha;
+    int width, height, orig_format;
+    unsigned char* data = stbi_load(_texturePath, &width, &height, &orig_format, req_format);
+    if (data == NULL) {
+      SDL_Log("Loading image failed: %s", stbi_failure_reason());
+      exit(1);
+    }
+
+    int depth, pitch;
+    Uint32 pixel_format;
+    if (req_format == STBI_rgb) {
+      depth = 24;
+      pitch = 3 * width; // 3 bytes per pixel * pixels per row
+      pixel_format = SDL_PIXELFORMAT_RGB24;
+    }
+    else { // STBI_rgb_alpha (RGBA)
+      depth = 32;
+      pitch = 4 * width;
+      pixel_format = SDL_PIXELFORMAT_RGBA32;
+    }
+
+    SDL_Surface* surf = SDL_CreateRGBSurfaceWithFormatFrom((void*)data, width, height,
+      depth, pitch, pixel_format);
+
+    if (surf == NULL) {
+      SDL_Log("Creating surface failed: %s", SDL_GetError());
+      stbi_image_free(data);
+      exit(1);
+    }
+    texture = SDL_CreateTextureFromSurface(renderer, surf);
+    if (texture == NULL)
+    {
+      printf("Unable to create texture from %s! SDL Error: %s\n", _texturePath, SDL_GetError());
+    }
+    SDL_FreeSurface(surf);
+
+
+
+   // SDL_SetRenderDrawColor(loadRender, 46, 200, 200, 255);
+   // rectangle.x = 0;
+   // rectangle.y = 0;
+   // rectangle.w = windowWidth;
+   // rectangle.h = windowHeight;
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    //
+    SDL_RenderPresent(renderer);
+
+  }
+
   std::shared_ptr<Mouse> Core::getMouse()
   {
     return mouse;
@@ -113,12 +162,9 @@ namespace olivera
 
     SDL_GetWindowSize(window, &windowWidth, &windowHeight);
 
-
     glEnable(GL_CULL_FACE);
-
     glEnable(GL_DEPTH_TEST);
-   
-   
+     
     shadowFBO->configureFBO();
 
     while (running)
@@ -151,8 +197,10 @@ namespace olivera
       //Removes Cursor mouse position will be at the center of the window, use relative motion
 
       //Set relativeMotion
-
-      glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+      
+     
+      
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
       for (auto it : entities)

@@ -42,11 +42,7 @@ namespace olivera
 
   }
 
-  void Skybox::onTick()
-  {
-  
 
-  }
 
   void Skybox::onDisplay()
   {
@@ -61,7 +57,6 @@ namespace olivera
     shader.lock()->setMat4("projection", ((cameraContext.lock()->getProjection())));
     glBindVertexArray(mesh.lock()->getVAO());
     glActiveTexture(GL_TEXTURE0);
-    std::cout << cubemapTexture << std::endl;
     glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
     glDrawArrays(GL_TRIANGLES, 0, 36);	//Will always be 36 as skybox is just a cube
     glBindVertexArray(0);
