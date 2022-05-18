@@ -32,7 +32,7 @@ namespace olivera
     @param int height of window
 
     **************************************************************************/
-      PostProcessing(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh, int _width, int _height);
+      PostProcessing(std::shared_ptr<Core> _core, const char* _shader, const char* _mesh, int _width, int _height);
 
  
 

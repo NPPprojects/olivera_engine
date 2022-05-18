@@ -90,7 +90,7 @@ namespace olivera
     @param std::string _mesh of the framebuffer
 
     **********************************************/
-      void setFrameBuffer(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh);
+      void setFrameBuffer(std::shared_ptr<Core> _core, const char* _shader, const char* _mesh);
 
 
     /***********************************

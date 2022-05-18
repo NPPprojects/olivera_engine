@@ -77,7 +77,7 @@ namespace olivera
     }
   }
 
-  void CurrentCamera::setFrameBuffer(std::shared_ptr<Core> _core, std::string _shader, std::string _mesh)
+  void CurrentCamera::setFrameBuffer(std::shared_ptr<Core> _core, const char* _shader, const char* _mesh)
   {
     framebuffer = std::make_shared<PostProcessing>(_core, _shader, _mesh,  viewport.z, viewport.w);
    
