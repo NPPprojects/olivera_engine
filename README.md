@@ -1,16 +1,31 @@
 # Olivera Engine
 
-Olivera Engnie is a passionate project, that started off as a uni assigment to build a simple 3D Game Engine, using openGL and SDL. 
-At it's current state, it's an Entity Component System, that has the following features:
-3D sound, .obj file loading, method of loading simple primative shapes that the user can create themselves, texture loading, pre-written GLSL shaders that handle lighting and shadows, as well as the ability to use custom shaders. Some additional features include: multiple split screen with different post-processing on each screen; Box Collision.
-Doxygen Documentation can be found here: 
-The ultimate goal for this engine is to used for making 3D games for game jams. I have frequently stuggled with finishing games when working on a game jam, as using engines like Unity and Unreal provide me with too much functionality, that I struggle to implement in time.
+Olivera Engine is a lightweight 3D game engine built in C++ using OpenGL and SDL. It began as a university assignment, where I received a First, and later grew into a personal engine project focused on learning, experimentation, and small-scale 3D game development.
 
-To build using git Bash and Cmake for Visual Studio 2019: 
+The engine follows an Entity Component System architecture and is designed to provide enough structure for building small games while keeping the core systems simple and usable.
+
+## Features
+
+- Entity Component System architecture
+- OpenGL rendering
+- SDL-based windowing and input
+- 3D sound support
+- `.obj` model loading
+- Simple vertex-defined primitive loading from plain text-style data files
+- Texture loading
+- Pre-written GLSL shaders for lighting and shadows
+- Support for custom shaders
+- Split-screen rendering with different post-processing effects per screen
+- Box collision support
+- Doxygen-generated documentation
+
+## Build
+
+To build using git Bash and CMake for Visual Studio 2019: 
 
 1. Clone repo
-2. Navigate to repo source directory
-3. Using git Bash type makedir Build
+2. Navigate to the repo source directory
+3. Using git Bash, type makedir Build
 4. cd Build
 5. cmake .. -G "Visual Studio 16 2019" -A Win32
 6. Open Olivera.sln and set TestScreen as Start-Up Project.
